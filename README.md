@@ -1,12 +1,12 @@
 # Korpus
-For presentation of audio/video/text corpus of Kofan texts.
+For presentation of audio/video/text corpus of Kofan texts. Borrowing code from [ETST](http://community.village.virginia.edu/etst/).
 
 Contributors:
  - Nicholas Tomlin
  - Justin Bai
  - Kalinda Pride
 
-How to set up ETST on your own machine:
+## Setup for ETST with a PHP server
  - install XAMPP (or MAMP) (if it asks for firewall permissions to private or public networks, no need to give them)
  - extract elan_text_sync_tool.zip to xampp/httools/ETST (xampp/httools should already exist after installing xampp); on Mac, this should be placed in MAMP/htdocs
  - run XAMPP's Apache server
@@ -14,6 +14,8 @@ How to set up ETST on your own machine:
  - click on the .php file
  - you should see the sample video with glosses/transcript
 
+## Using your own ELAN files
+### Changes to `txt_sync.php`
 To run any ELAN file, edit the `txt_sync.php` file and edit the following lines:
 ~~~~
 <?php
@@ -22,3 +24,11 @@ To run any ELAN file, edit the `txt_sync.php` file and edit the following lines:
 	$player_title = "Title of the page goes here";
 ?>
 ~~~~
+### Editing your ELAN file to work
+However, ELAN files need the correct tier types to work with the initial ETST. As you can see from the following code snippet, the tiers must be of type 'transcription' and 'gloss' to work correctly:
+~~~~
+foreach ($xml->TIER as $a_tier)
+{
+	if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "transcription")
+~~~~
+Therefore, to make this work with any ELAN file, add the correct tier types and then edit the tiers in your file.
