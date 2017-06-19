@@ -25,10 +25,13 @@ To run any ELAN file, edit the `txt_sync.php` file and edit the following lines:
 ?>
 ~~~~
 ### Editing your ELAN file to work
-However, ELAN files need the correct tier types to work with the initial ETST. As you can see from the following code snippet, the tiers must be of type 'transcription' and 'gloss' to work correctly:
+However, ELAN files need the correct tier types to work with the initial ETST. As you can see from the following code snippets, the tiers must be of type 'transcription' and 'gloss' to work correctly:
 ~~~~
 foreach ($xml->TIER as $a_tier)
 {
 	if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "transcription")
+~~~~
+~~~~
+	if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "gloss")
 ~~~~
 Therefore, to make this work with any ELAN file, add the correct tier types and then edit the tiers in your file.
