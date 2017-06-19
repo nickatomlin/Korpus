@@ -13,3 +13,12 @@ How to set up ETST on your own machine:
  - in a browser URL bar, type localhost/ETST and hit enter
  - click on the .php file
  - you should see the sample video with glosses/transcript
+
+To run any ELAN file, edit the `txt_sync.php` file and edit the following lines:
+~~~~
+<?php
+	$media_file = "Media_file_name.mp4"; // Must be .mp3 audio, or .mp4 video
+	$eaf_file = "ELAN_file_name.eaf";
+	$player_title = "Title of the page goes here";
+?>
+~~~~
