@@ -1,0 +1,120 @@
+li[id^='txt-current_'] { background-color: #eeeeee; }
+
+#spkr_keys li span.tr1, #txt_lns ul li.tr1 span.spkr { color: #0000ff; }
+#spkr_keys li span.tr2, #txt_lns ul li.tr2 span.spkr { color: #008000; }
+#spkr_keys li span.tr3, #txt_lns ul li.tr3 span.spkr { color: #ff0000; }
+#spkr_keys li span.tr4, #txt_lns ul li.tr4 span.spkr { color: #8000ff; }
+#spkr_keys li span.tr5, #txt_lns ul li.tr5 span.spkr { color: #00ff80; }
+#spkr_keys li span.tr6, #txt_lns ul li.tr6 span.spkr { color: #ff80ff; }
+#spkr_keys li span.tr7, #txt_lns ul li.tr7 span.spkr { color: #00ffff; }
+#spkr_keys li span.tr8, #txt_lns ul li.tr8 span.spkr { color: #ff00ff; }
+
+#txt_sync_content
+{
+	padding: 12px 36px;
+}
+
+#spkr_keys
+{
+	margin-top: 10px;
+	margin-bottom: 18px;
+}
+
+#spkr_keys li
+{
+	font-family: serif;
+	font-size: 100%;
+	margin-right: 8px;
+	display: inline;
+}
+
+#spkr_keys li span.spkr_name
+{
+	font-style: italic;
+}
+
+#sync_player
+{
+	padding-bottom: 12px;
+}
+
+#txt_lns 
+{
+    width: 900px;
+    height: 470px;
+    overflow-x: hidden;
+    overflow-y: visible;
+	background-color: #ffffff;
+	border: solid 1px #cccccc;
+}
+
+#txt_lns ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+#txt_lns ul li.txt_ln
+{
+	font-family: sans-serif;
+	font-size: 18px;
+	line-height: 26px;
+	margin: 0px;
+	padding-left: 12px;
+	padding-right: 8px;
+}
+
+#txt_lns ul li.txt_ln span.spkr
+{
+	display: inline-block;
+	min-width: 32px;
+	margin-right: 4px;
+	font-family: serif;
+}
+
+#txt_lns ul li.txt_ln span:nth-child(2) { display: none; }
+
+#txt_lns ul li.txt_ln span.spkr { opacity: 0.4; }
+#txt_lns ul li.txt_ln span.spkr:hover { cursor: pointer; opacity: 1; }
+
+div.txt_ref_lang
+{
+	color: #666666;
+	font-family: sans-serif;
+	font-size: 20px;
+	margin-top: 12px;
+}
+
+#txt_refs 
+{
+	margin-top: 12px;
+	width: 900px;
+	min-height: 160px;
+}
+
+#txt_refs div.txt_ref
+{
+	font-family: sans-serif;
+	font-size: 18px;
+	line-height: 26px;
+	padding-left: 12px;
+	padding-right: 8px;
+	display: none;
+}
+
+#txt_refs div.txt_ref span.spkr
+{
+	display: inline-block;
+	min-width: 32px;
+	margin-right: 4px;
+	font-family: serif;
+	color: #666666;
+}
+
+#txt_refs div.txt_ref span:nth-child(2) { display: none; }
