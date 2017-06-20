@@ -10,7 +10,7 @@
 <head>
 	<title>ELAN Text Sync Tool: <?php echo $player_title; ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<link rel="stylesheet" type="text/css" href="txt_sync_morphemes.css">
+	<link rel="stylesheet" type="text/css" href="txt_sync.css">
 </head>
 <body>
 <div id="txt_sync_content">
