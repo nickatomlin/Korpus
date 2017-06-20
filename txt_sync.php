@@ -10,16 +10,28 @@
 <head>
 	<title>ELAN Text Sync Tool: <?php echo $player_title; ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<link rel="stylesheet" type="text/css" href="txt_sync.css">
+	<link rel="stylesheet" type="text/css" href="txt_sync_morphemes.css">
 </head>
 <body>
 <div id="txt_sync_content">
 <?php
 	
+	/* add key-value pair ($id, $var) to $array. (php "arrays" are hashmaps). */
 	function addArray(&$array, $id, $var)
 	{
 		$tempArray = array($var => $id);
 		$array = array_merge($array, $tempArray);
+	}
+	
+	function getSpeakerInitials($speaker)
+	{
+		$speaker_parts = explode(" ", $speaker);
+		$spkr = "";
+		foreach($speaker_parts as $sp_prt)
+		{
+			$spkr .= substr($sp_prt, 0, 1);
+		}
+		return $spkr;
 	}
 	
 	$start_at_time = 0;
@@ -28,59 +40,63 @@
 
 	$file_path = "elan_files/" . $eaf_file;
 	
-	echo "\n<h1>" . $player_title . "</h1>\n";
+	echo "\n<h1>" . $player_title . "</h1>\n"; /* print page title */
 
 	if (file_exists($file_path))
 	{
 		$xml = simplexml_load_file($file_path); 
 		
+		/* make time_slot_array a list of numerical timestamps (in ms?) */
 		$time_slot_array = array();
-		
 		foreach ($xml->TIME_ORDER->TIME_SLOT as $time_slot)
 		{
 			$time_slot_array[] = $time_slot['TIME_VALUE'];
 		}
 		
+		/* output_array will be a hashmap from times to ... */
 		$output_array = array();
 		
 		$gloss_tier_string = "";
 		
-		$tier_count = 1;
+		$tier_count = 1; /* for generatig unique tier id's */
 		
-		$tier_list = "\n<ol id=\"spkr_keys\">\n";
+		/* tier_list will list initials and full name for each speaker */
+		$tier_list = "\n<ol id=\"spkr_keys\">\n"; /* <ol> is "ordered list", with elements <li> "list item" */
 				
 		foreach ($xml->TIER as $a_tier)
 		{	
 			if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "transcription")
 			{	
-				$speaker = $a_tier['PARTICIPANT'];	
+				$speaker = $a_tier['PARTICIPANT'];
+				$spkr = getSpeakerInitials($speaker);	
 				
-				$speaker_parts = explode(" ", $speaker);
+				$tier_css_id = "tr" . $tier_count++; /* unique tier id for use with css */
 				
-				$spkr = "";
-				foreach($speaker_parts as $sp_prt)
-				{
-					$spkr .= substr($sp_prt, 0, 1);
-				}
-				
-				$tier_css = " tr" . $tier_count++;
-				
-				$tier_list .= "<li><span class=\"spkr_key " . trim($tier_css) . "\">" . $spkr . "</span><span> &middot; </span><span class=\"spkr_name\">" . $speaker . "</span></li>\n";
+				$tier_list .= "<li><span class=\"spkr_key " . $tier_css_id . "\">" . $spkr . "</span><span> &middot; </span><span class=\"spkr_name\">" . $speaker . "</span></li>\n"; /* add speaker's initials and full name to tier_list */
 				
 				foreach ($a_tier->ANNOTATION as $a_nnotation)
 				{
-					//<ANNOTATION> //<ALIGNABLE_ANNOTATION ANNOTATION_ID="a1" TIME_SLOT_REF1="ts2" TIME_SLOT_REF2="ts4"> //<ANNOTATION_VALUE>
-					$time_start_ref = (int) substr($a_nnotation->ALIGNABLE_ANNOTATION['TIME_SLOT_REF1'], 2);
+					/* xml format: <ANNOTATION> <ALIGNABLE_ANNOTATION ANNOTATION_ID="a1" TIME_SLOT_REF1="ts2" TIME_SLOT_REF2="ts4"> <ANNOTATION_VALUE> </ANNOTATION> */
+					
+					/* use TIME_SLOT_REF 's without "tr" prefix */
+					$time_start_ref = (int) substr($a_nnotation->ALIGNABLE_ANNOTATION['TIME_SLOT_REF1'], 2); 
 					$time_stop_ref = (int) substr($a_nnotation->ALIGNABLE_ANNOTATION['TIME_SLOT_REF2'], 2);
 					
-					$line_id = $a_nnotation->ALIGNABLE_ANNOTATION['ANNOTATION_ID'];
+					$time_start_sec = $time_slot_array[$time_start_ref-1]/1000;
+					$time_stop_sec = $time_slot_array[$time_stop_ref-1]/1000;
+					// TODO make time_stop_sec larger so it doesn't cut off the end of the recording
 					
-					$resulting_span_string = "<li class=\"txt_ln" . $tier_css . "\" data-start=\"" . $time_slot_array[$time_start_ref-1]/1000 . "\" data-stop=\"" . $time_slot_array[$time_stop_ref-1]/1000 . "\"><span class=\"spkr\">" . $spkr . "</span><span> : </span><span class=\"spkn\" id=\"" . $line_id . "\">" . htmlspecialchars($a_nnotation->ALIGNABLE_ANNOTATION->ANNOTATION_VALUE) . "</span></li>\n";
+					$line_id = $a_nnotation->ALIGNABLE_ANNOTATION['ANNOTATION_ID'];
+					$line_out = htmlspecialchars($a_nnotation->ALIGNABLE_ANNOTATION->ANNOTATION_VALUE);
+					
+					/* Example resulting_span_string: <li class="txt_ln tr1" data-start="45.265" data-stop="47.146"> <span class="spkr">MC</span> <span> : </span> <span class="spkn" id="a1">Ingitangi a'indeccu'fa</span> </li>
+					*/
+					$resulting_span_string = "<li class=\"txt_ln " . $tier_css_id . "\" data-start=\"" . $time_start_sec . "\" data-stop=\"" . $time_stop_sec . "\"><span class=\"spkr\">" . $spkr . "</span><span> : </span><span class=\"spkn\" id=\"" . $line_id . "\">" . $line_out . "</span></li>\n";
 					
 					if ($line_id == $specific_start_line_id)
 					{
-						$start_at_time = $time_slot_array[$time_start_ref-1]/1000;
-						$start_at_time_end = $time_slot_array[$time_stop_ref-1]/1000;
+						$start_at_time = $time_start_sec;
+						$start_at_time_end = $time_stop_sec;
 					}
 					
 					addArray($output_array, $time_start_ref, $resulting_span_string);
@@ -90,18 +106,13 @@
 			if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "gloss")
 			{
 				$speaker = $a_tier['PARTICIPANT'];	
-				
-				$speaker_parts = explode(" ", $speaker);
-				
-				$spkr = "";
-				foreach($speaker_parts as $sp_prt)
-				{
-					$spkr .= substr($sp_prt, 0, 1);
-				}
+				$spkr = getSpeakerInitials($speaker);
 				
 				foreach ($a_tier->ANNOTATION as $a_nnotation)
 				{
-					//<ANNOTATION> //<REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> //<ANNOTATION_VALUE>
+					/* xml format: <ANNOTATION> <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE> </ANNOTATION> */
+					
+					/* print the div for this annotation, including its metadata */
 					$line_ref = $a_nnotation->REF_ANNOTATION['ANNOTATION_REF'];
 					$line_value = $a_nnotation->REF_ANNOTATION->ANNOTATION_VALUE;
 					$line_out = htmlspecialchars($line_value);
@@ -111,7 +122,7 @@
 			}
 		}
 		
-		$tier_list = $tier_list . "</ol>\n";
+		$tier_list .= "</ol>\n";
 		
 		echo $tier_list;
 		
