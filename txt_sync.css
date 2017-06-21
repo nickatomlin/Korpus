@@ -25,7 +25,7 @@ li[id^='txt-current_'] { background-color: #eeeeee; }
 	font-family: serif;
 	font-size: 100%;
 	margin-right: 8px;
-	display: inline;
+	display: inline; /* makes speaker list display without numbering */
 }
 
 #spkr_keys li span.spkr_name
@@ -105,7 +105,7 @@ div.txt_ref_lang
 	line-height: 26px;
 	padding-left: 12px;
 	padding-right: 8px;
-	display: none;
+	display: none; /* hide glosses, part 1 */
 }
 
 #txt_refs div.txt_ref span.spkr
@@ -117,4 +117,4 @@ div.txt_ref_lang
 	color: #666666;
 }
 
-#txt_refs div.txt_ref span:nth-child(2) { display: none; }
+#txt_refs div.txt_ref span:nth-child(2) { display: none; } /* hide glosses, part 2 */
