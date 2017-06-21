@@ -1,9 +1,7 @@
 <?php
-
 	$media_file = "test1.mp4"; //Must be .mp3 (MPEG-1 and/or MPEG-2 Audio Layer III) audio, or .mp4 (H.264/MPEG-4) video
 	$eaf_file = "test1.eaf";
 	$player_title = "Ingi Cansecho Ande (intro)";
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,11 +35,9 @@
 	$start_at_time = 0;
 	$start_at_time_end = 0;
 	$specific_start_line_id = "x0";
-
 	$file_path = "elan_files/" . $eaf_file;
 	
 	echo "\n<h1>" . $player_title . "</h1>\n"; /* print page title */
-
 	if (file_exists($file_path))
 	{
 		$xml = simplexml_load_file($file_path); 
@@ -58,14 +54,14 @@
 		
 		$gloss_tier_string = "";
 		
-		$tier_count = 1; /* for generatig unique tier id's */
+		$tier_count = 1; /* for generating unique tier id's */
 		
 		/* tier_list will list initials and full name for each speaker */
 		$tier_list = "\n<ol id=\"spkr_keys\">\n"; /* <ol> is "ordered list", with elements <li> "list item" */
 				
 		foreach ($xml->TIER as $a_tier)
 		{	
-			if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "transcription")
+			if(strtolower($a_tier['PARENT_REF']) == "")
 			{	
 				$speaker = $a_tier['PARTICIPANT'];
 				$spkr = getSpeakerInitials($speaker);	
