@@ -49,10 +49,11 @@
 			$time_slot_array[] = $time_slot['TIME_VALUE'];
 		}
 		
-		/* output_array will be a hashmap from times to ... */
+		/* output_array will be a hashmap: time(ms) -> 
+		HTML list elements of form "SPKR : transcription_line" */
 		$output_array = array();
 		
-		$gloss_tier_string = "";
+		$glosses_string = "";
 		
 		$tier_count = 1; /* for generating unique tier id's */
 		
@@ -61,7 +62,7 @@
 				
 		foreach ($xml->TIER as $a_tier)
 		{	
-			if(strtolower($a_tier['PARENT_REF']) == "")
+			if(strtolower($a_tier['PARENT_REF']) == "") /* then it's an independent tier */
 			{	
 				$speaker = $a_tier['PARTICIPANT'];
 				$spkr = getSpeakerInitials($speaker);	
@@ -97,23 +98,35 @@
 					
 					addArray($output_array, $time_start_ref, $resulting_span_string);
 				}
-			}
-			
-			if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "gloss")
-			{
-				$speaker = $a_tier['PARTICIPANT'];	
-				$spkr = getSpeakerInitials($speaker);
 				
-				foreach ($a_tier->ANNOTATION as $a_nnotation)
+				/* find all tiers that depend on this independent tier */
+				$tier_glosses_string = "";
+				echo " parent's tier_id: " . $a_tier['TIER_ID'];
+				foreach ($xml->TIER as $b_tier) 
 				{
-					/* xml format: <ANNOTATION> <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE> </ANNOTATION> */
-					
-					/* print the div for this annotation, including its metadata */
-					$line_ref = $a_nnotation->REF_ANNOTATION['ANNOTATION_REF'];
-					$line_value = $a_nnotation->REF_ANNOTATION->ANNOTATION_VALUE;
-					$line_out = htmlspecialchars($line_value);
-					$spkr_out = $spkr;
-					$gloss_tier_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
+					echo " parent_ref: " . $b_tier['PARENT_REF'];
+					if(strtolower($b_tier['PARENT_REF']) == strtolower($a_tier['TIER_ID'])) /* without strtolower, the if statement is always false (why??) */
+					{
+						echo "Dependent tier found!";
+						foreach ($b_tier->ANNOTATION as $b_nnotation)
+						{
+							/* xml format: <ANNOTATION> <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE> </ANNOTATION> */
+							
+							/* the div for this annotation, including its metadata */
+							// TODO make this a table row, with merged cells where appropriate
+							// (TODO possibly split on "-" and "=")
+							$line_ref = $b_nnotation->REF_ANNOTATION['ANNOTATION_REF'];
+							$line_value = $b_nnotation->REF_ANNOTATION->ANNOTATION_VALUE;
+							$line_out = htmlspecialchars($line_value);
+							$spkr_out = $spkr;
+							$tier_glosses_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
+						}
+					}
+				}
+				if ($tier_glosses_string != "") {
+					// TODO once $tier_glosses_string has been made into a sequence of table rows, 
+					// include table start and end tags and column format stuff
+					$glosses_string .= $tier_glosses_string;
 				}
 			}
 		}
@@ -148,10 +161,10 @@
 		}
 		echo "</ul>\n</div>\n";
 		
-		if($gloss_tier_string != "")
+		if($glosses_string != "")
 		{
 			echo "\n<div class=\"txt_ref_lang\">Gloss:</div>\n\n<div id=\"txt_refs\">\n";
-			echo $gloss_tier_string;
+			echo $glosses_string;
 			echo "</div>\n";
 		}
 		
