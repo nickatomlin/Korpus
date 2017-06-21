@@ -34,4 +34,7 @@ foreach ($xml->TIER as $a_tier)
 ~~~~
 	if(strtolower($a_tier['LINGUISTIC_TYPE_REF']) == "gloss")
 ~~~~
-Therefore, to make this work with any ELAN file, add the correct tier types and then edit the tiers in your file.
+Therefore, to make this work with any ELAN file, add the correct tier types and then edit the tiers in your file. Any tiers that aren't type "transcription" or "gloss" will be ignored. 
+
+### Working with Incomplete Data
+If there is no "gloss" tier, it will still work but there will be no glosses. If there is no media file (audio or video) to go with the ELAN file, it will report an error, but the text and glosses will still work. 
