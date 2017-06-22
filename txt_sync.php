@@ -101,25 +101,35 @@
 				
 				/* find all tiers that depend on this independent tier */
 				$tier_glosses_string = "";
-				echo " parent's tier_id: " . $a_tier['TIER_ID'];
 				foreach ($xml->TIER as $b_tier) 
 				{
-					echo " parent_ref: " . $b_tier['PARENT_REF'];
 					if(strtolower($b_tier['PARENT_REF']) == strtolower($a_tier['TIER_ID'])) /* without strtolower, the if statement is always false (why??) */
 					{
-						echo "Dependent tier found!";
+						echo " Dependent tier " . $b_tier['TIER_ID'] . " found! ";
 						foreach ($b_tier->ANNOTATION as $b_nnotation)
 						{
-							/* xml format: <ANNOTATION> <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE> </ANNOTATION> */
+							echo " Annotation found! ";
+							/* FIXME "Glossed Morphemes" is acting like an empty tier when it's not... becu
+							/* xml formats for each dependent tier, within the <ANNOTATION></ANNOTATION> tags: 
+							"English": <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE>
+							"Morphemes": <ALIGNABLE_ANNOTATION ANNOTATION_ID="a10" TIME_SLOT_REF1="ts3" TIME_SLOT_REF2="ts4"> <ANNOTATION_VALUE>Ingi=ta=ngi</ANNOTATION_VALUE> </ALIGNABLE_ANNOTATION>
+							"Glossed Morphemes": <REF_ANNOTATION ANNOTATION_ID="a16" ANNOTATION_REF="a10"> <ANNOTATION_VALUE>we=TOP=1</ANNOTATION_VALUE> </REF_ANNOTATION>
+							*/
 							
 							/* the div for this annotation, including its metadata */
 							// TODO make this a table row, with merged cells where appropriate
 							// (TODO possibly split on "-" and "=")
 							$line_ref = $b_nnotation->REF_ANNOTATION['ANNOTATION_REF'];
 							$line_value = $b_nnotation->REF_ANNOTATION->ANNOTATION_VALUE;
+							if ($line_ref == "" && $line_value == "") {
+								/* probably an ALIGNABLE_ANNOTATION instead of a REF_ANNOTATION */
+								$line_ref = $b_nnotation->ALIGNABLE_ANNOTATION['ANNOTATION_ID'];
+								$line_value = $b_nnotation->ALIGNABLE_ANNOTATION->ANNOTATION_VALUE;
+							}
 							$line_out = htmlspecialchars($line_value);
 							$spkr_out = $spkr;
 							$tier_glosses_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
+							echo "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
 						}
 					}
 				}
