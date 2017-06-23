@@ -15,7 +15,7 @@
 <?php
 
 	class Forest {
-        public $roots;
+        public $roots; // list of root parents
         public $children; // hashmap from parents to lists of children
         public function __construct() {
             $this->roots = [];
@@ -29,9 +29,22 @@
                 array_push($this->children[$parent], $node);
             }
             else {
-                $this->children[$parent] = [$node];
+				$this->children[$parent] = [$node];
             }
         }
+		public function getDescendants($ancestor) { // not including ancestor itself
+			if (!array_key_exists($ancestor, $this->children)) {
+				return array();
+			}
+			$descendants = array();
+			foreach ($this->children[$ancestor] as $child) {
+				array_push($descendants, $child);
+				foreach ($this->getDescendants($child) as $grandchild) {
+					array_push($descendants, $grandchild); 
+				}
+			}
+			return $descendants;
+		}
     }
 	
 	/* add key-value pair ($id, $var) to $array. (php "arrays" are hashmaps). */
@@ -81,8 +94,8 @@
 				$tier_timeslots[$root_id][] = $ref;
 			}
 			
-			/* add childrens' timeslots to set */
-			foreach ($tier_deps->children[$root_id] as $child_id) 
+			/* add descendants' timeslots to set */
+			foreach ($tier_deps->getDescendants((string) $root_id) as $child_id) 
 			{
 				$sanitized_child_id = $child_id; // TODO use a general instead of hacky solution
 				if ($child_id = "A'ingae") {
@@ -137,6 +150,14 @@
 		{
 			$tier_deps->insert((string) $tier['TIER_ID'], (string) $tier['PARENT_REF']);
 		}
+		echo "tier_deps: ";
+		print_r($tier_deps);
+		//foreach ($tier_deps->roots as $root) {
+		foreach ($xml->TIER as $tier) {
+			$root = (string) $tier['TIER_ID'];
+			echo "  Descendants of $root: ";
+			print_r($tier_deps->getDescendants($root));
+		}
 		
 		/* get sorted, non-repeating list of timeslot IDs for each independent tier and its descendants */
 		/* tier_timeslots will be a hashmap: independent_tier_id -> array_index -> timeslot_ref */
@@ -146,6 +167,8 @@
 		{	
 			if(strtolower($a_tier['PARENT_REF']) == "") /* then it's an independent tier */
 			{	
+				echo " Independent tier " . $a_tier['TIER_ID'] . " found! ";
+				
 				$speaker = $a_tier['PARTICIPANT'];
 				$spkr = getSpeakerInitials($speaker);	
 				
@@ -183,13 +206,12 @@
 				
 				/* find all tiers that depend on this independent tier, TODO including reursively */
 				$tier_glosses_string = "";
-				foreach ($tier_deps->children[(string) $a_tier['TIER_ID']] as $child) 
+				foreach ($tier_deps->getDescendants((string) $a_tier['TIER_ID']) as $child) 
 				{
-					echo " Dependent tier found! ";
+					echo " Dependent tier $child found! ";
 					$child_annotations = $xml->xpath("TIER['TIER_ID=".$child."']/ANNOTATION");
 					foreach ($child_annotations as $b_nnotation)
 					{
-						echo " Annotation found! ";
 						/* xml formats for each dependent tier, within the <ANNOTATION></ANNOTATION> tags: 
 						"English": <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE>
 						"Morphemes": <ALIGNABLE_ANNOTATION ANNOTATION_ID="a10" TIME_SLOT_REF1="ts3" TIME_SLOT_REF2="ts4"> <ANNOTATION_VALUE>Ingi=ta=ngi</ANNOTATION_VALUE> </ALIGNABLE_ANNOTATION>
@@ -203,14 +225,13 @@
 						$line_ref = $b_nnotation->REF_ANNOTATION['ANNOTATION_REF'];
 						$line_value = $b_nnotation->REF_ANNOTATION->ANNOTATION_VALUE;
 						if ($line_ref == "" && $line_value == "") {
-							/* probably an ALIGNABLE_ANNOTATION instead of a REF_ANNOTATION */
+							/* this is an ALIGNABLE_ANNOTATION instead of a REF_ANNOTATION */
 							$line_ref = $b_nnotation->ALIGNABLE_ANNOTATION['ANNOTATION_ID'];
 							$line_value = $b_nnotation->ALIGNABLE_ANNOTATION->ANNOTATION_VALUE;
 						}
 						$line_out = htmlspecialchars($line_value);
 						$spkr_out = $spkr;
 						$tier_glosses_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
-						echo "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
 					}
 				}
 				if ($tier_glosses_string != "") {
