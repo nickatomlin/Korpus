@@ -13,6 +13,26 @@
 <body>
 <div id="txt_sync_content">
 <?php
+
+	class Forest {
+        public $roots;
+        public $children; // hashmap from parents to lists of children
+        public function __construct() {
+            $this->roots = [];
+			$this->children = [];
+        }
+        public function insert($node, $parent) {
+            if ($parent == null) {
+                array_push($this->roots, $node);
+            }
+            else if (array_key_exists($parent, $this->children)) {
+                array_push($this->children[$parent], $node);
+            }
+            else {
+                $this->children[$parent] = [$node];
+            }
+        }
+    }
 	
 	/* add key-value pair ($id, $var) to $array. (php "arrays" are hashmaps). */
 	function addArray(&$array, $id, $var)
@@ -32,6 +52,58 @@
 		return $spkr;
 	}
 	
+	/* Strip the "tr" prefix from the timeslot_ref. */
+	function timeslotAsNumber($timeslot_ref) 
+	{
+		return (int) substr($timeslot_ref, 2);
+	}
+	
+	/* get sorted, non-repeating list of timeslot IDs for each independent tier and its descendants */
+	/* returns a nested hashmap: independent_tier_id -> array_index -> timeslot_ref */
+	function getTimeslotLists($xml, $tier_deps) 
+	{
+		$PATH_TIER_ID = "/ANNOTATION_DOCUMENT/TIER[@TIER_ID='";
+		$PATH_TIME_REF = "']/ANNOTATION/ALIGNABLE_ANNOTATION/@TIME_SLOT_REF";
+		
+		$tier_timeslots = array();
+		foreach ($tier_deps->roots as $root_id) 
+		{
+			$tier_timeslots[$root_id] = array();
+			/* add parent's timeslots to set */
+			$sanitized_root_id = $root_id; // TODO use a general instead of hacky solution
+			if ($root_id = "A'ingae") {
+				$sanitized_root_id = "A&apos;ingae";
+			}
+			foreach ($xml->xpath("/ANNOTATION_DOCUMENT/TIER[@TIER_ID='$sanitized_root_id']/ANNOTATION/ALIGNABLE_ANNOTATION/@TIME_SLOT_REF1") as $ref) {
+				$tier_timeslots[$root_id][] = $ref;
+			}
+			foreach ($xml->xpath($PATH_TIER_ID.$sanitized_root_id.$PATH_TIME_REF."2") as $ref) {
+				$tier_timeslots[$root_id][] = $ref;
+			}
+			
+			/* add childrens' timeslots to set */
+			foreach ($tier_deps->children[$root_id] as $child_id) 
+			{
+				$sanitized_child_id = $child_id; // TODO use a general instead of hacky solution
+				if ($child_id = "A'ingae") {
+					$sanitized_child_id = "A&apos;ingae";
+				}
+				foreach ($xml->xpath($PATH_TIER_ID.$sanitized_child_id.$PATH_TIME_REF."1") as $ref) {
+					$tier_timeslots[$root_id][] = $ref;
+				}
+				foreach ($xml->xpath($PATH_TIER_ID.$sanitized_child_id.$PATH_TIME_REF."2") as $ref) {
+					$tier_timeslots[$root_id][] = $ref;
+				}
+			}
+		}
+		foreach ($tier_timeslots as $timeslots) {
+			$timeslots = array_unique($timeslots); // remove duplicates
+			asort($timeslots); // sort
+		}
+		
+		return $tier_timeslots;
+	}
+	
 	$start_at_time = 0;
 	$start_at_time_end = 0;
 	$specific_start_line_id = "x0";
@@ -42,7 +114,7 @@
 	{
 		$xml = simplexml_load_file($file_path); 
 		
-		/* make time_slot_array a list of numerical timestamps (in ms?) */
+		/* make time_slot_array a list of numerical timestamps (in ms) */
 		$time_slot_array = array();
 		foreach ($xml->TIME_ORDER->TIME_SLOT as $time_slot)
 		{
@@ -51,14 +123,24 @@
 		
 		/* output_array will be a hashmap: time(ms) -> 
 		HTML list elements of form "SPKR : transcription_line" */
+		// TODO make it -> list of HTML list elements of form "SPKR : transcription_line"
 		$output_array = array();
 		
 		$glosses_string = "";
 		
-		$tier_count = 1; /* for generating unique tier id's */
+		/* speaker_list will list initials and full name for each speaker */
+		$speaker_list = "\n<ol id=\"spkr_keys\">\n"; /* <ol> is "ordered list", with elements <li> "list item" */
 		
-		/* tier_list will list initials and full name for each speaker */
-		$tier_list = "\n<ol id=\"spkr_keys\">\n"; /* <ol> is "ordered list", with elements <li> "list item" */
+		/* create a map from independent tier id to list of its dependent tiers (including grandchildren) */
+		$tier_deps = new Forest();
+		foreach ($xml->TIER as $tier)
+		{
+			$tier_deps->insert((string) $tier['TIER_ID'], (string) $tier['PARENT_REF']);
+		}
+		
+		/* get sorted, non-repeating list of timeslot IDs for each independent tier and its descendants */
+		/* tier_timeslots will be a hashmap: independent_tier_id -> array_index -> timeslot_ref */
+		$tier_timeslots = getTimeSlotLists($xml, $tier_deps);
 				
 		foreach ($xml->TIER as $a_tier)
 		{	
@@ -67,9 +149,9 @@
 				$speaker = $a_tier['PARTICIPANT'];
 				$spkr = getSpeakerInitials($speaker);	
 				
-				$tier_css_id = "tr" . $tier_count++; /* unique tier id for use with css */
+				$tier_css_id = "tr" . $a_tier['TIER_ID']; /* unique tier id for use with css */
 				
-				$tier_list .= "<li><span class=\"spkr_key " . $tier_css_id . "\">" . $spkr . "</span><span> &middot; </span><span class=\"spkr_name\">" . $speaker . "</span></li>\n"; /* add speaker's initials and full name to tier_list */
+				$speaker_list .= "<li><span class=\"spkr_key " . $tier_css_id . "\">" . $spkr . "</span><span> &middot; </span><span class=\"spkr_name\">" . $speaker . "</span></li>\n"; /* add speaker's initials and full name to speaker_list */
 				
 				foreach ($a_tier->ANNOTATION as $a_nnotation)
 				{
@@ -99,38 +181,36 @@
 					addArray($output_array, $time_start_ref, $resulting_span_string);
 				}
 				
-				/* find all tiers that depend on this independent tier */
+				/* find all tiers that depend on this independent tier, TODO including reursively */
 				$tier_glosses_string = "";
-				foreach ($xml->TIER as $b_tier) 
+				foreach ($tier_deps->children[(string) $a_tier['TIER_ID']] as $child) 
 				{
-					if(strtolower($b_tier['PARENT_REF']) == strtolower($a_tier['TIER_ID'])) /* without strtolower, the if statement is always false (why??) */
+					echo " Dependent tier found! ";
+					$child_annotations = $xml->xpath("TIER['TIER_ID=".$child."']/ANNOTATION");
+					foreach ($child_annotations as $b_nnotation)
 					{
-						echo " Dependent tier " . $b_tier['TIER_ID'] . " found! ";
-						foreach ($b_tier->ANNOTATION as $b_nnotation)
-						{
-							echo " Annotation found! ";
-							/* FIXME "Glossed Morphemes" is acting like an empty tier when it's not... becu
-							/* xml formats for each dependent tier, within the <ANNOTATION></ANNOTATION> tags: 
-							"English": <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE>
-							"Morphemes": <ALIGNABLE_ANNOTATION ANNOTATION_ID="a10" TIME_SLOT_REF1="ts3" TIME_SLOT_REF2="ts4"> <ANNOTATION_VALUE>Ingi=ta=ngi</ANNOTATION_VALUE> </ALIGNABLE_ANNOTATION>
-							"Glossed Morphemes": <REF_ANNOTATION ANNOTATION_ID="a16" ANNOTATION_REF="a10"> <ANNOTATION_VALUE>we=TOP=1</ANNOTATION_VALUE> </REF_ANNOTATION>
-							*/
-							
-							/* the div for this annotation, including its metadata */
-							// TODO make this a table row, with merged cells where appropriate
-							// (TODO possibly split on "-" and "=")
-							$line_ref = $b_nnotation->REF_ANNOTATION['ANNOTATION_REF'];
-							$line_value = $b_nnotation->REF_ANNOTATION->ANNOTATION_VALUE;
-							if ($line_ref == "" && $line_value == "") {
-								/* probably an ALIGNABLE_ANNOTATION instead of a REF_ANNOTATION */
-								$line_ref = $b_nnotation->ALIGNABLE_ANNOTATION['ANNOTATION_ID'];
-								$line_value = $b_nnotation->ALIGNABLE_ANNOTATION->ANNOTATION_VALUE;
-							}
-							$line_out = htmlspecialchars($line_value);
-							$spkr_out = $spkr;
-							$tier_glosses_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
-							echo "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
+						echo " Annotation found! ";
+						/* xml formats for each dependent tier, within the <ANNOTATION></ANNOTATION> tags: 
+						"English": <REF_ANNOTATION ANNOTATION_ID="a711" ANNOTATION_REF="a1"> <ANNOTATION_VALUE>
+						"Morphemes": <ALIGNABLE_ANNOTATION ANNOTATION_ID="a10" TIME_SLOT_REF1="ts3" TIME_SLOT_REF2="ts4"> <ANNOTATION_VALUE>Ingi=ta=ngi</ANNOTATION_VALUE> </ALIGNABLE_ANNOTATION>
+						"Glossed Morphemes": <REF_ANNOTATION ANNOTATION_ID="a16" ANNOTATION_REF="a10"> <ANNOTATION_VALUE>we=TOP=1</ANNOTATION_VALUE> </REF_ANNOTATION>
+						*/
+						
+						/* the div for this annotation, including its metadata */
+						// TODO make this a table row, with merged cells where appropriate
+						// TODO get time information where appropriate (i.e. on ALIGNABLE_ANNOTATIONs)
+						// (TODO possibly split on "-" and "=")
+						$line_ref = $b_nnotation->REF_ANNOTATION['ANNOTATION_REF'];
+						$line_value = $b_nnotation->REF_ANNOTATION->ANNOTATION_VALUE;
+						if ($line_ref == "" && $line_value == "") {
+							/* probably an ALIGNABLE_ANNOTATION instead of a REF_ANNOTATION */
+							$line_ref = $b_nnotation->ALIGNABLE_ANNOTATION['ANNOTATION_ID'];
+							$line_value = $b_nnotation->ALIGNABLE_ANNOTATION->ANNOTATION_VALUE;
 						}
+						$line_out = htmlspecialchars($line_value);
+						$spkr_out = $spkr;
+						$tier_glosses_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
+						echo "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
 					}
 				}
 				if ($tier_glosses_string != "") {
@@ -141,9 +221,9 @@
 			}
 		}
 		
-		$tier_list .= "</ol>\n";
+		$speaker_list .= "</ol>\n";
 		
-		echo $tier_list;
+		echo $speaker_list;
 		
 		$media_type_tag = "audio";
 		$media_mime_type = "audio/mpeg";
