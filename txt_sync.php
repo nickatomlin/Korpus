@@ -204,7 +204,7 @@
 					addArray($output_array, $time_start_ref, $resulting_span_string);
 				}
 				
-				/* find all tiers that depend on this independent tier, TODO including reursively */
+				/* find all tiers that depend on this independent tier */
 				$tier_glosses_string = "";
 				foreach ($tier_deps->getDescendants((string) $a_tier['TIER_ID']) as $child) 
 				{
@@ -231,8 +231,9 @@
 						}
 						$line_out = htmlspecialchars($line_value);
 						$spkr_out = $spkr;
-						$tier_glosses_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
+						//$tier_glosses_string .= "<div class=\"txt_ref\" id=\"r" . $line_ref . "\"><span class=\"spkr\">" . $spkr_out . "</span><span> : </span><span class=\"tran\">" . $line_out . "</span></div>\n";
 					}
+					$tier_glosses_string .= "Placeholder for annotations of dep tier $child";
 				}
 				if ($tier_glosses_string != "") {
 					// TODO once $tier_glosses_string has been made into a sequence of table rows, 
