@@ -120,7 +120,7 @@ var data = {
 
 var sentence_list = data["sentences"];
 var num_sentences = sentence_list.length;
-console.log(num_sentences);
+console.log("Number of sentences: " + num_sentences);
 
 var output = [];
 
@@ -130,23 +130,61 @@ for (var i = 0; i<num_sentences; i++) {
   output.push(<tr>{speaker}</tr>);
 }
 
-function Speaker(props) {
-  return <h1>Hello, {props.name}</h1>;
+class Row extends React.Component {
+  // I/O: num_slots, taken from parent sentence
+  //      values, list of sentences with start/end times
+  // Status: untested
+  render() {
+    var row = [];
+    var current_slot = 0; // increments as slots are filled
+    var values = this.props.values;
+    var num_values = values.length;
+
+    for (var i=0; i<num_values; i++) {
+      var v = values[i];
+      var start_slot = v["start_slot"];
+      var end_slot = v["end_slot"];
+      var text = v["value"];
+
+      if (start_slot > current_slot) {
+        var diff = String(start_slot - current_slot);
+        row.push(<td colspan={diff}></td>);
+      }
+      var size = String(end_slot - start_slot);
+      row.push(<td colspan={size}>{text}</td>);
+      current_slot = end_slot;
+    }
+    return <tr>{row}</tr>;
+  }
 }
 
-function App() {
-  var speakerList = [];
-  for (var i=0; i<num_sentences; i++) {
-    var speaker = sentence_list[i]["speaker"];
-    console.log(speaker);
-    speakerList.push(speaker);
-  }
-  var speakerListJSX = speakerList.map(function(name) {
-    return <Speaker name={name}/>;
-  })
-  console.log(speakerListJSX);
-  return <ul>{speakerListJSX}</ul>;
-}
+// class Sentence extends React.Component {
+//   render() {
+//     var rows = [];
+//     var sentence_num = this.props.sentence_num;
+//     var sentence = sentence_list[sentence_num];
+//     rows.push(<div>{}</div>);
+//   }
+// }
+
+// class Speaker extends React.Component {
+//   render() {
+//     return <h1>Speaker: {this.props.name}</h1>;
+//   }
+// }
+
+// function App() {
+//   var speakerList = [];
+//   for (var i=0; i<num_sentences; i++) {
+//     var speaker = sentence_list[i]["speaker"];
+//     speakerList.push(speaker);
+//   }
+//   var speakerListJSX = speakerList.map(function(name) {
+//     return <Speaker name={name}/>;
+//   })
+//   console.log(speakerListJSX);
+//   return <div>{speakerListJSX}</div>;
+// }
 
 ReactDOM.render(
   <App/>,
