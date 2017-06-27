@@ -1,4 +1,4 @@
-// Code begins at line 121, data temporarily stored inline.
+// Code begins at line 146, data temporarily stored inline.
 
 var data = {
   "metadata": {
@@ -56,6 +56,31 @@ var data = {
           ]
         },
         {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "Ecuador=ni=ngi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "canse='fa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "mil"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 12,
+              "value": "a'i=ndeccu"
+            }
+          ]
+        },
+        {
           "tier": "T4",
           "values": [
             {
@@ -78,24 +103,24 @@ var data = {
           "tier": "T2",
           "values": [
             {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "Ecuadorningi"
+              "start_slot": 2,
+              "end_slot": 4,
+              "value": "Toya'caen"
             },
             {
-              "start_slot": 3,
-              "end_slot": 6,
-              "value": "canse'fa"
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "Colombiani"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "mil"
+              "value": "quentsu canse'fa ba've"
             },
             {
               "start_slot": 8,
-              "end_slot": 12,
-              "value": "a'indeccu"
+              "end_slot": 9,
+              "value": "mil"
             }
           ]
         },
@@ -124,6 +149,15 @@ console.log("Number of sentences: " + num_sentences);
 
 var output = [];
 
+var test_value_list = sentence_list[0]["dependents"][0]["values"];
+var test_value_list2 = sentence_list[0]["dependents"][1]["values"];
+var test_value_list3 = sentence_list[0]["dependents"][2]["values"];
+// var num = test_value_list.length;
+// for (var i=0; i<num; i++) {
+//   console.log(test_value_list[i]["start_slot"]);
+// }
+// console.log(test_value_list);
+
 for (var i = 0; i<num_sentences; i++) {
   var sentence = sentence_list[i];
   var speaker = sentence["speaker"];
@@ -137,8 +171,11 @@ class Row extends React.Component {
   render() {
     var row = [];
     var current_slot = 0; // increments as slots are filled
+    var final_slot = 12;
+    console.log("woo");
     var values = this.props.values;
     var num_values = values.length;
+    console.log("hoo");
 
     for (var i=0; i<num_values; i++) {
       var v = values[i];
@@ -148,11 +185,15 @@ class Row extends React.Component {
 
       if (start_slot > current_slot) {
         var diff = String(start_slot - current_slot);
-        row.push(<td colspan={diff}></td>);
+        row.push(<td colSpan={diff}></td>);
       }
       var size = String(end_slot - start_slot);
-      row.push(<td colspan={size}>{text}</td>);
+      row.push(<td colSpan={size}>{text}</td>);
       current_slot = end_slot;
+    }
+    if (current_slot < final_slot) {
+      var diff = String(final_slot - current_slot);
+      row.push(<td colSpan={diff}></td>);
     }
     return <tr>{row}</tr>;
   }
@@ -185,6 +226,14 @@ class Row extends React.Component {
 //   console.log(speakerListJSX);
 //   return <div>{speakerListJSX}</div>;
 // }
+
+function App() {
+  var rows = [];
+  rows.push(<Row values={test_value_list}/>);
+  rows.push(<Row values={test_value_list2}/>);
+  rows.push(<Row values={test_value_list3}/>);
+  return <table>{rows}</table>;
+}
 
 ReactDOM.render(
   <App/>,
