@@ -117,9 +117,16 @@ var data = {
 };
 
 var sentence_list = data["sentences"];
+var num_sentences = sentence_list.length;
+console.log(num_sentences);
+
+for (var i = 0; i<num_sentences; i++) {
+  var sentence = sentence_list[i];
+  var speaker = sentence["speaker"];
+  var output = <span>{speaker}</span>
+}
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  output,
   document.getElementById('example')
 );
-
