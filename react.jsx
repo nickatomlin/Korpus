@@ -130,7 +130,25 @@ for (var i = 0; i<num_sentences; i++) {
   output.push(<tr>{speaker}</tr>);
 }
 
+function Speaker(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  var speakerList = [];
+  for (var i=0; i<num_sentences; i++) {
+    var speaker = sentence_list[i]["speaker"];
+    console.log(speaker);
+    speakerList.push(speaker);
+  }
+  var speakerListJSX = speakerList.map(function(name) {
+    return <Speaker name={name}/>;
+  })
+  console.log(speakerListJSX);
+  return <ul>{speakerListJSX}</ul>;
+}
+
 ReactDOM.render(
-  <tbody>{output}</tbody>,
+  <App/>,
   document.getElementById('example')
 );
