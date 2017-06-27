@@ -1,3 +1,5 @@
+// Code begins at line 121, data temporarily stored inline.
+
 var data = {
   "metadata": {
     "tier IDs": {
@@ -120,13 +122,15 @@ var sentence_list = data["sentences"];
 var num_sentences = sentence_list.length;
 console.log(num_sentences);
 
+var output = [];
+
 for (var i = 0; i<num_sentences; i++) {
   var sentence = sentence_list[i];
   var speaker = sentence["speaker"];
-  var output = <span>{speaker}</span>
+  output.push(<tr>{speaker}</tr>);
 }
 
 ReactDOM.render(
-  output,
+  <tbody>{output}</tbody>,
   document.getElementById('example')
 );
