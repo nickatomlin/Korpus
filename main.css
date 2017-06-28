@@ -6,3 +6,13 @@
 .topRow {
 	font-weight: bold;
 }
+
+.timeBlock {
+	float: left;
+}
+
+.timeStamp {
+	margin-top: 3px; /* A quick fix to align with TimeBlock. */
+	float: left;
+	margin-right: 20px;
+}

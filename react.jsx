@@ -232,7 +232,7 @@ class LabeledSentence extends React.Component {
 class TimeBlock extends React.Component {
   // I/P: sentences, a list of sentences with the same start time
   // O/P: div containing multiple LabeledSentences
-  // Status: untested
+  // Status: tested, working
   render() {
     var sentences = this.props.sentences;
     var num_sentences = sentences.length;
@@ -245,34 +245,43 @@ class TimeBlock extends React.Component {
   }
 }
 
-// class Speaker extends React.Component {
-//   render() {
-//     return <h1>Speaker: {this.props.name}</h1>;
-//   }
-// }
+function printSeconds(d) {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+    if (s >= 10) {
+      var seconds = String(s);
+    }
+    else {
+      var seconds = ("0" + String(s));
+    }
+    var minutes = (String(m) + ":");
+    if (h == 0) {
+      var hours = "";
+    }
+    else if (m >= 10) {
+      var hours = (String(h) + ":");
+    }
+    else {
+      var hours = (String(h) + ":0");
+    }
+    return hours + minutes + seconds;
+}
 
-// function App() {
-//   var speakerList = [];
-//   for (var i=0; i<num_sentences; i++) {
-//     var speaker = sentence_list[i]["speaker"];
-//     speakerList.push(speaker);
-//   }
-//   var speakerListJSX = speakerList.map(function(name) {
-//     return <Speaker name={name}/>;
-//   })
-//   console.log(speakerListJSX);
-//   return <div>{speakerListJSX}</div>;
-// }
-
-// function App() {
-//   var rows = [];
-//   rows.push(<Row values={test_value_list} num_slots={12}/>);
-//   rows.push(<Row values={test_value_list2} num_slots={12}/>);
-//   rows.push(<Row values={test_value_list3} num_slots={12}/>);
-//   return <table>{rows}</table>;
-// }
+class LabeledTimeBlock extends React.Component {
+  // I/P: sentences, a list of sentences with the same start time
+  //      timestamp, an integer number of seconds
+  // O/P: a TimeBlock with a left-floating timestamp
+  // Status: tested, working
+  render() {
+    var sentences = this.props.sentences;
+    var timestamp = printSeconds(this.props.timestamp);
+    return <div className="labeledTimeBlock"><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+  }
+}
 
 ReactDOM.render(
-  <TimeBlock sentences={[test_sentence, test_sentence]}/>,
+  <LabeledTimeBlock timestamp={21302} sentences={[test_sentence, test_sentence]}/>,
   document.getElementById('example')
 );
