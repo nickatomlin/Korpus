@@ -214,7 +214,18 @@ class Sentence extends React.Component {
       var dependent = dependents[i];
       rows.push(<Row num_slots={num_slots} values={dependent["values"]} />);
     }
-    return <table><tbody>{rows}</tbody></table>;
+    return <table className="gloss"><tbody>{rows}</tbody></table>;
+  }
+}
+
+class LabeledSentence extends React.Component {
+  // I/P: value, a sentence
+  // O/P: table of glossed Row components
+  // Status: untested
+  render() {
+    var sentence = this.props.value;
+    var label = sentence["speaker"];
+    return <div className="labeledSentence"><span className="speakerLabel">{label}: </span><Sentence value={sentence} /></div>;
   }
 }
 
@@ -237,15 +248,15 @@ class Sentence extends React.Component {
 //   return <div>{speakerListJSX}</div>;
 // }
 
-function App() {
-  var rows = [];
-  rows.push(<Row values={test_value_list} num_slots={12}/>);
-  rows.push(<Row values={test_value_list2} num_slots={12}/>);
-  rows.push(<Row values={test_value_list3} num_slots={12}/>);
-  return <table>{rows}</table>;
-}
+// function App() {
+//   var rows = [];
+//   rows.push(<Row values={test_value_list} num_slots={12}/>);
+//   rows.push(<Row values={test_value_list2} num_slots={12}/>);
+//   rows.push(<Row values={test_value_list3} num_slots={12}/>);
+//   return <table>{rows}</table>;
+// }
 
 ReactDOM.render(
-  <Sentence value={test_sentence}/>,
+  <LabeledSentence value={test_sentence}/>,
   document.getElementById('example')
 );
