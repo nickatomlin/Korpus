@@ -6,13 +6,13 @@ Contributors:
  - Justin Bai
  - Kalinda Pride
 
-**WARNING: Current version not compatible with Chrome. See here:  https://stackoverflow.com/questions/20904098/react-js-example-in-tutorial-not-working**
+**WARNING: Current offline version not compatible with Chrome. See here:  https://stackoverflow.com/questions/20904098/react-js-example-in-tutorial-not-working**
 
 To view the website in Chrome, use a SimpleHTTPServer as follows:
 ~~~~
 python -m SimpleHTTPServer
 ~~~~
-and open [localhost:8000](localhost:8000) in your browser to view the site.
+and open [localhost:8000](http://localhost:8000) in your browser to view the site.
 
 We're considering re-writing the codebase from PHP into ReactJS. This branch will store tests in React JS and eventually become the main codebase if we decide to make the switch.
 
