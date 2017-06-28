@@ -1,4 +1,4 @@
-// Code begins at line 146, data temporarily stored inline.
+// Code begins at line 215, data temporarily stored inline.
 
 var data = {
   "metadata": {
@@ -138,6 +138,75 @@ var data = {
       "text": "Hmm yes that's quite interesting.",
       "dependents": [
         
+      ]
+    },
+    {
+      "speaker": "S2",
+      "start_time": 0,
+      "end_time": 3005,
+      "num_slots": 12,
+      "text": "Ecuadorningi canse'fa mil a'indeccu",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "Ecuadorningi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "canse'fa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "mil"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 12,
+              "value": "a'indeccu"
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "Ecuador=ni=ngi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "canse='fa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "mil"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 12,
+              "value": "a'i=ndeccu"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "1000 of us live in Ecuador."
+            }
+          ]
+        }
       ]
     }
   ]
@@ -281,7 +350,41 @@ class LabeledTimeBlock extends React.Component {
   }
 }
 
+class TextDisplay extends React.Component {
+  // I/P: data, stored in JSON format, as in test_data.json
+  // O/P: the main gloss view, with several LabeledTimeBlocks arranged vertically
+  // Status: tested, fails
+  // Error: TypeError: values is undefined
+  render() {
+    var sentences = this.props.data["sentences"];
+    var num_sentences = sentences.length;
+    var output = [];
+    var times_to_sentences = {}; // mapping from timestamps (in sec) to lists of sentences
+    var unique_timestamps = []; // for sorting
+    for (var i=0; i<num_sentences; i++) {
+      var sentence = sentences[i];
+      var timestamp_ms = sentence["start_time"];
+      var timestamp_sec = Math.floor(timestamp_ms / 1000);
+      if (timestamp_sec in times_to_sentences) {
+        times_to_sentences[timestamp_sec].push(sentence);
+      }
+      else {
+        unique_timestamps.push(timestamp_sec);
+        times_to_sentences[timestamp_sec] = [sentence];
+      }
+    }
+    unique_timestamps.sort();
+    var num_unique_timestamps = unique_timestamps.length;
+    for (var i=0; i<num_unique_timestamps; i++) {
+      var timestamp = unique_timestamps[i];
+      var corresponding_sentences = times_to_sentences[timestamp];
+      output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp}/>);
+    }
+    return <div className="textDisplay">{output}</div>;
+  }
+}
+
 ReactDOM.render(
-  <LabeledTimeBlock timestamp={21302} sentences={[test_sentence, test_sentence]}/>,
+  <TextDisplay data={data}/>,
   document.getElementById('example')
 );
