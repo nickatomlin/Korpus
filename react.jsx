@@ -207,7 +207,7 @@ class Sentence extends React.Component {
     var sentence = this.props.value;
     var rows = [];
     var num_slots = sentence["num_slots"];
-    rows.push(<tr><td colSpan={num_slots}>{sentence["text"]}</td></tr>);
+    rows.push(<tr><td colSpan={num_slots} className="topRow">{sentence["text"]}</td></tr>);
     var dependents = sentence["dependents"];
     var num_dependents = dependents.length;
     for (var i=0; i<num_dependents; i++) {
@@ -221,11 +221,27 @@ class Sentence extends React.Component {
 class LabeledSentence extends React.Component {
   // I/P: value, a sentence
   // O/P: table of glossed Row components
-  // Status: untested
+  // Status: tested, working
   render() {
     var sentence = this.props.value;
     var label = sentence["speaker"];
     return <div className="labeledSentence"><span className="speakerLabel">{label}: </span><Sentence value={sentence} /></div>;
+  }
+}
+
+class TimeBlock extends React.Component {
+  // I/P: sentences, a list of sentences with the same start time
+  // O/P: div containing multiple LabeledSentences
+  // Status: untested
+  render() {
+    var sentences = this.props.sentences;
+    var num_sentences = sentences.length;
+    var output = [];
+    for (var i=0; i<num_sentences; i++) {
+      var sentence = sentences[i];
+      output.push(<LabeledSentence value={sentence}/>)
+    }
+    return <div className="timeBlock">{output}</div>;
   }
 }
 
@@ -257,6 +273,6 @@ class LabeledSentence extends React.Component {
 // }
 
 ReactDOM.render(
-  <LabeledSentence value={test_sentence}/>,
+  <TimeBlock sentences={[test_sentence, test_sentence]}/>,
   document.getElementById('example')
 );
