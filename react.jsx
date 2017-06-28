@@ -1,4 +1,4 @@
-// Code begins at line 215, data temporarily stored inline.
+// Code begins at line 221, data temporarily stored inline.
 
 var data = {
   "metadata": {
@@ -103,7 +103,7 @@ var data = {
           "tier": "T2",
           "values": [
             {
-              "start_slot": 2,
+              "start_slot": 0,
               "end_slot": 4,
               "value": "Toya'caen"
             },
@@ -119,14 +119,20 @@ var data = {
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
+              "end_slot": 12,
               "value": "mil"
             }
           ]
         },
         {
           "tier": "T4",
-          "value": "1000 of us live in Ecuador."
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "1000 of us live in Ecuador."
+            }
+          ]
         }
       ]
     },
@@ -237,6 +243,7 @@ for (var i = 0; i<num_sentences; i++) {
 class Row extends React.Component {
   // I/P: num_slots, taken from parent sentence
   //      values, list of sentences with start/end times
+  //      tier, the tier name
   // O/P: single row of glossed sentence, with colspan spacing
   // Status: tested, working
   render() {
@@ -244,6 +251,7 @@ class Row extends React.Component {
     var current_slot = 0; // increments as slots are filled
     var final_slot = this.props.num_slots;
     var values = this.props.values;
+    var tier = this.props.tier;
     var num_values = values.length;
 
     for (var i=0; i<num_values; i++) {
@@ -264,7 +272,7 @@ class Row extends React.Component {
       var diff = String(final_slot - current_slot);
       row.push(<td colSpan={diff}></td>);
     }
-    return <tr>{row}</tr>;
+    return <tr className={tier}>{row}</tr>;
   }
 }
 
@@ -281,7 +289,8 @@ class Sentence extends React.Component {
     var num_dependents = dependents.length;
     for (var i=0; i<num_dependents; i++) {
       var dependent = dependents[i];
-      rows.push(<Row num_slots={num_slots} values={dependent["values"]} />);
+      var tier = dependent["tier"];
+      rows.push(<Row num_slots={num_slots} values={dependent["values"]} tier={tier} />);
     }
     return <table className="gloss"><tbody>{rows}</tbody></table>;
   }
@@ -353,8 +362,8 @@ class LabeledTimeBlock extends React.Component {
 class TextDisplay extends React.Component {
   // I/P: data, stored in JSON format, as in test_data.json
   // O/P: the main gloss view, with several LabeledTimeBlocks arranged vertically
-  // Status: tested, fails
-  // Error: TypeError: values is undefined
+  // Status: tested, working
+  // Note: very dependent on correct formatting of data
   render() {
     var sentences = this.props.data["sentences"];
     var num_sentences = sentences.length;
