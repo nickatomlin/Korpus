@@ -29,6 +29,21 @@ function getDescendants(ancestor, children) { // not including ancestor itself
 	return descendants;
 }
 
+function getTimeslotSet(tier) {
+	if (tier.ANNOTATION[0].ALIGNABLE_ANNOTATION == null) {
+		// no timestamps in this tier; it's all `REF_ANNOTATION`s
+		return new Set();
+	}
+	annotations = tier.ANNOTATION.map((a) => a.ALIGNABLE_ANNOTATION[0]);
+	var startSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF1));
+	var endSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF2));
+	for (var slot of endSlots) {
+		startSlots.add(slot);
+	}
+	return startSlots;
+}
+
+
 fs.readFile(xmlFileName, function (err, xml) {
   if (err) throw err;
   
@@ -73,23 +88,49 @@ fs.readFile(xmlFileName, function (err, xml) {
 	var tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata.tierIDs);
 	var indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
 	
-	// tierDependents goes from indep tier IDs to dep tier names
+	// tierDependents: indep tier name -> list of dep tier names
 	var tierDependents = {};
 	for (var indepTier of indepTiers) {
-		var indepTierName = indepTier.$.TIER_ID
+		var indepTierName = indepTier.$.TIER_ID;
+		tierDependents[indepTierName] = getDescendants(indepTierName, tierChildren);
+	}
+	
+	/* tierTimeslots: independent_tier_id -> time_ms -> rank,
+		where a timeslot's "rank" is what its index would be 
+		in a time-ordered array of the unique timeslots for this speaker */
+	var tierTimeslots = {};
+	for (indepTier of indepTiers) {
+		var indepTierName = indepTier.$.TIER_ID;
 		var indepTierID = tierIDsFromNames[indepTierName];
-		tierDependents[indepTierID] = getDescendants(indepTierName, tierChildren);
+		
+		var slots = getTimeslotSet(indepTier);
+		var depTiers = tiers.filter((tier) => 
+			tierDependents[indepTierName].includes(tier.$.TIER_ID)
+		);
+		for (var depTier of depTiers) {
+			for (slot of getTimeslotSet(depTier)) {
+				slots.add(slot);
+			}
+		}
+		
+		var slotsArray = Array.from(slots)
+		var times = slotsArray.map((slot) => timeslots[slot]);
+		var sorted_times = times.sort((a, b) => a - b); // callback ensures numeric (not alphabet) sorting
+		var time_indices = swapJsonKeyValues(sorted_times);
+		
+		tierTimeslots[indepTierID] = time_indices;
 	}
 	
 	var annotationsFromIDs = {};
 	for (var i = 0; i < indepTiers.length; i++) {
 		var newID = "S" + (i + 1).toString();
 		var tierHeader = indepTiers[i].$;
+		var tierID = tierIDsFromNames[tierHeader.TIER_ID];
 		
 		jsonOut.metadata.speakerIDs[newID] = {
 			"name": tierHeader.PARTICIPANT,
 			"language": tierHeader.LANG_REF,
-			"tier": tierIDsFromNames[tierHeader.TIER_ID]
+			"tier": tierID
 			};
 			
 		jsonOut.speakers[newID] = [];
@@ -97,13 +138,17 @@ fs.readFile(xmlFileName, function (err, xml) {
 		for (var bigAnnotation of indepTiers[i].ANNOTATION) {
 			var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
 			annotationsFromIDs[annotation.$.ANNOTATION_ID] = annotation;
+			var start_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF1], 10); // TODO should things be parsed to ints earlier in the code? might be better style
+			var end_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF2], 10);
+			var start_slot = parseInt(tierTimeslots[tierID][start_time_ms], 10);
+			var end_slot = parseInt(tierTimeslots[tierID][end_time_ms], 10);
+			var num_slots = 1 + end_slot - start_slot;
 			jsonOut.speakers[newID].push({
-				"start_time_ms": timeslots[annotation.$.TIME_SLOT_REF1],
-				"end_time_ms": timeslots[annotation.$.TIME_SLOT_REF2],
-				/* "num_slots": get_num_slots(
-						annotation.$.TIME_SLOT_REF1, 
-						annotation.$.TIME_SLOT_REF2),
-						*/
+				"start_time_ms": start_time_ms,
+				"end_time_ms": end_time_ms,
+				"start_slot": start_slot,
+				"end_slot": end_slot,
+				"num_slots": num_slots,
 				"text": annotation.ANNOTATION_VALUE[0],
 				"dependents": []
 			})
@@ -119,3 +164,4 @@ fs.readFile(xmlFileName, function (err, xml) {
 	}); 
   });
 });
+
