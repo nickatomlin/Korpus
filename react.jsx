@@ -152,6 +152,7 @@ var output = [];
 var test_value_list = sentence_list[0]["dependents"][0]["values"];
 var test_value_list2 = sentence_list[0]["dependents"][1]["values"];
 var test_value_list3 = sentence_list[0]["dependents"][2]["values"];
+var test_sentence = sentence_list[0];
 // var num = test_value_list.length;
 // for (var i=0; i<num; i++) {
 //   console.log(test_value_list[i]["start_slot"]);
@@ -165,17 +166,16 @@ for (var i = 0; i<num_sentences; i++) {
 }
 
 class Row extends React.Component {
-  // I/O: num_slots, taken from parent sentence
+  // I/P: num_slots, taken from parent sentence
   //      values, list of sentences with start/end times
-  // Status: untested
+  // O/P: single row of glossed sentence, with colspan spacing
+  // Status: tested, working
   render() {
     var row = [];
     var current_slot = 0; // increments as slots are filled
-    var final_slot = 12;
-    console.log("woo");
+    var final_slot = this.props.num_slots;
     var values = this.props.values;
     var num_values = values.length;
-    console.log("hoo");
 
     for (var i=0; i<num_values; i++) {
       var v = values[i];
@@ -199,14 +199,24 @@ class Row extends React.Component {
   }
 }
 
-// class Sentence extends React.Component {
-//   render() {
-//     var rows = [];
-//     var sentence_num = this.props.sentence_num;
-//     var sentence = sentence_list[sentence_num];
-//     rows.push(<div>{}</div>);
-//   }
-// }
+class Sentence extends React.Component {
+  // I/P: value, a sentence
+  // O/P: table of glossed Row components
+  // Status: tested, working
+  render() {
+    var sentence = this.props.value;
+    var rows = [];
+    var num_slots = sentence["num_slots"];
+    rows.push(<tr><td colSpan={num_slots}>{sentence["text"]}</td></tr>);
+    var dependents = sentence["dependents"];
+    var num_dependents = dependents.length;
+    for (var i=0; i<num_dependents; i++) {
+      var dependent = dependents[i];
+      rows.push(<Row num_slots={num_slots} values={dependent["values"]} />);
+    }
+    return <table><tbody>{rows}</tbody></table>;
+  }
+}
 
 // class Speaker extends React.Component {
 //   render() {
@@ -229,13 +239,13 @@ class Row extends React.Component {
 
 function App() {
   var rows = [];
-  rows.push(<Row values={test_value_list}/>);
-  rows.push(<Row values={test_value_list2}/>);
-  rows.push(<Row values={test_value_list3}/>);
+  rows.push(<Row values={test_value_list} num_slots={12}/>);
+  rows.push(<Row values={test_value_list2} num_slots={12}/>);
+  rows.push(<Row values={test_value_list3} num_slots={12}/>);
   return <table>{rows}</table>;
 }
 
 ReactDOM.render(
-  <App/>,
+  <Sentence value={test_sentence}/>,
   document.getElementById('example')
 );
