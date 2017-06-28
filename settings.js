@@ -3,7 +3,7 @@ function T2() {
 	var b = document.getElementsByClassName("T2");
 	if (a == true) {
 		for (var i=0; i<b.length; i++) {
-			b[i].style.display = "flex";
+			b[i].style.display = "table-row";
 		}
 	}
 	else {
