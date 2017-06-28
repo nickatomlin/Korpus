@@ -54,6 +54,31 @@
           ]
         },
         {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "Ecuador=ni=ngi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "canse='fa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "mil"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 12,
+              "value": "a'i=ndeccu"
+            }
+          ]
+        },
+        {
           "tier": "T4",
           "values": [
             {
@@ -71,6 +96,60 @@
       "end_time": 7211,
       "num_slots": 12,
       "text": "Toya'caen Colombiani quentsu canse'fa ba've mil",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Toya'caen"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "Colombiani"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "quentsu canse'fa ba've"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 12,
+              "value": "mil"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "1000 of us live in Ecuador."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "speaker": "S2",
+      "start_time": 6099,
+      "end_time": 8814,
+      "num_slots": 1,
+      "text": "Hmm yes that's quite interesting.",
+      "dependents": [
+        
+      ]
+    },
+    {
+      "speaker": "S2",
+      "start_time": 0,
+      "end_time": 3005,
+      "num_slots": 12,
+      "text": "Ecuadorningi canse'fa mil a'indeccu",
       "dependents": [
         {
           "tier": "T2",
@@ -98,19 +177,40 @@
           ]
         },
         {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "Ecuador=ni=ngi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "canse='fa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "mil"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 12,
+              "value": "a'i=ndeccu"
+            }
+          ]
+        },
+        {
           "tier": "T4",
-          "value": "1000 of us live in Ecuador."
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "1000 of us live in Ecuador."
+            }
+          ]
         }
-      ]
-    },
-    {
-      "speaker": "S2",
-      "start_time": 6099,
-      "end_time": 8814,
-      "num_slots": 1,
-      "text": "Hmm yes that's quite interesting.",
-      "dependents": [
-        
       ]
     }
   ]

@@ -1,0 +1,36 @@
+.speakerLabel {
+	float: left;
+	margin-top: 3px; /* A quick fix to align with gloss table. */
+}
+
+.topRow {
+	font-weight: bold;
+}
+
+.timeBlock {
+	float: left;
+}
+
+.timeStamp {
+	margin-top: 3px; /* A quick fix to align with TimeBlock. */
+	float: left;
+	margin-right: 20px;
+}
+
+.labeledTimeBlock {
+	clear: both;
+}
+
+.textDisplay {
+	float: left;
+}
+
+#settings {
+	float: left;
+	margin-right: 50px;
+}
+
+td {
+	padding-left: 2px;
+	padding-right: 2px;
+}
