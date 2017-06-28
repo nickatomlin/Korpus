@@ -218,61 +218,54 @@ var data = {
   ]
 };
 
-var sentence_list = data["sentences"];
-var num_sentences = sentence_list.length;
-console.log("Number of sentences: " + num_sentences);
-
-var output = [];
-
-var test_value_list = sentence_list[0]["dependents"][0]["values"];
-var test_value_list2 = sentence_list[0]["dependents"][1]["values"];
-var test_value_list3 = sentence_list[0]["dependents"][2]["values"];
-var test_sentence = sentence_list[0];
-// var num = test_value_list.length;
-// for (var i=0; i<num; i++) {
-//   console.log(test_value_list[i]["start_slot"]);
-// }
-// console.log(test_value_list);
-
-for (var i = 0; i<num_sentences; i++) {
-  var sentence = sentence_list[i];
-  var speaker = sentence["speaker"];
-  output.push(<tr>{speaker}</tr>);
-}
-
 class Row extends React.Component {
   // I/P: num_slots, taken from parent sentence
-  //      values, list of sentences with start/end times
+  //      values, list of segments (e.g., morphemes) with start/end times
   //      tier, the tier name
   // O/P: single row of glossed sentence, with colspan spacing
   // Status: tested, working
   render() {
-    var row = [];
-    var current_slot = 0; // increments as slots are filled
+    var output = [];
+    // Building a row requires slots to determine the width of certain
+    // table elements. Each element will have a start and end slot, and 
+    // if there is a gap between an end slot and the following start
+    // slot, then a blank table element is input. We use the attribute
+    // "colSpan" to account for elements which require large slots.
+
+    // The current_slot counter is used to "fill in" the missing
+    // slots when a dependent tier doesn't line up with its corresponding
+    // independent tier. For example, if the i-tier goes from 0-12, and
+    // the dependent tier goes from 2-5 and 7-12, then the current_slot
+    // counter would be responsible for filling those gaps between 0-2
+    // and 5-7.
+    var current_slot = 0;
+
     var final_slot = this.props.num_slots;
     var values = this.props.values;
     var tier = this.props.tier;
-    var num_values = values.length;
 
-    for (var i=0; i<num_values; i++) {
+    for (var i=0; i<values.length; i++) {
       var v = values[i];
       var start_slot = v["start_slot"];
       var end_slot = v["end_slot"];
       var text = v["value"];
 
+      // Add blank space before current value:
       if (start_slot > current_slot) {
         var diff = String(start_slot - current_slot);
-        row.push(<td colSpan={diff}></td>);
+        output.push(<td colSpan={diff}></td>);
       }
+      // Create element with correct "colSpan" width:
       var size = String(end_slot - start_slot);
-      row.push(<td colSpan={size}>{text}</td>);
+      output.push(<td colSpan={size}>{text}</td>);
       current_slot = end_slot;
     }
+    // Fill blank space at end of table row:
     if (current_slot < final_slot) {
       var diff = String(final_slot - current_slot);
-      row.push(<td colSpan={diff}></td>);
+      output.push(<td colSpan={diff}></td>);
     }
-    return <tr className={tier}>{row}</tr>;
+    return <tr className={tier}>{output}</tr>;
   }
 }
 
@@ -281,24 +274,27 @@ class Sentence extends React.Component {
   // O/P: table of glossed Row components
   // Status: tested, working
   render() {
+    var row_list = []; // to be output
     var sentence = this.props.value;
-    var rows = [];
     var num_slots = sentence["num_slots"];
-    rows.push(<tr><td colSpan={num_slots} className="topRow">{sentence["text"]}</td></tr>);
-    var dependents = sentence["dependents"];
-    var num_dependents = dependents.length;
-    for (var i=0; i<num_dependents; i++) {
+    // Add the indepentent tier, i.e., the top row, to the list of rows. Note that
+    // "colSpan={num_slots}" ensures that this row spans the entire table.
+    row_list.push(<tr><td colSpan={num_slots} className="topRow">{sentence["text"]}</td></tr>);
+    var dependents = sentence["dependents"]; // list of dependent tiers, flat structure
+    // Add each dependent tier to the row list:
+    for (var i=0; i<dependents.length; i++) {
       var dependent = dependents[i];
+      // Tier attribute will be used for hiding/showing tiers:
       var tier = dependent["tier"];
-      rows.push(<Row num_slots={num_slots} values={dependent["values"]} tier={tier} />);
+      row_list.push(<Row num_slots={num_slots} values={dependent["values"]} tier={tier} />);
     }
-    return <table className="gloss"><tbody>{rows}</tbody></table>;
+    return <table className="gloss"><tbody>{row_list}</tbody></table>;
   }
 }
 
 class LabeledSentence extends React.Component {
   // I/P: value, a sentence
-  // O/P: table of glossed Row components
+  // O/P: glossed sentence with speaker label
   // Status: tested, working
   render() {
     var sentence = this.props.value;
@@ -313,9 +309,10 @@ class TimeBlock extends React.Component {
   // Status: tested, working
   render() {
     var sentences = this.props.sentences;
-    var num_sentences = sentences.length;
     var output = [];
-    for (var i=0; i<num_sentences; i++) {
+    // A timeblock may contain multiple sentences with the same start time.
+    // Iterate through the list of these sentences.
+    for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
       output.push(<LabeledSentence value={sentence}/>)
     }
@@ -323,29 +320,10 @@ class TimeBlock extends React.Component {
   }
 }
 
-function printSeconds(d) {
-    d = Number(d);
-    var h = Math.floor(d / 3600);
-    var m = Math.floor(d % 3600 / 60);
-    var s = Math.floor(d % 3600 % 60);
-    if (s >= 10) {
-      var seconds = String(s);
-    }
-    else {
-      var seconds = ("0" + String(s));
-    }
-    var minutes = (String(m) + ":");
-    if (h == 0) {
-      var hours = "";
-    }
-    else if (m >= 10) {
-      var hours = (String(h) + ":");
-    }
-    else {
-      var hours = (String(h) + ":0");
-    }
-    return hours + minutes + seconds;
-}
+// I/P: an integer number of seconds
+// O/P: time interval in h:mm:s or m:ss format
+// Status: tested, working
+function printSeconds(r){r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%3600/60),n=Math.floor(r%3600%60);if(n>=10)e=String(n);else var e="0"+String(n);var o=String(i)+":";if(0==t)a="";else if(i>=10)a=String(t)+":";else var a=String(t)+":0";return a+o+e}
 
 class LabeledTimeBlock extends React.Component {
   // I/P: sentences, a list of sentences with the same start time
@@ -355,7 +333,23 @@ class LabeledTimeBlock extends React.Component {
   render() {
     var sentences = this.props.sentences;
     var timestamp = printSeconds(this.props.timestamp);
-    return <div className="labeledTimeBlock"><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+    // Return the actual start and end time of this block in ms. Note that end times may differ,
+    // so take the latest endtime of any sentence in this timeblock. These will be used in attributes
+    // to render the current block in time with audio/video.
+    var min_start = Number.POSITIVE_INFINITY;
+    var max_end = Number.NEGATIVE_INFINITY;
+    for (var i=0; i<sentences.length; i++) {
+      var sentence = sentences[i];
+      var start_time = sentence["start_time"];
+      var end_time = sentence["end_time"];
+      if (start_time < min_start) {
+        min_start = start_time;
+      }
+      if (end_time > max_end) {
+        max_end = end_time;
+      }
+    }
+    return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
   }
 }
 
@@ -365,15 +359,20 @@ class TextDisplay extends React.Component {
   // Status: tested, working
   // Note: very dependent on correct formatting of data
   render() {
-    var sentences = this.props.data["sentences"];
-    var num_sentences = sentences.length;
     var output = [];
-    var times_to_sentences = {}; // mapping from timestamps (in sec) to lists of sentences
-    var unique_timestamps = []; // for sorting
-    for (var i=0; i<num_sentences; i++) {
+    var sentences = this.props.data["sentences"];
+
+    // Steps to create ordered, unique TimeBlocks:
+    //  1) Create a hashmap from start_times (in sec) to lists of sentences
+    //  2) Sort the keys of this hashmap (stored in unique_timestamps)
+    //  3) Each key-value pair corresponds to a unique TimeBlock
+
+    var times_to_sentences = {}; // hashmap from timestamps (in sec) to lists of sentences
+    var unique_timestamps = []; // for sorting keys
+    for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
       var timestamp_ms = sentence["start_time"];
-      var timestamp_sec = Math.floor(timestamp_ms / 1000);
+      var timestamp_sec = Math.floor(timestamp_ms / 1000); // msec -> sec
       if (timestamp_sec in times_to_sentences) {
         times_to_sentences[timestamp_sec].push(sentence);
       }
@@ -383,8 +382,7 @@ class TextDisplay extends React.Component {
       }
     }
     unique_timestamps.sort();
-    var num_unique_timestamps = unique_timestamps.length;
-    for (var i=0; i<num_unique_timestamps; i++) {
+    for (var i=0; i<unique_timestamps.length; i++) {
       var timestamp = unique_timestamps[i];
       var corresponding_sentences = times_to_sentences[timestamp];
       output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp}/>);
