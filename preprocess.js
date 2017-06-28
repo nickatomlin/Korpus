@@ -17,6 +17,18 @@ function swapJsonKeyValues(input) {
     return output;
 }
 
+// `children` should be a lookup table from each element to its list of children
+function getDescendants(ancestor, children) { // not including ancestor itself
+	if (children[ancestor] == null) {
+		return [];
+	}
+	var descendants = children[ancestor];
+	for (var child of children[ancestor]) {
+		descendants = descendants.concat(getDescendants(child, children));
+	}
+	return descendants;
+}
+
 fs.readFile(xmlFileName, function (err, xml) {
   if (err) throw err;
   
@@ -27,7 +39,6 @@ fs.readFile(xmlFileName, function (err, xml) {
 	for (var slot of timeslotsIn) {
 		timeslots[slot.$.TIME_SLOT_ID] = slot.$.TIME_VALUE;
 	}
-	
 	
 	var jsonOut = 
 	{"metadata": 
@@ -42,15 +53,34 @@ fs.readFile(xmlFileName, function (err, xml) {
 	var tiers = tiersIncludeEmpty.filter((tier) => 
 			tier.ANNOTATION != null && tier.ANNOTATION.length > 0);
 	
+	var tierChildren = {};
+	for (var tier of tiers) {
+		var parentName = tier.$.PARENT_REF
+		if (parentName != null) {
+			if (tierChildren[parentName] == null) {
+				tierChildren[parentName] = [];
+			}
+			tierChildren[parentName].push(tier.$.TIER_ID);
+		}
+	}
+	
 	var tierNames = tiers.map((tier) => tier.$.TIER_ID);
 	for (var i = 0; i < tierNames.length; i++) {
 		var newID = "T" + (i + 1).toString();
 		
 		jsonOut.metadata.tierIDs[newID] = tierNames[i];
 	}
-	
-	var indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
 	var tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata.tierIDs);
+	var indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
+	
+	// tierDependents goes from indep tier IDs to dep tier names
+	var tierDependents = {};
+	for (var indepTier of indepTiers) {
+		var indepTierName = indepTier.$.TIER_ID
+		var indepTierID = tierIDsFromNames[indepTierName];
+		tierDependents[indepTierID] = getDescendants(indepTierName, tierChildren);
+	}
+	
 	var annotationsFromIDs = {};
 	for (var i = 0; i < indepTiers.length; i++) {
 		var newID = "S" + (i + 1).toString();
@@ -89,4 +119,3 @@ fs.readFile(xmlFileName, function (err, xml) {
 	}); 
   });
 });
-
