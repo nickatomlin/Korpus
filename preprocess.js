@@ -186,9 +186,9 @@ fs.readFile(xmlFileName, function (err, xml) {
 				for (var bigAnnotation of depTier.ANNOTATION) {
 					var value; 
 					if (bigAnnotation.ALIGNABLE_ANNOTATION != null) {
-						value = bigAnnotation.ALIGNABLE_ANNOTATION[0].ANNOTATION_VALUE;
+						value = bigAnnotation.ALIGNABLE_ANNOTATION[0].ANNOTATION_VALUE[0];
 					} else {
-						value = bigAnnotation.REF_ANNOTATION[0].ANNOTATION_VALUE;
+						value = bigAnnotation.REF_ANNOTATION[0].ANNOTATION_VALUE[0];
 					}
 					
 					var currentBigAnnotation = bigAnnotation;
@@ -199,7 +199,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 					var timeAnnotation = currentBigAnnotation.ALIGNABLE_ANNOTATION[0];
 					
 					var d_raw_start_slot = timeAnnotation.$.TIME_SLOT_REF1;
-					var d_raw_end_slot =  timeAnnotation.$.TIME_SLOT_REF1;
+					var d_raw_end_slot =  timeAnnotation.$.TIME_SLOT_REF2;
 					var d_start_time_ms = timeslots[d_raw_start_slot];
 					var d_end_time_ms = timeslots[d_raw_end_slot];
 					if (d_start_time_ms >= i_start_time_ms && d_end_time_ms <= i_end_time_ms) {
