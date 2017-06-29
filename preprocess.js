@@ -186,9 +186,9 @@ fs.readFile(xmlFileName, function (err, xml) {
 				for (var bigAnnotation of depTier.ANNOTATION) {
 					var value; 
 					if (bigAnnotation.ALIGNABLE_ANNOTATION != null) {
-						value = bigAnnotation.ALIGNABLE_ANNOTATION[0].ANNOTATION_VALUE;
+						value = bigAnnotation.ALIGNABLE_ANNOTATION[0].ANNOTATION_VALUE[0];
 					} else {
-						value = bigAnnotation.REF_ANNOTATION[0].ANNOTATION_VALUE;
+						value = bigAnnotation.REF_ANNOTATION[0].ANNOTATION_VALUE[0];
 					}
 					
 					var currentBigAnnotation = bigAnnotation;
