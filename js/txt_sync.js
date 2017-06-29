@@ -1,5 +1,4 @@
 function sync(current_time) {
-	console.log(current_time);
 	for (var i=0; i<ts_tag_array.length; i++) {
         // Somewhat hacky solution: decrease current_time by 0.001 to avoid highlighting before player starts
 		if ((current_time-0.001 >= parseFloat(ts_start_time_array[i])/1000.0) && (current_time <= parseFloat(ts_stop_time_array[i])/1000.0)) {

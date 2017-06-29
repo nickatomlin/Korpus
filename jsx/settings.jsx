@@ -2,21 +2,15 @@ var data = {
   "metadata": {
     "tier IDs": {
       "T1": "A'ingae",
-      "T2": "A'ingae Words",
-      "T3": "A'ingae Morphemes",
-      "T4": "English Translation",
-      "T5": "Spoken English"
+      "T2": "English",
+      "T3": "Morphemes",
+      "T4": "Glossed Morpheme"
     },
     "speaker IDs": {
       "S1": {
-        "name": "Hugo Lucitante",
-        "language": "A'ingae",
+        "name": "Martin Criollo",
+        "language": "con",
         "tier": "T1"
-      },
-      "S2": {
-        "name": "Scott AnderBois",
-        "language": "English",
-        "tier": "T5"
       }
     }
   }
