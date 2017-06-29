@@ -1,7 +1,7 @@
 function sync(current_time) {
 	console.log(current_time);
 	for (var i=0; i<ts_tag_array.length; i++) {
-		if ((current_time >= parseFloat(ts_start_time_array[i])/1000.0) && (current_time <= parseFloat(ts_stop_time_array[i])/1000.0)) {
+		if ((current_time-0.001 >= parseFloat(ts_start_time_array[i])/1000.0) && (current_time <= parseFloat(ts_stop_time_array[i])/1000.0)) {
 			ts_tag_array[i].style.backgroundColor = "rgba(76, 175, 80, 0.3)";
 		}
 		else {
