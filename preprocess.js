@@ -95,7 +95,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 		tierDependents[indepTierName] = getDescendants(indepTierName, tierChildren);
 	}
 	
-	/* tierTimeslots: independent_tier_id -> time_ms -> rank,
+	/* tierTimeslots: independent_tier_id -> timeslot_id -> rank,
 		where a timeslot's "rank" is what its index would be 
 		in a time-ordered array of the unique timeslots for this speaker */
 	var tierTimeslots = {};
@@ -113,15 +113,29 @@ fs.readFile(xmlFileName, function (err, xml) {
 			}
 		}
 		
-		var slotsArray = Array.from(slots)
-		var times = slotsArray.map((slot) => timeslots[slot]);
-		var sorted_times = times.sort((a, b) => a - b); // callback ensures numeric (not alphabet) sorting
-		var time_indices = swapJsonKeyValues(sorted_times);
+		var slotsArray = Array.from(slots);
+		var sorted_slots = slotsArray.sort((s1, s2) => parseInt(s1.slice(2)) - parseInt(s2.slice(2)));
+		var slot_indices = swapJsonKeyValues(sorted_slots);
 		
-		tierTimeslots[indepTierID] = time_indices;
+		tierTimeslots[indepTierID] = slot_indices;
 	}
 	
-	var annotationsFromIDs = {};
+	var bigAnnotationsFromIDs = {};
+	for (var tier of tiers) {
+		if (tier.ANNOTATION[0].ALIGNABLE_ANNOTATION != null) {
+			for (var bigAnnotation of tier.ANNOTATION) {
+				var annotationID = bigAnnotation.ALIGNABLE_ANNOTATION[0].$.ANNOTATION_ID;
+				bigAnnotationsFromIDs[annotationID] = bigAnnotation;
+			}
+		} else {
+			// REF_ANNOTATIONs
+			for (var bigAnnotation of tier.ANNOTATION) {
+				var annotationID = bigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_ID;
+				bigAnnotationsFromIDs[annotationID] = bigAnnotation;
+			}
+		}
+	}
+	
 	for (var i = 0; i < indepTiers.length; i++) {
 		
 		var spkrID = "S" + (i + 1).toString();
@@ -143,14 +157,14 @@ fs.readFile(xmlFileName, function (err, xml) {
 		);
 
 		for (var bigAnnotation of indepTiers[i].ANNOTATION) {
-			
 			var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
-			annotationsFromIDs[annotation.$.ANNOTATION_ID] = annotation;
 			
-			var i_start_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF1], 10); // TODO should things be parsed to ints earlier in the code? might be better style
-			var i_end_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF2], 10);
-			var i_start_slot = parseInt(tierTimeslots[tierID][i_start_time_ms], 10);
-			var i_end_slot = parseInt(tierTimeslots[tierID][i_end_time_ms], 10);
+			var i_raw_start_slot = annotation.$.TIME_SLOT_REF1;
+			var i_raw_end_slot = annotation.$.TIME_SLOT_REF2;
+			var i_start_time_ms = parseInt(timeslots[i_raw_start_slot], 10); // TODO should things be parsed to ints earlier in the code? might be better style
+			var i_end_time_ms = parseInt(timeslots[i_raw_end_slot], 10);
+			var i_start_slot = parseInt(tierTimeslots[tierID][i_raw_start_slot], 10);
+			var i_end_slot = parseInt(tierTimeslots[tierID][i_raw_end_slot], 10);
 			var num_slots = i_end_slot - i_start_slot;
 			
 			var indepTierJson = {
@@ -169,13 +183,49 @@ fs.readFile(xmlFileName, function (err, xml) {
 					"values": []
 				};
 				
-				/*
-				if (depTier.ANNOTATION[0].ALIGNABLE_ANNOTATION == null) {
+				for (var bigAnnotation of depTier.ANNOTATION) {
+					var value; 
+					if (bigAnnotation.ALIGNABLE_ANNOTATION != null) {
+						value = bigAnnotation.ALIGNABLE_ANNOTATION[0].ANNOTATION_VALUE;
+					} else {
+						value = bigAnnotation.REF_ANNOTATION[0].ANNOTATION_VALUE;
+					}
+					
+					var currentBigAnnotation = bigAnnotation;
+					while (currentBigAnnotation.ALIGNABLE_ANNOTATION == null) {
+						var parentAnnotationID = currentBigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_REF; 
+						var currentBigAnnotation = bigAnnotationsFromIDs[parentAnnotationID];
+					}
+					var timeAnnotation = currentBigAnnotation.ALIGNABLE_ANNOTATION[0];
+					
+					var d_raw_start_slot = timeAnnotation.$.TIME_SLOT_REF1;
+					var d_raw_end_slot =  timeAnnotation.$.TIME_SLOT_REF1;
+					var d_start_time_ms = timeslots[d_raw_start_slot];
+					var d_end_time_ms = timeslots[d_raw_end_slot];
+					if (d_start_time_ms >= i_start_time_ms && d_end_time_ms <= i_end_time_ms) {
+						// this dependent annotation goes with the current independent annotation
+						
+						var d_raw_start_slot = parseInt(tierTimeslots[tierID][d_raw_start_slot], 10);
+						var d_raw_end_slot = parseInt(tierTimeslots[tierID][d_raw_end_slot], 10);
+						var d_rel_start_slot = d_raw_start_slot - i_start_slot;
+						var d_rel_end_slot = d_raw_end_slot - i_start_slot;
+						
+						depTierJson.values.push({
+							"start_slot": d_rel_start_slot,
+							"end_slot": d_rel_end_slot,
+							"value": value
+						});
+					}
+				}
+				
+				/*if (depTier.ANNOTATION[0].ALIGNABLE_ANNOTATION == null) {
 					// REF_ANNOTATION
 					for (var bigAnnotation of depTier.ANNOTATION) {
 						var annotation = bigAnnotation.REF_ANNOTATION[0];
 						
-						var parentAnnotationID = annotation.$.ANNOTATION_REF; // TODO earlier, get a complete map from annotationIDs to annotations?
+						var parentAnnotationID = annotation.$.ANNOTATION_REF; 
+						var parentAnnotation = bigAnnotationsFromIDs[parentAnnotationID];
+						while (parentAnnotation.$.ANNOTATION_REF )
 						
 						/* depTierJson.values.push({
 							"start_slot": d_rel_start_slot,
@@ -184,9 +234,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 						});
 						* /
 					}
-				} 
-				*/
-				if (depTier.ANNOTATION[0].ALIGNABLE_ANNOTATION != null) { // TODO change to "else"
+				} else { 
 					// ALIGNABLE_ANNOTATION
 					for (var bigAnnotation of depTier.ANNOTATION) {
 						var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
@@ -211,6 +259,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 						}
 					}
 				}
+				*/
 				indepTierJson.dependents.push(depTierJson);
 			}
 			jsonOut.speakers[spkrID].push(indepTierJson);
