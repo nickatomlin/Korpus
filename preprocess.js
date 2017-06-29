@@ -217,50 +217,9 @@ fs.readFile(xmlFileName, function (err, xml) {
 						});
 					}
 				}
-				
-				/*if (depTier.ANNOTATION[0].ALIGNABLE_ANNOTATION == null) {
-					// REF_ANNOTATION
-					for (var bigAnnotation of depTier.ANNOTATION) {
-						var annotation = bigAnnotation.REF_ANNOTATION[0];
-						
-						var parentAnnotationID = annotation.$.ANNOTATION_REF; 
-						var parentAnnotation = bigAnnotationsFromIDs[parentAnnotationID];
-						while (parentAnnotation.$.ANNOTATION_REF )
-						
-						/* depTierJson.values.push({
-							"start_slot": d_rel_start_slot,
-							"end_slot": d_rel_end_slot,
-							"value": value
-						});
-						* /
-					}
-				} else { 
-					// ALIGNABLE_ANNOTATION
-					for (var bigAnnotation of depTier.ANNOTATION) {
-						var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
-						
-						var d_start_time_ms = timeslots[annotation.$.TIME_SLOT_REF1];
-						var d_end_time_ms = timeslots[annotation.$.TIME_SLOT_REF2];
-						if (d_start_time_ms >= i_start_time_ms && d_end_time_ms <= i_end_time_ms) {
-							// this dependent annotation goes with the current independent annotation
-							
-							var d_raw_start_slot = parseInt(tierTimeslots[tierID][d_start_time_ms], 10);
-							var d_raw_end_slot = parseInt(tierTimeslots[tierID][d_end_time_ms], 10);
-							var d_rel_start_slot = d_raw_start_slot - i_start_slot;
-							var d_rel_end_slot = d_raw_end_slot - i_start_slot;
-							
-							var value = annotation.ANNOTATION_VALUE;
-							
-							depTierJson.values.push({
-								"start_slot": d_rel_start_slot,
-								"end_slot": d_rel_end_slot,
-								"value": value
-							});
-						}
-					}
+				if (depTierJson.values.length > 0) {
+					indepTierJson.dependents.push(depTierJson);
 				}
-				*/
-				indepTierJson.dependents.push(depTierJson);
 			}
 			jsonOut.speakers[spkrID].push(indepTierJson);
 		}
