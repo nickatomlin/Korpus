@@ -60,7 +60,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 		{"tierIDs": {}, 
 		"speakerIDs": {}
 		},
-	"speakers": {}
+	"sentences": []
 	};
 	
 	var tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER
@@ -149,8 +149,6 @@ fs.readFile(xmlFileName, function (err, xml) {
 			"language": language,
 			"tier": tierID
 			};
-			
-		jsonOut.speakers[spkrID] = [];
 		
 		var depTiers = tiers.filter((tier) => 
 			tierDependents[indepTierName].includes(tier.$.TIER_ID)
@@ -161,13 +159,14 @@ fs.readFile(xmlFileName, function (err, xml) {
 			
 			var i_raw_start_slot = annotation.$.TIME_SLOT_REF1;
 			var i_raw_end_slot = annotation.$.TIME_SLOT_REF2;
-			var i_start_time_ms = parseInt(timeslots[i_raw_start_slot], 10); // TODO should things be parsed to ints earlier in the code? might be better style
+			var i_start_time_ms = parseInt(timeslots[i_raw_start_slot], 10); 
 			var i_end_time_ms = parseInt(timeslots[i_raw_end_slot], 10);
 			var i_start_slot = parseInt(tierTimeslots[tierID][i_raw_start_slot], 10);
 			var i_end_slot = parseInt(tierTimeslots[tierID][i_raw_end_slot], 10);
 			var num_slots = i_end_slot - i_start_slot;
 			
 			var indepTierJson = {
+				"speaker": spkrID,
 				"tier": tierID,
 				"start_time_ms": i_start_time_ms,
 				"end_time_ms": i_end_time_ms,
@@ -221,7 +220,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 					indepTierJson.dependents.push(depTierJson);
 				}
 			}
-			jsonOut.speakers[spkrID].push(indepTierJson);
+			jsonOut.sentences.push(indepTierJson);
 		}
 	}
 
