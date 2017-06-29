@@ -265,7 +265,7 @@ class Row extends React.Component {
       var diff = String(final_slot - current_slot);
       output.push(<td colSpan={diff}></td>);
     }
-    return <tr className={tier}>{output}</tr>;
+    return <tr data-tier={tier}>{output}</tr>;
   }
 }
 
@@ -279,7 +279,7 @@ class Sentence extends React.Component {
     var num_slots = sentence["num_slots"];
     // Add the indepentent tier, i.e., the top row, to the list of rows. Note that
     // "colSpan={num_slots}" ensures that this row spans the entire table.
-    row_list.push(<tr><td colSpan={num_slots} className="topRow">{sentence["text"]}</td></tr>);
+    row_list.push(<tr><td colSpan={num_slots} className="topRow" data-tier={"fix-this"}>{sentence["text"]}</td></tr>);
     var dependents = sentence["dependents"]; // list of dependent tiers, flat structure
     // Add each dependent tier to the row list:
     for (var i=0; i<dependents.length; i++) {
