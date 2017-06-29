@@ -123,35 +123,97 @@ fs.readFile(xmlFileName, function (err, xml) {
 	
 	var annotationsFromIDs = {};
 	for (var i = 0; i < indepTiers.length; i++) {
-		var newID = "S" + (i + 1).toString();
-		var tierHeader = indepTiers[i].$;
-		var tierID = tierIDsFromNames[tierHeader.TIER_ID];
 		
-		jsonOut.metadata.speakerIDs[newID] = {
-			"name": tierHeader.PARTICIPANT,
-			"language": tierHeader.LANG_REF,
+		var spkrID = "S" + (i + 1).toString();
+		var tierName = indepTiers[i].$.TIER_ID;
+		var spkrName = indepTiers[i].$.PARTICIPANT;
+		var language = indepTiers[i].$.LANG_REF;
+		var tierID = tierIDsFromNames[tierName];
+		
+		jsonOut.metadata.speakerIDs[spkrID] = {
+			"name": spkrName,
+			"language": language,
 			"tier": tierID
 			};
 			
-		jsonOut.speakers[newID] = [];
+		jsonOut.speakers[spkrID] = [];
+		
+		var depTiers = tiers.filter((tier) => 
+			tierDependents[indepTierName].includes(tier.$.TIER_ID)
+		);
 
 		for (var bigAnnotation of indepTiers[i].ANNOTATION) {
+			
 			var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
 			annotationsFromIDs[annotation.$.ANNOTATION_ID] = annotation;
-			var start_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF1], 10); // TODO should things be parsed to ints earlier in the code? might be better style
-			var end_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF2], 10);
-			var start_slot = parseInt(tierTimeslots[tierID][start_time_ms], 10);
-			var end_slot = parseInt(tierTimeslots[tierID][end_time_ms], 10);
-			var num_slots = 1 + end_slot - start_slot;
-			jsonOut.speakers[newID].push({
-				"start_time_ms": start_time_ms,
-				"end_time_ms": end_time_ms,
-				"start_slot": start_slot,
-				"end_slot": end_slot,
+			
+			var i_start_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF1], 10); // TODO should things be parsed to ints earlier in the code? might be better style
+			var i_end_time_ms = parseInt(timeslots[annotation.$.TIME_SLOT_REF2], 10);
+			var i_start_slot = parseInt(tierTimeslots[tierID][i_start_time_ms], 10);
+			var i_end_slot = parseInt(tierTimeslots[tierID][i_end_time_ms], 10);
+			var num_slots = i_end_slot - i_start_slot;
+			
+			var indepTierJson = {
+				"tier": tierID,
+				"start_time_ms": i_start_time_ms,
+				"end_time_ms": i_end_time_ms,
 				"num_slots": num_slots,
 				"text": annotation.ANNOTATION_VALUE[0],
 				"dependents": []
-			})
+			};
+			
+			for (var depTier of depTiers) {
+				var depTierID = tierIDsFromNames[depTier.$.TIER_ID];
+				var depTierJson = {
+					"tier": depTierID, 
+					"values": []
+				};
+				
+				/*
+				if (depTier.ANNOTATION[0].ALIGNABLE_ANNOTATION == null) {
+					// REF_ANNOTATION
+					for (var bigAnnotation of depTier.ANNOTATION) {
+						var annotation = bigAnnotation.REF_ANNOTATION[0];
+						
+						var parentAnnotationID = annotation.$.ANNOTATION_REF; // TODO earlier, get a complete map from annotationIDs to annotations?
+						
+						/* depTierJson.values.push({
+							"start_slot": d_rel_start_slot,
+							"end_slot": d_rel_end_slot,
+							"value": value
+						});
+						* /
+					}
+				} 
+				*/
+				if (depTier.ANNOTATION[0].ALIGNABLE_ANNOTATION != null) { // TODO change to "else"
+					// ALIGNABLE_ANNOTATION
+					for (var bigAnnotation of depTier.ANNOTATION) {
+						var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
+						
+						var d_start_time_ms = timeslots[annotation.$.TIME_SLOT_REF1];
+						var d_end_time_ms = timeslots[annotation.$.TIME_SLOT_REF2];
+						if (d_start_time_ms >= i_start_time_ms && d_end_time_ms <= i_end_time_ms) {
+							// this dependent annotation goes with the current independent annotation
+							
+							var d_raw_start_slot = parseInt(tierTimeslots[tierID][d_start_time_ms], 10);
+							var d_raw_end_slot = parseInt(tierTimeslots[tierID][d_end_time_ms], 10);
+							var d_rel_start_slot = d_raw_start_slot - i_start_slot;
+							var d_rel_end_slot = d_raw_end_slot - i_start_slot;
+							
+							var value = annotation.ANNOTATION_VALUE;
+							
+							depTierJson.values.push({
+								"start_slot": d_rel_start_slot,
+								"end_slot": d_rel_end_slot,
+								"value": value
+							});
+						}
+					}
+				}
+				indepTierJson.dependents.push(depTierJson);
+			}
+			jsonOut.speakers[spkrID].push(indepTierJson);
 		}
 	}
 
