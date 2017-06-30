@@ -14,12 +14,19 @@
 </head>
 
 <body>
-    <audio controls id="player"><source src="data/media_files/test.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-	<div id="settings"></div>
-    <div id="example"></div>
-    <script type="text/jsx" src="jsx/text_display.jsx"></script>
-    <script type="text/jsx" src="jsx/settings.jsx"></script>
+    <div id="navbar"></div>
+    <div id="main">
+        <div id="leftPanel">
+    	   <div id="settings"></div>
+        </div>
+        <div id="example"></div>
+        <script type="text/jsx" src="jsx/text_display.jsx"></script>
+        <script type="text/jsx" src="jsx/settings.jsx"></script>
+    </div>
+    <div id="footer">
+    <audio controls id="player" style="float:left; width: 100%;"><source src="data/media_files/Intro.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 </body>
 </html>

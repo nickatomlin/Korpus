@@ -20,19 +20,50 @@
 .labeledTimeBlock {
 	clear: both;
 	float: left;
-	width: 600px;
 }
 
 .textDisplay {
-	float: left;
+	position: fixed;
+	margin-left: 240px;
+	padding-left: 20px;
+	width: calc(100% - 240px);
+	height: calc(100% - 80px);
+	overflow-y: scroll;
+	border-left: 2px solid black;
 }
 
 #settings {
-	float: left;
-	margin-right: 50px;
+	position: absolute;
+}
+
+#leftPanel {
+	width: 240px;
 }
 
 td {
 	padding-left: 2px;
 	padding-right: 2px;
+	white-space: nowrap;
+}
+
+#navbar {
+	height: 48px;
+	background-color: rgba(255,100,100,30);
+}
+
+body {
+	margin: 0px;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+
+ul {
+	list-style: none;
 }

@@ -3056,8 +3056,7 @@ class TextDisplay extends React.Component {
         times_to_sentences[timestamp_sec] = [sentence];
       }
     }
-    unique_timestamps.sort((a, b) => a - b);
-    console.log(unique_timestamps);
+    unique_timestamps.sort((a, b) => a - b); // to avoid alphanumeric sorting
     for (var i=0; i<unique_timestamps.length; i++) {
       var timestamp = unique_timestamps[i];
       var corresponding_sentences = times_to_sentences[timestamp];
