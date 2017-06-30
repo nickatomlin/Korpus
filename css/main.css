@@ -21,6 +21,15 @@
 	clear: both;
 	float: left;
 	margin-top: 10px;
+	display: flex;
+}
+
+.labeledSentence {
+	white-space: nowrap;
+}
+
+table.gloss {
+	display: inline;
 }
 
 .textDisplay {
