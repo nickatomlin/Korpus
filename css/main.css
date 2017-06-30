@@ -20,6 +20,7 @@
 .labeledTimeBlock {
 	clear: both;
 	float: left;
+	margin-top: 10px;
 }
 
 .textDisplay {
@@ -62,6 +63,7 @@ body {
    height:30px;
    width:100%;
    background:#999;
+   border-top: 2px solid black;
 }
 
 ul {
