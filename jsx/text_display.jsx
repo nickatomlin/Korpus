@@ -3062,7 +3062,7 @@ class TextDisplay extends React.Component {
       var corresponding_sentences = times_to_sentences[timestamp];
       output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp}/>);
     }
-    return <div className="textDisplay">{output}</div>;
+    return <div className="textDisplay" id="td">{output}</div>;
   }
 }
 

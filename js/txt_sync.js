@@ -1,9 +1,20 @@
+function scrollIntoViewIfNeeded(target) {
+    var rect = target.getBoundingClientRect();
+    if (rect.bottom > window.innerHeight) {
+        target.scrollIntoView(false);
+    }
+    if (rect.top < 0) {
+        target.scrollIntoView();
+    } 
+}
+
 function sync(current_time) {
 	for (var i=0; i<ts_tag_array.length; i++) {
         // Somewhat hacky solution: decrease current_time by 0.001 to avoid highlighting before player starts
 		if ((current_time-0.001 >= parseFloat(ts_start_time_array[i])/1000.0) && (current_time <= parseFloat(ts_stop_time_array[i])/1000.0)) {
-			ts_tag_array[i].setAttribute("id", "current");
-            document.getElementById('current').scrollIntoView(true);
+            ts_tag_array[i].setAttribute("id", "current");
+            // $('#example, #td').animate({scrollTop:$("#current").offset().top}, 500);
+            scrollIntoViewIfNeeded($("#current")[0]);
             ts_tag_array[i].style.backgroundColor = "rgba(76, 175, 80, 0.3)";
 		}
 		else {
@@ -18,7 +29,7 @@ window.onload = function() {
 	media = document.getElementById("player");
 
     media.setAttribute("ontimeupdate", "sync(this.currentTime)");
-    media.setAttribute("onmousemove", "sync(this.currentTime)");
+    // media.setAttribute("onmousemove", "sync(this.currentTime)");
     media.setAttribute("onclick", "sync(this.currentTime)");
 
     ts_tag_array = document.getElementsByClassName("labeledTimeBlock");
