@@ -20,8 +20,10 @@
 .labeledTimeBlock {
 	clear: both;
 	float: left;
-	margin-top: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	display: flex;
+	padding-right: 10px;
 }
 
 .labeledSentence {
@@ -36,7 +38,7 @@ table.gloss {
 	position: fixed;
 	margin-left: 240px;
 	padding-left: 20px;
-	width: calc(100% - 240px);
+	width: calc(100% - 262px);
 	height: calc(100% - 80px);
 	overflow-y: scroll;
 	border-left: 2px solid black;
