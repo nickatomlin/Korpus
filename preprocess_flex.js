@@ -29,25 +29,33 @@ fs.readFile(xmlFileName, function (err, xml) {
 	var tierIDs = {};
 	// TODO make IDs for free translation tiers
 	
+	var textLang = "default"; // TODO use something better
+	
+	var wordsTierID = "T" + (nextTierIDnum++).toString();
+	//tierIDs[textLang]["words"] = wordsTierID;
+	jsonOut.metadata["tier IDs"][wordsTierID] = getTierName(textLang, "words");
+	
 	var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
 	for (var wrappedParagraph of paragraphs) {
 		var paragraph = wrappedParagraph.phrases[0].word;
 		for (var wrappedSentence of paragraph) {
 			var sentence = wrappedSentence.words[0].word;
 			
-			var rawDependentsJson = {}; // tierID -> start_slot -> value
-			var num_slots = 0;
+			var morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
+			morphsJson[wordsTierID] = {};
+			var slotNum = 0;
 			var sentenceText = "";
+			// FIXME words tier will show up even when the sentence is empty of words
 			
-			for (var i = 0; i < sentence.length; i++) {
-				var wordWithMorphs = sentence[i];
+			for (var wordWithMorphs of sentence) {
 				var wordValue = wordWithMorphs.item[0]._;
-				// TODO have a word tier
 				sentenceText += wordValue + " "; // TODO omit space if next morpheme is punctuation
 				process.stdout.write("\n" + wordValue + " ");
+				
+				var wordStartSlot = slotNum;
+				
 				if (wordWithMorphs.morphemes != null) {
 					var morphs = wordWithMorphs.morphemes[0].morph;
-					num_slots += morphs.length;
 					for (var wrappedMorph of morphs) {
 						var morphTiers = wrappedMorph.item;
 						for (var tier of morphTiers) {
@@ -68,26 +76,36 @@ fs.readFile(xmlFileName, function (err, xml) {
 							var tierID = tierIDs[tierLang][tierType];
 							var tierValue = tier._;
 							process.stdout.write(tierValue + " ");
-							if (!rawDependentsJson.hasOwnProperty(tierID)) {
-								rawDependentsJson[tierID] = {};
+							if (!morphsJson.hasOwnProperty(tierID)) {
+								morphsJson[tierID] = {};
 							}
-							rawDependentsJson[tierID][i] = tierValue;
+							morphsJson[tierID][slotNum] = {
+								"value": tierValue, 
+								"end_slot": slotNum + 1
+							};
 						}
+						slotNum++;
 					}
-				} // else the "word" is probably just punctuation
+				} else { // the "word" is probably just punctuation, and it gets its own slot
+					slotNum++;
+				}
+				var wordEndSlot = slotNum;
+				morphsJson[wordsTierID][wordStartSlot] = {
+					"value": wordValue, 
+					"end_slot": wordEndSlot
+				};
 			}
-			console.log(rawDependentsJson);
 			
 			var dependentsJson = [];
-			for (var tierID in rawDependentsJson) {
-				if (rawDependentsJson.hasOwnProperty(tierID)) {
+			for (var tierID in morphsJson) {
+				if (morphsJson.hasOwnProperty(tierID)) {
 					var valuesJson = [];
-					for (var start_slot in rawDependentsJson[tierID]) {
-						if (rawDependentsJson[tierID].hasOwnProperty(start_slot)) {
+					for (var start_slot in morphsJson[tierID]) {
+						if (morphsJson[tierID].hasOwnProperty(start_slot)) {
 							valuesJson.push({
 								"start_slot": parseInt(start_slot, 10),
-								"end_slot": parseInt(start_slot, 10) + 1,
-								"value": rawDependentsJson[tierID][start_slot]
+								"end_slot": morphsJson[tierID][start_slot].end_slot,
+								"value": morphsJson[tierID][start_slot].value
 							})
 						}
 					}
@@ -100,7 +118,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 			
 			// "speaker, "start_time", and "end_time" omitted (they're only used on elan files)
 			jsonOut.sentences.push({
-				"num_slots": num_slots,
+				"num_slots": slotNum,
 				"text": sentenceText,
 				"dependents": dependentsJson
 			});
