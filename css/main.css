@@ -12,22 +12,32 @@
 }
 
 .timeStamp {
-	margin-top: 3px; /* A quick fix to align with TimeBlock. */
+	padding-top: 3px; /* A quick fix to align with TimeBlock. */
 	float: left;
-	margin-right: 20px;
+	margin-right: 9px;
+	margin-left: 9px;
+	padding-right: 9px;
+	border-right: 2px solid black;
+	text-align: center;
+	width: 46px;
+	padding-top: 8px;
+	padding-bottom: 5px;
 }
 
 .labeledTimeBlock {
 	clear: both;
 	float: left;
-	margin-top: 5px;
-	margin-bottom: 5px;
 	display: flex;
 	padding-right: 10px;
+	/*padding-left: 20px;*/
+	width: 100%;
+	border-bottom: 2px solid black;
 }
 
 .labeledSentence {
 	white-space: nowrap;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 table.gloss {
@@ -37,8 +47,7 @@ table.gloss {
 .textDisplay {
 	position: fixed;
 	margin-left: 240px;
-	padding-left: 20px;
-	width: calc(100% - 262px);
+	width: calc(100% - 242px);
 	height: calc(100% - 80px);
 	overflow-y: scroll;
 	border-left: 2px solid black;
