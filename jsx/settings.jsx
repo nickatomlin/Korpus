@@ -12,7 +12,8 @@ var data = {
         "language": "con",
         "tier": "T1"
       }
-    }
+    },
+    "title": "Intro-Ingi Cansecho Ande"
   }
 };
 
@@ -59,17 +60,50 @@ class TierCheckboxList extends React.Component {
         output.push(<TierCheckbox tier_id={tier_id} tier_name={tiers[tier_id]}/>);
       }
     }
-    return <ul>{output}</ul>;
+    return <div>Tiers to show: <ul>{output}</ul></div>;
   }
 }
 
-// class Settings extends React.Component {
-// 	// I/P: metadata, in JSON format
-// 	// O/P: a settings panel, with ordered tier names
-//	// Status: unfinished
-// }
+class TitleInfo extends React.Component {
+  // I/P: title, a string
+  // O/P: printed title
+  // Status: tested, working
+  render() {
+    var title = this.props.title;
+    return <h3>{title}</h3>;
+  }
+}
+
+class SpeakerInfo extends React.Component {
+  // I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
+  // O/P: some nicely formatted info about these speakers
+  // Status: unfinished
+  render() {
+    var speaker_list = [];
+    var speakers = this.props.speakers;
+    for (var speaker_id in speakers) {
+      if (speakers.hasOwnProperty(speaker_id)) {
+        var speaker_name = speakers[speaker_id]["name"];
+        var speaker_display = speaker_id + ": " + speaker_name;
+        speaker_list.push(<li>{speaker_display}</li>);
+      }
+    }
+    return <div>Speakers: <ul>{speaker_list}</ul></div>;
+  }
+}
+
+class Settings extends React.Component {
+ 	// I/P: metadata, in JSON format
+ 	// O/P: a settings/metadata panel
+	// Status: working, in progress
+  render() {
+    var metadata = this.props.metadata;
+    var title = metadata["title"];
+    return <div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
+  }
+ }
 
 ReactDOM.render(
-	<TierCheckboxList tiers={data["metadata"]["tier IDs"]} />,
- 	document.getElementById('settings')
+	<Settings metadata={data["metadata"]} />,
+ 	document.getElementById('leftPanel')
 );

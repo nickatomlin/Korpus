@@ -19,7 +19,7 @@
 	padding-right: 9px;
 	border-right: 2px solid black;
 	text-align: center;
-	width: 46px;
+	min-width: 46px;
 	padding-top: 8px;
 	padding-bottom: 5px;
 }
@@ -53,12 +53,13 @@ table.gloss {
 	border-left: 2px solid black;
 }
 
-#settings {
+#leftPanel {
 	position: absolute;
+	width: 240px;
 }
 
-#leftPanel {
-	width: 240px;
+#settings {
+	padding: 10px;
 }
 
 td {
@@ -70,6 +71,7 @@ td {
 #navbar {
 	height: 48px;
 	background-color: rgba(255,100,100,30);
+	border-bottom: 2px solid rgba(255,100,100,30);
 }
 
 body {
@@ -88,4 +90,6 @@ body {
 
 ul {
 	list-style: none;
+	-webkit-padding-start: 10px;
+	-webkit-margin-before: 0.2em;
 }
