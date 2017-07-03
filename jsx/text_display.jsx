@@ -3068,5 +3068,5 @@ class TextDisplay extends React.Component {
 
 ReactDOM.render(
   <TextDisplay data={data}/>,
-  document.getElementById('example')
+  document.getElementById('centerPanel')
 );

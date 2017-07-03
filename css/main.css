@@ -9,12 +9,13 @@
 
 .timeBlock {
 	float: left;
+	padding-left: 9px;
 }
 
 .timeStamp {
 	padding-top: 3px; /* A quick fix to align with TimeBlock. */
 	float: left;
-	margin-right: 9px;
+	/*margin-right: 9px;*/
 	margin-left: 9px;
 	padding-right: 9px;
 	border-right: 2px solid black;
@@ -22,6 +23,7 @@
 	min-width: 46px;
 	padding-top: 8px;
 	padding-bottom: 5px;
+	overflow-x: scroll;
 }
 
 .labeledTimeBlock {
@@ -42,6 +44,7 @@
 
 table.gloss {
 	display: inline;
+	padding-right: 9px;
 }
 
 .textDisplay {
@@ -51,6 +54,7 @@ table.gloss {
 	height: calc(100% - 80px);
 	overflow-y: scroll;
 	border-left: 2px solid black;
+	overflow-x: hidden;
 }
 
 #leftPanel {
@@ -92,4 +96,6 @@ ul {
 	list-style: none;
 	-webkit-padding-start: 10px;
 	-webkit-margin-before: 0.2em;
+	padding-inline-start: 10px;
+	margin-block-start: 0.2em;
 }
