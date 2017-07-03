@@ -101,7 +101,7 @@ class Settings extends React.Component {
     var title = metadata["title"];
     return <div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
   }
- }
+}
 
 ReactDOM.render(
 	<Settings metadata={data["metadata"]} />,

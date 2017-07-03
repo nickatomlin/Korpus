@@ -3003,11 +3003,13 @@ function printSeconds(r){r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%360
 class LabeledTimeBlock extends React.Component {
   // I/P: sentences, a list of sentences with the same start time
   //      timestamp, an integer number of seconds
+  //      isFinalBlock, a boolean value
   // O/P: a TimeBlock with a left-floating timestamp
   // Status: tested, working
   render() {
     var sentences = this.props.sentences;
     var timestamp = printSeconds(this.props.timestamp);
+    var isFinalBlock = this.props.isFinalBlock;
     // Return the actual start and end time of this block in ms. Note that end times may differ,
     // so take the latest endtime of any sentence in this timeblock. These will be used in attributes
     // to render the current block in time with audio/video.
@@ -3024,7 +3026,12 @@ class LabeledTimeBlock extends React.Component {
         max_end = end_time;
       }
     }
-    return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+    if (isFinalBlock) {
+      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end} data-isFinalBlock="true"><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+    }
+    else {
+      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+    }
   }
 }
 
@@ -3060,7 +3067,12 @@ class TextDisplay extends React.Component {
     for (var i=0; i<unique_timestamps.length; i++) {
       var timestamp = unique_timestamps[i];
       var corresponding_sentences = times_to_sentences[timestamp];
-      output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp}/>);
+      if (i == (unique_timestamps.length - 1)) {
+        output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp} isFinalBlock={true} />);
+      }
+      else {
+        output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp}/>);
+      }
     }
     return <div className="textDisplay" id="td">{output}</div>;
   }

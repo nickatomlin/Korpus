@@ -36,6 +36,10 @@
 	border-bottom: 2px solid black;
 }
 
+.labeledTimeBlock[data-isFinalBlock="true"] {
+	border-bottom: none;
+}
+
 .labeledSentence {
 	white-space: nowrap;
 	padding-top: 5px;
@@ -51,7 +55,7 @@ table.gloss {
 	position: fixed;
 	margin-left: 240px;
 	width: calc(100% - 242px);
-	height: calc(100% - 80px);
+	height: calc(100% - 84px);
 	overflow-y: scroll;
 	border-left: 2px solid black;
 	overflow-x: hidden;
@@ -75,7 +79,7 @@ td {
 #navbar {
 	height: 48px;
 	background-color: rgba(255,100,100,30);
-	border-bottom: 2px solid rgba(255,100,100,30);
+	/*border-bottom: 2px solid rgba(255,100,100,30);*/
 }
 
 body {
@@ -86,10 +90,8 @@ body {
    position:fixed;
    left:0px;
    bottom:0px;
-   height:30px;
    width:100%;
    background:#999;
-   border-top: 2px solid black;
 }
 
 ul {
