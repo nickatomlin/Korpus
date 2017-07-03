@@ -10,6 +10,7 @@
 .timeBlock {
 	float: left;
 	padding-left: 9px;
+	overflow-x: scroll;
 }
 
 .timeStamp {
@@ -23,7 +24,6 @@
 	min-width: 46px;
 	padding-top: 8px;
 	padding-bottom: 5px;
-	overflow-x: scroll;
 }
 
 .labeledTimeBlock {
