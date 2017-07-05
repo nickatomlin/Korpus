@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "tierIDs": {
+    "tier IDs": {
       "T1": "A'ingae",
       "T2": "English",
       "T3": "Morphemes",
       "T4": "Glossed Morpheme"
     },
-    "speakerIDs": {
+    "speaker IDs": {
       "S1": {
         "name": "Martin Criollo",
         "language": "con",

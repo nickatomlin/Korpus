@@ -31,9 +31,9 @@
 	float: left;
 	display: flex;
 	padding-right: 10px;
-	/*padding-left: 20px;*/
 	width: 100%;
 	border-bottom: 2px solid black;
+	border-left: 2px solid black;
 }
 
 .labeledTimeBlock[data-isFinalBlock="true"] {
@@ -57,7 +57,6 @@ table.gloss {
 	width: calc(100% - 242px);
 	height: calc(100% - 84px);
 	overflow-y: scroll;
-	border-left: 2px solid black;
 	overflow-x: hidden;
 }
 
