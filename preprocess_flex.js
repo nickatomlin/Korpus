@@ -5,35 +5,76 @@ var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
   
 var xmlFileName = "C:\\Users\\Kalinda\\Documents\\MEGAsync\\Linguistics\\UTRA\\data_conversion\\singo_ai.xml";
+var startJsonFileName = "C:\\Users\\Kalinda\\Documents\\MEGAsync\\Linguistics\\UTRA\\data_conversion\\singo_ai_synonymous-json.xml"
 var jsonFileName = "C:\\Users\\Kalinda\\Documents\\MEGAsync\\Linguistics\\UTRA\\data_conversion\\singo_ai_preprocessed.js"
 
-function getTierName(lang, type) {
-	// TODO decode FLEX's language and type codes so they're more human-readable? e.g. replace "con" with "Cofan"
-	return lang + " " + type;
+function decodeLang(lang) {
+	switch(lang) {
+		case "con-Latn-EC": return "A'ingae";
+		case "en": return "English";
+		case "es": return "Spanish";
+		default: return lang;
+	}
 }
+
+function decodeType(type) {
+	switch(type) {
+		case "txt": return "morpheme (text)";
+		case "cf": return "morpheme (citation form)";
+		case "gls": return "morpheme gloss"
+		case "msa": return "part of speech";
+		default: return type;
+	}
+}
+
+function getTierName(lang, type) {
+	return decodeLang(lang) + " " + decodeType(type);
+}
+
+// if this is a new tier, register its ID and include it in metadata
+function maybeRegisterTier(lang, type) {
+	if (!tierIDs.hasOwnProperty(lang)) {
+		tierIDs[lang] = {};
+	}
+	if (!tierIDs[lang].hasOwnProperty(type)) {
+		var tierID = "T" + (nextTierIDnum++).toString();
+		tierIDs[lang][type] = tierID;
+		jsonOut.metadata["tier IDs"][tierID] = getTierName(lang, type);
+	}
+	return tierIDs[lang][type];
+}
+
+nextTierIDnum = 1;
+tierIDs = {};
+jsonOut = {
+	"metadata": {
+		"tier IDs": {}
+		// "speaker IDs" omitted (only used on elan files)
+		},
+	"sentences": []
+};
 
 fs.readFile(xmlFileName, function (err, xml) {
   if (err) throw err;
   
   parseString(xml, function (err, jsonIn) {
+	  
+	var prettyStringIn = JSON.stringify(jsonIn, null, 2);
+	fs.writeFile(startJsonFileName, prettyStringIn, function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("JSON of input file saved.");
+	}); 
 	
-	var jsonOut = {
-		"metadata": {
-			"tier IDs": {}
-			// "speaker IDs" omitted (only used on elan files)
-			},
-		"sentences": []
-	};
-	
-	var nextTierIDnum = 1;
-	var tierIDs = {};
-	// TODO make IDs for free translation tiers
-	
-	var textLang = "default"; // TODO use something better
-	
-	var wordsTierID = "T" + (nextTierIDnum++).toString();
-	//tierIDs[textLang]["words"] = wordsTierID;
-	jsonOut.metadata["tier IDs"][wordsTierID] = getTierName(textLang, "words");
+	var textLang = "defaultLang"; 
+	var languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
+	for (var lang of languages) {
+		if (lang.$.vernacular) {
+			textLang = lang.$.lang;
+		}
+	}
+	var wordsTierID = maybeRegisterTier(textLang, "words");
 	
 	var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
 	for (var wrappedParagraph of paragraphs) {
@@ -49,33 +90,23 @@ fs.readFile(xmlFileName, function (err, xml) {
 			
 			for (var wordWithMorphs of sentence) {
 				var wordValue = wordWithMorphs.item[0]._;
-				sentenceText += wordValue + " "; // TODO omit space if next morpheme is punctuation
-				process.stdout.write("\n" + wordValue + " ");
-				
 				var wordStartSlot = slotNum;
+				// process.stdout.write("\n" + wordValue + " "); // for debugging
 				
 				if (wordWithMorphs.morphemes != null) {
+					// write a space before every non-punctuation word other than the first word
+					if (sentenceText != "") {
+						sentenceText += " "; 
+					}
+					
 					var morphs = wordWithMorphs.morphemes[0].morph;
 					for (var wrappedMorph of morphs) {
 						var morphTiers = wrappedMorph.item;
 						for (var tier of morphTiers) {
-							
-							// if this is a new tier, register its ID and include it in metadata
-							var tierLang = tier.$.lang;
-							var tierType = tier.$.type;
-							if (!tierIDs.hasOwnProperty(tierLang)) {
-								tierIDs[tierLang] = {};
-							}
-							if (!tierIDs[tierLang].hasOwnProperty(tierType)) {
-								var tierID = "T" + (nextTierIDnum++).toString();
-								tierIDs[tierLang][tierType] = tierID;
-								jsonOut.metadata["tier IDs"][tierID] = getTierName(tierLang, tierType);
-							}
-							
 							// record the morph's value so it can be included in the output
-							var tierID = tierIDs[tierLang][tierType];
+							var tierID = maybeRegisterTier(tier.$.lang, tier.$.type);
 							var tierValue = tier._;
-							process.stdout.write(tierValue + " ");
+							// process.stdout.write(tierValue + " "); // for debugging
 							if (!morphsJson.hasOwnProperty(tierID)) {
 								morphsJson[tierID] = {};
 							}
@@ -86,7 +117,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 						}
 						slotNum++;
 					}
-				} else { // the "word" is probably just punctuation, and it gets its own slot
+				} else { // the "word" is probably just punctuation
 					slotNum++;
 				}
 				var wordEndSlot = slotNum;
@@ -94,6 +125,27 @@ fs.readFile(xmlFileName, function (err, xml) {
 					"value": wordValue, 
 					"end_slot": wordEndSlot
 				};
+				
+				sentenceText += wordValue;
+			}
+			
+			var freeGlosses = wrappedSentence.item;
+			var glossStartSlot = 0;
+			for (var gloss of freeGlosses) {
+				if (gloss.$.type == "gls") {
+					var glossValue = gloss._;
+					if (glossValue != null) {
+						// console.log(glossValue); // for debugging
+						var tierID = maybeRegisterTier(gloss.$.lang, "free");
+						if (!morphsJson.hasOwnProperty(tierID)) {
+							morphsJson[tierID] = {};
+						}
+						morphsJson[tierID][glossStartSlot] = {
+							"value": glossValue,
+							"end_slot": slotNum
+						};
+					} // else there's not actually a gloss here, just the metadata/placeholder for one
+				} // else it might be type "segnum" (sentence number) or similar; we'll ignore it
 			}
 			
 			var dependentsJson = [];
