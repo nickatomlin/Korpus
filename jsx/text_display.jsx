@@ -2967,6 +2967,21 @@ class Sentence extends React.Component {
   }
 }
 
+class UntimedTextDisplay {
+	// I/P: data, stored in JSON format, as in test_data.json
+  // O/P: the main gloss view, with several Sentences arranged vertically
+  // Status: untested
+  render() {
+    var sentences = this.props.data["sentences"];
+    var output = [];
+    for (var i=0; i<sentences.length; i++) {
+      var sentence = sentences[i];
+      output.push(<Sentence key={i} value={sentence}/>);
+    }
+  }
+  return <div className="untimedTextDisplay" id="td">{output}</div>;
+}
+
 class LabeledSentence extends React.Component {
   // I/P: value, a sentence
   // O/P: glossed sentence with speaker label
@@ -2989,7 +3004,7 @@ class TimeBlock extends React.Component {
     // Iterate through the list of these sentences.
     for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
-      output.push(<LabeledSentence key={i} value={sentence}/>)
+      output.push(<LabeledSentence key={i} value={sentence}/>);
     }
     return <div className="timeBlock">{output}</div>;
   }
@@ -3035,7 +3050,7 @@ class LabeledTimeBlock extends React.Component {
   }
 }
 
-class TextDisplay extends React.Component {
+class TimedTextDisplay extends React.Component {
   // I/P: data, stored in JSON format, as in test_data.json
   // O/P: the main gloss view, with several LabeledTimeBlocks arranged vertically
   // Status: tested, working
@@ -3074,11 +3089,12 @@ class TextDisplay extends React.Component {
         output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp}/>);
       }
     }
-    return <div className="textDisplay" id="td">{output}</div>;
+    return <div className="timedTextDisplay" id="td">{output}</div>;
   }
 }
 
 ReactDOM.render(
-  <TextDisplay data={data}/>,
+  //<TimedTextDisplay data={data}/>,
+  <UntimedTextDisplay data={data}/>,
   document.getElementById('centerPanel')
 );
