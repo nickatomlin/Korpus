@@ -1,4 +1,4 @@
-// Code begins at line 221, data temporarily stored inline.
+// Code begins at line 2896, data temporarily stored inline.
 
 var data = {
   "metadata": {
@@ -2928,17 +2928,17 @@ class Row extends React.Component {
       // Add blank space before current value:
       if (start_slot > current_slot) {
         var diff = String(start_slot - current_slot);
-        output.push(<td colSpan={diff}></td>);
+        output.push(<td key={2*i} colSpan={diff}></td>);
       }
       // Create element with correct "colSpan" width:
       var size = String(end_slot - start_slot);
-      output.push(<td colSpan={size}>{text}</td>);
+      output.push(<td key={2*i+1} colSpan={size}>{text}</td>);
       current_slot = end_slot;
     }
     // Fill blank space at end of table row:
     if (current_slot < final_slot) {
       var diff = String(final_slot - current_slot);
-      output.push(<td colSpan={diff}></td>);
+      output.push(<td key={"final"} colSpan={diff}></td>);
     }
     return <tr data-tier={tier}>{output}</tr>;
   }
@@ -2954,14 +2954,14 @@ class Sentence extends React.Component {
     var num_slots = sentence["num_slots"];
     // Add the indepentent tier, i.e., the top row, to the list of rows. Note that
     // "colSpan={num_slots}" ensures that this row spans the entire table.
-    row_list.push(<tr data-tier={sentence["tier"]}><td colSpan={num_slots} className="topRow">{sentence["text"]}</td></tr>);
+    row_list.push(<tr key={0} data-tier={sentence["tier"]}><td colSpan={num_slots} className="topRow">{sentence["text"]}</td></tr>);
     var dependents = sentence["dependents"]; // list of dependent tiers, flat structure
     // Add each dependent tier to the row list:
     for (var i=0; i<dependents.length; i++) {
       var dependent = dependents[i];
       // Tier attribute will be used for hiding/showing tiers:
       var tier = dependent["tier"];
-      row_list.push(<Row num_slots={num_slots} values={dependent["values"]} tier={tier} />);
+      row_list.push(<Row key={i+1} num_slots={num_slots} values={dependent["values"]} tier={tier} />);
     }
     return <table className="gloss"><tbody>{row_list}</tbody></table>;
   }
@@ -2989,7 +2989,7 @@ class TimeBlock extends React.Component {
     // Iterate through the list of these sentences.
     for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
-      output.push(<LabeledSentence value={sentence}/>)
+      output.push(<LabeledSentence key={i} value={sentence}/>)
     }
     return <div className="timeBlock">{output}</div>;
   }
@@ -3068,10 +3068,10 @@ class TextDisplay extends React.Component {
       var timestamp = unique_timestamps[i];
       var corresponding_sentences = times_to_sentences[timestamp];
       if (i == (unique_timestamps.length - 1)) {
-        output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp} isFinalBlock={true} />);
+        output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp} isFinalBlock={true} />);
       }
       else {
-        output.push(<LabeledTimeBlock sentences={corresponding_sentences} timestamp={timestamp}/>);
+        output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp}/>);
       }
     }
     return <div className="textDisplay" id="td">{output}</div>;

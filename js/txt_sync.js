@@ -1,3 +1,4 @@
+// Based on http://community.village.virginia.edu/etst/
 function scrollIntoViewIfNeeded(target) {
     var rect = target.getBoundingClientRect();
     if (rect.bottom > window.innerHeight) {

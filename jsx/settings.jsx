@@ -57,7 +57,7 @@ class TierCheckboxList extends React.Component {
     var tiers = this.props.tiers;
     for (var tier_id in tiers) {
       if (tiers.hasOwnProperty(tier_id)) {
-        output.push(<TierCheckbox tier_id={tier_id} tier_name={tiers[tier_id]}/>);
+        output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]}/>);
       }
     }
     return <div>Tiers to show: <ul>{output}</ul></div>;
@@ -77,7 +77,7 @@ class TitleInfo extends React.Component {
 class SpeakerInfo extends React.Component {
   // I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
   // O/P: some nicely formatted info about these speakers
-  // Status: unfinished
+  // Status: tested, working
   render() {
     var speaker_list = [];
     var speakers = this.props.speakers;
@@ -85,7 +85,7 @@ class SpeakerInfo extends React.Component {
       if (speakers.hasOwnProperty(speaker_id)) {
         var speaker_name = speakers[speaker_id]["name"];
         var speaker_display = speaker_id + ": " + speaker_name;
-        speaker_list.push(<li>{speaker_display}</li>);
+        speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
       }
     }
     return <div>Speakers: <ul>{speaker_list}</ul></div>;
@@ -95,7 +95,7 @@ class SpeakerInfo extends React.Component {
 class Settings extends React.Component {
  	// I/P: metadata, in JSON format
  	// O/P: a settings/metadata panel
-	// Status: working, in progress
+	// Status: tested, working
   render() {
     var metadata = this.props.metadata;
     var title = metadata["title"];
