@@ -3279,7 +3279,11 @@ class Sentence extends React.Component {
       var tier = dependent["tier"];
       row_list.push(<Row key={i+1} num_slots={num_slots} values={dependent["values"]} tier={tier} />);
     }
-    return <table className="gloss"><tbody>{row_list}</tbody></table>;
+    if (this.props.isTimeAligned) {
+      return <table className="gloss" data-isTimeAligned="true"><tbody>{row_list}</tbody></table>;
+    } else {
+      return <table className="gloss" data-isTimeAligned="false"><tbody>{row_list}</tbody></table>;
+    }
   }
 }
 

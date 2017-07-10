@@ -46,8 +46,14 @@
 	padding-bottom: 5px;
 }
 
-table.gloss {
+table.gloss[data-isTimeAligned="false"] {
+	display: flex;
+	padding-right: 9px;
+}
+
+table.gloss[data-isTimeAligned="true"] {
 	display: inline;
+	display: flex;
 	padding-right: 9px;
 }
 
