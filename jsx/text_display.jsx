@@ -1,5 +1,3 @@
-// Code begins at line 2896, data temporarily stored inline.
-
 class Row extends React.Component {
   // I/P: num_slots, taken from parent sentence
   //      values, list of segments (e.g., morphemes) with start/end times
@@ -70,7 +68,26 @@ class Sentence extends React.Component {
       var tier = dependent["tier"];
       row_list.push(<Row key={i+1} num_slots={num_slots} values={dependent["values"]} tier={tier} />);
     }
-    return <table className="gloss"><tbody>{row_list}</tbody></table>;
+    if (this.props.isTimeAligned) {
+      return <table className="gloss" data-isTimeAligned="true"><tbody>{row_list}</tbody></table>;
+    } else {
+      return <table className="gloss" data-isTimeAligned="false"><tbody>{row_list}</tbody></table>;
+    }
+  }
+}
+
+class UntimedTextDisplay extends React.Component {
+	// I/P: data, stored in JSON format, as in test_data.json
+  // O/P: the main gloss view, with several Sentences arranged vertically
+  // Status: tested, working
+  render() {
+    var sentences = this.props.data["sentences"];
+    var output = [];
+    for (var i=0; i<sentences.length; i++) {
+      var sentence = sentences[i];
+      output.push(<Sentence key={i} value={sentence}/>);
+    }
+    return <div className="untimedTextDisplay" id="td">{output}</div>;
   }
 }
 
@@ -96,7 +113,7 @@ class TimeBlock extends React.Component {
     // Iterate through the list of these sentences.
     for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
-      output.push(<LabeledSentence key={i} value={sentence}/>)
+      output.push(<LabeledSentence key={i} value={sentence}/>);
     }
     return <div className="timeBlock">{output}</div>;
   }
@@ -142,7 +159,7 @@ class LabeledTimeBlock extends React.Component {
   }
 }
 
-class TextDisplay extends React.Component {
+class TimedTextDisplay extends React.Component {
   // I/P: data, stored in JSON format, as in test_data.json
   // O/P: the main gloss view, with several LabeledTimeBlocks arranged vertically
   // Status: tested, working
@@ -181,7 +198,7 @@ class TextDisplay extends React.Component {
         output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp}/>);
       }
     }
-    return <div className="textDisplay" id="td">{output}</div>;
+    return <div className="timedTextDisplay" id="td">{output}</div>;
   }
 }
 

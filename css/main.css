@@ -51,7 +51,24 @@ table.gloss {
 	padding-right: 9px;
 }
 
-.textDisplay {
+table.gloss[data-isTimeAligned="false"] {
+	display: flex;
+	padding-left: 9px;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+}
+
+.timedTextDisplay {
+	position: fixed;
+	margin-left: 240px;
+	width: calc(100% - 242px);
+	height: calc(100% - 84px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.untimedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
 	width: calc(100% - 242px);
