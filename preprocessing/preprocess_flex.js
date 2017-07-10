@@ -5,8 +5,8 @@ var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
   
 var xmlFileName = "../data/flex_files/singo_ai.xml";
-var startJsonFileName = "../data/json_files/singo_ai_temp.json"
-var jsonFileName = "../data/json_files/singo_ai.json"
+// var startJsonFileName = "../data/json_files/singo_ai_temp.json" // only for debugging
+var jsonFileName = "../data/json_files/singo_ai.json";
 
 function decodeLang(lang) {
 	switch(lang) {
@@ -66,12 +66,14 @@ fs.readFile(xmlFileName, function (err, xml) {
   parseString(xml, function (err, jsonIn) {
 	  
 	var prettyStringIn = JSON.stringify(jsonIn, null, 2);
+	/* for debugging
 	fs.writeFile(startJsonFileName, prettyStringIn, function(err) {
 		if(err) {
 			return console.log(err);
 		}
 		console.log("JSON of input file saved.");
 	}); 
+	*/
 	
 	var textLang = "defaultLang"; 
 	var languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
