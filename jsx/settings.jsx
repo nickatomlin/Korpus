@@ -1,18 +1,15 @@
 var data = {
   "metadata": {
     "tier IDs": {
-      "T1": "Lise Dobrin",
-      "T2": "Scola Sonin",
-      "T3": "Scola Sonin TP Gloss"
+      "T1": "A'ingae",
+      "T2": "English",
+      "T3": "Morphemes",
+      "T4": "Glossed Morpheme"
     },
     "speaker IDs": {
       "S1": {
-        "name": "Lise Dobrin",
+        "name": "Martin Criollo",
         "tier": "T1"
-      },
-      "S2": {
-        "name": "Scola Sonin",
-        "tier": "T2"
       }
     }
   }
