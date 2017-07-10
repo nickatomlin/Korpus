@@ -202,7 +202,7 @@ class TimedTextDisplay extends React.Component {
   }
 }
 
-$.getJSON( "./data/json_files/Intro.json", function(data) {
+$.getJSON( "./data/json_files/singo_ai.json", function(data) {
   if (data.metadata.timed) {
     ReactDOM.render(
       <TimedTextDisplay data={data}/>,
