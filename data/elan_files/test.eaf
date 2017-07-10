@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2016-08-24T14:00:49-05:00" FORMAT="2.8" VERSION="2.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv2.8.xsd">
+    <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
+        <MEDIA_DESCRIPTOR MEDIA_URL="file:///C:/audio/example_audio.mp3" MIME_TYPE="audio/mp3"/>
+        <PROPERTY NAME="URN">urn:nl-mpi-tools-elan-eaf:9d1d3bd1-223b-45ba-9077-062d18cfbb70</PROPERTY>
+        <PROPERTY NAME="lastUsedAnnotationId">803</PROPERTY>
+    </HEADER>
+    <TIME_ORDER>
+        <TIME_SLOT TIME_SLOT_ID="ts1" TIME_VALUE="370"/>
+        <TIME_SLOT TIME_SLOT_ID="ts2" TIME_VALUE="10780"/>
+        <TIME_SLOT TIME_SLOT_ID="ts3" TIME_VALUE="11900"/>
+        <TIME_SLOT TIME_SLOT_ID="ts4" TIME_VALUE="21400"/>
+        <TIME_SLOT TIME_SLOT_ID="ts5" TIME_VALUE="21659"/>
+        <TIME_SLOT TIME_SLOT_ID="ts6" TIME_VALUE="23319"/>
+        <TIME_SLOT TIME_SLOT_ID="ts7" TIME_VALUE="24529"/>
+        <TIME_SLOT TIME_SLOT_ID="ts8" TIME_VALUE="25589"/>
+        <TIME_SLOT TIME_SLOT_ID="ts9" TIME_VALUE="27879"/>
+        <TIME_SLOT TIME_SLOT_ID="ts10" TIME_VALUE="33049"/>
+        <TIME_SLOT TIME_SLOT_ID="ts11" TIME_VALUE="33049"/>
+        <TIME_SLOT TIME_SLOT_ID="ts12" TIME_VALUE="35329"/>
+        <TIME_SLOT TIME_SLOT_ID="ts13" TIME_VALUE="36229"/>
+        <TIME_SLOT TIME_SLOT_ID="ts14" TIME_VALUE="45769"/>
+        <TIME_SLOT TIME_SLOT_ID="ts15" TIME_VALUE="46019"/>
+        <TIME_SLOT TIME_SLOT_ID="ts16" TIME_VALUE="46979"/>
+        <TIME_SLOT TIME_SLOT_ID="ts17" TIME_VALUE="47629"/>
+        <TIME_SLOT TIME_SLOT_ID="ts18" TIME_VALUE="56589"/>
+        <TIME_SLOT TIME_SLOT_ID="ts19" TIME_VALUE="57539"/>
+        <TIME_SLOT TIME_SLOT_ID="ts20" TIME_VALUE="59549"/>
+        <TIME_SLOT TIME_SLOT_ID="ts21" TIME_VALUE="59845"/>
+        <TIME_SLOT TIME_SLOT_ID="ts22" TIME_VALUE="67735"/>
+        <TIME_SLOT TIME_SLOT_ID="ts23" TIME_VALUE="68035"/>
+        <TIME_SLOT TIME_SLOT_ID="ts24" TIME_VALUE="70505"/>
+        <TIME_SLOT TIME_SLOT_ID="ts25" TIME_VALUE="70826"/>
+        <TIME_SLOT TIME_SLOT_ID="ts26" TIME_VALUE="71916"/>
+        <TIME_SLOT TIME_SLOT_ID="ts27" TIME_VALUE="72896"/>
+        <TIME_SLOT TIME_SLOT_ID="ts28" TIME_VALUE="79196"/>
+        <TIME_SLOT TIME_SLOT_ID="ts29" TIME_VALUE="79514"/>
+        <TIME_SLOT TIME_SLOT_ID="ts30" TIME_VALUE="84664"/>
+        <TIME_SLOT TIME_SLOT_ID="ts31" TIME_VALUE="85324"/>
+        <TIME_SLOT TIME_SLOT_ID="ts32" TIME_VALUE="87974"/>
+        <TIME_SLOT TIME_SLOT_ID="ts33" TIME_VALUE="88294"/>
+        <TIME_SLOT TIME_SLOT_ID="ts34" TIME_VALUE="89144"/>
+        <TIME_SLOT TIME_SLOT_ID="ts35" TIME_VALUE="89590"/>
+        <TIME_SLOT TIME_SLOT_ID="ts36" TIME_VALUE="96240"/>
+        <TIME_SLOT TIME_SLOT_ID="ts37" TIME_VALUE="97260"/>
+        <TIME_SLOT TIME_SLOT_ID="ts38" TIME_VALUE="103190"/>
+        <TIME_SLOT TIME_SLOT_ID="ts39" TIME_VALUE="103569"/>
+        <TIME_SLOT TIME_SLOT_ID="ts40" TIME_VALUE="111609"/>
+        <TIME_SLOT TIME_SLOT_ID="ts41" TIME_VALUE="112245"/>
+        <TIME_SLOT TIME_SLOT_ID="ts42" TIME_VALUE="120175"/>
+        <TIME_SLOT TIME_SLOT_ID="ts43" TIME_VALUE="121175"/>
+        <TIME_SLOT TIME_SLOT_ID="ts44" TIME_VALUE="123383"/>
+        <TIME_SLOT TIME_SLOT_ID="ts45" TIME_VALUE="124002"/>
+        <TIME_SLOT TIME_SLOT_ID="ts46" TIME_VALUE="126812"/>
+        <TIME_SLOT TIME_SLOT_ID="ts47" TIME_VALUE="126856"/>
+        <TIME_SLOT TIME_SLOT_ID="ts48" TIME_VALUE="129646"/>
+        <TIME_SLOT TIME_SLOT_ID="ts49" TIME_VALUE="129816"/>
+        <TIME_SLOT TIME_SLOT_ID="ts50" TIME_VALUE="133886"/>
+        <TIME_SLOT TIME_SLOT_ID="ts51" TIME_VALUE="134196"/>
+        <TIME_SLOT TIME_SLOT_ID="ts52" TIME_VALUE="138936"/>
+        <TIME_SLOT TIME_SLOT_ID="ts53" TIME_VALUE="139537"/>
+        <TIME_SLOT TIME_SLOT_ID="ts54" TIME_VALUE="143377"/>
+        <TIME_SLOT TIME_SLOT_ID="ts55" TIME_VALUE="144337"/>
+        <TIME_SLOT TIME_SLOT_ID="ts56" TIME_VALUE="146927"/>
+        <TIME_SLOT TIME_SLOT_ID="ts57" TIME_VALUE="147637"/>
+        <TIME_SLOT TIME_SLOT_ID="ts58" TIME_VALUE="154267"/>
+        <TIME_SLOT TIME_SLOT_ID="ts59" TIME_VALUE="154807"/>
+        <TIME_SLOT TIME_SLOT_ID="ts60" TIME_VALUE="157377"/>
+        <TIME_SLOT TIME_SLOT_ID="ts61" TIME_VALUE="158027"/>
+        <TIME_SLOT TIME_SLOT_ID="ts62" TIME_VALUE="159887"/>
+        <TIME_SLOT TIME_SLOT_ID="ts63" TIME_VALUE="160717"/>
+        <TIME_SLOT TIME_SLOT_ID="ts64" TIME_VALUE="164527"/>
+        <TIME_SLOT TIME_SLOT_ID="ts65" TIME_VALUE="165277"/>
+        <TIME_SLOT TIME_SLOT_ID="ts66" TIME_VALUE="167287"/>
+        <TIME_SLOT TIME_SLOT_ID="ts67" TIME_VALUE="168187"/>
+        <TIME_SLOT TIME_SLOT_ID="ts68" TIME_VALUE="171457"/>
+        <TIME_SLOT TIME_SLOT_ID="ts69" TIME_VALUE="172007"/>
+        <TIME_SLOT TIME_SLOT_ID="ts70" TIME_VALUE="176457"/>
+        <TIME_SLOT TIME_SLOT_ID="ts71" TIME_VALUE="177357"/>
+        <TIME_SLOT TIME_SLOT_ID="ts72" TIME_VALUE="180727"/>
+        <TIME_SLOT TIME_SLOT_ID="ts73" TIME_VALUE="181077"/>
+        <TIME_SLOT TIME_SLOT_ID="ts74" TIME_VALUE="183947"/>
+        <TIME_SLOT TIME_SLOT_ID="ts75" TIME_VALUE="184667"/>
+        <TIME_SLOT TIME_SLOT_ID="ts76" TIME_VALUE="186137"/>
+        <TIME_SLOT TIME_SLOT_ID="ts77" TIME_VALUE="186687"/>
+        <TIME_SLOT TIME_SLOT_ID="ts78" TIME_VALUE="189337"/>
+        <TIME_SLOT TIME_SLOT_ID="ts79" TIME_VALUE="189672"/>
+        <TIME_SLOT TIME_SLOT_ID="ts80" TIME_VALUE="195532"/>
+        <TIME_SLOT TIME_SLOT_ID="ts81" TIME_VALUE="195942"/>
+        <TIME_SLOT TIME_SLOT_ID="ts82" TIME_VALUE="197982"/>
+        <TIME_SLOT TIME_SLOT_ID="ts83" TIME_VALUE="199112"/>
+        <TIME_SLOT TIME_SLOT_ID="ts84" TIME_VALUE="204742"/>
+        <TIME_SLOT TIME_SLOT_ID="ts85" TIME_VALUE="205513"/>
+        <TIME_SLOT TIME_SLOT_ID="ts86" TIME_VALUE="211083"/>
+        <TIME_SLOT TIME_SLOT_ID="ts87" TIME_VALUE="211973"/>
+        <TIME_SLOT TIME_SLOT_ID="ts88" TIME_VALUE="216743"/>
+        <TIME_SLOT TIME_SLOT_ID="ts89" TIME_VALUE="216843"/>
+        <TIME_SLOT TIME_SLOT_ID="ts90" TIME_VALUE="217943"/>
+        <TIME_SLOT TIME_SLOT_ID="ts91" TIME_VALUE="219293"/>
+        <TIME_SLOT TIME_SLOT_ID="ts92" TIME_VALUE="223383"/>
+        <TIME_SLOT TIME_SLOT_ID="ts93" TIME_VALUE="223453"/>
+        <TIME_SLOT TIME_SLOT_ID="ts94" TIME_VALUE="223993"/>
+        <TIME_SLOT TIME_SLOT_ID="ts95" TIME_VALUE="224313"/>
+        <TIME_SLOT TIME_SLOT_ID="ts96" TIME_VALUE="230220"/>
+        <TIME_SLOT TIME_SLOT_ID="ts97" TIME_VALUE="230307"/>
+        <TIME_SLOT TIME_SLOT_ID="ts98" TIME_VALUE="230727"/>
+        <TIME_SLOT TIME_SLOT_ID="ts99" TIME_VALUE="230877"/>
+        <TIME_SLOT TIME_SLOT_ID="ts100" TIME_VALUE="231637"/>
+        <TIME_SLOT TIME_SLOT_ID="ts101" TIME_VALUE="231637"/>
+        <TIME_SLOT TIME_SLOT_ID="ts102" TIME_VALUE="232757"/>
+        <TIME_SLOT TIME_SLOT_ID="ts103" TIME_VALUE="232757"/>
+        <TIME_SLOT TIME_SLOT_ID="ts104" TIME_VALUE="234707"/>
+        <TIME_SLOT TIME_SLOT_ID="ts105" TIME_VALUE="234807"/>
+        <TIME_SLOT TIME_SLOT_ID="ts106" TIME_VALUE="235577"/>
+        <TIME_SLOT TIME_SLOT_ID="ts107" TIME_VALUE="235597"/>
+        <TIME_SLOT TIME_SLOT_ID="ts108" TIME_VALUE="236887"/>
+        <TIME_SLOT TIME_SLOT_ID="ts109" TIME_VALUE="236965"/>
+        <TIME_SLOT TIME_SLOT_ID="ts110" TIME_VALUE="240025"/>
+        <TIME_SLOT TIME_SLOT_ID="ts111" TIME_VALUE="240035"/>
+        <TIME_SLOT TIME_SLOT_ID="ts112" TIME_VALUE="240765"/>
+        <TIME_SLOT TIME_SLOT_ID="ts113" TIME_VALUE="241175"/>
+        <TIME_SLOT TIME_SLOT_ID="ts114" TIME_VALUE="242645"/>
+        <TIME_SLOT TIME_SLOT_ID="ts115" TIME_VALUE="242905"/>
+        <TIME_SLOT TIME_SLOT_ID="ts116" TIME_VALUE="243765"/>
+        <TIME_SLOT TIME_SLOT_ID="ts117" TIME_VALUE="244315"/>
+        <TIME_SLOT TIME_SLOT_ID="ts118" TIME_VALUE="248475"/>
+        <TIME_SLOT TIME_SLOT_ID="ts119" TIME_VALUE="249005"/>
+        <TIME_SLOT TIME_SLOT_ID="ts120" TIME_VALUE="249255"/>
+        <TIME_SLOT TIME_SLOT_ID="ts121" TIME_VALUE="249615"/>
+        <TIME_SLOT TIME_SLOT_ID="ts122" TIME_VALUE="251035"/>
+        <TIME_SLOT TIME_SLOT_ID="ts123" TIME_VALUE="251695"/>
+        <TIME_SLOT TIME_SLOT_ID="ts124" TIME_VALUE="255655"/>
+        <TIME_SLOT TIME_SLOT_ID="ts125" TIME_VALUE="256415"/>
+        <TIME_SLOT TIME_SLOT_ID="ts126" TIME_VALUE="260395"/>
+        <TIME_SLOT TIME_SLOT_ID="ts127" TIME_VALUE="261135"/>
+        <TIME_SLOT TIME_SLOT_ID="ts128" TIME_VALUE="264815"/>
+        <TIME_SLOT TIME_SLOT_ID="ts129" TIME_VALUE="265415"/>
+        <TIME_SLOT TIME_SLOT_ID="ts130" TIME_VALUE="265445"/>
+        <TIME_SLOT TIME_SLOT_ID="ts131" TIME_VALUE="265781"/>
+        <TIME_SLOT TIME_SLOT_ID="ts132" TIME_VALUE="270591"/>
+        <TIME_SLOT TIME_SLOT_ID="ts133" TIME_VALUE="270591"/>
+        <TIME_SLOT TIME_SLOT_ID="ts134" TIME_VALUE="271691"/>
+        <TIME_SLOT TIME_SLOT_ID="ts135" TIME_VALUE="272391"/>
+        <TIME_SLOT TIME_SLOT_ID="ts136" TIME_VALUE="276821"/>
+        <TIME_SLOT TIME_SLOT_ID="ts137" TIME_VALUE="276821"/>
+        <TIME_SLOT TIME_SLOT_ID="ts138" TIME_VALUE="277861"/>
+        <TIME_SLOT TIME_SLOT_ID="ts139" TIME_VALUE="278041"/>
+        <TIME_SLOT TIME_SLOT_ID="ts140" TIME_VALUE="278261"/>
+        <TIME_SLOT TIME_SLOT_ID="ts141" TIME_VALUE="278301"/>
+        <TIME_SLOT TIME_SLOT_ID="ts142" TIME_VALUE="279521"/>
+        <TIME_SLOT TIME_SLOT_ID="ts143" TIME_VALUE="280491"/>
+        <TIME_SLOT TIME_SLOT_ID="ts144" TIME_VALUE="285351"/>
+        <TIME_SLOT TIME_SLOT_ID="ts145" TIME_VALUE="285951"/>
+        <TIME_SLOT TIME_SLOT_ID="ts146" TIME_VALUE="289591"/>
+        <TIME_SLOT TIME_SLOT_ID="ts147" TIME_VALUE="290211"/>
+        <TIME_SLOT TIME_SLOT_ID="ts148" TIME_VALUE="290391"/>
+        <TIME_SLOT TIME_SLOT_ID="ts149" TIME_VALUE="291421"/>
+        <TIME_SLOT TIME_SLOT_ID="ts150" TIME_VALUE="292701"/>
+        <TIME_SLOT TIME_SLOT_ID="ts151" TIME_VALUE="292731"/>
+        <TIME_SLOT TIME_SLOT_ID="ts152" TIME_VALUE="294528"/>
+        <TIME_SLOT TIME_SLOT_ID="ts153" TIME_VALUE="295371"/>
+        <TIME_SLOT TIME_SLOT_ID="ts154" TIME_VALUE="296667"/>
+        <TIME_SLOT TIME_SLOT_ID="ts155" TIME_VALUE="297337"/>
+        <TIME_SLOT TIME_SLOT_ID="ts156" TIME_VALUE="297897"/>
+        <TIME_SLOT TIME_SLOT_ID="ts157" TIME_VALUE="298348"/>
+        <TIME_SLOT TIME_SLOT_ID="ts158" TIME_VALUE="298447"/>
+        <TIME_SLOT TIME_SLOT_ID="ts159" TIME_VALUE="298737"/>
+        <TIME_SLOT TIME_SLOT_ID="ts160" TIME_VALUE="299497"/>
+        <TIME_SLOT TIME_SLOT_ID="ts161" TIME_VALUE="300307"/>
+        <TIME_SLOT TIME_SLOT_ID="ts162" TIME_VALUE="300557"/>
+        <TIME_SLOT TIME_SLOT_ID="ts163" TIME_VALUE="301157"/>
+        <TIME_SLOT TIME_SLOT_ID="ts164" TIME_VALUE="302047"/>
+        <TIME_SLOT TIME_SLOT_ID="ts165" TIME_VALUE="302427"/>
+        <TIME_SLOT TIME_SLOT_ID="ts166" TIME_VALUE="303197"/>
+        <TIME_SLOT TIME_SLOT_ID="ts167" TIME_VALUE="303243"/>
+        <TIME_SLOT TIME_SLOT_ID="ts168" TIME_VALUE="304983"/>
+        <TIME_SLOT TIME_SLOT_ID="ts169" TIME_VALUE="305123"/>
+        <TIME_SLOT TIME_SLOT_ID="ts170" TIME_VALUE="305623"/>
+        <TIME_SLOT TIME_SLOT_ID="ts171" TIME_VALUE="306503"/>
+        <TIME_SLOT TIME_SLOT_ID="ts172" TIME_VALUE="306763"/>
+        <TIME_SLOT TIME_SLOT_ID="ts173" TIME_VALUE="306803"/>
+        <TIME_SLOT TIME_SLOT_ID="ts174" TIME_VALUE="309753"/>
+        <TIME_SLOT TIME_SLOT_ID="ts175" TIME_VALUE="310233"/>
+        <TIME_SLOT TIME_SLOT_ID="ts176" TIME_VALUE="310333"/>
+        <TIME_SLOT TIME_SLOT_ID="ts177" TIME_VALUE="310447"/>
+        <TIME_SLOT TIME_SLOT_ID="ts178" TIME_VALUE="311957"/>
+        <TIME_SLOT TIME_SLOT_ID="ts179" TIME_VALUE="313647"/>
+        <TIME_SLOT TIME_SLOT_ID="ts180" TIME_VALUE="314697"/>
+        <TIME_SLOT TIME_SLOT_ID="ts181" TIME_VALUE="315207"/>
+        <TIME_SLOT TIME_SLOT_ID="ts182" TIME_VALUE="315647"/>
+        <TIME_SLOT TIME_SLOT_ID="ts183" TIME_VALUE="315777"/>
+        <TIME_SLOT TIME_SLOT_ID="ts184" TIME_VALUE="317617"/>
+    </TIME_ORDER>
+    <TIER DEFAULT_LOCALE="en" LINGUISTIC_TYPE_REF="transcription" PARTICIPANT="Lise Dobrin" TIER_ID="Lise Dobrin">
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a1" TIME_SLOT_REF1="ts1" TIME_SLOT_REF2="ts2">
+                <ANNOTATION_VALUE>Oke yumi stap long Christmas Eve, December 24 1998 na mi stap wantaim disela ol lain wan yia pinis nau— em wan yia long mi stap wantaim yupela.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a2" TIME_SLOT_REF1="ts3" TIME_SLOT_REF2="ts4">
+                <ANNOTATION_VALUE>Oke, Scola bai stori long— olsem wanpela stori bilong bipo olsem, Timothy, em igo— em bebi yet na em pundaun long dewag.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a3" TIME_SLOT_REF1="ts5" TIME_SLOT_REF2="ts6">
+                <ANNOTATION_VALUE>Olsem na yu stori.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a4" TIME_SLOT_REF1="ts89" TIME_SLOT_REF2="ts90">
+                <ANNOTATION_VALUE>Mmmhhh!</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a5" TIME_SLOT_REF1="ts92" TIME_SLOT_REF2="ts94">
+                <ANNOTATION_VALUE>Mmhh.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a6" TIME_SLOT_REF1="ts97" TIME_SLOT_REF2="ts99">
+                <ANNOTATION_VALUE>Mmmm.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a7" TIME_SLOT_REF1="ts104" TIME_SLOT_REF2="ts106">
+                <ANNOTATION_VALUE>Mmmm.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a8" TIME_SLOT_REF1="ts111" TIME_SLOT_REF2="ts112">
+                <ANNOTATION_VALUE>Mmm.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a9" TIME_SLOT_REF1="ts115" TIME_SLOT_REF2="ts116">
+                <ANNOTATION_VALUE>Tru ia.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a10" TIME_SLOT_REF1="ts117" TIME_SLOT_REF2="ts120">
+                <ANNOTATION_VALUE>Em olsem, ino bikos long yu, yu lukautim em gut.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a11" TIME_SLOT_REF1="ts128" TIME_SLOT_REF2="ts129">
+                <ANNOTATION_VALUE>Mmh.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a12" TIME_SLOT_REF1="ts138" TIME_SLOT_REF2="ts141">
+                <ANNOTATION_VALUE>Mmm.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a13" TIME_SLOT_REF1="ts146" TIME_SLOT_REF2="ts147">
+                <ANNOTATION_VALUE>Mmm.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a14" TIME_SLOT_REF1="ts150" TIME_SLOT_REF2="ts153">
+                <ANNOTATION_VALUE>Dewɔg bilong yupela bin sanap long we?</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a15" TIME_SLOT_REF1="ts154" TIME_SLOT_REF2="ts155">
+                <ANNOTATION_VALUE>Oke.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a16" TIME_SLOT_REF1="ts156" TIME_SLOT_REF2="ts158">
+                <ANNOTATION_VALUE>Oke.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a17" TIME_SLOT_REF1="ts160" TIME_SLOT_REF2="ts162">
+                <ANNOTATION_VALUE>Dewɔg bilong yupela.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a18" TIME_SLOT_REF1="ts163" TIME_SLOT_REF2="ts165">
+                <ANNOTATION_VALUE>Yupela long bipo.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a19" TIME_SLOT_REF1="ts168" TIME_SLOT_REF2="ts171">
+                <ANNOTATION_VALUE>Putim dewɔg daunbilo long hap.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a20" TIME_SLOT_REF1="ts174" TIME_SLOT_REF2="ts175">
+                <ANNOTATION_VALUE>Oke.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a21" TIME_SLOT_REF1="ts180" TIME_SLOT_REF2="ts182">
+                <ANNOTATION_VALUE>Oke.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a22" TIME_SLOT_REF1="ts183" TIME_SLOT_REF2="ts184">
+                <ANNOTATION_VALUE>Oke tengyu bai mi stopim.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+    </TIER>
+    <TIER DEFAULT_LOCALE="en" LINGUISTIC_TYPE_REF="transcription" PARTICIPANT="Scola Sonin" TIER_ID="Scola Sonin">
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a23" TIME_SLOT_REF1="ts7" TIME_SLOT_REF2="ts8">
+                <ANNOTATION_VALUE>Oke.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a24" TIME_SLOT_REF1="ts9" TIME_SLOT_REF2="ts10">
+                <ANNOTATION_VALUE>Apə mapwe, əgɨndə Lisa ko ətə kwapwe.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a25" TIME_SLOT_REF1="ts11" TIME_SLOT_REF2="ts12">
+                <ANNOTATION_VALUE>Əpəkig urusag biog bo marupecog.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a26" TIME_SLOT_REF1="ts13" TIME_SLOT_REF2="ts14">
+                <ANNOTATION_VALUE>Mapwe nau, Timothy ino— iolsem ən— em nɨmbo narahaɲ, tasol ənən neyagureh, tasol ino niyagureh gut.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a27" TIME_SLOT_REF1="ts15" TIME_SLOT_REF2="ts16">
+                <ANNOTATION_VALUE>Na mapwe.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a28" TIME_SLOT_REF1="ts17" TIME_SLOT_REF2="ts18">
+                <ANNOTATION_VALUE>Mapwe nau, yaken— Leopold yaken nani aməkeik cabʉh yous, catowi, cati əpə mapwe.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a29" TIME_SLOT_REF1="ts19" TIME_SLOT_REF2="ts20">
+                <ANNOTATION_VALUE>Mapwe nau, cenaməp capwe.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a30" TIME_SLOT_REF1="ts21" TIME_SLOT_REF2="ts22">
+                <ANNOTATION_VALUE>Capwe nau, yaken— Leopold yaken nakəna nakərip yaken əpəkin nakana, "Ei yakərieɲ eɲɨndə waia."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a31" TIME_SLOT_REF1="ts23" TIME_SLOT_REF2="ts24">
+                <ANNOTATION_VALUE>"Ɲakɨs gani arere long ipəkig dewɔg"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a32" TIME_SLOT_REF1="ts25" TIME_SLOT_REF2="ts26">
+                <ANNOTATION_VALUE>Na ia.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a33" TIME_SLOT_REF1="ts27" TIME_SLOT_REF2="ts28">
+                <ANNOTATION_VALUE>Papa bilong ol nakəna, "Wak. Ino əpəkiɲ waia, ececiɲ waia. Ignas acəkə ececiɲ."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a34" TIME_SLOT_REF1="ts29" TIME_SLOT_REF2="ts30">
+                <ANNOTATION_VALUE>"Bihain cinaki ɲɨkəripec, orait ɲaka ɲɨɲɨhɨr orait ɲɨna ɲɨɲɨhɨr. Əpə wa ececiɲ."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a35" TIME_SLOT_REF1="ts31" TIME_SLOT_REF2="ts32">
+                <ANNOTATION_VALUE>Əriə nakana, "Orait ina bo ina icekimweɲ."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a36" TIME_SLOT_REF1="ts33" TIME_SLOT_REF2="ts34">
+                <ANNOTATION_VALUE>Əriə nəna.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a37" TIME_SLOT_REF1="ts35" TIME_SLOT_REF2="ts36">
+                <ANNOTATION_VALUE>Nəna narih nəna ga dewɔg, na Timothy ənən nakita nagipwecən, nənak apə ino mudekemecum ənən nəna.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a38" TIME_SLOT_REF1="ts37" TIME_SLOT_REF2="ts38">
+                <ANNOTATION_VALUE>Bihain ənən nənak, ənən nəna narih gani wɔbʉr— aromom hənamogi dewɔg tokwɔnig.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a39" TIME_SLOT_REF1="ts39" TIME_SLOT_REF2="ts40">
+                <ANNOTATION_VALUE>Orait Timothy nəna əgɨdə əpə arəmagou əpəkig tokwɔnig nəna, ənən nəna nawic etiɲ, gi nəna nabʉh dewɔg.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a40" TIME_SLOT_REF1="ts41" TIME_SLOT_REF2="ts42">
+                <ANNOTATION_VALUE>Ati ino olsem— ənən nəkana nɨgɨrɨkɨk dewɔg, nati olsem spirit nongut o, catɨkən nabʉh əgɨdə dewɔg.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a41" TIME_SLOT_REF1="ts43" TIME_SLOT_REF2="ts44">
+                <ANNOTATION_VALUE>Nabʉh nau, nəminek.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a42" TIME_SLOT_REF1="ts45" TIME_SLOT_REF2="ts46">
+                <ANNOTATION_VALUE>Yaken— Leopold yaken napwe nanɨk waia.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a43" TIME_SLOT_REF1="ts47" TIME_SLOT_REF2="ts48">
+                <ANNOTATION_VALUE>Na nəmin ənən olsem nəreh.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a44" TIME_SLOT_REF1="ts49" TIME_SLOT_REF2="ts50">
+                <ANNOTATION_VALUE>Na gi nabʉh olgeta nəne pas əgɨndə ereh bieh.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a45" TIME_SLOT_REF1="ts51" TIME_SLOT_REF2="ts52">
+                <ANNOTATION_VALUE>Na nabʉh na aias gi sabʉh iah ənən nəne pas ereh na napw— stap.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a46" TIME_SLOT_REF1="ts53" TIME_SLOT_REF2="ts54">
+                <ANNOTATION_VALUE>Əriə yaken Leopold yaken neminek nereh nau nakana, "Eih!"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a47" TIME_SLOT_REF1="ts55" TIME_SLOT_REF2="ts56">
+                <ANNOTATION_VALUE>"Əneɲ batowiɲ mas ɲereh dewɔg ia!"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a48" TIME_SLOT_REF1="ts57" TIME_SLOT_REF2="ts58">
+                <ANNOTATION_VALUE>Əriə nəne raun nənaki, naka nɨti, nati ənən— gi nabʉh iəh ənən nəne pas agɨndə ereh bieh.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a49" TIME_SLOT_REF1="ts59" TIME_SLOT_REF2="ts60">
+                <ANNOTATION_VALUE>Əriə ei yeteponɨkɨk na yaka, "Eih!"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a50" TIME_SLOT_REF1="ts61" TIME_SLOT_REF2="ts62">
+                <ANNOTATION_VALUE>"Timothy gi nənak, o?"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a51" TIME_SLOT_REF1="ts63" TIME_SLOT_REF2="ts64">
+                <ANNOTATION_VALUE>Na bihain na, yaken Leopold yaken nohʷarəpi naka, "Owak."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a52" TIME_SLOT_REF1="ts65" TIME_SLOT_REF2="ts66">
+                <ANNOTATION_VALUE>"Timothy naka nabʉh dewɔg."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a53" TIME_SLOT_REF1="ts67" TIME_SLOT_REF2="ts68">
+                <ANNOTATION_VALUE>Na, mipela— məkitak na mətepon nau.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a54" TIME_SLOT_REF1="ts69" TIME_SLOT_REF2="ts70">
+                <ANNOTATION_VALUE>Waka ei tɨtɨr yenak yatɨrən nəni yaken Leopold yaken yenaki...</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a55" TIME_SLOT_REF1="ts71" TIME_SLOT_REF2="ts72">
+                <ANNOTATION_VALUE>Sori, ohurɨbʉs sap, mone wari...</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a56" TIME_SLOT_REF1="ts73" TIME_SLOT_REF2="ts74">
+                <ANNOTATION_VALUE>Baboken cəkita cene kros cehap...</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a57" TIME_SLOT_REF1="ts75" TIME_SLOT_REF2="ts76">
+                <ANNOTATION_VALUE>Əriə yakana "Eih."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a58" TIME_SLOT_REF1="ts77" TIME_SLOT_REF2="ts78">
+                <ANNOTATION_VALUE>"Ino əpə mɨbʉrəkən na nəbʉh dewɔg."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a59" TIME_SLOT_REF1="ts79" TIME_SLOT_REF2="ts80">
+                <ANNOTATION_VALUE>"Ənən yet naka nɨgipwece yaken nəna nəti hanɨk waia na nabʉh."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a60" TIME_SLOT_REF1="ts81" TIME_SLOT_REF2="ts82">
+                <ANNOTATION_VALUE>"Ipə ino ken pɨne krosim əpək."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a61" TIME_SLOT_REF1="ts83" TIME_SLOT_REF2="ts84">
+                <ANNOTATION_VALUE>Waka yawic yecɨrokuhən juwebər, yati wa yarən yabʉh wɔrɨb yabʉh yecɨrokuhən.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a62" TIME_SLOT_REF1="ts85" TIME_SLOT_REF2="ts86">
+                <ANNOTATION_VALUE>Yatowi, yaken nəne wa, wota mowaceh əbør mucɨrokuhən gen powinari sop.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a63" TIME_SLOT_REF1="ts87" TIME_SLOT_REF2="ts88">
+                <ANNOTATION_VALUE>Na, mwecuh wab, əpəkiɲ tiɲtiɲ ino ɲɨpwe gut.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a64" TIME_SLOT_REF1="ts91" TIME_SLOT_REF2="ts93">
+                <ANNOTATION_VALUE>Tiɲtiɲ— əpəkiɲ tiɲtiɲ ɲene kalap maka gi nabʉh əgɨdə dewɔg.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a65" TIME_SLOT_REF1="ts95" TIME_SLOT_REF2="ts96">
+                <ANNOTATION_VALUE>Oltaim ka muti əgɨdə dewɔg mone tiɲtiɲim ənən. Məka "Eiei, sori, ba mutɨkən momam?"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a66" TIME_SLOT_REF1="ts98" TIME_SLOT_REF2="ts100">
+                <ANNOTATION_VALUE>Gi nabʉh.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a67" TIME_SLOT_REF1="ts101" TIME_SLOT_REF2="ts102">
+                <ANNOTATION_VALUE>Bai ino inap ɲɨtɨkən.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a68" TIME_SLOT_REF1="ts103" TIME_SLOT_REF2="ts105">
+                <ANNOTATION_VALUE>Əgɨdə dewɔg atap tru.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a69" TIME_SLOT_REF1="ts107" TIME_SLOT_REF2="ts108">
+                <ANNOTATION_VALUE>Ino inap mutɨkən.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a70" TIME_SLOT_REF1="ts109" TIME_SLOT_REF2="ts110">
+                <ANNOTATION_VALUE>Oltaim maka mɨtik əgɨdə dewɔg əpəkiɲ tiɲtiɲ ɲɨne kalap.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a71" TIME_SLOT_REF1="ts113" TIME_SLOT_REF2="ts114">
+                <ANNOTATION_VALUE>Gani atap tru.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a72" TIME_SLOT_REF1="ts118" TIME_SLOT_REF2="ts119">
+                <ANNOTATION_VALUE>Mmm.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a73" TIME_SLOT_REF1="ts121" TIME_SLOT_REF2="ts122">
+                <ANNOTATION_VALUE>Mi lukautim em gut.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a74" TIME_SLOT_REF1="ts123" TIME_SLOT_REF2="ts124">
+                <ANNOTATION_VALUE>Na babokeɲic cene kros, cehap cehap cehap, na yaka, "Eih!"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a75" TIME_SLOT_REF1="ts125" TIME_SLOT_REF2="ts126">
+                <ANNOTATION_VALUE>"Yu noken pɨha əpək. Ino əpək yet muran munak na nabʉh dewɔg."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a76" TIME_SLOT_REF1="ts127" TIME_SLOT_REF2="ts130">
+                <ANNOTATION_VALUE>"Ənən yet nəkitak nagipwecə yaken nənak ər nabʉh əgɨdə dewɔg."</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a77" TIME_SLOT_REF1="ts131" TIME_SLOT_REF2="ts132">
+                <ANNOTATION_VALUE>Na nɨbʉh tu, əpə ino mudekemecum— əmiəpeɲ ɲadəkemec ənən nɨna ko nɨbʉh əgɨdə dewɔg.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a78" TIME_SLOT_REF1="ts133" TIME_SLOT_REF2="ts134">
+                <ANNOTATION_VALUE>Əpə ba mutepon.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a79" TIME_SLOT_REF1="ts135" TIME_SLOT_REF2="ts136">
+                <ANNOTATION_VALUE>Mutepon məkana ənən— olsem spirit nongut cerən cenak o.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a80" TIME_SLOT_REF1="ts137" TIME_SLOT_REF2="ts139">
+                <ANNOTATION_VALUE>Əpə ino mudekemec.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a81" TIME_SLOT_REF1="ts140" TIME_SLOT_REF2="ts142">
+                <ANNOTATION_VALUE>Ba mutepon mweiohʷ?</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a82" TIME_SLOT_REF1="ts143" TIME_SLOT_REF2="ts144">
+                <ANNOTATION_VALUE>Bihain ənən nabʉh əgɨdə dewɔg apə ma— məkə, "Eih!"</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a83" TIME_SLOT_REF1="ts145" TIME_SLOT_REF2="ts148">
+                <ANNOTATION_VALUE>Em ino inap nɨbʉh mas wanpela spirit nongut catɨkən nabʉh.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a84" TIME_SLOT_REF1="ts149" TIME_SLOT_REF2="ts151">
+                <ANNOTATION_VALUE>Em tasol Lisa.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a85" TIME_SLOT_REF1="ts152" TIME_SLOT_REF2="ts157">
+                <ANNOTATION_VALUE>Em ia, mama bilong Manuel ol istap, banana sanap ia.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a86" TIME_SLOT_REF1="ts159" TIME_SLOT_REF2="ts161">
+                <ANNOTATION_VALUE>Disela dewɔg bilong mipela.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a87" TIME_SLOT_REF1="ts164" TIME_SLOT_REF2="ts166">
+                <ANNOTATION_VALUE>Mm, bilong bipo.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a88" TIME_SLOT_REF1="ts167" TIME_SLOT_REF2="ts169">
+                <ANNOTATION_VALUE>Mipela stap long dispela hap, </ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a89" TIME_SLOT_REF1="ts170" TIME_SLOT_REF2="ts172">
+                <ANNOTATION_VALUE>dewɔg long hap ia.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a90" TIME_SLOT_REF1="ts173" TIME_SLOT_REF2="ts176">
+                <ANNOTATION_VALUE>Tokim papa bilong Manuel na mipela wokim long hap ples bilong ol.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a91" TIME_SLOT_REF1="ts177" TIME_SLOT_REF2="ts178">
+                <ANNOTATION_VALUE>Nau banana sanap ia. </ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a92" TIME_SLOT_REF1="ts179" TIME_SLOT_REF2="ts181">
+                <ANNOTATION_VALUE>Yumi stap long dispela hap.</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+    </TIER>
+    <TIER DEFAULT_LOCALE="en" LINGUISTIC_TYPE_REF="Gloss" PARENT_REF="Scola Sonin" PARTICIPANT="Scola Sonin" TIER_ID="Scola Sonin TP Gloss">
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a735" ANNOTATION_REF="a24">
+                <ANNOTATION_VALUE>Yumi stap long hia long dispela hap nau Lisa istap.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a736" ANNOTATION_REF="a25">
+                <ANNOTATION_VALUE>Tupela haus bilong mipela em yumi brukim pinis.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a737" ANNOTATION_REF="a26">
+                <ANNOTATION_VALUE>Mipela stap nau, Timothy ino - iolsem - em wokabaut finis, em itoktok tasol, tasol em ino toktok gut.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a738" ANNOTATION_REF="a27">
+                <ANNOTATION_VALUE>Na mipela istap.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a739" ANNOTATION_REF="a28">
+                <ANNOTATION_VALUE>Mipela istap nau – papa bilong Leopold wantaim mama bilong Leopold ol igo daun long nambis, nau ol ikam antap, nau ol ilukim mipela istap.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a740" ANNOTATION_REF="a29">
+                <ANNOTATION_VALUE>Mipela istap nau ol ikam nau ol istap wantaim mipela.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a741" ANNOTATION_REF="a30">
+                <ANNOTATION_VALUE>Ol istap nau, papa bilong Leopold em itok em itokim papa bilong mipela em itok, "Mi laikim dispela waia."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a742" ANNOTATION_REF="a31">
+                <ANNOTATION_VALUE>"Em istap clostu long arare bilong toilet bilong yupela."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a744" ANNOTATION_REF="a33">
+                <ANNOTATION_VALUE>Papa bilong ol em itok, "Nogat. Ino waia bilong mipela, waia bilong ol. Bilong lain bilong Ignas."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a745" ANNOTATION_REF="a34">
+                <ANNOTATION_VALUE>"Bihain ol ikam orait yu tokim ol, orait sapos ol laikim long yu kisim orait yu ken kisim. Em ino bilong mipela, bilong ol."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a746" ANNOTATION_REF="a35">
+                <ANNOTATION_VALUE>Na em itok, "Mi go na checkim."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a747" ANNOTATION_REF="a36">
+                <ANNOTATION_VALUE>Olsem na em igo.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a748" ANNOTATION_REF="a37">
+                <ANNOTATION_VALUE>Em igo na em igo sait long toilet na Timothy em ikirap bihainim em, igo mipela ino save na em igo.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a749" ANNOTATION_REF="a38">
+                <ANNOTATION_VALUE>Bihain em igo, na em igo raunim narapela sait – long toilet long sait bilong man.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a750" ANNOTATION_REF="a39">
+                <ANNOTATION_VALUE>Orait Timothy em iran igo long sait bilong ol meri isave yusim longen hap na igo insait, nau em igo na em igodaun long toilet.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a751" ANNOTATION_REF="a40">
+                <ANNOTATION_VALUE>Ating em ino pundaun tru tu long toilet ol spirit nogut iputim em igo daun long dispela toilet.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a752" ANNOTATION_REF="a41">
+                <ANNOTATION_VALUE>Em igo na em iharim.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a753" ANNOTATION_REF="a42">
+                <ANNOTATION_VALUE>[Na em iharim] papa bilong Leopold papa wok long pulim waia.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a754" ANNOTATION_REF="a43">
+                <ANNOTATION_VALUE>Na em iharim olsem em icrai.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a755" ANNOTATION_REF="a44">
+                <ANNOTATION_VALUE>Na em igo daun olgeta long hol na pas bilong tupela solda bilong em istap.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a756" ANNOTATION_REF="a45">
+                <ANNOTATION_VALUE>Na em igo daun olgeta lek bilong em igo daun go daun olgeta na em pas long tupela solda na em istap.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a757" ANNOTATION_REF="a46">
+                <ANNOTATION_VALUE>Olsem papa bilong Leopold em iharim em icrai nau em itok, "Eih!"</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a758" ANNOTATION_REF="a47">
+                <ANNOTATION_VALUE>"Wanpela pikinini mas crai long toilet ia!"</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a759" ANNOTATION_REF="a48">
+                <ANNOTATION_VALUE>Olsem na em iraun ikam, na em ilukim, na em ilukim em igo daun olgeta pinis na em ipas long ol solda, tupela solda.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a760" ANNOTATION_REF="a49">
+                <ANNOTATION_VALUE>Nau mi go luk fainim na mi tok, "Eih!"</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a761" ANNOTATION_REF="a50">
+                <ANNOTATION_VALUE>"Timothy go we, o?"</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a762" ANNOTATION_REF="a51">
+                <ANNOTATION_VALUE>Na bihain na, papa bilong Leopold em isingaut long mipela na em itok, "Nogat."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a763" ANNOTATION_REF="a52">
+                <ANNOTATION_VALUE>"Timothy ikam na igo daun long toilet."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a764" ANNOTATION_REF="a53">
+                <ANNOTATION_VALUE>Nau mipela ikirap na mipela fainim em nau.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a765" ANNOTATION_REF="a54">
+                <ANNOTATION_VALUE>Nau mi kirap nau mi ran igo nau mi kisim em long papa bilong Leopold mi kam…</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a766" ANNOTATION_REF="a55">
+                <ANNOTATION_VALUE>Nau scru bilong mipela iguria, na mipela wari…</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a767" ANNOTATION_REF="a56">
+                <ANNOTATION_VALUE>Nau ol tumbuna bilong em ol ikirap na ol ikros long mipela...</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a768" ANNOTATION_REF="a57">
+                <ANNOTATION_VALUE>Nau mi tok, "Eih."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a769" ANNOTATION_REF="a58">
+                <ANNOTATION_VALUE>"Ino mipela imekim na em ipundaun long toilet."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a770" ANNOTATION_REF="a59">
+                <ANNOTATION_VALUE>"Em yet bihainim papa na igo lukim ol ipulim waiai na em igo daun."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a771" ANNOTATION_REF="a60">
+                <ANNOTATION_VALUE>"Yutupela ino ken kros long mipela."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a772" ANNOTATION_REF="a61">
+                <ANNOTATION_VALUE>Nau mi kisim em igo insait nau wasim em long hotwara  nau mi lukim nogat nau mi kisim em igo daun long wara nau mi wasim em gen.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a773" ANNOTATION_REF="a62">
+                <ANNOTATION_VALUE>Mi kam antap, na papa bilong em, em itok na boilim ol hatwara nau wasim em long smel sop.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a774" ANNOTATION_REF="a63">
+                <ANNOTATION_VALUE>Na, mipela slip long nait, na tinging bilong mipela ino stap gut.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a775" ANNOTATION_REF="a64">
+                <ANNOTATION_VALUE>[Tinging bilong mipela], yumi tok nau mi godaun pinis long dispela toilet.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a776" ANNOTATION_REF="a65">
+                <ANNOTATION_VALUE>Oltaim yumi lukim dispela toilet mipela isave tinging olsem. "Em igo daun long dispela toilet mipela isori bai mipela kisim em ikam antap olsem wanem?"</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a777" ANNOTATION_REF="a66">
+                <ANNOTATION_VALUE>Em igo daun pinis.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a778" ANNOTATION_REF="a67">
+                <ANNOTATION_VALUE>Bai ino inap yu kisim em kam antap.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a779" ANNOTATION_REF="a68">
+                <ANNOTATION_VALUE>Disepela toilet em idaunbilo tru.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a780" ANNOTATION_REF="a69">
+                <ANNOTATION_VALUE>Ino inap (?)</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a781" ANNOTATION_REF="a70">
+                <ANNOTATION_VALUE>Oltaim yumi save lukim dispela toilet tinging bilong mipela em isave kalap.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a782" ANNOTATION_REF="a71">
+                <ANNOTATION_VALUE>Em idaunbilo tumas.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a785" ANNOTATION_REF="a74">
+                <ANNOTATION_VALUE>Na ol tumbuna bilong em ol ikros, planti long mipela na mi tok, "Eih!"</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a786" ANNOTATION_REF="a75">
+                <ANNOTATION_VALUE>"Yupela noken ikros long mipela. Ino mipela kisim em igo na igo daun long toilet."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a787" ANNOTATION_REF="a76">
+                <ANNOTATION_VALUE>"Em yet ikirap bihainim papa bilong em igo na em igo daun long dispela toilet."</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a788" ANNOTATION_REF="a77">
+                <ANNOTATION_VALUE>Sapos em igo daun tu long dispela toilet mipela ino save – olsem em igo bai bai em igo daun long dispela toilet.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a789" ANNOTATION_REF="a78">
+                <ANNOTATION_VALUE>Mipela bai fainim em.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a790" ANNOTATION_REF="a79">
+                <ANNOTATION_VALUE>Mipela bai fainim em na mipela ino inap save olsem ol spirit nogut kisim em igo o.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a791" ANNOTATION_REF="a80">
+                <ANNOTATION_VALUE>Mipela ino inap save.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a792" ANNOTATION_REF="a81">
+                <ANNOTATION_VALUE>Bai mipela fainim em nating?</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a793" ANNOTATION_REF="a82">
+                <ANNOTATION_VALUE>Bihain na em igo daun long dispela toilet nau mipela itok, "Eih!"</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <REF_ANNOTATION ANNOTATION_ID="a794" ANNOTATION_REF="a83">
+                <ANNOTATION_VALUE>Em in go daun nating long dispela sampela spirit nogut mas putim em igo daun.</ANNOTATION_VALUE>
+            </REF_ANNOTATION>
+        </ANNOTATION>
+    </TIER>
+    <LINGUISTIC_TYPE GRAPHIC_REFERENCES="false" LINGUISTIC_TYPE_ID="transcription" TIME_ALIGNABLE="true"/>
+    <LINGUISTIC_TYPE CONSTRAINTS="Symbolic_Subdivision" GRAPHIC_REFERENCES="false" LINGUISTIC_TYPE_ID="token" TIME_ALIGNABLE="false"/>
+    <LINGUISTIC_TYPE CONSTRAINTS="Symbolic_Association" GRAPHIC_REFERENCES="false" LINGUISTIC_TYPE_ID="Gloss" TIME_ALIGNABLE="false"/>
+    <LOCALE COUNTRY_CODE="US" LANGUAGE_CODE="en"/>
+    <CONSTRAINT DESCRIPTION="Time subdivision of parent annotation's time interval, no time gaps allowed within this interval" STEREOTYPE="Time_Subdivision"/>
+    <CONSTRAINT DESCRIPTION="Symbolic subdivision of a parent annotation. Annotations refering to the same parent are ordered" STEREOTYPE="Symbolic_Subdivision"/>
+    <CONSTRAINT DESCRIPTION="1-1 association with a parent annotation" STEREOTYPE="Symbolic_Association"/>
+    <CONSTRAINT DESCRIPTION="Time alignable annotations within the parent annotation's time interval, gaps are allowed" STEREOTYPE="Included_In"/>
+</ANNOTATION_DOCUMENT>
