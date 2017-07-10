@@ -4,8 +4,8 @@ var fs = require('fs');
 var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
   
-var xmlFileName = "../data/elan_files/Intro.eaf";
-var jsonFileName = "../data/json_files/Intro.json"
+var xmlFileName = "../data/elan_files/test.eaf";
+var jsonFileName = "../data/json_files/test.json"
 
 function swapJsonKeyValues(input) {
     var output = {};

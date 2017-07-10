@@ -1,19 +1,20 @@
 var data = {
   "metadata": {
     "tier IDs": {
-      "T1": "A'ingae",
-      "T2": "English",
-      "T3": "Morphemes",
-      "T4": "Glossed Morpheme"
+      "T1": "Lise Dobrin",
+      "T2": "Scola Sonin",
+      "T3": "Scola Sonin TP Gloss"
     },
     "speaker IDs": {
       "S1": {
-        "name": "Martin Criollo",
-        "language": "con",
+        "name": "Lise Dobrin",
         "tier": "T1"
+      },
+      "S2": {
+        "name": "Scola Sonin",
+        "tier": "T2"
       }
-    },
-    "title": "Intro-Ingi Cansecho Ande"
+    }
   }
 };
 
