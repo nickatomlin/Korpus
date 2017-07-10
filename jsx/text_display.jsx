@@ -203,12 +203,12 @@ class TimedTextDisplay extends React.Component {
 }
 
 $.getJSON( "./data/json_files/singo_ai.json", function(data) {
-  if (data.metadata.timed) {
+  if (data.metadata.timed == "true") {
     ReactDOM.render(
       <TimedTextDisplay data={data}/>,
       document.getElementById('centerPanel')
     );
-  } else {
+  } else { // data.metadata.timed == "false" (or maybe undefined)
     ReactDOM.render(
       <UntimedTextDisplay data={data}/>,
       document.getElementById('centerPanel')
