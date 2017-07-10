@@ -36,10 +36,6 @@
 	border-left: 2px solid black;
 }
 
-.labeledTimeBlock[data-isFinalBlock="true"] {
-	border-bottom: none;
-}
-
 .labeledSentence {
 	white-space: nowrap;
 	padding-top: 5px;
@@ -56,13 +52,16 @@ table.gloss[data-isTimeAligned="false"] {
 	padding-left: 9px;
 	border-bottom: 2px solid black;
 	border-left: 2px solid black;
-	border-right: 2px solid black;
+}
+
+.labeledTimeBlock[data-isFinalBlock="true"] {
+	border-bottom: none;
 }
 
 .timedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
-	width: calc(100% - 242px);
+	width: calc(100% - 240px);
 	height: calc(100% - 84px);
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -71,7 +70,7 @@ table.gloss[data-isTimeAligned="false"] {
 .untimedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
-	width: calc(100% - 242px);
+	width: calc(100% - 240px);
 	height: calc(100% - 84px);
 	overflow-y: scroll;
 	overflow-x: hidden;

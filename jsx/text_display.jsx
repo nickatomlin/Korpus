@@ -204,7 +204,7 @@ class TimedTextDisplay extends React.Component {
 
 $.getJSON( "./data/json_files/Intro.json", function(data) {
   ReactDOM.render(
-  <TextDisplay data={data}/>,
+  <TimedTextDisplay data={data}/>,
   document.getElementById('centerPanel')
 );
 })
