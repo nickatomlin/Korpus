@@ -46,15 +46,17 @@
 	padding-bottom: 5px;
 }
 
-table.gloss[data-isTimeAligned="false"] {
-	display: flex;
+table.gloss {
+	display: inline;
 	padding-right: 9px;
 }
 
-table.gloss[data-isTimeAligned="true"] {
-	display: inline;
+table.gloss[data-isTimeAligned="false"] {
 	display: flex;
-	padding-right: 9px;
+	padding-left: 9px;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
 }
 
 .timedTextDisplay {
