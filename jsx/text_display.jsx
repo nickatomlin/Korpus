@@ -3286,6 +3286,7 @@ class Sentence extends React.Component {
 class UntimedTextDisplay extends React.Component {
 	// I/P: data, stored in JSON format, as in test_data.json
   // O/P: the main gloss view, with several Sentences arranged vertically
+  // Status: tested, working
   render() {
     var sentences = this.props.data["sentences"];
     var output = [];
@@ -3293,8 +3294,8 @@ class UntimedTextDisplay extends React.Component {
       var sentence = sentences[i];
       output.push(<Sentence key={i} value={sentence}/>);
     }
-  }
     return <div className="untimedTextDisplay" id="td">{output}</div>;
+  }
 }
 
 class LabeledSentence extends React.Component {
