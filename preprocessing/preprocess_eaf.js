@@ -64,9 +64,9 @@ fs.readFile(xmlFileName, function (err, xml) {
 	"sentences": []
 	};
 	
-	var title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1);
-	title = title.slice(0,-4);
-	jsonOut.metadata.title = title;
+	var title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
+	title = title.slice(0,-4); // removes last four characters
+	jsonOut.metadata.title = title; // sets title
 
 	var tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER
 	// discard tiers that have no annotations in them
