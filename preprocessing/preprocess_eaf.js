@@ -59,7 +59,8 @@ fs.readFile(xmlFileName, function (err, xml) {
 	{"metadata": 
 		{"tier IDs": {}, 
 		"speaker IDs": {},
-		"title": ""
+		"title": "",
+    "timed": "true"
 		},
 	"sentences": []
 	};

@@ -203,8 +203,15 @@ class TimedTextDisplay extends React.Component {
 }
 
 $.getJSON( "./data/json_files/Intro.json", function(data) {
-  ReactDOM.render(
-  <TimedTextDisplay data={data}/>,
-  document.getElementById('centerPanel')
-);
+  if (data.metadata.timed) {
+    ReactDOM.render(
+      <TimedTextDisplay data={data}/>,
+      document.getElementById('centerPanel')
+    );
+  } else {
+    ReactDOM.render(
+      <UntimedTextDisplay data={data}/>,
+      document.getElementById('centerPanel')
+    );
+  }
 })

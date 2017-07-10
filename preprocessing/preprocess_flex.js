@@ -49,7 +49,8 @@ tierIDs = {};
 jsonOut = {
 	"metadata": {
 		"tier IDs": {},
-		"title": ""
+		"title": "",
+    "timed": "false"
 		// "speaker IDs" omitted (only used on elan files)
 		},
 	"sentences": []
