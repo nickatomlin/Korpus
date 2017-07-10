@@ -48,7 +48,8 @@ nextTierIDnum = 1;
 tierIDs = {};
 jsonOut = {
 	"metadata": {
-		"tier IDs": {}
+		"tier IDs": {},
+		"title": ""
 		// "speaker IDs" omitted (only used on elan files)
 		},
 	"sentences": []
@@ -56,6 +57,10 @@ jsonOut = {
 
 fs.readFile(xmlFileName, function (err, xml) {
   if (err) throw err;
+
+	var title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
+	title = title.slice(0,-4); // removes last four characters
+	jsonOut.metadata.title = title; // sets title
   
   parseString(xml, function (err, jsonIn) {
 	  

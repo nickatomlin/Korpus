@@ -57,12 +57,17 @@ fs.readFile(xmlFileName, function (err, xml) {
 	
 	var jsonOut = 
 	{"metadata": 
-		{"tierIDs": {}, 
-		"speakerIDs": {}
+		{"tier IDs": {}, 
+		"speaker IDs": {},
+		"title": ""
 		},
 	"sentences": []
 	};
 	
+	var title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1);
+	title = title.slice(0,-4);
+	jsonOut.metadata.title = title;
+
 	var tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER
 	// discard tiers that have no annotations in them
 	var tiers = tiersIncludeEmpty.filter((tier) => 
@@ -83,9 +88,9 @@ fs.readFile(xmlFileName, function (err, xml) {
 	for (var i = 0; i < tierNames.length; i++) {
 		var newID = "T" + (i + 1).toString();
 		
-		jsonOut.metadata.tierIDs[newID] = tierNames[i];
+		jsonOut.metadata["tier IDs"][newID] = tierNames[i];
 	}
-	var tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata.tierIDs);
+	var tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata["tier IDs"]);
 	var indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
 	
 	// tierDependents: indep tier name -> list of dep tier names
@@ -144,7 +149,7 @@ fs.readFile(xmlFileName, function (err, xml) {
 		var language = indepTiers[i].$.LANG_REF;
 		var tierID = tierIDsFromNames[tierName];
 		
-		jsonOut.metadata.speakerIDs[spkrID] = {
+		jsonOut.metadata["speaker IDs"][spkrID] = {
 			"name": spkrName,
 			"language": language,
 			"tier": tierID
