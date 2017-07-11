@@ -208,24 +208,27 @@ class TimedTextDisplay extends React.Component {
   }
 }
 
-$.getJSON( "./data/json_files/singo_ai.json", function(data) {
-  if (data.metadata.timed == "true") {
-    ReactDOM.render(
-      <TimedTextDisplay data={data}/>,
-      document.getElementById('centerPanel')
-    );
-    ReactDOM.render(
-      <audio controls id="player" src="data/media_files/Intro.mp3"></audio>,
-      document.getElementById('footer')
-    );
-    $.ajax({
-      url: "./js/txt_sync.js",
-      dataType: "script"
-    });
-  } else { // data.metadata.timed == "false" (or maybe undefined)
-    ReactDOM.render(
-      <UntimedTextDisplay data={data}/>,
-      document.getElementById('centerPanel')
-    );
-  }
-})
+function displayText(filename) {
+  var filename = "./data/json_files/" + filename + ".json";
+  $.getJSON(filename, function(data) {
+    if (data.metadata.timed == "true") {
+      ReactDOM.render(
+        <TimedTextDisplay data={data}/>,
+        document.getElementById('centerPanel')
+      );
+      ReactDOM.render(
+        <audio controls id="player" src="data/media_files/Intro.mp3"></audio>,
+        document.getElementById('footer')
+      );
+      $.ajax({
+        url: "./js/txt_sync.js",
+        dataType: "script"
+      });
+    } else { // data.metadata.timed == "false" (or maybe undefined)
+      ReactDOM.render(
+        <UntimedTextDisplay data={data}/>,
+        document.getElementById('centerPanel')
+      );
+    }
+  })
+}
