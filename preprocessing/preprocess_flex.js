@@ -125,15 +125,13 @@ fs.readFile(xmlFileName, function (err, xml) {
 						}
 						slotNum++;
 					}
-				} else { // the "word" is probably just punctuation
-					slotNum++;
-				}
-				var wordEndSlot = slotNum;
-				morphsJson[wordsTierID][wordStartSlot] = {
-					"value": wordValue, 
-					"end_slot": wordEndSlot
-				};
-				
+          
+          var wordEndSlot = slotNum;
+          morphsJson[wordsTierID][wordStartSlot] = {
+            "value": wordValue, 
+            "end_slot": wordEndSlot
+          };
+				} // else the "word" is probably just punctuation; include it only on the sentence tier
 				sentenceText += wordValue;
 			}
 			

@@ -9,12 +9,12 @@
       "T6": "English hn",
       "T7": "English free"
     },
-    "title": "singo_ai",
+    "title": "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\data\\flex_files\\singo_ai",
     "timed": "false"
   },
   "sentences": [
     {
-      "num_slots": 14,
+      "num_slots": 13,
       "text": "Mingae dapa tsu va andeni singo a'ija canse'fa.",
       "dependents": [
         {
@@ -59,11 +59,6 @@
               "start_slot": 11,
               "end_slot": 13,
               "value": "canse'fa"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "."
             }
           ]
         },
@@ -365,7 +360,7 @@
       ]
     },
     {
-      "num_slots": 9,
+      "num_slots": 8,
       "text": "Tayopi fae tsandie tsu an'bian tise du'shuma.",
       "dependents": [
         {
@@ -405,11 +400,6 @@
               "start_slot": 6,
               "end_slot": 8,
               "value": "du'shuma"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "."
             }
           ]
         },
@@ -598,7 +588,7 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 9,
+              "end_slot": 8,
               "value": "Long ago, a man had a boy."
             }
           ]
@@ -606,7 +596,7 @@
       ]
     },
     {
-      "num_slots": 15,
+      "num_slots": 14,
       "text": "Tsa du'shu tsu tise yaya cundyiye japa cundyi'je'choma atte.",
       "dependents": [
         {
@@ -656,11 +646,6 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "atte"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "."
             }
           ]
         },
@@ -987,7 +972,7 @@
       ]
     },
     {
-      "num_slots": 9,
+      "num_slots": 8,
       "text": "Tise yaya cundyi'je'fa tsu sin'an.",
       "dependents": [
         {
@@ -1017,11 +1002,6 @@
               "start_slot": 6,
               "end_slot": 8,
               "value": "sin'an"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "."
             }
           ]
         },
@@ -1208,7 +1188,7 @@
       ]
     },
     {
-      "num_slots": 42,
+      "num_slots": 40,
       "text": "Tsonsi tsama attepa yaya que cundyi'fa tsu sin'an qquen susi tise yaya in'jan, cuintsu tsa'caen injengembe camba tisu yaya cundyi'je'fama atte'ta singo a'ive daye.",
       "dependents": [
         {
@@ -1282,67 +1262,57 @@
             {
               "start_slot": 19,
               "end_slot": 20,
-              "value": ","
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 21,
               "value": "cuintsu"
             },
             {
-              "start_slot": 21,
-              "end_slot": 24,
+              "start_slot": 20,
+              "end_slot": 23,
               "value": "tsa'caen"
             },
             {
-              "start_slot": 24,
-              "end_slot": 26,
+              "start_slot": 23,
+              "end_slot": 25,
               "value": "injengembe"
             },
             {
-              "start_slot": 26,
-              "end_slot": 28,
+              "start_slot": 25,
+              "end_slot": 27,
               "value": "camba"
+            },
+            {
+              "start_slot": 27,
+              "end_slot": 28,
+              "value": "tisu"
             },
             {
               "start_slot": 28,
               "end_slot": 29,
-              "value": "tisu"
-            },
-            {
-              "start_slot": 29,
-              "end_slot": 30,
               "value": "yaya"
             },
             {
-              "start_slot": 30,
-              "end_slot": 34,
+              "start_slot": 29,
+              "end_slot": 33,
               "value": "cundyi'je'fama"
             },
             {
-              "start_slot": 34,
-              "end_slot": 36,
+              "start_slot": 33,
+              "end_slot": 35,
               "value": "atte'ta"
             },
             {
-              "start_slot": 36,
-              "end_slot": 37,
+              "start_slot": 35,
+              "end_slot": 36,
               "value": "singo"
             },
             {
-              "start_slot": 37,
-              "end_slot": 39,
+              "start_slot": 36,
+              "end_slot": 38,
               "value": "a'ive"
             },
             {
-              "start_slot": 39,
-              "end_slot": 41,
+              "start_slot": 38,
+              "end_slot": 40,
               "value": "daye"
-            },
-            {
-              "start_slot": 41,
-              "end_slot": 42,
-              "value": "."
             }
           ]
         },
@@ -1445,108 +1415,108 @@
               "value": "in'jan"
             },
             {
+              "start_slot": 19,
+              "end_slot": 20,
+              "value": "cuintsu"
+            },
+            {
               "start_slot": 20,
               "end_slot": 21,
-              "value": "cuintsu"
+              "value": "tsa"
             },
             {
               "start_slot": 21,
               "end_slot": 22,
-              "value": "tsa"
+              "value": "='ca"
             },
             {
               "start_slot": 22,
               "end_slot": 23,
-              "value": "='ca"
+              "value": "=en"
             },
             {
               "start_slot": 23,
               "end_slot": 24,
-              "value": "=en"
+              "value": "injenge"
             },
             {
               "start_slot": 24,
               "end_slot": 25,
-              "value": "injenge"
+              "value": "=mbe"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "=mbe"
+              "value": "ca"
             },
             {
               "start_slot": 26,
               "end_slot": 27,
-              "value": "ca"
+              "value": "=mba"
             },
             {
               "start_slot": 27,
               "end_slot": 28,
-              "value": "=mba"
+              "value": "tisu"
             },
             {
               "start_slot": 28,
               "end_slot": 29,
-              "value": "tisu"
+              "value": "yaya"
             },
             {
               "start_slot": 29,
               "end_slot": 30,
-              "value": "yaya"
+              "value": "cundyi"
             },
             {
               "start_slot": 30,
               "end_slot": 31,
-              "value": "cundyi"
+              "value": "-'je"
             },
             {
               "start_slot": 31,
               "end_slot": 32,
-              "value": "-'je"
+              "value": "='fa"
             },
             {
               "start_slot": 32,
               "end_slot": 33,
-              "value": "='fa"
+              "value": "=ma"
             },
             {
               "start_slot": 33,
               "end_slot": 34,
-              "value": "=ma"
+              "value": "atte"
             },
             {
               "start_slot": 34,
               "end_slot": 35,
-              "value": "atte"
+              "value": "='ta"
             },
             {
               "start_slot": 35,
               "end_slot": 36,
-              "value": "='ta"
+              "value": "singo"
             },
             {
               "start_slot": 36,
               "end_slot": 37,
-              "value": "singo"
+              "value": "a'i"
             },
             {
               "start_slot": 37,
               "end_slot": 38,
-              "value": "a'i"
+              "value": "=ve"
             },
             {
               "start_slot": 38,
               "end_slot": 39,
-              "value": "=ve"
+              "value": "da"
             },
             {
               "start_slot": 39,
               "end_slot": 40,
-              "value": "da"
-            },
-            {
-              "start_slot": 40,
-              "end_slot": 41,
               "value": "=ye"
             }
           ]
@@ -1650,108 +1620,108 @@
               "value": "in'jan"
             },
             {
+              "start_slot": 19,
+              "end_slot": 20,
+              "value": "cuintsu"
+            },
+            {
               "start_slot": 20,
               "end_slot": 21,
-              "value": "cuintsu"
+              "value": "tsa"
             },
             {
               "start_slot": 21,
               "end_slot": 22,
-              "value": "tsa"
+              "value": "='can"
             },
             {
               "start_slot": 22,
               "end_slot": 23,
-              "value": "='can"
+              "value": "=e"
             },
             {
               "start_slot": 23,
               "end_slot": 24,
-              "value": "=e"
+              "value": "injenge"
             },
             {
               "start_slot": 24,
               "end_slot": 25,
-              "value": "injenge"
+              "value": "=mbe"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "=mbe"
+              "value": "can"
             },
             {
               "start_slot": 26,
               "end_slot": 27,
-              "value": "can"
+              "value": "=pa"
             },
             {
               "start_slot": 27,
               "end_slot": 28,
-              "value": "=pa"
+              "value": "tisu"
             },
             {
               "start_slot": 28,
               "end_slot": 29,
-              "value": "tisu"
+              "value": "yaya"
             },
             {
               "start_slot": 29,
               "end_slot": 30,
-              "value": "yaya"
+              "value": "cundyi"
             },
             {
               "start_slot": 30,
               "end_slot": 31,
-              "value": "cundyi"
+              "value": "-'je"
             },
             {
               "start_slot": 31,
               "end_slot": 32,
-              "value": "-'je"
+              "value": "=fa"
             },
             {
               "start_slot": 32,
               "end_slot": 33,
-              "value": "=fa"
+              "value": "=ma"
             },
             {
               "start_slot": 33,
               "end_slot": 34,
-              "value": "=ma"
+              "value": "atte"
             },
             {
               "start_slot": 34,
               "end_slot": 35,
-              "value": "atte"
+              "value": "=ta"
             },
             {
               "start_slot": 35,
               "end_slot": 36,
-              "value": "=ta"
+              "value": "singo"
             },
             {
               "start_slot": 36,
               "end_slot": 37,
-              "value": "singo"
+              "value": "a'i"
             },
             {
               "start_slot": 37,
               "end_slot": 38,
-              "value": "a'i"
+              "value": "=ve"
             },
             {
               "start_slot": 38,
               "end_slot": 39,
-              "value": "=ve"
+              "value": "da"
             },
             {
               "start_slot": 39,
               "end_slot": 40,
-              "value": "da"
-            },
-            {
-              "start_slot": 40,
-              "end_slot": 41,
               "value": "=ye"
             }
           ]
@@ -1845,88 +1815,88 @@
               "value": "want"
             },
             {
+              "start_slot": 19,
+              "end_slot": 20,
+              "value": "PURP"
+            },
+            {
               "start_slot": 20,
               "end_slot": 21,
-              "value": "PURP"
+              "value": "ANA"
             },
             {
               "start_slot": 21,
               "end_slot": 22,
-              "value": "ANA"
+              "value": "=CMP"
             },
             {
               "start_slot": 22,
               "end_slot": 23,
-              "value": "=CMP"
+              "value": "=ADVR"
             },
             {
               "start_slot": 23,
               "end_slot": 24,
-              "value": "=ADVR"
+              "value": "be necessary"
             },
             {
               "start_slot": 24,
               "end_slot": 25,
-              "value": "be necessary"
+              "value": "=ADV.NEG"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "=ADV.NEG"
+              "value": "look"
             },
             {
               "start_slot": 26,
               "end_slot": 27,
-              "value": "look"
+              "value": "=SS"
             },
             {
               "start_slot": 27,
               "end_slot": 28,
-              "value": "=SS"
+              "value": "REFL"
             },
             {
               "start_slot": 28,
               "end_slot": 29,
-              "value": "REFL"
+              "value": "dad"
             },
             {
               "start_slot": 29,
               "end_slot": 30,
-              "value": "dad"
+              "value": "urinate"
             },
             {
               "start_slot": 30,
               "end_slot": 31,
-              "value": "urinate"
+              "value": "IMPV"
             },
             {
               "start_slot": 31,
               "end_slot": 32,
-              "value": "IMPV"
+              "value": "=SH.LAT"
             },
             {
               "start_slot": 32,
               "end_slot": 33,
-              "value": "=SH.LAT"
+              "value": "=ACC"
             },
             {
-              "start_slot": 33,
-              "end_slot": 34,
-              "value": "=ACC"
+              "start_slot": 35,
+              "end_slot": 36,
+              "value": "black person"
             },
             {
               "start_slot": 36,
               "end_slot": 37,
-              "value": "black person"
+              "value": "person"
             },
             {
               "start_slot": 37,
               "end_slot": 38,
-              "value": "person"
-            },
-            {
-              "start_slot": 38,
-              "end_slot": 39,
               "value": "=ACC2"
             }
           ]
@@ -2030,14 +2000,19 @@
               "value": "v"
             },
             {
+              "start_slot": 19,
+              "end_slot": 20,
+              "value": "conn"
+            },
+            {
               "start_slot": 20,
               "end_slot": 21,
-              "value": "conn"
+              "value": "dem"
             },
             {
               "start_slot": 21,
               "end_slot": 22,
-              "value": "dem"
+              "value": "clphras"
             },
             {
               "start_slot": 22,
@@ -2047,47 +2022,47 @@
             {
               "start_slot": 23,
               "end_slot": 24,
-              "value": "clphras"
+              "value": "v"
             },
             {
               "start_slot": 24,
               "end_slot": 25,
-              "value": "v"
+              "value": "clphras"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "clphras"
+              "value": "v"
             },
             {
               "start_slot": 26,
               "end_slot": 27,
-              "value": "v"
+              "value": "clphras"
             },
             {
               "start_slot": 27,
               "end_slot": 28,
-              "value": "clphras"
+              "value": "pro"
             },
             {
               "start_slot": 28,
               "end_slot": 29,
-              "value": "pro"
+              "value": "n"
             },
             {
               "start_slot": 29,
               "end_slot": 30,
-              "value": "n"
+              "value": "v"
             },
             {
               "start_slot": 30,
               "end_slot": 31,
-              "value": "v"
+              "value": "v:Any"
             },
             {
               "start_slot": 31,
               "end_slot": 32,
-              "value": "v:Any"
+              "value": "clphras"
             },
             {
               "start_slot": 32,
@@ -2097,17 +2072,17 @@
             {
               "start_slot": 33,
               "end_slot": 34,
-              "value": "clphras"
+              "value": "v"
             },
             {
               "start_slot": 34,
               "end_slot": 35,
-              "value": "v"
+              "value": "clphras"
             },
             {
               "start_slot": 35,
               "end_slot": 36,
-              "value": "clphras"
+              "value": "n"
             },
             {
               "start_slot": 36,
@@ -2117,21 +2092,16 @@
             {
               "start_slot": 37,
               "end_slot": 38,
-              "value": "n"
+              "value": "clphras"
             },
             {
               "start_slot": 38,
               "end_slot": 39,
-              "value": "clphras"
+              "value": "v"
             },
             {
               "start_slot": 39,
               "end_slot": 40,
-              "value": "v"
-            },
-            {
-              "start_slot": 40,
-              "end_slot": 41,
               "value": "clphras"
             }
           ]
@@ -2155,23 +2125,23 @@
               "value": "1"
             },
             {
-              "start_slot": 23,
-              "end_slot": 24,
+              "start_slot": 22,
+              "end_slot": 23,
               "value": "1"
             },
             {
-              "start_slot": 25,
-              "end_slot": 26,
+              "start_slot": 24,
+              "end_slot": 25,
               "value": "1"
             },
             {
-              "start_slot": 27,
-              "end_slot": 28,
+              "start_slot": 26,
+              "end_slot": 27,
               "value": "1"
             },
             {
-              "start_slot": 40,
-              "end_slot": 41,
+              "start_slot": 39,
+              "end_slot": 40,
               "value": "1"
             }
           ]
@@ -2179,7 +2149,7 @@
       ]
     },
     {
-      "num_slots": 12,
+      "num_slots": 11,
       "text": "Tsa'caen in'jansi tsa du'shuja singove da.",
       "dependents": [
         {
@@ -2214,11 +2184,6 @@
               "start_slot": 10,
               "end_slot": 11,
               "value": "da"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "."
             }
           ]
         },
@@ -2485,7 +2450,7 @@
       ]
     },
     {
-      "num_slots": 15,
+      "num_slots": 14,
       "text": "Tsa'caen singove dapa jai'ngae pushepa singove atapa.",
       "dependents": [
         {
@@ -2525,11 +2490,6 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "atapa"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "."
             }
           ]
         },
@@ -2856,7 +2816,7 @@
       ]
     },
     {
-      "num_slots": 14,
+      "num_slots": 13,
       "text": "Tsa'ye tsu ja'ño pan singondeccuja va andeni canse'fa.",
       "dependents": [
         {
@@ -2901,11 +2861,6 @@
               "start_slot": 11,
               "end_slot": 13,
               "value": "canse'fa"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "."
             }
           ]
         },
