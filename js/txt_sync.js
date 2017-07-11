@@ -26,19 +26,19 @@ function sync(current_time) {
 	}
 }
 
-window.onload = function() {
-	media = document.getElementById("player");
+// window.onload = function() {
+media = document.getElementById("player");
 
-    media.setAttribute("ontimeupdate", "sync(this.currentTime)");
-    // media.setAttribute("onmousemove", "sync(this.currentTime)");
-    media.setAttribute("onclick", "sync(this.currentTime)");
+media.setAttribute("ontimeupdate", "sync(this.currentTime)");
+// media.setAttribute("onmousemove", "sync(this.currentTime)");
+media.setAttribute("onclick", "sync(this.currentTime)");
 
-    ts_tag_array = document.getElementsByClassName("labeledTimeBlock");
-    ts_start_time_array = [];
-    ts_stop_time_array = [];
+ts_tag_array = document.getElementsByClassName("labeledTimeBlock");
+ts_start_time_array = [];
+ts_stop_time_array = [];
 
-    for (var i = 0; i < ts_tag_array.length; i++) {
-        ts_start_time_array[i] = ts_tag_array[i].getAttribute("data-start_time");
-        ts_stop_time_array[i] = ts_tag_array[i].getAttribute("data-end_time");
-    }
+for (var i = 0; i < ts_tag_array.length; i++) {
+    ts_start_time_array[i] = ts_tag_array[i].getAttribute("data-start_time");
+    ts_stop_time_array[i] = ts_tag_array[i].getAttribute("data-end_time");
 }
+// }

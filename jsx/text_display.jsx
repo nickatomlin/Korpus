@@ -202,7 +202,7 @@ class TimedTextDisplay extends React.Component {
   }
 }
 
-$.getJSON( "./data/json_files/singo_ai.json", function(data) {
+$.getJSON( "./data/json_files/Intro.json", function(data) {
   if (data.metadata.timed == "true") {
     ReactDOM.render(
       <TimedTextDisplay data={data}/>,
@@ -212,6 +212,7 @@ $.getJSON( "./data/json_files/singo_ai.json", function(data) {
       <audio controls id="player" src="data/media_files/Intro.mp3"></audio>,
       document.getElementById('footer')
     );
+    $.getScript("/js/txt_sync.js");
   } else { // data.metadata.timed == "false" (or maybe undefined)
     ReactDOM.render(
       <UntimedTextDisplay data={data}/>,
