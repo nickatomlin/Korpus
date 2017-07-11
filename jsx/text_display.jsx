@@ -70,6 +70,8 @@ class Sentence extends React.Component {
     }
     if (this.props.isTimeAligned) {
       return <table className="gloss" data-isTimeAligned="true"><tbody>{row_list}</tbody></table>;
+    } else if (this.props.isFinalSentence) {
+      return <table className="gloss" data-isTimeAligned="false" data-isFinalBlock="true"><tbody>{row_list}</tbody></table>;
     } else {
       return <table className="gloss" data-isTimeAligned="false"><tbody>{row_list}</tbody></table>;
     }
@@ -85,7 +87,11 @@ class UntimedTextDisplay extends React.Component {
     var output = [];
     for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
-      output.push(<Sentence key={i} value={sentence} isTimeAligned={false}/>);
+      if (i == (sentences.length - 1)) {
+        output.push(<Sentence key={i} value={sentence} isTimeAligned={false} isFinalSentence={true} />);
+      } else {
+        output.push(<Sentence key={i} value={sentence} isTimeAligned={false}/>);
+      }
     }
     return <div className="untimedTextDisplay" id="td">{output}</div>;
   }

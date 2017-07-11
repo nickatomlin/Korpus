@@ -42,6 +42,10 @@
 	padding-bottom: 5px;
 }
 
+.labeledSentence[data-isFinalSentence="true"] {
+	border-bottom: none;
+}
+
 table.gloss {
 	display: inline;
 	padding-right: 9px;
