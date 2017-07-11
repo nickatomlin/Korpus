@@ -212,6 +212,9 @@ $.getJSON( "./data/json_files/Intro.json", function(data) {
       <audio controls id="player" src="data/media_files/Intro.mp3"></audio>,
       document.getElementById('footer')
     );
+    $.ajax({
+      cache:true
+    });
     $.getScript("/js/txt_sync.js");
   } else { // data.metadata.timed == "false" (or maybe undefined)
     ReactDOM.render(
