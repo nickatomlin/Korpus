@@ -88,9 +88,9 @@ class UntimedTextDisplay extends React.Component {
     for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
       if (i == (sentences.length - 1)) {
-        output.push(<Sentence key={i} value={sentence} isTimeAligned={false} isFinalSentence={true} />);
+        output.push(<div key={i} className="UntimedBlock"><Sentence key={i} value={sentence} isTimeAligned={false} isFinalSentence={true}/></div>);
       } else {
-        output.push(<Sentence key={i} value={sentence} isTimeAligned={false}/>);
+        output.push(<div key={i} className="UntimedBlock"><Sentence key={i} value={sentence} isTimeAligned={false}/></div>);
       }
     }
     return <div className="untimedTextDisplay" id="td">{output}</div>;

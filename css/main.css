@@ -26,6 +26,13 @@
 	padding-bottom: 5px;
 }
 
+.UntimedBlock {
+	overflow-x: scroll;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	/*padding-right: 10px;*/
+}
+
 .labeledTimeBlock {
 	clear: both;
 	float: left;
@@ -50,8 +57,6 @@ table.gloss {
 table.gloss[data-isTimeAligned="false"] {
 	display: flex;
 	padding-left: 9px;
-	border-bottom: 2px solid black;
-	border-left: 2px solid black;
 }
 
 table.gloss[data-isFinalSentence="true"] {
