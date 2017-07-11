@@ -78,6 +78,36 @@ class SpeakerInfo extends React.Component {
   }
 }
 
+class VideoButton extends React.Component {
+  // I/P: link to video
+  // O/P: a button that can show/hide video, reset "player" ID, etc.
+  // Status: unfinished
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkboxState: false
+    };
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle(event) {
+    this.setState({checkboxState: !this.state.checkboxState});
+
+    if (!this.state.checkboxState) {
+      $(".timedTextDisplay").css("margin-left", "50%");
+      $(".timedTextDisplay").css("width", "50%");
+    }
+    else {
+      $(".timedTextDisplay").css("margin-left", "240px");
+      $(".timedTextDisplay").css("width", "calc(100% - 240px)");
+    }
+  }
+
+  render() {
+    return <div><input type="checkbox" onClick={this.toggle} /><label>Show video</label></div>;
+  }
+}
+
 class Settings extends React.Component {
   // I/P: metadata, in JSON format
   // O/P: a settings/metadata panel
@@ -86,7 +116,7 @@ class Settings extends React.Component {
     var metadata = this.props.metadata;
     var title = metadata.title;
     if (this.props.timed) { // timed, i.e., ELAN
-      return <div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
+      return <div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div>;
     }
     else { // untimed, i.e., FLEx
       return <div id="settings"><TitleInfo title={title}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
@@ -235,6 +265,14 @@ class TimeBlock extends React.Component {
 // Status: tested, working
 function printSeconds(r){r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%3600/60),n=Math.floor(r%3600%60);if(n>=10)e=String(n);else var e="0"+String(n);var o=String(i)+":";if(0==t)a="";else if(i>=10)a=String(t)+":";else var a=String(t)+":0";return a+o+e}
 
+// I/P: an integer number of milliseconds
+// O/P: the player updates to the given time
+// Status: untested
+function jumpToTime(t) {
+  var media = document.getElementById("player");
+  media.currentTime = t/1000;
+}
+
 class LabeledTimeBlock extends React.Component {
   // I/P: sentences, a list of sentences with the same start time
   //      timestamp, an integer number of seconds
@@ -262,10 +300,10 @@ class LabeledTimeBlock extends React.Component {
       }
     }
     if (isFinalBlock) {
-      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end} data-isFinalBlock="true"><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end} data-isFinalBlock="true"><span className="timeStamp" >{timestamp}</span><TimeBlock sentences={sentences}/></div>;
     }
     else {
-      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><span className="timeStamp">{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><a href="#" className="timeStamp">{timestamp}</a><TimeBlock sentences={sentences}/></div>;
     }
   }
 }

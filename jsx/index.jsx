@@ -1,4 +1,4 @@
-var fs = require('fs');
+var fs = require(['fs']);
 
 class DocLink extends React.Component {
   // I/P: fileName, the filename (including file extension, excluding file path) of the document
@@ -30,7 +30,7 @@ class IndexDisplay extends React.Component {
   }
 }
 
-$ReactDOM.render(
+ReactDOM.render(
   <IndexDisplay/>,
   document.getElementById('centerPanel')
 );
