@@ -208,6 +208,10 @@ $.getJSON( "./data/json_files/Intro.json", function(data) {
       <TimedTextDisplay data={data}/>,
       document.getElementById('centerPanel')
     );
+    ReactDOM.render(
+      <audio controls id="player" src="data/media_files/Intro.mp3"></audio>,
+      document.getElementById('footer')
+    );
   } else { // data.metadata.timed == "false" (or maybe undefined)
     ReactDOM.render(
       <UntimedTextDisplay data={data}/>,
