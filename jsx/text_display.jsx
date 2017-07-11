@@ -85,7 +85,7 @@ class UntimedTextDisplay extends React.Component {
     var output = [];
     for (var i=0; i<sentences.length; i++) {
       var sentence = sentences[i];
-      output.push(<Sentence key={i} value={sentence} isTimeAligned=false/>);
+      output.push(<Sentence key={i} value={sentence} isTimeAligned={false}/>);
     }
     return <div className="untimedTextDisplay" id="td">{output}</div>;
   }
@@ -98,7 +98,7 @@ class LabeledSentence extends React.Component {
   render() {
     var sentence = this.props.value;
     var label = sentence["speaker"];
-    return <div className="labeledSentence"><span className="speakerLabel">{label}: </span><Sentence value={sentence} isTimeAligned=true/></div>;
+    return <div className="labeledSentence"><span className="speakerLabel">{label}: </span><Sentence value={sentence} isTimeAligned={true}/></div>;
   }
 }
 
