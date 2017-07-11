@@ -42,10 +42,6 @@
 	padding-bottom: 5px;
 }
 
-.labeledSentence[data-isFinalSentence="true"] {
-	border-bottom: none;
-}
-
 table.gloss {
 	display: inline;
 	padding-right: 9px;
@@ -56,6 +52,10 @@ table.gloss[data-isTimeAligned="false"] {
 	padding-left: 9px;
 	border-bottom: 2px solid black;
 	border-left: 2px solid black;
+}
+
+table.gloss[data-isFinalSentence="true"] {
+	border-bottom: none;
 }
 
 .labeledTimeBlock[data-isFinalBlock="true"] {
