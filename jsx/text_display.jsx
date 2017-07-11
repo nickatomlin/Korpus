@@ -213,9 +213,9 @@ $.getJSON( "./data/json_files/Intro.json", function(data) {
       document.getElementById('footer')
     );
     $.ajax({
-      cache:true
+      url: "./js/txt_sync.js",
+      dataType: "script"
     });
-    $.getScript("/js/txt_sync.js");
   } else { // data.metadata.timed == "false" (or maybe undefined)
     ReactDOM.render(
       <UntimedTextDisplay data={data}/>,
