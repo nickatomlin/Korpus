@@ -1,3 +1,5 @@
+// MOVED TO TEXT_DISPLAY.JSX
+
 var data = {
   "metadata": {
     "tier IDs": {

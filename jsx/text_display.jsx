@@ -78,6 +78,36 @@ class SpeakerInfo extends React.Component {
   }
 }
 
+class VideoButton extends React.Component {
+  // I/P: link to video
+  // O/P: a button that can show/hide video, reset "player" ID, etc.
+  // Status: unfinished
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkboxState: false
+    };
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle(event) {
+    this.setState({checkboxState: !this.state.checkboxState});
+
+    if (!this.state.checkboxState) {
+      $(".timedTextDisplay").css("margin-left", "50%");
+      $(".timedTextDisplay").css("width", "50%");
+    }
+    else {
+      $(".timedTextDisplay").css("margin-left", "240px");
+      $(".timedTextDisplay").css("width", "calc(100% - 240px)");
+    }
+  }
+
+  render() {
+    return <div><input type="checkbox" onClick={this.toggle} /><label>Show video</label></div>;
+  }
+}
+
 class Settings extends React.Component {
   // I/P: metadata, in JSON format
   // O/P: a settings/metadata panel
@@ -86,7 +116,7 @@ class Settings extends React.Component {
     var metadata = this.props.metadata;
     var title = metadata.title;
     if (this.props.timed) { // timed, i.e., ELAN
-      return <div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
+      return <div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div>;
     }
     else { // untimed, i.e., FLEx
       return <div id="settings"><TitleInfo title={title}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
