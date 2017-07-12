@@ -8,7 +8,7 @@ class Video extends React.Component {
   // O/P: a video player that can be shown/hidden with the VideoButton
   // Status: unfinished
   render() {
-    return <video data-live="false" style={{display: 'none'}} src="data/media_files/Intro.mp4" id="video" width="320" height="240" controls></video>
+    return <div id="videoWrapper"><video data-live="false" style={{display: 'none', margin: "10px"}} src="data/media_files/Intro.mp4" id="video" controls></video></div>
   }
 }
 
@@ -122,8 +122,10 @@ class VideoButton extends React.Component {
       else { // audio is playing
         audio.pause();
         video.currentTime = audio.currentTime;
-        video.play()
+        video.play();
       }
+      $("#footer").css("display", "none");
+      $(".timedTextDisplay").css("height", "calc(100% - 48px)");
     }
     else { // hide video
       $("#video").css("display", "none");
@@ -145,8 +147,10 @@ class VideoButton extends React.Component {
       else { // audio is playing
         video.pause();
         audio.currentTime = video.currentTime;
-        audio.play()
+        audio.play();
       }
+      $("#footer").css("display", "block");
+      $(".timedTextDisplay").css("height", "calc(100% - 84px)");
     }
   }
 
