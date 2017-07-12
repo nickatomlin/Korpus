@@ -265,14 +265,6 @@ class TimeBlock extends React.Component {
 // Status: tested, working
 function printSeconds(r){r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%3600/60),n=Math.floor(r%3600%60);if(n>=10)e=String(n);else var e="0"+String(n);var o=String(i)+":";if(0==t)a="";else if(i>=10)a=String(t)+":";else var a=String(t)+":0";return a+o+e}
 
-// I/P: an integer number of milliseconds
-// O/P: the player updates to the given time
-// Status: untested
-function jumpToTime(t) {
-  var media = document.getElementById("player");
-  media.currentTime = t/1000;
-}
-
 class LabeledTimeBlock extends React.Component {
   // I/P: sentences, a list of sentences with the same start time
   //      timestamp, an integer number of seconds
@@ -300,10 +292,10 @@ class LabeledTimeBlock extends React.Component {
       }
     }
     if (isFinalBlock) {
-      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end} data-isFinalBlock="true"><span className="timeStamp" >{timestamp}</span><TimeBlock sentences={sentences}/></div>;
+      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end} data-isFinalBlock="true"><span className="timeStampContainer"><a href="javascript:void(0)" data-start_time={min_start} className="timeStamp">{timestamp}</a></span><TimeBlock sentences={sentences}/></div>;
     }
     else {
-      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><a href="#" className="timeStamp">{timestamp}</a><TimeBlock sentences={sentences}/></div>;
+      return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><span className="timeStampContainer"><a href="javascript:void(0)" data-start_time={min_start} className="timeStamp">{timestamp}</a></span><TimeBlock sentences={sentences}/></div>;
     }
   }
 }

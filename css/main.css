@@ -13,7 +13,7 @@
 	overflow-x: auto;
 }
 
-.timeStamp {
+.timeStampContainer {
 	padding-top: 3px; /* A quick fix to align with TimeBlock. */
 	float: left;
 	/*margin-right: 9px;*/
@@ -128,4 +128,8 @@ ul {
 
 audio {
 	width: 100%;
+}
+
+a.timeStamp {
+	color: black;
 }

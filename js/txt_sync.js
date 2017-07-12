@@ -42,3 +42,21 @@ for (var i = 0; i < ts_tag_array.length; i++) {
     ts_stop_time_array[i] = ts_tag_array[i].getAttribute("data-end_time");
 }
 // }
+
+// I/P: an integer number of milliseconds
+// O/P: the player updates to the given time
+// Status: untested
+function jumpToTime(t) {
+  try {
+    var media = document.getElementById("player");
+    media.currentTime = t/1000;
+  }
+  catch(err) {
+    console.log(err);
+    console.log("We think you tried to jump to time before the MEDIA element was created.")
+  }
+}
+
+$(".timeStamp").click(function(){
+    jumpToTime($(this).data('start_time'));
+});
