@@ -5,7 +5,8 @@ class DocLink extends React.Component {
   render () {
     var fileName = this.props.fileName;
     var buttonText = fileName.substring(0, -4); // remove the .json extension
-    return <li><a className="docLink" href="javascript:void(0)" data-button_text={buttonText} >{buttonText}</a></li>;
+    return <li><a className="docLink" href="javascript:void(0)" data-//button_text={buttonText} >{buttonText}</a></li>;
+    button_text={buttonText} >buttontextplaceholder</a></li>;
   }
 }
 
