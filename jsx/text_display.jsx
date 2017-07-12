@@ -8,7 +8,7 @@ class Video extends React.Component {
   // O/P: a video player that can be shown/hidden with the VideoButton
   // Status: unfinished
   render() {
-    return <video data-live="false" style={{display: 'none'}} src="../data/media_files/Intro.mp4" id="video" width="320" height="240" controls></video>
+    return <video data-live="false" style={{display: 'none'}} src="data/media_files/Intro.mp4" id="video" width="320" height="240" controls></video>
   }
 }
 
