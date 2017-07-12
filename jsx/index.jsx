@@ -19,7 +19,7 @@ class IndexDisplay extends React.Component {
     var output = [];
     for (var i=0; i<files.length; i++) {
       var fileName = files[i]["title from filename"];
-      output.push(<DocLink key={i} fileName={fileNames}/>);
+      output.push(<DocLink key={i} fileName={fileName}/>);
     }
     return <ul className="indexDisplay">{output}</ul>;
   }
