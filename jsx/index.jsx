@@ -6,7 +6,7 @@ class DocLink extends React.Component {
     var fileName = this.props.fileName;
     var buttonText = fileName.substring(0, -4); // remove the .json extension
     var clickHandler = "displayText('" + buttonText + "')";
-    return <li><button style={{margin-left: 250px}} onClick={clickHandler}>{buttonText}</button></li>;
+    return <li><button style={{margin-left: "250px"}} onClick={clickHandler}>{buttonText}</button></li>;
   }
 }
 
