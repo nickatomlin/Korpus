@@ -3,6 +3,15 @@
 //            TITLEINFO
 //            SPEAKERINFO
 //            SETTINGS
+class Video extends React.Component {
+  // I/P: url, a link to the video
+  // O/P: a video player that can be shown/hidden with the VideoButton
+  // Status: unfinished
+  render() {
+    return <video data-live="false" style={{display: 'none'}} src="../data/media_files/Intro.mp4" id="video" width="320" height="240" controls></video>
+  }
+}
+
 class TierCheckbox extends React.Component {
   // I/P: tier_id, a string like "T1" or "T15"
   //    tier_name, a string like "English Morphemes"
@@ -93,11 +102,28 @@ class VideoButton extends React.Component {
   toggle(event) {
     this.setState({checkboxState: !this.state.checkboxState});
 
-    if (!this.state.checkboxState) {
+    if (!this.state.checkboxState) { // show video
       $(".timedTextDisplay").css("margin-left", "50%");
       $(".timedTextDisplay").css("width", "50%");
+      $("#video").css("display", "inline");
+      // Switch sync settings:
+      $("#audio").removeAttr("ontimeupdate");
+      $("#audio").removeAttr("onclick");
+      $("#audio").attr("data-live", "false");
+      $("#video").attr("data-live", "true");
+      $("#video").attr("ontimeupdate", "sync(this.currentTime)");
+      $("#video").attr("onclick", "sync(this.currentTime)");
     }
-    else {
+    else { // hide video
+      $("#video").css("display", "none");
+      $("#video").removeAttr("ontimeupdate", "sync(this.currentTime)");
+      $("#video").attr("data-live", "false");
+      $("#audio").attr("data-live", "true");
+      $("#video").removeAttr("onclick", "sync(this.currentTime)");
+      $("#audio").attr("ontimeupdate", "sync(this.currentTime)");
+
+
+      $("#audio").attr("onclick", "sync(this.currentTime)");
       $(".timedTextDisplay").css("margin-left", "240px");
       $(".timedTextDisplay").css("width", "calc(100% - 240px)");
     }
@@ -116,7 +142,7 @@ class Settings extends React.Component {
     var metadata = this.props.metadata;
     var title = metadata.title;
     if (this.props.timed) { // timed, i.e., ELAN
-      return <div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div>;
+      return <div id="settings"><Video/><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div>;
     }
     else { // untimed, i.e., FLEx
       return <div id="settings"><TitleInfo title={title}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
@@ -352,7 +378,7 @@ function displayText(filename) {
         document.getElementById('centerPanel')
       );
       ReactDOM.render(
-        <audio controls id="player" src="data/media_files/Intro.mp3"></audio>,
+        <audio data-live="true" controls id="audio" src="data/media_files/Intro.mp3"></audio>,
         document.getElementById('footer')
       );
       $.ajax({

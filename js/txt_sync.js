@@ -27,7 +27,7 @@ function sync(current_time) {
 }
 
 // window.onload = function() {
-media = document.getElementById("player");
+media = document.getElementById("audio");
 
 media.setAttribute("ontimeupdate", "sync(this.currentTime)");
 // media.setAttribute("onmousemove", "sync(this.currentTime)");
@@ -48,7 +48,7 @@ for (var i = 0; i < ts_tag_array.length; i++) {
 // Status: untested
 function jumpToTime(t) {
   try {
-    var media = document.getElementById("player");
+    media = document.querySelectorAll("[data-live='true']")[0];
     media.currentTime = t/1000;
   }
   catch(err) {
