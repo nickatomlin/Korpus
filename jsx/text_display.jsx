@@ -377,10 +377,13 @@ function displayText(filename) {
         <TimedTextDisplay data={data}/>,
         document.getElementById('centerPanel')
       );
-      ReactDOM.render(
-        <audio data-live="true" controls id="audio" src="data/media_files/Intro.mp3"></audio>,
-        document.getElementById('footer')
-      );
+      var mp3 = data.metadata.media.mp3;
+      if (mp3 != null) {
+        ReactDOM.render(
+          <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
+          document.getElementById('footer')
+        );
+      }
       $.ajax({
         url: "./js/txt_sync.js",
         dataType: "script"
