@@ -113,19 +113,40 @@ class VideoButton extends React.Component {
       $("#video").attr("data-live", "true");
       $("#video").attr("ontimeupdate", "sync(this.currentTime)");
       $("#video").attr("onclick", "sync(this.currentTime)");
+      // Match times:
+      var audio = document.getElementById("audio");
+      var video = document.getElementById("video");
+      if (audio.paused) {
+        video.currentTime = audio.currentTime;
+      }
+      else { // audio is playing
+        audio.pause();
+        video.currentTime = audio.currentTime;
+        video.play()
+      }
     }
     else { // hide video
       $("#video").css("display", "none");
-      $("#video").removeAttr("ontimeupdate", "sync(this.currentTime)");
+
+      $("#video").removeAttr("onclick");
+      $("#video").removeAttr("ontimeupdate");
       $("#video").attr("data-live", "false");
       $("#audio").attr("data-live", "true");
-      $("#video").removeAttr("onclick", "sync(this.currentTime)");
       $("#audio").attr("ontimeupdate", "sync(this.currentTime)");
-
-
       $("#audio").attr("onclick", "sync(this.currentTime)");
       $(".timedTextDisplay").css("margin-left", "240px");
       $(".timedTextDisplay").css("width", "calc(100% - 240px)");
+
+      var audio = document.getElementById("audio");
+      var video = document.getElementById("video");
+      if (video.paused) {
+        audio.currentTime = video.currentTime;
+      }
+      else { // audio is playing
+        video.pause();
+        audio.currentTime = video.currentTime;
+        audio.play()
+      }
     }
   }
 
