@@ -53,6 +53,10 @@ td {
 /*	MAIN.CSS
 	->	Text Display
 		Timed */
+#video {
+	width: calc(100% + 1px);
+}
+
 .timedTextDisplay {
 	position: fixed;
 	margin-left: 240px;

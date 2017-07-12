@@ -126,7 +126,7 @@ class VideoButton extends React.Component {
       }
       $("#footer").css("display", "none");
       $(".timedTextDisplay").css("height", "calc(100% - 48px)");
-      $("#leftPanel").removeAttr("width");
+      $("#leftPanel").css("width", "50%");
     }
     else { // hide video
       $("#video").css("display", "none");
@@ -152,7 +152,7 @@ class VideoButton extends React.Component {
       }
       $("#footer").css("display", "block");
       $(".timedTextDisplay").css("height", "calc(100% - 84px)");
-      $("#leftPanel").attr("width", "240px");
+      $("#leftPanel").css("width", "240px");
     }
   }
 
