@@ -4,8 +4,8 @@ class DocLink extends React.Component {
   // Status: untested
   render () {
     var fileName = this.props.fileName;
-    var buttonText = fileName.substring(0, -4); // remove the .json extension
-    return <li><a className="docLink" href="javascript:void(0)" data-button_text={buttonText} >{buttonText}</a></li>;
+    var buttonText = fileName;
+    return <li><a className="docLink" href="javascript:void(0)" data-button_text={buttonText}>{buttonText}</a></li>;
   }
 }
 
@@ -23,14 +23,14 @@ class IndexDisplay extends React.Component {
     return <ul className="indexDisplay">{output}</ul>;
   }
 }
+
 $.getJSON("./data/json_files/index.json", function(data) {
   ReactDOM.render(
     <IndexDisplay data={data} />,
     document.getElementById('centerPanel')
   );
-});
-
-$(".docLink").click(function(){
+  $(".docLink").click(function() {
+    console.log("woo");
     displayText($(this).data('button_text'));
+  });
 });
- 

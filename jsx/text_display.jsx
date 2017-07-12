@@ -333,7 +333,7 @@ class TimedTextDisplay extends React.Component {
       var timestamp = unique_timestamps[i];
       var corresponding_sentences = times_to_sentences[timestamp];
       if (i == (unique_timestamps.length - 1)) {
-        output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp} isFinalBlock={true} />);
+        output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp} isFinalBlock={true}/>);
       }
       else {
         output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp}/>);
