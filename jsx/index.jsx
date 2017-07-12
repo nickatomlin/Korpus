@@ -30,7 +30,6 @@ $.getJSON("./data/json_files/index.json", function(data) {
     document.getElementById('centerPanel')
   );
   $(".docLink").click(function() {
-    console.log("woo");
     displayText($(this).data('button_text'));
   });
 });
