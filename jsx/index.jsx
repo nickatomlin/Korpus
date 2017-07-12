@@ -1,5 +1,3 @@
-import {displayText} from "text_display.jsx";
-
 class DocLink extends React.Component {
   // I/P: fileName, the filename (including file extension, excluding file path) of the document
   // O/P: a button to view that document
