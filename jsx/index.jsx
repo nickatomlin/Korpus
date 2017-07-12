@@ -1,3 +1,5 @@
+import {displayText} from "text_display.jsx";
+
 class DocLink extends React.Component {
   // I/P: fileName, the filename (including file extension, excluding file path) of the document
   // O/P: a button to view that document
@@ -5,8 +7,7 @@ class DocLink extends React.Component {
   render () {
     var fileName = this.props.fileName;
     var buttonText = fileName.substring(0, -4); // remove the .json extension
-    var clickHandler = "displayText('" + buttonText + "')";
-    return <li><button onClick={clickHandler}>{buttonText}</button></li>;
+    return <li><button onClick={displayText(buttonText)}>{buttonText}</button></li>;
   }
 }
 
