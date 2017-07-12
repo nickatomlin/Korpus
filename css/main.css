@@ -1,36 +1,61 @@
-.speakerLabel {
-	float: left;
-	margin-top: 3px; /* A quick fix to align with gloss table. */
+/*	MAIN.CSS
+	-> Major Sections */
+body {
+	margin: 0px;
+}
+
+#navbar {
+	height: 48px;
+	background-color: purple;
+}
+
+#leftPanel {
+	position: absolute;
+	width: 240px;
+}
+
+#settings {
+	padding: 10px;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+   background:#999;
+}
+
+audio {
+	width: 100%;
+}
+/*	MAIN.CSS
+	->	Text Display
+		General */
+table.gloss {
+	display: inline;
+	padding-right: 9px;
 }
 
 .topRow {
 	font-weight: bold;
 }
 
-.timeBlock {
-	float: left;
-	padding-left: 9px;
-	overflow-x: auto;
+td {
+	padding-left: 2px;
+	padding-right: 2px;
+	white-space: nowrap;
 }
-
-.timeStampContainer {
-	padding-top: 3px; /* A quick fix to align with TimeBlock. */
-	float: left;
-	/*margin-right: 9px;*/
-	margin-left: 9px;
-	padding-right: 9px;
-	border-right: 2px solid black;
-	text-align: center;
-	min-width: 46px;
-	padding-top: 8px;
-	padding-bottom: 5px;
-}
-
-.UntimedBlock {
-	overflow-x: auto;
-	border-bottom: 2px solid black;
-	border-left: 2px solid black;
-	/*padding-right: 10px;*/
+/*	MAIN.CSS
+	->	Text Display
+		Timed */
+.timedTextDisplay {
+	position: fixed;
+	margin-left: 240px;
+	width: calc(100% - 240px);
+	height: calc(100% - 84px);
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .labeledTimeBlock {
@@ -43,38 +68,42 @@
 	border-left: 2px solid black;
 }
 
+.timeBlock {
+	float: left;
+	padding-left: 9px;
+	overflow-x: auto;
+}
+
+.timeStampContainer {
+	padding-top: 3px;
+	float: left;
+	/*margin-right: 9px;*/
+	margin-left: 9px;
+	padding-right: 9px;
+	border-right: 2px solid black;
+	text-align: center;
+	min-width: 46px;
+	padding-top: 8px;
+	padding-bottom: 5px;
+}
+
+a.timeStamp {
+	color: black;
+}
+
 .labeledSentence {
 	white-space: nowrap;
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
 
-table.gloss {
-	display: inline;
-	padding-right: 9px;
+.speakerLabel {
+	float: left;
+	margin-top: 3px;
 }
-
-table.gloss[data-isTimeAligned="false"] {
-	padding-left: 9px;
-}
-
-table.gloss[data-isFinalSentence="true"] {
-	border-bottom: none;
-}
-
-table.gloss[data-isFinalBlock="true"] {
-	border-bottom: none;
-}
-
-.timedTextDisplay {
-	position: fixed;
-	margin-left: 240px;
-	width: calc(100% - 240px);
-	height: calc(100% - 84px);
-	overflow-y: scroll;
-	overflow-x: hidden;
-}
-
+/*	MAIN.CSS
+	->	Text Display
+		Untimed */
 .untimedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
@@ -84,38 +113,19 @@ table.gloss[data-isFinalBlock="true"] {
 	overflow-x: hidden;
 }
 
-#leftPanel {
-	position: absolute;
-	width: 240px;
+.UntimedBlock {
+	overflow-x: auto;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	/*padding-right: 10px;*/
 }
 
-#settings {
-	padding: 10px;
+table.gloss[data-isTimeAligned="false"] {
+	padding-left: 9px;
 }
 
-td {
-	padding-left: 2px;
-	padding-right: 2px;
-	white-space: nowrap;
-}
-
-#navbar {
-	height: 48px;
-	background-color: purple;
-	/*border-bottom: 2px solid rgba(255,100,100,30);*/
-}
-
-body {
-	margin: 0px;
-}
-
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   width:100%;
-   background:#999;
-}
+/*	MAIN.CSS
+	->	Settings */
 
 ul {
 	list-style: none;
@@ -123,12 +133,4 @@ ul {
 	-webkit-margin-before: 0.2em;
 	padding-inline-start: 10px;
 	margin-block-start: 0.2em;
-}
-
-audio {
-	width: 100%;
-}
-
-a.timeStamp {
-	color: black;
 }
