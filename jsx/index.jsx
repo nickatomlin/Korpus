@@ -24,9 +24,10 @@ class IndexDisplay extends React.Component {
     return <ul className="indexDisplay">{output}</ul>;
   }
 }
-
-ReactDOM.render(
-  <IndexDisplay data={data} />,
-  document.getElementById('centerPanel')
-);
+$.getJSON("./data/json_files/index.json", function(data) {
+  ReactDOM.render(
+    <IndexDisplay data={data} />,
+    document.getElementById('centerPanel')
+  );
+});
  
