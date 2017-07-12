@@ -8,7 +8,7 @@ class Video extends React.Component {
   // O/P: a video player that can be shown/hidden with the VideoButton
   // Status: unfinished
   render() {
-    return <div id="videoWrapper"><video data-live="false" style={{display: 'none', margin: "10px"}} src="data/media_files/Intro.mp4" id="video" controls></video></div>
+    return <video data-live="false" style={{display: 'none'}} src="data/media_files/Intro.mp4" id="video" controls></video>
   }
 }
 
@@ -126,6 +126,7 @@ class VideoButton extends React.Component {
       }
       $("#footer").css("display", "none");
       $(".timedTextDisplay").css("height", "calc(100% - 48px)");
+      $("#leftPanel").removeAttr("width");
     }
     else { // hide video
       $("#video").css("display", "none");
@@ -151,6 +152,7 @@ class VideoButton extends React.Component {
       }
       $("#footer").css("display", "block");
       $(".timedTextDisplay").css("height", "calc(100% - 84px)");
+      $("#leftPanel").attr("width", "240px");
     }
   }
 
@@ -167,10 +169,10 @@ class Settings extends React.Component {
     var metadata = this.props.metadata;
     var title = metadata.title;
     if (this.props.timed) { // timed, i.e., ELAN
-      return <div id="settings"><Video/><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div>;
+      return <div><Video/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div></div>;
     }
     else { // untimed, i.e., FLEx
-      return <div id="settings"><TitleInfo title={title}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div>;
+      return <div><div id="settings"><TitleInfo title={title}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
     }
   }
 }
