@@ -478,6 +478,10 @@ function showIndex() {
       <span></span>,
       document.getElementById('leftPanel')
     )
+    ReactDOM.render(
+      <span></span>,
+      document.getElementById('footer')
+    )
     $(".docLink").click(function() {
       displayText($(this).data('button_text'));
     });
