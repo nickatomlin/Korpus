@@ -480,11 +480,11 @@ function showIndex() {
   $.getJSON("./data/index.json", function(data) {
     ReactDOM.render(
       <IndexDisplay data={data} />,
-      document.getElementById('centerPanel')
+      document.getElementById('leftPanel')
     );
     ReactDOM.render(
       <span></span>,
-      document.getElementById('leftPanel')
+      document.getElementById('centerPanel')
     )
     ReactDOM.render(
       <span></span>,
