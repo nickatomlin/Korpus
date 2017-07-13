@@ -396,9 +396,9 @@ class TimedTextDisplay extends React.Component {
   }
 }
 
-function displayText(filename) {
-  var filename = "./data/json_files/" + filename + ".json";
-  $.getJSON(filename, function(data) {
+function displayText(fileName) {
+  var fileName = "./data/json_files/" + fileName + ".json";
+  $.getJSON(fileName, function(data) {
     if (data.metadata.timed == "true") {
       ReactDOM.render(
         <TimedTextDisplay data={data}/>,
@@ -431,19 +431,3 @@ function displayText(filename) {
     }
   })
 }
-
-var encodedFileName = window.location.hash;
-var fileName = decodeURI(encodedFileName);
-if (fileName.substring(2,7) == "story") {
-  fileName = fileName.substring(8);
-  displayText(fileName);
-}
-
-$(window).on('hashchange', function(){
-  var encodedFileName = window.location.hash;
-  var fileName = decodeURI(encodedFileName);
-  if (fileName.substring(2,7) == "story") {
-    fileName = fileName.substring(8);
-    displayText(fileName);
-  }
-}).trigger('hashchange');

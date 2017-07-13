@@ -24,12 +24,18 @@ class IndexDisplay extends React.Component {
   }
 }
 
-$.getJSON("./data/json_files/index.json", function(data) {
-  ReactDOM.render(
-    <IndexDisplay data={data} />,
-    document.getElementById('centerPanel')
-  );
-  $(".docLink").click(function() {
-    displayText($(this).data('button_text'));
+function showIndex() {
+  $.getJSON("./data/json_files/index.json", function(data) {
+    ReactDOM.render(
+      <IndexDisplay data={data} />,
+      document.getElementById('centerPanel')
+    );
+    ReactDOM.render(
+      <span></span>,
+      document.getElementById('leftPanel')
+    )
+    $(".docLink").click(function() {
+      displayText($(this).data('button_text'));
+    });
   });
-});
+}
