@@ -174,6 +174,7 @@ class Settings extends React.Component {
     if (this.props.timed) { // timed, i.e., ELAN
       var mp4Url = metadata.media.mp4;
       if (mp4Url != null) {
+        return <div><Video vidUrl={"./data/media_files/" + mp4Url}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div></div>;
       } else {
         return <div><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
       }
