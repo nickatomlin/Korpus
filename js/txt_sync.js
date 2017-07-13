@@ -48,6 +48,7 @@ for (var i = 0; i < ts_tag_array.length; i++) {
 // Status: untested
 function jumpToTime(t) {
   try {
+    t = t + 0.002;
     media = document.querySelectorAll("[data-live='true']")[0];
     media.currentTime = t/1000;
   }

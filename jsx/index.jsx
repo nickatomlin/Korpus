@@ -1,7 +1,7 @@
 class DocLink extends React.Component {
   // I/P: fileName, the filename (including file extension, excluding file path) of the document
   // O/P: a button to view that document
-  // Status: untested
+  // Status: tested, working
   render () {
     var fileName = this.props.fileName;
     var encodedFileName = encodeURI(fileName);
@@ -12,7 +12,7 @@ class DocLink extends React.Component {
 class IndexDisplay extends React.Component {
   // I/P: index, a list of the JSON index metadata for each document
   // O/P: a list of buttons, one to view each document
-  // Status: untested
+  // Status: tested, working
   render () {
     var files = this.props.data;
     var output = [];
