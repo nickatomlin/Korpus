@@ -154,7 +154,9 @@ class VideoButton extends React.Component {
         audio.play();
       }
       $("#footer").css("display", "block");
-      $(".timedTextDisplay").css("height", "calc(100% - 84px)");
+      var footheight = ($("#footer").height() + 48).toString() + "px";
+      var bodyheight = "calc( 100% - " + footheight + " )";
+      $(".timedTextDisplay").css("height", bodyheight);
       $("#leftPanel").css("width", "240px");
     }
   }
