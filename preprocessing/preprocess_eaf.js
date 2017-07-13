@@ -6,7 +6,7 @@ var parseString = require('xml2js').parseString; // or we could use simple-xml
 var basePath = "../data/";
 var xmlFileName = basePath + "elan_files/Intro.eaf";
 var jsonFileName = basePath + "json_files/Intro.json";
-var indexJsonFileName = basePath + "json_files/index.json";
+var indexJsonFileName = basePath + "index.json";
 
 function swapJsonKeyValues(input) {
   var output = {};
