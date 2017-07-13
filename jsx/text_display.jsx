@@ -1,14 +1,17 @@
-// SETTINGS:  TIERCHECKBOX
+// SETTINGS:  VIDEO
+//            TIERCHECKBOX
 //            TIERCHECKBOXLIST
 //            TITLEINFO
 //            SPEAKERINFO
+//            VIDEOBUTTON
 //            SETTINGS
 class Video extends React.Component {
   // I/P: url, a link to the video
   // O/P: a video player that can be shown/hidden with the VideoButton
   // Status: unfinished
   render() {
-    return <video data-live="false" style={{display: 'none'}} src="data/media_files/Intro.mp4" id="video" controls></video>
+    var vidUrl = this.props.vidUrl;
+    return <video data-live="false" style={{display: 'none'}} src={vidUrl} id="video" controls></video>
   }
 }
 
@@ -169,7 +172,12 @@ class Settings extends React.Component {
     var metadata = this.props.metadata;
     var title = metadata.title;
     if (this.props.timed) { // timed, i.e., ELAN
-      return <div><Video/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div></div>;
+      var mp4Url = metadata.media.mp4;
+      if (mp4Url != null) {
+        return <div><Video vidUrl={"./data/media_files/" + mp4Url}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div></div>;
+      } else {
+        return <div><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
+      }
     }
     else { // untimed, i.e., FLEx
       return <div><div id="settings"><TitleInfo title={title}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
@@ -267,7 +275,7 @@ class Sentence extends React.Component {
 }
 
 class UntimedTextDisplay extends React.Component {
-	// I/P: data, stored in JSON format, as in test_data.json
+  // I/P: data, stored in JSON format, as in test_data.json
   // O/P: the main gloss view, with several Sentences arranged vertically
   // Status: tested, working
   render() {
