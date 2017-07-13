@@ -438,9 +438,6 @@ if (fileName.substring(2,7) == "story") {
   fileName = fileName.substring(8);
   displayText(fileName);
 }
-else {
-  console.log("empty!")
-}
 
 $(window).on('hashchange', function(){
   var encodedFileName = window.location.hash;
@@ -449,8 +446,5 @@ $(window).on('hashchange', function(){
     console.log("haha");
     fileName = fileName.substring(8);
     displayText(fileName);
-  }
-  else {
-    console.log("empty!");
   }
 }).trigger('hashchange');
