@@ -427,6 +427,9 @@ function displayText(fileName) {
         <Settings metadata={data["metadata"]} timed={true} />,
         document.getElementById('leftPanel')
       );
+      var footheight = ($("#footer").height() + 48).toString() + "px";
+      var bodyheight = "calc( 100% - " + footheight + " )";
+      $(".timedTextDisplay").css("height", bodyheight);
     } else { // data.metadata.timed == "false" (or maybe undefined)
       ReactDOM.render(
         <UntimedTextDisplay data={data}/>,
