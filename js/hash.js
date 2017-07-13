@@ -13,15 +13,25 @@ function getHash() {
 // Status: untested
 function checkPages(fileName) {
 	if (fileName.substring(0,5) == "index") {
-		showIndex();
+		$.getScript("./jsx/index.jsx", function() {
+			showIndex();
+		});
 	}
 	else if (fileName.substring(0,5) == "story") {
-		fileName = fileName.substring(6);
-  		displayText(fileName);
+		$.getScript("./jsx/text_display.jsx", function() {
+			fileName = fileName.substring(6);
+  			displayText(fileName);
+		});
 	}
 }
 
-$(window).on('hashchange', function(){
-  var fileName = getHash();
-  checkPages(fileName);
+function update() {
+	var fileName = getHash();
+ 	checkPages(fileName);
+}
+
+$(window).on('hashchange', function() {
+  update();
 }).trigger('hashchange');
+
+update();
