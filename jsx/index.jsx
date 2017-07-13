@@ -20,7 +20,7 @@ class IndexDisplay extends React.Component {
       var fileName = files[i]["title from filename"];
       output.push(<DocLink key={i} fileName={fileName}/>);
     }
-    return <ul className="indexDisplay">{output}</ul>;
+    return <div style={{margin: "20px"}}>List of stories: <ul className="indexDisplay">{output}</ul></div>;
   }
 }
 
