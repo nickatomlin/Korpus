@@ -34,7 +34,7 @@ body {
 	width: 240px;
 	position: fixed;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #settings {
@@ -85,7 +85,7 @@ td {
 	margin-left: 240px;
 	width: calc(100% - 240px);
 	/*height: calc(100% - 84px);*/
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 }
 
