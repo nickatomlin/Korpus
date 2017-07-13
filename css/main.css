@@ -31,8 +31,10 @@ body {
 }
 
 #leftPanel {
-	position: absolute;
 	width: 240px;
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 #settings {

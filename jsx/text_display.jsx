@@ -129,6 +129,7 @@ class VideoButton extends React.Component {
       }
       $("#footer").css("display", "none");
       $(".timedTextDisplay").css("height", "calc(100% - 48px)");
+      $("#leftPanel").css("height", "calc(100% - 48px)");
       $("#leftPanel").css("width", "50%");
     }
     else { // hide video
@@ -157,6 +158,7 @@ class VideoButton extends React.Component {
       var footheight = ($("#footer").height() + 48).toString() + "px";
       var bodyheight = "calc( 100% - " + footheight + " )";
       $(".timedTextDisplay").css("height", bodyheight);
+      $("#leftPanel").css("height", bodyheight);
       $("#leftPanel").css("width", "240px");
     }
   }
@@ -432,6 +434,7 @@ function displayText(fileName) {
       var footheight = ($("#footer").height() + 48).toString() + "px";
       var bodyheight = "calc( 100% - " + footheight + " )";
       $(".timedTextDisplay").css("height", bodyheight);
+      $("#leftPanel").css("height", bodyheight);
     } else { // data.metadata.timed == "false" (or maybe undefined)
       ReactDOM.render(
         <UntimedTextDisplay data={data}/>,
