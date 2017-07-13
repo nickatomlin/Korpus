@@ -4,8 +4,8 @@ class DocLink extends React.Component {
   // Status: untested
   render () {
     var fileName = this.props.fileName;
-    var buttonText = fileName;
-    return <li><a className="docLink" href="javascript:void(0)" data-button_text={buttonText}>{buttonText}</a></li>;
+    var encodedFileName = encodeURI(fileName);
+    return <li><a className="docLink" href={"#/story/" + encodedFileName} data-button_text={fileName}>{fileName}</a></li>;
   }
 }
 

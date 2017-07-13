@@ -431,3 +431,26 @@ function displayText(filename) {
     }
   })
 }
+
+var encodedFileName = window.location.hash;
+var fileName = decodeURI(encodedFileName);
+if (fileName.substring(2,7) == "story") {
+  fileName = fileName.substring(8);
+  displayText(fileName);
+}
+else {
+  console.log("empty!")
+}
+
+$(window).on('hashchange', function(){
+  var encodedFileName = window.location.hash;
+  var fileName = decodeURI(encodedFileName);
+  if (fileName.substring(2,7) == "story") {
+    console.log("haha");
+    fileName = fileName.substring(8);
+    displayText(fileName);
+  }
+  else {
+    console.log("empty!");
+  }
+}).trigger('hashchange');
