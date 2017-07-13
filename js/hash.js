@@ -13,15 +13,11 @@ function getHash() {
 // Status: untested
 function checkPages(fileName) {
 	if (fileName.substring(0,5) == "index") {
-		$.getScript("./jsx/index.jsx", function() {
-			showIndex();
-		});
+		showIndex();
 	}
 	else if (fileName.substring(0,5) == "story") {
-		$.getScript("./jsx/text_display.jsx", function() {
-			fileName = fileName.substring(6);
-  			displayText(fileName);
-		});
+		fileName = fileName.substring(6);
+  		displayText(fileName);
 	}
 }
 
