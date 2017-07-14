@@ -111,12 +111,12 @@ function showVideo(audioExists) {
   $(".timedTextDisplay").css("margin-left", "50%");
   $(".timedTextDisplay").css("width", "50%");
   $("#video").css("display", "inline");
+  $("#video").attr("data-live", "true");
   if (audioExists) {
     // Switch sync settings:
     $("#audio").removeAttr("ontimeupdate");
     $("#audio").removeAttr("onclick");
     $("#audio").attr("data-live", "false");
-    $("#video").attr("data-live", "true");
     $("#video").attr("ontimeupdate", "sync(this.currentTime)");
     $("#video").attr("onclick", "sync(this.currentTime)");
     // Match times:

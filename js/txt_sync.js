@@ -26,12 +26,9 @@ function sync(current_time) {
 	}
 }
 
-// window.onload = function() {
-// media = document.getElementById("audio");
-media = document.querySelectorAll("[data-live='true']")[0];
 
+media = document.querySelectorAll("[data-live='true']")[0];
 media.setAttribute("ontimeupdate", "sync(this.currentTime)");
-// media.setAttribute("onmousemove", "sync(this.currentTime)");
 media.setAttribute("onclick", "sync(this.currentTime)");
 
 ts_tag_array = document.getElementsByClassName("labeledTimeBlock");
