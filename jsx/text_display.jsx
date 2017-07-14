@@ -434,6 +434,9 @@ class TimedTextDisplay extends React.Component {
 
 function displayText(fileName) {
   var fileName = "./data/json_files/" + fileName + ".json";
+  $("#leftPanel").css("width", "240px");
+  $("#timedTextDisplay").css("margin-left", "240px");
+  $("#timedTextDisplay").css("width", "calc(100% - 240px)");
   $.getJSON(fileName, function(data) {
     if (data.metadata.timed == "true") {
       ReactDOM.render(
