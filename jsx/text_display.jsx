@@ -469,6 +469,15 @@ function displayText(fileName) {
           <Settings metadata={data["metadata"]} timed={true} />,
           document.getElementById('leftPanel')
         );
+        try {
+          var video = document.getElementById("video");
+          hideVideo();
+          var audio = document.getElementById("audio");
+          audio.currentTime = 0;
+        }
+        catch(err) {
+          // No video to hide.
+        }
       }
       // CASE 2: TIMED, AUDIO
       else if (mp3 != null) {
