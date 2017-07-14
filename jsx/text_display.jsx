@@ -417,11 +417,13 @@ function displayText(fileName) {
         document.getElementById('centerPanel')
       );
       var mp3 = data.metadata.media.mp3;
+      console.log(mp3)
       if (mp3 != null) {
         ReactDOM.render(
           <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
           document.getElementById('footer')
         );
+        $("#footer").css("display", "block")
       }
       $.ajax({
         url: "./js/txt_sync.js",
