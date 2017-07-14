@@ -101,27 +101,29 @@ class SpeakerInfo extends React.Component {
   }
 }
 
-function showVideo() {
+function showVideo(audioExists) {
   $(".timedTextDisplay").css("margin-left", "50%");
   $(".timedTextDisplay").css("width", "50%");
   $("#video").css("display", "inline");
-  // Switch sync settings:
-  $("#audio").removeAttr("ontimeupdate");
-  $("#audio").removeAttr("onclick");
-  $("#audio").attr("data-live", "false");
-  $("#video").attr("data-live", "true");
-  $("#video").attr("ontimeupdate", "sync(this.currentTime)");
-  $("#video").attr("onclick", "sync(this.currentTime)");
-  // Match times:
-  var audio = document.getElementById("audio");
-  var video = document.getElementById("video");
-  if (audio.paused) {
-    video.currentTime = audio.currentTime;
-  }
-  else { // audio is playing
-    audio.pause();
-    video.currentTime = audio.currentTime;
-    video.play();
+  if (audioExists) {
+    // Switch sync settings:
+    $("#audio").removeAttr("ontimeupdate");
+    $("#audio").removeAttr("onclick");
+    $("#audio").attr("data-live", "false");
+    $("#video").attr("data-live", "true");
+    $("#video").attr("ontimeupdate", "sync(this.currentTime)");
+    $("#video").attr("onclick", "sync(this.currentTime)");
+    // Match times:
+    var audio = document.getElementById("audio");
+    var video = document.getElementById("video");
+    if (audio.paused) {
+      video.currentTime = audio.currentTime;
+    }
+    else { // audio is playing
+      audio.pause();
+      video.currentTime = audio.currentTime;
+      video.play();
+    }
   }
   $("#footer").css("display", "none");
   $(".timedTextDisplay").css("height", "calc(100% - 48px)");
