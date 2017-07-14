@@ -21,7 +21,16 @@ class Video extends React.Component {
   
   componentDidMount() {
     if (!this.canHide) {
-      showVideo();
+      // render over the footer to remove the old audio player if it exists
+      render() {
+        ReactDOM.render(
+          null,
+          document.getElementById('footer')
+        );
+        $("#footer").css("display", "block")
+      }
+      
+      showVideo(false);
     }
   }
 }
@@ -177,7 +186,7 @@ class VideoButton extends React.Component {
     this.setState({checkboxState: !this.state.checkboxState});
 
     if (!this.state.checkboxState) {
-      showVideo();
+      showVideo(true);
     } else {
       hideVideo();
     }
@@ -206,7 +215,6 @@ class Settings extends React.Component {
         return <div><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
       } else { // there's video, but no audio -> include video but not videobutton
         return <div><Video vidUrl={"./data/media_files/" + mp4Url} canHide={false}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
-        // TODO call showVideo
       }
     }
     else { // untimed, i.e., FLEx
