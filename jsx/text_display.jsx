@@ -75,7 +75,7 @@ class TierCheckboxList extends React.Component {
         output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]}/>);
       }
     }
-    return <div>Tiers to show: <ul>{output}</ul></div>;
+    return <div id="tierList">Tiers to show: <ul>{output}</ul></div>;
   }
 }
 
@@ -85,7 +85,7 @@ class TitleInfo extends React.Component {
   // Status: tested, working
   render() {
     var title = this.props.title;
-    return <h3>{title}</h3>;
+    return <h3 id="title">{title}</h3>;
   }
 }
 
@@ -104,7 +104,7 @@ class SpeakerInfo extends React.Component {
           speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
         }
       }
-      return <div>Speakers: <ul>{speaker_list}</ul></div>;
+      return <div id="speakerList">Speakers: <ul>{speaker_list}</ul></div>;
     }
     else {
       return null;
@@ -194,7 +194,7 @@ class VideoButton extends React.Component {
   }
 
   render() {
-    return <div><input type="checkbox" onClick={this.toggle} /><label>Show video</label></div>;
+    return <div id="videoButton"><input type="checkbox" onClick={this.toggle} /><label>Show video</label></div>;
   }
 }
 
