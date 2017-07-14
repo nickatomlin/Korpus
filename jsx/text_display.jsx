@@ -457,7 +457,6 @@ function displayText(fileName) {
       var mp4 = data.metadata.media.mp4;
       // CASE 1: TIMED, AUDIO + VIDEO
       if (mp3 != null && mp4 != null) {
-        console.log("case 1")
         ReactDOM.render(
           <TimedTextDisplay data={data}/>,
           document.getElementById('centerPanel')
@@ -473,7 +472,6 @@ function displayText(fileName) {
       }
       // CASE 2: TIMED, AUDIO
       else if (mp3 != null) {
-        console.log("case 2")
         ReactDOM.render(
           <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
           document.getElementById('footer')
@@ -489,7 +487,6 @@ function displayText(fileName) {
       }
       // CASE 3: TIMED, VIDEO
       else if (mp4 != null) {
-        console.log("case 3")
         ReactDOM.render(
           <span></span>,
           document.getElementById('footer')

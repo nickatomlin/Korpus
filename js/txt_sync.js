@@ -27,7 +27,8 @@ function sync(current_time) {
 }
 
 // window.onload = function() {
-media = document.getElementById("audio");
+// media = document.getElementById("audio");
+media = document.querySelectorAll("[data-live='true']")[0];
 
 media.setAttribute("ontimeupdate", "sync(this.currentTime)");
 // media.setAttribute("onmousemove", "sync(this.currentTime)");
