@@ -1,3 +1,17 @@
+// Spanish language UI
+var speakersUiText = "Hablantes";
+var tiersUiText = "Niveles mostradas";
+var videoButtonUiText = "Mostrar video";
+var storyListUiText = "Lista de cuentos";
+
+/*
+// English language UI
+var speakersUiText = "Speakers";
+var tiersUiText = "Tiers to show";
+var videoButtonUiText = "Show video";
+var storyListUiText = "List of Stories";
+*/
+
 // SETTINGS:  VIDEO
 //            TIERCHECKBOX
 //            TIERCHECKBOXLIST
@@ -75,7 +89,7 @@ class TierCheckboxList extends React.Component {
         output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]}/>);
       }
     }
-    return <div>Tiers to show: <ul>{output}</ul></div>;
+    return <div>{tiersUiText}: <ul>{output}</ul></div>;
   }
 }
 
@@ -104,7 +118,7 @@ class SpeakerInfo extends React.Component {
           speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
         }
       }
-      return <div>Speakers: <ul>{speaker_list}</ul></div>;
+      return <div>{speakersUiText}: <ul>{speaker_list}</ul></div>;
     }
     else {
       return null;
@@ -194,7 +208,7 @@ class VideoButton extends React.Component {
   }
 
   render() {
-    return <div><input type="checkbox" onClick={this.toggle} /><label>Show video</label></div>;
+    return <div><input type="checkbox" onClick={this.toggle} /><label>{videoButtonUiText}</label></div>;
   }
 }
 
@@ -570,7 +584,7 @@ class IndexDisplay extends React.Component {
       var fileName = files[i]["title from filename"];
       output.push(<DocLink key={i} fileName={fileName}/>);
     }
-    return <div style={{margin: "20px"}}>List of stories: <ul className="indexDisplay">{output}</ul></div>;
+    return <div style={{margin: "20px"}}>{storyListUiText}: <ul className="indexDisplay">{output}</ul></div>;
   }
 }
 
