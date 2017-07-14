@@ -22,13 +22,10 @@ class Video extends React.Component {
   componentDidMount() {
     if (!this.canHide) {
       // render over the footer to remove the old audio player if it exists
-      render() {
-        ReactDOM.render(
+      ReactDOM.render(
           null,
           document.getElementById('footer')
-        );
-        $("#footer").css("display", "block")
-      }
+      );
       
       showVideo(false);
     }
