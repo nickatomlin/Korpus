@@ -19,7 +19,7 @@ function sync(current_time) {
             ts_tag_array[i].style.backgroundColor = "rgba(76, 175, 80, 0.3)";
 		}
 		else {
-			ts_tag_array[i].style.backgroundColor = "white";
+			ts_tag_array[i].style.backgroundColor = "transparent";
             try { ts_tag_array[i].removeAttribute("id"); }
             catch (err) { }
 		}

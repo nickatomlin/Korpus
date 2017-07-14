@@ -96,14 +96,19 @@ class SpeakerInfo extends React.Component {
   render() {
     var speaker_list = [];
     var speakers = this.props.speakers;
-    for (var speaker_id in speakers) {
-      if (speakers.hasOwnProperty(speaker_id)) {
-        var speaker_name = speakers[speaker_id]["name"];
-        var speaker_display = speaker_id + ": " + speaker_name;
-        speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
+    if (speakers != null) {
+      for (var speaker_id in speakers) {
+        if (speakers.hasOwnProperty(speaker_id)) {
+          var speaker_name = speakers[speaker_id]["name"];
+          var speaker_display = speaker_id + ": " + speaker_name;
+          speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
+        }
       }
+      return <div>Speakers: <ul>{speaker_list}</ul></div>;
     }
-    return <div>Speakers: <ul>{speaker_list}</ul></div>;
+    else {
+      return null;
+    }
   }
 }
 
