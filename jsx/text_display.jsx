@@ -202,20 +202,23 @@ class Settings extends React.Component {
   render() {
     var metadata = this.props.metadata;
     var title = metadata.title;
-    if (this.props.timed) { // timed, i.e., ELAN
-      var mp4Url = metadata.media.mp4;
-      var mp3Url = metadata.media.mp3;
-      if (mp4Url != null && mp3Url != null) { // there's both audio and video -> include video and videobutton
-        return <div><Video vidUrl={"./data/media_files/" + mp4Url} canHide={true}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div></div>;
-      } else if (mp4Url == null) { // there's no video -> exclude video and videobutton
-        return <div><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
-      } else { // there's video, but no audio -> include video but not videobutton
-        return <div><Video vidUrl={"./data/media_files/" + mp4Url} canHide={false}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
+    var media = metadata.media;
+    
+    var videoOrEmpty = <span></span>;
+    var buttonOrEmpty = <span></span>;
+    
+    var hasVideo = (media != null && media.mp4 != null);
+    var hasAudio = (media != null && media.mp3 != null);
+    
+    if (hasVideo) { // has video
+      var vidUrl = "./data/media_files/" + media.mp4;
+      videoOrEmpty = <Video vidUrl={vidUrl} canHide={hasAudio}/>;
+      if (hasAudio) {
+        buttonOrEmpty = <VideoButton/>;
       }
     }
-    else { // untimed, i.e., FLEx
-      return <div><div id="settings"><TitleInfo title={title}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
-    }
+    
+    return <div>{videoOrEmpty}<div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/>{buttonOrEmpty}</div></div>;
   }
 }
 
