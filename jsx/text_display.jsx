@@ -139,7 +139,6 @@ function showVideo(audioExists) {
 
 function hideVideo() {
   $("#video").css("display", "none");
-  
   $("#video").removeAttr("onclick");
   $("#video").removeAttr("ontimeupdate");
   $("#video").attr("data-live", "false");
@@ -196,14 +195,14 @@ class VideoButton extends React.Component {
 
 class Settings extends React.Component {
   // I/P: metadata, in JSON format
+  //      mp3, a boolean value
+  //      mp4, a boolean value  
   // O/P: a settings/metadata panel
   // Status: tested, working
   render() {
     var metadata = this.props.metadata;
     var title = metadata.title;
     if (this.props.timed) { // timed, i.e., ELAN
-      console.log("in Settings, media is:");
-      console.log(metadata.media);
       var mp4Url = metadata.media.mp4;
       var mp3Url = metadata.media.mp3;
       if (mp4Url != null && mp3Url != null) { // there's both audio and video -> include video and videobutton
@@ -439,40 +438,88 @@ class TimedTextDisplay extends React.Component {
   }
 }
 
+function clearDisplay() {
+  $("#leftPanel").css("width", "240px");
+  $(".timedTextDisplay").css("margin-left", "240px");
+  $(".timedTextDisplay").css("width", "calc(100% - 240px)");
+  $("#footer").css("display", "block");
+}
+
 function displayText(fileName) {
   var fileName = "./data/json_files/" + fileName + ".json";
-  $("#leftPanel").css("width", "240px");
-  $("#timedTextDisplay").css("margin-left", "240px");
-  $("#timedTextDisplay").css("width", "calc(100% - 240px)");
+  clearDisplay();
   $.getJSON(fileName, function(data) {
     if (data.metadata.timed == "true") {
-      ReactDOM.render(
-        <TimedTextDisplay data={data}/>,
-        document.getElementById('centerPanel')
-      );
-      console.log("in displayText, media is:");
-      console.log(data.metadata.media);
       var mp3 = data.metadata.media.mp3;
-      if (mp3 != null) {
+      var mp4 = data.metadata.media.mp4;
+      // CASE 1: TIMED, AUDIO + VIDEO
+      if (mp3 != null && mp4 != null) {
+        console.log("case 1")
+        ReactDOM.render(
+          <TimedTextDisplay data={data}/>,
+          document.getElementById('centerPanel')
+        );
         ReactDOM.render(
           <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
           document.getElementById('footer')
         );
-        $("#footer").css("display", "block")
+        ReactDOM.render(
+          <Settings metadata={data["metadata"]} timed={true} />,
+          document.getElementById('leftPanel')
+        );
+      }
+      // CASE 2: TIMED, AUDIO
+      else if (mp3 != null) {
+        console.log("case 2")
+        ReactDOM.render(
+          <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
+          document.getElementById('footer')
+        );
+        ReactDOM.render(
+          <TimedTextDisplay data={data}/>,
+          document.getElementById('centerPanel')
+        );
+        ReactDOM.render(
+          <Settings metadata={data["metadata"]} timed={true} />,
+          document.getElementById('leftPanel')
+        );
+      }
+      // CASE 3: TIMED, VIDEO
+      else if (mp4 != null) {
+        console.log("case 3")
+        ReactDOM.render(
+          <span></span>,
+          document.getElementById('footer')
+        );
+        ReactDOM.render(
+          <TimedTextDisplay data={data}/>,
+          document.getElementById('centerPanel')
+        );
+        ReactDOM.render(
+          <Settings metadata={data["metadata"]} timed={true} />,
+          document.getElementById('leftPanel')
+        );
+        showVideo(false);
+      }
+      else {
+        console.log("Media link broken!");
       }
       $.ajax({
         url: "./js/txt_sync.js",
         dataType: "script"
       });
-      ReactDOM.render(
-        <Settings metadata={data["metadata"]} timed={true} />,
-        document.getElementById('leftPanel')
-      );
+      // Responsive body height based on height of audio player, which differs by browser.
       var footheight = ($("#footer").height() + 48).toString() + "px";
       var bodyheight = "calc( 100% - " + footheight + " )";
       $(".timedTextDisplay").css("height", bodyheight);
       $("#leftPanel").css("height", bodyheight);
-    } else { // data.metadata.timed == "false" (or maybe undefined)
+    }
+    // CASE 4: UNTIMED
+    else {
+      ReactDOM.render(
+        <span></span>,
+        document.getElementById('footer')
+      );
       ReactDOM.render(
         <UntimedTextDisplay data={data}/>,
         document.getElementById('centerPanel')
