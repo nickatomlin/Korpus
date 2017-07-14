@@ -21,7 +21,13 @@ class Video extends React.Component {
   
   componentDidMount() {
     if (!this.canHide) {
-      showVideo();
+      // render over the footer to remove the old audio player if it exists
+      ReactDOM.render(
+          null,
+          document.getElementById('footer')
+      );
+      
+      showVideo(false);
     }
   }
 }
@@ -101,27 +107,29 @@ class SpeakerInfo extends React.Component {
   }
 }
 
-function showVideo() {
+function showVideo(audioExists) {
   $(".timedTextDisplay").css("margin-left", "50%");
   $(".timedTextDisplay").css("width", "50%");
   $("#video").css("display", "inline");
-  // Switch sync settings:
-  $("#audio").removeAttr("ontimeupdate");
-  $("#audio").removeAttr("onclick");
-  $("#audio").attr("data-live", "false");
-  $("#video").attr("data-live", "true");
-  $("#video").attr("ontimeupdate", "sync(this.currentTime)");
-  $("#video").attr("onclick", "sync(this.currentTime)");
-  // Match times:
-  var audio = document.getElementById("audio");
-  var video = document.getElementById("video");
-  if (audio.paused) {
-    video.currentTime = audio.currentTime;
-  }
-  else { // audio is playing
-    audio.pause();
-    video.currentTime = audio.currentTime;
-    video.play();
+  if (audioExists) {
+    // Switch sync settings:
+    $("#audio").removeAttr("ontimeupdate");
+    $("#audio").removeAttr("onclick");
+    $("#audio").attr("data-live", "false");
+    $("#video").attr("data-live", "true");
+    $("#video").attr("ontimeupdate", "sync(this.currentTime)");
+    $("#video").attr("onclick", "sync(this.currentTime)");
+    // Match times:
+    var audio = document.getElementById("audio");
+    var video = document.getElementById("video");
+    if (audio.paused) {
+      video.currentTime = audio.currentTime;
+    }
+    else { // audio is playing
+      audio.pause();
+      video.currentTime = audio.currentTime;
+      video.play();
+    }
   }
   $("#footer").css("display", "none");
   $(".timedTextDisplay").css("height", "calc(100% - 48px)");
@@ -175,7 +183,7 @@ class VideoButton extends React.Component {
     this.setState({checkboxState: !this.state.checkboxState});
 
     if (!this.state.checkboxState) {
-      showVideo();
+      showVideo(true);
     } else {
       hideVideo();
     }
@@ -204,7 +212,6 @@ class Settings extends React.Component {
         return <div><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
       } else { // there's video, but no audio -> include video but not videobutton
         return <div><Video vidUrl={"./data/media_files/" + mp4Url} canHide={false}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
-        // TODO call showVideo
       }
     }
     else { // untimed, i.e., FLEx
