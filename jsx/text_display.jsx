@@ -125,6 +125,7 @@ function showVideo() {
   }
   $("#footer").css("display", "none");
   $(".timedTextDisplay").css("height", "calc(100% - 48px)");
+  $("#leftPanel").css("height", "calc(100% - 48px)");
   $("#leftPanel").css("width", "50%");
 }
 
@@ -151,7 +152,10 @@ function hideVideo() {
     audio.play();
   }
   $("#footer").css("display", "block");
-  $(".timedTextDisplay").css("height", "calc(100% - 84px)");
+  var footheight = ($("#footer").height() + 48).toString() + "px";
+  var bodyheight = "calc( 100% - " + footheight + " )";
+  $(".timedTextDisplay").css("height", bodyheight);
+  $("#leftPanel").css("height", bodyheight);
   $("#leftPanel").css("width", "240px");
 }
 
@@ -454,6 +458,10 @@ function displayText(fileName) {
         <Settings metadata={data["metadata"]} timed={true} />,
         document.getElementById('leftPanel')
       );
+      var footheight = ($("#footer").height() + 48).toString() + "px";
+      var bodyheight = "calc( 100% - " + footheight + " )";
+      $(".timedTextDisplay").css("height", bodyheight);
+      $("#leftPanel").css("height", bodyheight);
     } else { // data.metadata.timed == "false" (or maybe undefined)
       ReactDOM.render(
         <UntimedTextDisplay data={data}/>,
@@ -499,11 +507,15 @@ function showIndex() {
   $.getJSON("./data/index.json", function(data) {
     ReactDOM.render(
       <IndexDisplay data={data} />,
-      document.getElementById('centerPanel')
+      document.getElementById('leftPanel')
     );
     ReactDOM.render(
       <span></span>,
-      document.getElementById('leftPanel')
+      document.getElementById('centerPanel')
+    )
+    ReactDOM.render(
+      <span></span>,
+      document.getElementById('footer')
     )
     $(".docLink").click(function() {
       displayText($(this).data('button_text'));
