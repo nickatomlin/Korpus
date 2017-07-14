@@ -6,12 +6,23 @@
 //            VIDEOBUTTON
 //            SETTINGS
 class Video extends React.Component {
-  // I/P: url, a link to the video
+  // I/P: url, a link to the video, and canHide, a boolean indicating whether the video can be hidden
   // O/P: a video player that can be shown/hidden with the VideoButton
   // Status: unfinished
+  constructor(props) {
+    super(props);
+    this.canHide = this.props.canHide;
+  }
+  
   render() {
     var vidUrl = this.props.vidUrl;
     return <video data-live="false" style={{display: 'none'}} src={vidUrl} id="video" controls></video>
+  }
+  
+  componentDidMount() {
+    if (!this.canHide) {
+      showVideo();
+    }
   }
 }
 
@@ -90,6 +101,60 @@ class SpeakerInfo extends React.Component {
   }
 }
 
+function showVideo() {
+  $(".timedTextDisplay").css("margin-left", "50%");
+  $(".timedTextDisplay").css("width", "50%");
+  $("#video").css("display", "inline");
+  // Switch sync settings:
+  $("#audio").removeAttr("ontimeupdate");
+  $("#audio").removeAttr("onclick");
+  $("#audio").attr("data-live", "false");
+  $("#video").attr("data-live", "true");
+  $("#video").attr("ontimeupdate", "sync(this.currentTime)");
+  $("#video").attr("onclick", "sync(this.currentTime)");
+  // Match times:
+  var audio = document.getElementById("audio");
+  var video = document.getElementById("video");
+  if (audio.paused) {
+    video.currentTime = audio.currentTime;
+  }
+  else { // audio is playing
+    audio.pause();
+    video.currentTime = audio.currentTime;
+    video.play();
+  }
+  $("#footer").css("display", "none");
+  $(".timedTextDisplay").css("height", "calc(100% - 48px)");
+  $("#leftPanel").css("width", "50%");
+}
+
+function hideVideo() {
+  $("#video").css("display", "none");
+  
+  $("#video").removeAttr("onclick");
+  $("#video").removeAttr("ontimeupdate");
+  $("#video").attr("data-live", "false");
+  $("#audio").attr("data-live", "true");
+  $("#audio").attr("ontimeupdate", "sync(this.currentTime)");
+  $("#audio").attr("onclick", "sync(this.currentTime)");
+  $(".timedTextDisplay").css("margin-left", "240px");
+  $(".timedTextDisplay").css("width", "calc(100% - 240px)");
+
+  var audio = document.getElementById("audio");
+  var video = document.getElementById("video");
+  if (video.paused) {
+    audio.currentTime = video.currentTime;
+  }
+  else { // audio is playing
+    video.pause();
+    audio.currentTime = video.currentTime;
+    audio.play();
+  }
+  $("#footer").css("display", "block");
+  $(".timedTextDisplay").css("height", "calc(100% - 84px)");
+  $("#leftPanel").css("width", "240px");
+}
+
 class VideoButton extends React.Component {
   // I/P: link to video
   // O/P: a button that can show/hide video, reset "player" ID, etc.
@@ -105,57 +170,10 @@ class VideoButton extends React.Component {
   toggle(event) {
     this.setState({checkboxState: !this.state.checkboxState});
 
-    if (!this.state.checkboxState) { // show video
-      $(".timedTextDisplay").css("margin-left", "50%");
-      $(".timedTextDisplay").css("width", "50%");
-      $("#video").css("display", "inline");
-      // Switch sync settings:
-      $("#audio").removeAttr("ontimeupdate");
-      $("#audio").removeAttr("onclick");
-      $("#audio").attr("data-live", "false");
-      $("#video").attr("data-live", "true");
-      $("#video").attr("ontimeupdate", "sync(this.currentTime)");
-      $("#video").attr("onclick", "sync(this.currentTime)");
-      // Match times:
-      var audio = document.getElementById("audio");
-      var video = document.getElementById("video");
-      if (audio.paused) {
-        video.currentTime = audio.currentTime;
-      }
-      else { // audio is playing
-        audio.pause();
-        video.currentTime = audio.currentTime;
-        video.play();
-      }
-      $("#footer").css("display", "none");
-      $(".timedTextDisplay").css("height", "calc(100% - 48px)");
-      $("#leftPanel").css("width", "50%");
-    }
-    else { // hide video
-      $("#video").css("display", "none");
-
-      $("#video").removeAttr("onclick");
-      $("#video").removeAttr("ontimeupdate");
-      $("#video").attr("data-live", "false");
-      $("#audio").attr("data-live", "true");
-      $("#audio").attr("ontimeupdate", "sync(this.currentTime)");
-      $("#audio").attr("onclick", "sync(this.currentTime)");
-      $(".timedTextDisplay").css("margin-left", "240px");
-      $(".timedTextDisplay").css("width", "calc(100% - 240px)");
-
-      var audio = document.getElementById("audio");
-      var video = document.getElementById("video");
-      if (video.paused) {
-        audio.currentTime = video.currentTime;
-      }
-      else { // audio is playing
-        video.pause();
-        audio.currentTime = video.currentTime;
-        audio.play();
-      }
-      $("#footer").css("display", "block");
-      $(".timedTextDisplay").css("height", "calc(100% - 84px)");
-      $("#leftPanel").css("width", "240px");
+    if (!this.state.checkboxState) {
+      showVideo();
+    } else {
+      hideVideo();
     }
   }
 
@@ -172,11 +190,17 @@ class Settings extends React.Component {
     var metadata = this.props.metadata;
     var title = metadata.title;
     if (this.props.timed) { // timed, i.e., ELAN
+      console.log("in Settings, media is:");
+      console.log(metadata.media);
       var mp4Url = metadata.media.mp4;
-      if (mp4Url != null) {
-        return <div><Video vidUrl={"./data/media_files/" + mp4Url}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div></div>;
-      } else {
+      var mp3Url = metadata.media.mp3;
+      if (mp4Url != null && mp3Url != null) { // there's both audio and video -> include video and videobutton
+        return <div><Video vidUrl={"./data/media_files/" + mp4Url} canHide={true}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/><VideoButton/></div></div>;
+      } else if (mp4Url == null) { // there's no video -> exclude video and videobutton
         return <div><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
+      } else { // there's video, but no audio -> include video but not videobutton
+        return <div><Video vidUrl={"./data/media_files/" + mp4Url} canHide={false}/><div id="settings"><TitleInfo title={title}/><SpeakerInfo speakers={metadata["speaker IDs"]}/><TierCheckboxList tiers={metadata["tier IDs"]}/></div></div>;
+        // TODO call showVideo
       }
     }
     else { // untimed, i.e., FLEx
@@ -412,12 +436,15 @@ function displayText(fileName) {
         <TimedTextDisplay data={data}/>,
         document.getElementById('centerPanel')
       );
+      console.log("in displayText, media is:");
+      console.log(data.metadata.media);
       var mp3 = data.metadata.media.mp3;
       if (mp3 != null) {
         ReactDOM.render(
           <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
           document.getElementById('footer')
         );
+        $("#footer").css("display", "block")
       }
       $.ajax({
         url: "./js/txt_sync.js",
