@@ -4,13 +4,13 @@ var fs = require('fs');
 var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
   
-// var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
-var basePath = "../";
+var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
+// var basePath = "../";
 // var startJsonFileName = basePath + "data/json_files/singo_ai_temp.json" // only for debugging
-var xmlFileName = basePath + "data/flex_files/singo_ai.xml";
-var jsonFileName = basePath + "data/json_files/singo_ai.json";
-var indexJsonFileName = basePath + "data/json_files/index.json"; // stores metadata for all documents
-var isoFileName = basePath + "/preprocessing/iso_dict.json";
+var xmlFileName = basePath + "data\\flex_files\\singo_ai.xml";
+var jsonFileName = basePath + "data\\json_files\\singo_ai.json";
+var indexJsonFileName = basePath + "data\\json_files\\index.json"; // stores metadata for all documents
+var isoFileName = basePath + "preprocessing\\iso_dict.json";
 
 function decodeLang(lang) {
   var desiredName = "Native name"; // or we might want to use "ISO language name"
@@ -20,6 +20,10 @@ function decodeLang(lang) {
   switch(lang) {
     // case "flex-language-name-here": return "desired-decoded-name-here";
 		case "con-Latn-EC": return "A'ingae";
+    
+    // for Spanish UI text:
+    case "en": return "Inglés";
+    
 		default: // fall through
 	}
   
@@ -43,17 +47,37 @@ function decodeLang(lang) {
 }
 
 function decodeType(type) {
+  /* 
+  // English UI text: 
 	switch(type) {
 		case "txt": return "morpheme (text)";
 		case "cf": return "morpheme (citation form)";
 		case "gls": return "morpheme gloss"
 		case "msa": return "part of speech";
+    default: return type;
+	}
+  */
+  
+  // Spanish UI text: 
+  switch(type) {
+		case "txt": return "Morfema (texto)";
+		case "cf": return "Morfema (forma típico)";
+		case "gls": return "Glosa de morfema"
+		case "msa": return "Parte del habla";
+    case "words": return "Palabra";
+    case "free": return "Frase";
 		default: return type;
 	}
 }
 
 function getTierName(lang, type) {
+  /*
+  // English UI text:
 	return decodeLang(lang) + " " + decodeType(type);
+  */
+  
+  // Spanish UI text:
+  return decodeType(type) + " " + decodeLang(lang).toLowerCase();
 }
 
 // if this is a new tier, register its ID and include it in metadata
