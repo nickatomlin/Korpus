@@ -481,7 +481,7 @@ function displayText(fileName) {
           document.getElementById('centerPanel')
         );
         ReactDOM.render(
-          <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
+          <audio data-live="true" controls id="audio" src={"data/media_files/" + mp}></audio>,
           document.getElementById('footer')
         );
         ReactDOM.render(
@@ -500,6 +500,7 @@ function displayText(fileName) {
       }
       // CASE 2: TIMED, AUDIO
       else if (mp3 != null) {
+        console.log("case 2!");
         ReactDOM.render(
           <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
           document.getElementById('footer')
@@ -515,6 +516,7 @@ function displayText(fileName) {
       }
       // CASE 3: TIMED, VIDEO
       else if (mp4 != null) {
+        console.log("case 3!");
         ReactDOM.render(
           <span></span>,
           document.getElementById('footer')
