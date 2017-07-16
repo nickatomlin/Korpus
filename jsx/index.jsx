@@ -183,7 +183,7 @@ class TimedTextDisplay extends React.Component {
 			var corresponding_sentences = times_to_sentences[timestamp];
 			output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp}/>);
 		}
-		return <div className="timedTextDisplay" id="td">{output}</div>;
+		return <div id="timedTextDisplay">{output}</div>;
 	}
 }
 
@@ -202,7 +202,21 @@ class UntimedTextDisplay extends React.Component {
 	}
 }
 
-// SETTINGS
+class CenterPanel extends React.Component {
+	// I/P: timed, a boolean value
+	//      sentences, a list of sentences
+	// O/P: untested
+	render() {
+		if (this.props.timed) {
+			return <div id="centerPanel"><TimedTextDisplay sentences={this.props.sentences}/></div>;
+		}
+		else {
+			return <div id="centerPanel"><UntimedTextDisplay sentences={this.props.sentences}/></div>;
+		}
+	}
+}
+
+// SETTINGS + VIDEO PANEL
 
 class Video extends React.Component {
 	// I/P: path, the path to the video
@@ -222,6 +236,16 @@ class Video extends React.Component {
 			return <video src={path} id="video" className="hidden" controls></video>;
 		}
 	}
+}
+
+class TitleInfo extends React.Component {
+  // I/P: title, a string
+  // O/P: printed title
+  // Status: tested, working
+  render() {
+    var title = this.props.title;
+    return <h3 id="title">{title}</h3>;
+  }
 }
 
 class TierCheckbox extends React.Component {
@@ -266,6 +290,33 @@ class TierCheckboxList extends React.Component {
     }
     return <div id="tierList">{tiersUiText}: <ul>{output}</ul></div>;
   }
+}
+
+class SpeakerInfo extends React.Component {
+  // I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
+  // O/P: some nicely formatted info about these speakers
+  // Status: tested, working
+  render() {
+    var speaker_list = [];
+    var speakers = this.props.speakers;
+    if (speakers != null) {
+      for (var speaker_id in speakers) {
+        if (speakers.hasOwnProperty(speaker_id)) {
+          var speaker_name = speakers[speaker_id]["name"];
+          var speaker_display = speaker_id + ": " + speaker_name;
+          speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
+        }
+      }
+      return <div id="speakerList">{speakersUiText}: <ul>{speaker_list}</ul></div>;
+    }
+    else {
+      return null;
+    }
+  }
+}
+
+function showVideo() {
+	// do stuff
 }
 
 $.getJSON("./data/json_files/Intro.json", function(data) {

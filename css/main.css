@@ -76,7 +76,7 @@ td {
 	width: calc(100% + 1px);
 }
 
-.timedTextDisplay {
+#timedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
 	width: calc(100% - 240px);
@@ -131,7 +131,7 @@ a.timeStamp {
 /*	MAIN.CSS
 	->	Text Display
 		Untimed */
-.untimedTextDisplay {
+#untimedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
 	width: calc(100% - 240px);
