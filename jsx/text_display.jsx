@@ -556,6 +556,11 @@ function displayText(fileName) {
         <Settings metadata={data["metadata"]} timed={false} />,
         document.getElementById('leftPanel')
       );
+      // Responsive body height based on height of audio player, which differs by browser.
+      var footheight = ($("#footer").height() + 48).toString() + "px";
+      var bodyheight = "calc( 100% - " + footheight + " )";
+      $(".untimedTextDisplay").css("height", bodyheight);
+      $("#leftPanel").css("height", bodyheight);
     }
   })
 }
