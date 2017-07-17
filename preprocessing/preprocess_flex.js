@@ -4,11 +4,11 @@ var fs = require('fs');
 var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
   
-var basePath = "../";
-// var basePath = "../";
-// var startJsonFileName = basePath + "data/json_files/singo_ai_temp.json" // only for debugging
-var xmlFileName = basePath + "data/flex_files/000.xml";
-var jsonFileName = basePath + "data/json_files/000.json";
+// var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
+ var basePath = "../";
+// var startJsonFileName = basePath + "data\\json_files\\005_temp.json" // only for debugging
+var xmlFileName = basePath + "data/flex_files/005.xml";
+var jsonFileName = basePath + "data/json_files/005.json";
 var indexJsonFileName = basePath + "data/json_files/index.json"; // stores metadata for all documents
 var isoFileName = basePath + "preprocessing/iso_dict.json";
 
@@ -121,15 +121,14 @@ fs.readFile(xmlFileName, function (err, xml) {
     
     parseString(xml, function (err, jsonIn) {
       
-      /* for debugging, it's sometimes useful to look at jsonIn before doing anything with it
+      /* // for debugging, it's sometimes useful to look at jsonIn before doing anything with it
       var prettyStringIn = JSON.stringify(jsonIn, null, 2);
       fs.writeFile(startJsonFileName, prettyStringIn, function(err) {
         if(err) {
           return console.log(err);
         }
         console.log("JSON of input file saved.");
-      }); 
-      */
+      }); */
       
       var textLang = "defaultLang"; 
       var languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
@@ -142,8 +141,10 @@ fs.readFile(xmlFileName, function (err, xml) {
       
       var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
       for (var wrappedParagraph of paragraphs) {
-        var paragraph = wrappedParagraph.phrases[0].word; // ERROR: kalinda pls fix
+        if (wrappedParagraph.phrases == null) continue; // if this paragraph is empty, skip it instead of erroring
+        var paragraph = wrappedParagraph.phrases[0].word;
         for (var wrappedSentence of paragraph) {
+          if (wrappedSentence.words == null) continue; // if this sentence is empty, skip it instead of erroring
           var sentence = wrappedSentence.words[0].word;
           
           var morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
