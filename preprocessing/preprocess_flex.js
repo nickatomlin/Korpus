@@ -248,7 +248,6 @@ fs.readFile(xmlFileName, function (err, xml) {
           console.log("The converted file was saved.");
       }); 
       
-      /*
       // TODO create indexfile if needed
       // TODO avoid duplicates
       fs.readFile(indexJsonFileName, function (err, rawText) {
@@ -265,8 +264,7 @@ fs.readFile(xmlFileName, function (err, xml) {
           }
           console.log("The index was updated.");
         });
-      });
-*/      
+      });     
     });
   });
 });
