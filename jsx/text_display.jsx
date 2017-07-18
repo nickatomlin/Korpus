@@ -53,9 +53,18 @@ class TierCheckbox extends React.Component {
   // Status: tested, working
   constructor(props) {
     super(props);
-    this.state = {
-      checkboxState: true
-    };
+    var tier_name = this.props.tier_name;
+    if (tier_name == "Parte del habla inglés" || tier_name == "Morfema (forma típico) a'ingae") {
+      this.state = {
+        checkboxState: false
+      };
+      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
+    }
+    else {
+      this.state = {
+        checkboxState: true
+      };
+    }
     this.toggle = this.toggle.bind(this);
   }
 
@@ -73,7 +82,13 @@ class TierCheckbox extends React.Component {
   render() {
     var tier_id = this.props.tier_id;
     var tier_name = this.props.tier_name;
-    return <li><input type="checkbox" onClick={this.toggle} defaultChecked /><label>{tier_name}</label></li>;
+    if (tier_name == "hn inglés" || tier_name == "variantTypes inglés") {
+      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
+      return <span></span>;
+    }
+    else {
+      return <li><input type="checkbox" onClick={this.toggle} defaultChecked={this.state.checkboxState} /><label>{tier_name}</label></li>;
+    }
   }
 }
 
