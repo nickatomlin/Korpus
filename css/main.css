@@ -33,6 +33,10 @@ body {
     color: white;
     font-size: 1.2em;
     text-decoration: none;
+    font-weight: 600;
+}
+#navbar a:hover {
+	text-decoration: underline;
 }
 
 #leftPanel {
