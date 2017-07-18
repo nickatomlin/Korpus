@@ -596,13 +596,13 @@ class IndexDisplay extends React.Component {
 function showIndex() {
   $.getJSON("./data/index.json", function(data) {
     ReactDOM.render(
-      <IndexDisplay data={data} />,
+      <IndexDisplay data={data}/>,
       document.getElementById('leftPanel')
     );
     ReactDOM.render(
       <span></span>,
       document.getElementById('centerPanel')
-    )
+    );
     ReactDOM.render(
       <span></span>,
       document.getElementById('footer')
