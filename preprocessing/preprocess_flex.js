@@ -4,15 +4,16 @@ var fs = require('fs');
 var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
   
-// var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
- var basePath = "../";
-// var startJsonFileName = basePath + "data\\json_files\\005_temp.json" // only for debugging
-var xmlFileName = basePath + "data/flex_files/005.xml";
-var jsonFileName = basePath + "data/json_files/005.json";
-var indexJsonFileName = basePath + "data/json_files/index.json"; // stores metadata for all documents
-var isoFileName = basePath + "preprocessing/iso_dict.json";
+var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
+// var basePath = "../";
+// var startJsonFileName = basePath + "data\\json_files\\000_temp.json" // only for debugging
+var xmlFileName = basePath + "data\\flex_files\\000.xml";
+var jsonFileName = basePath + "data\\json_files\\000.json";
+var indexJsonFileName = basePath + "data\\index.json"; // stores metadata for all documents
+var isoFileName = basePath + "preprocessing\\iso_dict.json";
 
 function decodeLang(lang) {
+  
   var desiredName = "Native name"; // or we might want to use "ISO language name"
   lcLang = lang.toLowerCase(); // ignore capitalization when decoding
   
@@ -20,6 +21,7 @@ function decodeLang(lang) {
   switch(lang) {
     // case "flex-language-name-here": return "desired-decoded-name-here";
 		case "con-Latn-EC": return "A'ingae";
+    case "defaultLang": return "defaultLang";
     
     // for Spanish UI text:
     case "en": return "Inglés";
@@ -130,16 +132,27 @@ fs.readFile(xmlFileName, function (err, xml) {
         console.log("JSON of input file saved.");
       }); */
       
-      var textLang = "defaultLang"; 
-      var languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
-      for (var lang of languages) {
-        if (lang.$.vernacular) {
-          textLang = lang.$.lang;
+      var textLang; 
+      //try { // set textLang to the language of the first word
+        var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
+        var paragraph = paragraphs[0].phrases[0].word;
+        var sentence = paragraph[0].words[0].word;
+        var wordLang = sentence[0].item[0].$.lang;
+        textLang = wordLang;
+      //}
+      //catch (err) {
+        // do nothing
+      //}
+      //finally {
+        if (textLang == null) {
+          textLang = "defaultLang";
         }
-      }
+      //}
+      
+      var languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
       var wordsTierID = maybeRegisterTier(textLang, "words");
       
-      var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
+      // var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph; // defined above
       for (var wrappedParagraph of paragraphs) {
         if (wrappedParagraph.phrases == null) continue; // if this paragraph is empty, skip it instead of erroring
         var paragraph = wrappedParagraph.phrases[0].word;
