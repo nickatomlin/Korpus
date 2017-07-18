@@ -3,11 +3,12 @@
 var fs = require('fs');
 var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
-  
+
+// var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
 var basePath = "../";
-// var startJsonFileName = basePath + "data\\json_files\\005_temp.json" // only for debugging
-var xmlFileName = basePath + "data/flex_files/145.xml";
-var jsonFileName = basePath + "data/json_files/145.json";
+// var startJsonFileName = basePath + "data\\json_files\\001_temp.json" // only for debugging
+var xmlFileName = basePath + "data/flex_files/001.xml";
+var jsonFileName = basePath + "data/json_files/001.json";
 var indexJsonFileName = basePath + "data/index.json"; // stores metadata for all documents
 var isoFileName = basePath + "preprocessing/iso_dict.json";
 
@@ -154,21 +155,15 @@ fs.readFile(xmlFileName, function (err, xml) {
       }); */
       
       var textLang; 
-      //try { // set textLang to the language of the first word
-        var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
-        var paragraph = paragraphs[0].phrases[0].word;
-        var sentence = paragraph[0].words[0].word;
-        var wordLang = sentence[0].item[0].$.lang;
-        textLang = wordLang;
-      //}
-      //catch (err) {
-        // do nothing
-      //}
-      //finally {
-        if (textLang == null) {
-          textLang = "defaultLang";
-        }
-      //}
+      // set textLang to the language of the first word
+      var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
+      var paragraph = paragraphs[0].phrases[0].word;
+      var sentence = paragraph[0].words[0].word;
+      var wordLang = sentence[0].item[0].$.lang;
+      textLang = wordLang;
+      if (textLang == null) {
+        textLang = "defaultLang";
+      }
       
       var languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
       var wordsTierID = maybeRegisterTier(textLang, "words");
@@ -193,11 +188,6 @@ fs.readFile(xmlFileName, function (err, xml) {
             // process.stdout.write("\n" + wordValue + " "); // for debugging
             
             if (wordWithMorphs.morphemes != null) {
-              // write a space before every non-punctuation word other than the first word
-              if (sentenceText != "") {
-                sentenceText += " "; 
-              }
-              
               var morphs = wordWithMorphs.morphemes[0].morph;
               for (var wrappedMorph of morphs) {
                 var morphTiers = wrappedMorph.item;
@@ -216,13 +206,22 @@ fs.readFile(xmlFileName, function (err, xml) {
                 }
                 slotNum++;
               }
+            } // else the "word" is probably just punctuation; include it only on the sentence tier
+            
+            if (wordWithMorphs.item[0].$.type != "punct") { // this word isn't punctuation
               
+              // write a space before every non-punctuation word other than the first word
+              if (sentenceText != "") {
+                sentenceText += " "; 
+              }
+              
+              // count this as a separate word on the words tier
               var wordEndSlot = slotNum;
               morphsJson[wordsTierID][wordStartSlot] = {
                 "value": wordValue, 
                 "end_slot": wordEndSlot
               };
-            } // else the "word" is probably just punctuation; include it only on the sentence tier
+            }
             sentenceText += wordValue;
           }
           
