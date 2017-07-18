@@ -476,7 +476,7 @@ class TimedTextDisplay extends React.Component {
 }
 
 function clearDisplay() {
-  
+  $("#index").css("display", "none");
   $("#leftPanel").css("width", "240px");
   $(".timedTextDisplay").css("margin-left", "240px");
   $(".timedTextDisplay").css("width", "calc(100% - 240px)");
@@ -607,11 +607,12 @@ class IndexDisplay extends React.Component {
       var displayName = files[i]["display_title"];
       output.push(<DocLink key={i} fileName={fileName} text={displayName}/>);
     }
-    return <div style={{margin: "20px"}}>{storyListUiText}: <ul className="indexDisplay">{output}</ul></div>;
+    return <div id="index" style={{margin: "20px"}}>{storyListUiText}: <ul className="indexDisplay">{output}</ul></div>;
   }
 }
 
 function showIndex() {
+  $("#index").css("display", "block");
   $("#leftPanel").css("width", "100%");
   $.getJSON("./data/index.json", function(data) {
     ReactDOM.render(
