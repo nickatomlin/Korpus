@@ -476,6 +476,7 @@ class TimedTextDisplay extends React.Component {
 }
 
 function clearDisplay() {
+  
   $("#leftPanel").css("width", "240px");
   $(".timedTextDisplay").css("margin-left", "240px");
   $(".timedTextDisplay").css("width", "calc(100% - 240px)");
