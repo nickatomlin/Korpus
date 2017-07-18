@@ -12,8 +12,8 @@
         "tier": "T1"
       }
     },
-    "title": "Ingi Cansecho Ande",
-    "timed": "true",
+    "title": "Intro",
+    "timed": "true", 
     "media": {
       "mp3": "Intro.mp3",
       "mp4": "Intro.mp4"
@@ -439,6 +439,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "injan=nda"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "simba'fa=i'ccu"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "simba-'fa"
             }
           ]
         },
@@ -464,6 +474,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "want=COND"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "fishing.rope=INST"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "fish-PL.SUBJ"
             }
           ]
         }
@@ -509,6 +529,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "a'mbian='fa"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "ufa='cco=cco"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "sata=ma"
             }
           ]
         },
@@ -534,6 +564,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "have=PL.SUBJ"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "blow=SHAPE.ANGULAR=??"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "spear=ACC"
             }
           ]
         }
@@ -1151,6 +1191,16 @@
           "tier": "T3",
           "values": [
             {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "toya'caen"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "coca"
+            },
+            {
               "start_slot": 2,
               "end_slot": 3,
               "value": "na'e=ni"
@@ -1160,6 +1210,16 @@
         {
           "tier": "T4",
           "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "also"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "Coca"
+            },
             {
               "start_slot": 2,
               "end_slot": 3,
@@ -1274,6 +1334,36 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "Aguarico río"
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Aguarico"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "setsani"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Aguarico"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "río.abajo"
             }
           ]
         }
@@ -1444,6 +1534,21 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "gi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "canse-'fa"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "trece"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "canqque=ni"
             }
           ]
         },
@@ -1464,6 +1569,21 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "1"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "live-PL.SUBJ"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "thirteen"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "town=LOC"
             }
           ]
         }
@@ -1574,6 +1694,36 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "Chandie na'e"
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Chandie"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "na'e"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "clear"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "river"
             }
           ]
         }
@@ -1806,6 +1956,36 @@
               "value": "Totoa Nai'qui"
             }
           ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Toto-a"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "Nai'-qui"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "white-ADJ"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "river-SHAPE"
+            }
+          ]
         }
       ]
     },
@@ -1864,6 +2044,36 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "Pisorié canqque"
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Pisorié"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "canqque"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Pisore"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "town"
             }
           ]
         }
@@ -1999,6 +2209,21 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "San"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "Pablo"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 8,
+              "value": "Puerto"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "Bolivar"
             }
           ]
         },
@@ -2034,6 +2259,21 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "San"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "Pablo"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 8,
+              "value": "Puerto"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "Bolívar"
             }
           ]
         }
@@ -2274,6 +2514,16 @@
               "start_slot": 0,
               "end_slot": 1,
               "value": "Reserva"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "Faunística"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "Cuyabeno"
             }
           ]
         },
@@ -2284,6 +2534,16 @@
               "start_slot": 0,
               "end_slot": 1,
               "value": "reserve"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "wildlife"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "Cuyabeno"
             }
           ]
         }
@@ -2711,6 +2971,16 @@
           "tier": "T3",
           "values": [
             {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "tsa=i'ccu=ngi"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "osha-'fa='ya"
+            },
+            {
               "start_slot": 2,
               "end_slot": 3,
               "value": "ingi"
@@ -2735,6 +3005,16 @@
         {
           "tier": "T4",
           "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ANA=INST=1"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "empower-PL.SUBJ-FUT"
+            },
             {
               "start_slot": 2,
               "end_slot": 3,

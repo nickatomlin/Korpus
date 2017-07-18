@@ -44,6 +44,10 @@ function getTimeslotSet(tier) {
 	return startSlots;
 }
 
+var slotIdDiff = function(s1, s2) {
+  return parseInt(s1.slice(2)) - parseInt(s2.slice(2));
+}
+      
 
 fs.readFile(xmlFileName, function (err, xml) {
   if (err) throw err;
@@ -89,7 +93,6 @@ fs.readFile(xmlFileName, function (err, xml) {
     var tierNames = tiers.map((tier) => tier.$.TIER_ID);
     for (var i = 0; i < tierNames.length; i++) {
       var newID = "T" + (i + 1).toString();
-      
       jsonOut.metadata["tier IDs"][newID] = tierNames[i];
     }
     var tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata["tier IDs"]);
@@ -121,7 +124,9 @@ fs.readFile(xmlFileName, function (err, xml) {
       }
       
       var slotsArray = Array.from(slots);
-      var sorted_slots = slotsArray.sort((s1, s2) => parseInt(s1.slice(2)) - parseInt(s2.slice(2)));
+      // sort by the numerical part of the timeslot ID
+      var sorted_slots = slotsArray.sort(slotIdDiff);
+      // create a map from timeslot ID to its "rank" (its position in the sorted array) 
       var slot_indices = swapJsonKeyValues(sorted_slots);
       
       tierTimeslots[indepTierID] = slot_indices;
@@ -164,12 +169,12 @@ fs.readFile(xmlFileName, function (err, xml) {
       for (var bigAnnotation of indepTiers[i].ANNOTATION) {
         var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
         
-        var i_raw_start_slot = annotation.$.TIME_SLOT_REF1;
-        var i_raw_end_slot = annotation.$.TIME_SLOT_REF2;
-        var i_start_time_ms = parseInt(timeslots[i_raw_start_slot], 10); 
-        var i_end_time_ms = parseInt(timeslots[i_raw_end_slot], 10);
-        var i_start_slot = parseInt(tierTimeslots[tierID][i_raw_start_slot], 10);
-        var i_end_slot = parseInt(tierTimeslots[tierID][i_raw_end_slot], 10);
+        var i_start_timeslot = annotation.$.TIME_SLOT_REF1;
+        var i_end_timeslot = annotation.$.TIME_SLOT_REF2;
+        var i_start_time_ms = parseInt(timeslots[i_start_timeslot], 10); 
+        var i_end_time_ms = parseInt(timeslots[i_end_timeslot], 10);
+        var i_start_slot = parseInt(tierTimeslots[tierID][i_start_timeslot], 10);
+        var i_end_slot = parseInt(tierTimeslots[tierID][i_end_timeslot], 10);
         var num_slots = i_end_slot - i_start_slot;
         
         var indepTierJson = {
@@ -204,15 +209,14 @@ fs.readFile(xmlFileName, function (err, xml) {
             }
             var timeAnnotation = currentBigAnnotation.ALIGNABLE_ANNOTATION[0];
             
-            var d_raw_start_slot = timeAnnotation.$.TIME_SLOT_REF1;
-            var d_raw_end_slot =  timeAnnotation.$.TIME_SLOT_REF2;
-            var d_start_time_ms = timeslots[d_raw_start_slot];
-            var d_end_time_ms = timeslots[d_raw_end_slot];
-            if (d_start_time_ms >= i_start_time_ms && d_end_time_ms <= i_end_time_ms) {
+            var d_start_timeslot = timeAnnotation.$.TIME_SLOT_REF1;
+            var d_end_timeslot =  timeAnnotation.$.TIME_SLOT_REF2;
+            if (slotIdDiff(d_start_timeslot, i_start_timeslot) >= 0 
+                && slotIdDiff(i_end_timeslot, d_end_timeslot) >= 0) {
               // this dependent annotation goes with the current independent annotation
               
-              var d_raw_start_slot = parseInt(tierTimeslots[tierID][d_raw_start_slot], 10);
-              var d_raw_end_slot = parseInt(tierTimeslots[tierID][d_raw_end_slot], 10);
+              var d_raw_start_slot = parseInt(tierTimeslots[tierID][d_start_timeslot], 10);
+              var d_raw_end_slot = parseInt(tierTimeslots[tierID][d_end_timeslot], 10);
               var d_rel_start_slot = d_raw_start_slot - i_start_slot;
               var d_rel_end_slot = d_raw_end_slot - i_start_slot;
               
