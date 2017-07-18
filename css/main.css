@@ -28,9 +28,11 @@ body {
 
 #navbar a {
     display: block;
-    padding: 14px;
+    padding: 14px 20px;
     /*border: 1px solid rgb(151,151,151);*/
     color: white;
+    font-size: 1.2em;
+    text-decoration: none;
 }
 
 #leftPanel {
@@ -166,15 +168,25 @@ table.gloss[data-isTimeAligned="false"] {
 
 ul {
 	list-style: none;
-	-webkit-padding-start: 10px;
+	-webkit-padding-start: 0px;
 	-webkit-margin-before: 0.2em;
-	padding-inline-start: 10px;
+	padding-inline-start: 0px;
 	margin-block-start: 0.2em;
 }
 
 #settings {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+#leftPanel ul {
+	list-style: square;
+	margin-left: 20px;
+}
+
+#settings ul {
+	margin-left: 15px;
+	list-style: none;
 }
 
 #title {
@@ -188,4 +200,12 @@ ul {
 	float: left;
 	padding-left: 20px;
 	padding-right: 20px;
+}
+
+a:visited, a {
+	color: black;
+}
+
+a:hover {
+	font-weight: 600;
 }
