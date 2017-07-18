@@ -584,12 +584,13 @@ function displayText(fileName) {
 // -> Moved here for bundling.
 class DocLink extends React.Component {
   // I/P: fileName, the filename (including file extension, excluding file path) of the document
+  //      text, the title that will actually be displayed
   // O/P: a button to view that document
   // Status: tested, working
   render () {
     var fileName = this.props.fileName;
     var encodedFileName = encodeURI(fileName);
-    return <li><a className="docLink" href={"#/story/" + encodedFileName} data-button_text={fileName}>{fileName}</a></li>;
+    return <li><a className="docLink" href={"#/story/" + encodedFileName} data-button_text={fileName}>{this.props.text}</a></li>;
   }
 }
 
@@ -602,13 +603,15 @@ class IndexDisplay extends React.Component {
     var output = [];
     for (var i=0; i<files.length; i++) {
       var fileName = files[i]["title from filename"];
-      output.push(<DocLink key={i} fileName={fileName}/>);
+      var displayName = files[i]["display_title"];
+      output.push(<DocLink key={i} fileName={fileName} text={displayName}/>);
     }
     return <div style={{margin: "20px"}}>{storyListUiText}: <ul className="indexDisplay">{output}</ul></div>;
   }
 }
 
 function showIndex() {
+  $("#leftPanel").css("width", "100%");
   $.getJSON("./data/index.json", function(data) {
     ReactDOM.render(
       <IndexDisplay data={data}/>,

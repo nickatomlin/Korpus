@@ -7,9 +7,9 @@ var parseString = require('xml2js').parseString; // or we could use simple-xml
 // var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
  var basePath = "../";
 // var startJsonFileName = basePath + "data\\json_files\\005_temp.json" // only for debugging
-var xmlFileName = basePath + "data/flex_files/005.xml";
-var jsonFileName = basePath + "data/json_files/005.json";
-var indexJsonFileName = basePath + "data/json_files/index.json"; // stores metadata for all documents
+var xmlFileName = basePath + "data/flex_files/105.xml";
+var jsonFileName = basePath + "data/json_files/105.json";
+var indexJsonFileName = basePath + "data/index.json"; // stores metadata for all documents
 var isoFileName = basePath + "preprocessing/iso_dict.json";
 
 function decodeLang(lang) {
@@ -255,7 +255,26 @@ fs.readFile(xmlFileName, function (err, xml) {
           return console.log(err);
         }
         var index = JSON.parse(rawText);
-        var indexMetadata = {"title from filename": title};
+        var con_title = "";
+        var es_title = "";
+        var titles = jsonIn["document"]["interlinear-text"][0]["item"];
+        for (var i=0; i<titles.length; i++) {
+          var current_title = titles[i];
+          if (current_title["$"]["type"] == "title" && current_title["$"]["lang"] == "con-Latn-EC") {
+            con_title = current_title["_"].substr(current_title["_"].indexOf(" ") + 1);
+          }
+          else if (current_title["$"]["type"] == "title" && current_title["$"]["lang"] == "es") {
+            es_title = current_title["_"]
+          }
+        }
+        if (es_title != "") {
+          var display_title = con_title + " (" + es_title + ")";
+        }
+        else {
+          var display_title = con_title;
+        }
+        console.log(display_title);
+        var indexMetadata = {"title from filename": title, "display_title": display_title};
         index.push(indexMetadata);
         var prettyString2 = JSON.stringify(index, null, 2);
         fs.writeFile(indexJsonFileName, prettyString2, function(err) {
