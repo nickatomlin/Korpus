@@ -15,7 +15,7 @@
   "sentences": [
     {
       "num_slots": 4,
-      "text": "¿Majan tsu cofandeccuja?",
+      "text": "¿ Majan tsu cofandeccuja?",
       "dependents": [
         {
           "tier": "T1",
@@ -949,7 +949,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Tsendeccu tsu bopa injanccopaFederaciónlndigena delaNacionalidadCofandelEcuadorFEINCEveja da'fa.",
+      "text": "Tsendeccu tsu bopa injanccopa Federación lndigena de la Nacionalidad Cofan del Ecuador FEINCEveja da'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -2082,7 +2082,7 @@
     },
     {
       "num_slots": 21,
-      "text": "Tise'pa ondiccu'je,ñoñajan'jen'chota tsu ña'me injenge'cho tisuningae attiamba,mapancca'índeccu cocama ondiccu'jema ondiccu'fani'qque.",
+      "text": "Tise'pa ondiccu'je, ñoñajan'jen'chota tsu ña'me injenge'cho tisuningae attiamba, mapan cca'índeccu cocama ondiccu'jema ondiccu'fani'qque.",
       "dependents": [
         {
           "tier": "T1",
@@ -2543,7 +2543,7 @@
     },
     {
       "num_slots": 19,
-      "text": "Tsandie ondiccu'jeta tsu, fae ondiccu'je bia'a totoa, sin'an, tsambi'ta inzia, bia'faondeiccu'je tsu.",
+      "text": "Tsandie ondiccu'jeta tsu, fae ondiccu'je bia'a totoa, sin'an, tsambi'ta inzia, bia'fa ondeiccu'je tsu.",
       "dependents": [
         {
           "tier": "T1",
@@ -2984,7 +2984,7 @@
     },
     {
       "num_slots": 3,
-      "text": "Tsovenetsuttepi.",
+      "text": "Tsovene tsuttepi.",
       "dependents": [
         {
           "tier": "T1",
@@ -2993,6 +2993,11 @@
               "start_slot": 0,
               "end_slot": 3,
               "value": "Tsovene"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 3,
+              "value": "tsuttepi"
             }
           ]
         },
@@ -3060,7 +3065,7 @@
     },
     {
       "num_slots": 11,
-      "text": "Tsama tsu majandeccujacushma qquen atesu'cho'fa.",
+      "text": "Tsama tsu majandeccuja cushma qquen atesu'cho'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -3336,7 +3341,7 @@
     },
     {
       "num_slots": 14,
-      "text": "Jongaesu fiestani tsambi'ta yajema cui'yeta tsu tetadyandyaccumaotifa'fa.",
+      "text": "Jongaesu fiestani tsambi'ta yajema cui'yeta tsu teta dyandyaccuma otifa'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -3375,6 +3380,11 @@
               "start_slot": 12,
               "end_slot": 14,
               "value": "teta"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 14,
+              "value": "otifa'fa"
             }
           ]
         },
@@ -3677,7 +3687,7 @@
     },
     {
       "num_slots": 1,
-      "text": "Pushesuta tsucantonfoñomatandancho'fa.",
+      "text": "Pushesuta tsu canton foñoma tandancho'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -3686,6 +3696,11 @@
               "start_slot": 0,
               "end_slot": 1,
               "value": "tsu"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 1,
+              "value": "tandancho'fa"
             }
           ]
         },
@@ -3914,7 +3929,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Pushesundeccuta tsu tsu'ttengaja tandecho'fa shashamadusi'sian'choma.",
+      "text": "Pushesundeccuta tsu tsu'ttengaja tandecho'fa shashama dusi'sian'choma.",
       "dependents": [
         {
           "tier": "T1",
@@ -3938,6 +3953,11 @@
               "start_slot": 8,
               "end_slot": 10,
               "value": "shashama"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 10,
+              "value": "dusi'sian'choma"
             }
           ]
         },
@@ -4135,7 +4155,7 @@
     },
     {
       "num_slots": 18,
-      "text": "Tsomba tivenga tsu andu'pama tandacho'fa tise'pa ñomembamaejiaña'chove.",
+      "text": "Tsomba tivenga tsu andu'pama tandacho'fa tise'pa ñomembama ejiaña'chove.",
       "dependents": [
         {
           "tier": "T1",
@@ -4174,6 +4194,11 @@
               "start_slot": 14,
               "end_slot": 18,
               "value": "ñomembama"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 18,
+              "value": "ejiaña'chove"
             }
           ]
         },
@@ -4511,7 +4536,7 @@
     },
     {
       "num_slots": 23,
-      "text": "Tsomba tsandiendeccuta tsu tivengajateresa'famatandancho'fa, tsendeccu'qque tisu in'jancho ñomembama ño'mene.",
+      "text": "Tsomba tsandiendeccuta tsu tivengaja teresa'fama tandancho'fa, tsendeccu'qque tisu in'jancho ñomembama ño'mene.",
       "dependents": [
         {
           "tier": "T1",
@@ -5253,7 +5278,7 @@
     },
     {
       "num_slots": 15,
-      "text": "Tise'pata tsu tsofa'tu tsosinani changoma an'mbian'fa osha'chombe te'tamaejiana'chove.",
+      "text": "Tise'pata tsu tsofa'tu tsosinani changoma an'mbian'fa osha'chombe te'tama ejiana'chove.",
       "dependents": [
         {
           "tier": "T1",
@@ -5292,6 +5317,11 @@
               "start_slot": 13,
               "end_slot": 15,
               "value": "te'tama"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 15,
+              "value": "ejiana'chove"
             }
           ]
         },
@@ -5588,7 +5618,13 @@
       "dependents": [
         {
           "tier": "T1",
-          "values": []
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 0,
+              "value": "T"
+            }
+          ]
         }
       ]
     },
@@ -5598,13 +5634,19 @@
       "dependents": [
         {
           "tier": "T1",
-          "values": []
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 0,
+              "value": "j"
+            }
+          ]
         }
       ]
     },
     {
       "num_slots": 5,
-      "text": "Tsa'cañi'fa tsu faesuamazona'su a'indeccu'qque.",
+      "text": "Tsa'cañi'fa tsu faesu amazona'su a'indeccu'qque.",
       "dependents": [
         {
           "tier": "T1",
@@ -8032,7 +8074,7 @@
     },
     {
       "num_slots": 37,
-      "text": "Anshan'sive, tive tandaccuve,dyandyaccuve, ñoñajanqque'suve, anae'mame, ufacco'ccove, oma'ccove, battittianccuve,finfinccove tsu tisu'pa tsampini an'mbian'choi'ccu tsoñe atesu'fa.",
+      "text": "Anshan'sive, tive tandaccuve, dyandyaccuve, ñoñajanqque'suve, anae'mame, ufacco'ccove, oma'ccove, battittianccuve, finfinccove tsu tisu'pa tsampini an'mbian'choi'ccu tsoñe atesu'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -8748,7 +8790,7 @@
     },
     {
       "num_slots": 17,
-      "text": "Ca'tssi te'tai'ccu toya'caen osha'cho aña'chombettetto'choi'ccu'qque, cho, toya'caen tsampisutevaqque'sui'ccu.",
+      "text": "Ca'tssi te'tai'ccu toya'caen osha'cho aña'chombe ttetto'choi'ccu'qque, cho, toya'caen tsampisu tevaqque'sui'ccu.",
       "dependents": [
         {
           "tier": "T1",
@@ -8787,6 +8829,11 @@
               "start_slot": 15,
               "end_slot": 17,
               "value": "tsampisu"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 17,
+              "value": "tevaqque'sui'ccu"
             }
           ]
         },
@@ -9143,7 +9190,13 @@
       "dependents": [
         {
           "tier": "T1",
-          "values": []
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 0,
+              "value": "T"
+            }
+          ]
         }
       ]
     },
@@ -9153,7 +9206,13 @@
       "dependents": [
         {
           "tier": "T1",
-          "values": []
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 0,
+              "value": "j"
+            }
+          ]
         }
       ]
     },
@@ -11214,7 +11273,7 @@
     },
     {
       "num_slots": 4,
-      "text": "Jañoningaeta tsuSucumbiosEcuadorni canse'fa1200 a'i,300putomayo-Colombiani.",
+      "text": "Jañoningaeta tsu Sucumbios Ecuadorni canse'fa 1200 a'i, 300 putomayo-Colombiani.",
       "dependents": [
         {
           "tier": "T1",
@@ -11233,6 +11292,11 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "a'i"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 4,
+              "value": "putomayo-Colombiani"
             }
           ]
         },
@@ -11340,7 +11404,7 @@
     },
     {
       "num_slots": 5,
-      "text": "Sucumbiosunida tsu canse'fa6 canqque: Sinangoe,ChandiaNa'en,TayosuCanqque,Dovuno,Dureno,Zabalo.",
+      "text": "Sucumbiosunida tsu canse'fa 6 canqque: Sinangoe, Chandia Na'en, Tayosu Canqque, Dovuno, Dureno, Zabalo.",
       "dependents": [
         {
           "tier": "T1",
@@ -11364,6 +11428,11 @@
               "start_slot": 4,
               "end_slot": 5,
               "value": "Sinangoe"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 5,
+              "value": "Zabalo"
             }
           ]
         },
@@ -11491,7 +11560,7 @@
     },
     {
       "num_slots": 5,
-      "text": "Colombianinda tsu canse'faSanta Rosa de Guamuesuni,Nueva lslani,Luzuni,Yarinalni,Villanuevani,AfiladorCampoalegreni,SantaRosa deSucumbiosuni,Jardines deSucumbiosuni,Divisoni,Rancheriani,SanJoseni.",
+      "text": "Colombianinda tsu canse'fa Santa Rosa de Guamuesuni, Nueva lslani, Luzuni, Yarinalni, Villanuevani, Afilador Campoalegreni, Santa Rosa de Sucumbiosuni, Jardines de Sucumbiosuni, Divisoni, Rancheriani, San Joseni.",
       "dependents": [
         {
           "tier": "T1",
@@ -11515,6 +11584,11 @@
               "start_slot": 4,
               "end_slot": 5,
               "value": "de"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 5,
+              "value": "Joseni"
             }
           ]
         },
