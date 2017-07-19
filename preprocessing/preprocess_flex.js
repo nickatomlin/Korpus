@@ -13,6 +13,10 @@ var jsonFileName = basePath + "data/json_files/" + fileName + ".json";
 var indexJsonFileName = basePath + "data/index.json"; // stores metadata for all documents
 var isoFileName = basePath + "preprocessing/iso_dict.json";
 
+function isStartPunctuation(punct) {
+  return (punct == "¿") || (punct == "(");
+}
+
 function decodeLang(lang) {
   
   var desiredName = "Native name"; // or we might want to use "ISO language name"
@@ -180,7 +184,7 @@ fs.readFile(xmlFileName, function (err, xml) {
           var morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
           morphsJson[wordsTierID] = {};
           var slotNum = 0;
-          var sentenceText = "";
+          var sentenceTokens = []; // for building the free transcription sentenceText
           // FIXME words tier will show up even when the sentence is empty of words
           
           for (var wordWithMorphs of sentence) {
@@ -207,14 +211,11 @@ fs.readFile(xmlFileName, function (err, xml) {
                 }
                 slotNum++;
               }
-            } // else the "word" is probably just punctuation; include it only on the sentence tier
+            }
             
             if (wordWithMorphs.item[0].$.type != "punct") { // this word isn't punctuation
               
-              // write a space before every non-punctuation word other than the first word
-              if (sentenceText != "") {
-                sentenceText += " "; 
-              }
+              sentenceTokens.push({"value": wordValue, "type": "txt"});
               
               // count this as a separate word on the words tier
               var wordEndSlot = slotNum;
@@ -222,8 +223,11 @@ fs.readFile(xmlFileName, function (err, xml) {
                 "value": wordValue, 
                 "end_slot": wordEndSlot
               };
+            } else if (isStartPunctuation(wordValue)) {
+              sentenceTokens.push({"value": wordValue, "type": "start"});
+            } else { // end punctuation
+              sentenceTokens.push({"value": wordValue, "type": "end"});
             }
-            sentenceText += wordValue;
           }
           
           var freeGlosses = wrappedSentence.item;
@@ -263,6 +267,16 @@ fs.readFile(xmlFileName, function (err, xml) {
                 "values": valuesJson
               });
             }
+          }
+          
+          var sentenceText = "";
+          var maybeAddSpace = false; // no space before first word
+          for (typedToken of sentenceTokens) {
+            if (maybeAddSpace && (typedToken.type != "end")) {
+              sentenceText += " ";
+            }
+            maybeAddSpace = (typedToken.type != "start");
+            sentenceText += typedToken.value;
           }
           
           // "speaker, "start_time", and "end_time" omitted (they're only used on elan files)
