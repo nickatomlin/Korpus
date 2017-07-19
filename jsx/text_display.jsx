@@ -48,7 +48,7 @@ class Video extends React.Component {
 
 class TierCheckbox extends React.Component {
   // I/P: tier_id, a string like "T1" or "T15"
-  //      tier_name, a string like "English Morphemes"
+  //    tier_name, a string like "English Morphemes"
   // O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
   // Status: tested, working
   constructor(props) {
@@ -64,7 +64,6 @@ class TierCheckbox extends React.Component {
       this.state = {
         checkboxState: true
       };
-      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
     }
     this.toggle = this.toggle.bind(this);
   }
@@ -80,27 +79,10 @@ class TierCheckbox extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    var tier_name = this.props.tier_name;
-    if (!this.state.checkboxState) {
-      // this.setState({
-      //   checkboxState: false
-      // });
-      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
-    }
-    else {
-      // this.setState({
-      //   checkboxState: true
-      // });
-      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
-    }
-    // this.forceUpdate();
-  }
-
   render() {
     var tier_id = this.props.tier_id;
     var tier_name = this.props.tier_name;
-    if (tier_name == "hn inglés" || tier_name == "variantTypes inglés" || tier_name == "glsAppend inglés") {
+    if (tier_name == "hn inglés" || tier_name == "variantTypes inglés") {
       $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
       return <span></span>;
     }
@@ -114,7 +96,6 @@ class TierCheckboxList extends React.Component {
   // I/P: tiers, a hashmap from Tier IDs to their names
   // O/P: an unordered list of TierCheckboxes
   // Status: tested, working
-
   render() {
     var output = [];
     var tiers = this.props.tiers;
