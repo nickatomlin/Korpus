@@ -100,7 +100,7 @@ class TierCheckbox extends React.Component {
   render() {
     var tier_id = this.props.tier_id;
     var tier_name = this.props.tier_name;
-    if (tier_name == "hn inglés" || tier_name == "variantTypes inglés") {
+    if (tier_name == "hn inglés" || tier_name == "variantTypes inglés" || tier_name == "glsAppend inglés") {
       $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
       return <span></span>;
     }
