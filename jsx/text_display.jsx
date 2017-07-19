@@ -54,7 +54,7 @@ class TierCheckbox extends React.Component {
   constructor(props) {
     super(props);
     var tier_name = this.props.tier_name;
-    if (tier_name == "Parte del habla inglés" || tier_name == "Morfema (forma típico) a'ingae") {
+    if (tier_name == "Parte del habla inglés" || tier_name == "Morfema (forma típico) a'ingae" || tier_name == "English" || tier_name == "Glossed Morpheme") {
       this.state = {
         checkboxState: false
       };
