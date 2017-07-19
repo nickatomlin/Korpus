@@ -15,7 +15,7 @@
   "sentences": [
     {
       "num_slots": 13,
-      "text": "Tayopi tsu a'indeccuja atesu'fa ma'caen Chiga agattoembaantte'choma.",
+      "text": "Tayopi tsu a'indeccuja atesu'fa ma'caen Chiga agattoemba antte'choma.",
       "dependents": [
         {
           "tier": "T1",
@@ -54,6 +54,11 @@
               "start_slot": 11,
               "end_slot": 13,
               "value": "agattoemba"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 13,
+              "value": "antte'choma"
             }
           ]
         },
@@ -742,7 +747,7 @@
     },
     {
       "num_slots": 15,
-      "text": "Puiyi'ccoa'ingi injan'jenfa ma'caen Chigaja ti'tsse'tssiave.",
+      "text": "Puiyi'cco a'ingi injan'jenfa ma'caen Chigaja ti'tsse'tssiave.",
       "dependents": [
         {
           "tier": "T1",
@@ -2694,7 +2699,7 @@
     },
     {
       "num_slots": 12,
-      "text": "Tsanga Chigaja jipa andeonccan'choma iyofapae afe.",
+      "text": "Tsanga Chigaja jipa ande onccan'choma iyofapae afe.",
       "dependents": [
         {
           "tier": "T1",
@@ -3356,7 +3361,7 @@
     },
     {
       "num_slots": 11,
-      "text": "Tsa tsu tsa'caen tson'ñacca injan'tssi andeveatapoen.",
+      "text": "Tsa tsu tsa'caen tson'ñacca injan'tssi andeve atapoen.",
       "dependents": [
         {
           "tier": "T1",
@@ -3390,6 +3395,11 @@
               "start_slot": 9,
               "end_slot": 11,
               "value": "andeve"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 11,
+              "value": "atapoen"
             }
           ]
         },
@@ -3632,7 +3642,7 @@
     },
     {
       "num_slots": 7,
-      "text": "Tsa'caenatapoensishoshovi,quini'si tsa'ye sho'yo'fa.",
+      "text": "Tsa'caen atapoensi shoshovi, quini'si tsa'ye sho'yo'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -5371,7 +5381,7 @@
     },
     {
       "num_slots": 11,
-      "text": "Sefacconi'qque tsuantte tseni'qque faesu ccaninga jin'choye.",
+      "text": "Sefacconi'qque tsu antte tseni'qque faesu ccaninga jin'choye.",
       "dependents": [
         {
           "tier": "T1",
@@ -5617,7 +5627,7 @@
     },
     {
       "num_slots": 22,
-      "text": "Pa'cco sefacconi jinqque'su coe'je, o'fe,ofendyo'ndyo, an'cco, ataje'cho, coseje'cho toya'caen ccovu.",
+      "text": "Pa'cco sefacconi jinqque'su coe'je, o'fe, ofendyo'ndyo, an'cco, ataje'cho, coseje'cho toya'caen ccovu.",
       "dependents": [
         {
           "tier": "T1",
@@ -7036,7 +7046,7 @@
     },
     {
       "num_slots": 14,
-      "text": "T ise'pa yayama fi'tti'fasitteyayepasecconi japa canse'fa'chondeccu.",
+      "text": "T ise'pa yayama fi'tti'fasi tteyayepa secconi japa canse'fa'chondeccu.",
       "dependents": [
         {
           "tier": "T1",
@@ -9203,7 +9213,7 @@
     },
     {
       "num_slots": 18,
-      "text": "Cocoyandeccujaattia'ma'sia tsu, tsa'ma maquita tsu ñoa'me attian'faya.",
+      "text": "Cocoyandeccuja attia'ma'sia tsu, tsa'ma maquita tsu ñoa'me attian'faya.",
       "dependents": [
         {
           "tier": "T1",
@@ -10191,7 +10201,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Consindeccuja tise'pa iyoma, ttesichiminde tsu tise'pa iyoma an'bian'fa.",
+      "text": "Consindeccuja tise'pa iyoma, ttesi chiminde tsu tise'pa iyoma an'bian'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -10733,7 +10743,7 @@
     },
     {
       "num_slots": 17,
-      "text": "Tsa'camba tsu mundama ttu'se'fa, cuintsu jisia'indecu fi'ttipa an'faye.",
+      "text": "Tsa'camba tsu mundama ttu'se'fa, cuintsu jisi a'indecu fi'ttipa an'faye.",
       "dependents": [
         {
           "tier": "T1",

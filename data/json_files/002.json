@@ -15,7 +15,7 @@
   "sentences": [
     {
       "num_slots": 29,
-      "text": "A'indeccu mane jipa mani canse'fa'chone condase'cho, tsendeccuta tsuCarivene ccuyapa ji'fachondeccu( tsendeccuta tsu boñaetnolinguisticoChibcha'su'fa).",
+      "text": "A'indeccu mane jipa mani canse'fa'chone condase'cho, tsendeccuta tsu Carivene ccuyapa ji'fachondeccu (tsendeccuta tsu boña etnolinguistico Chibcha'su'fa).",
       "dependents": [
         {
           "tier": "T1",
@@ -84,6 +84,11 @@
               "start_slot": 27,
               "end_slot": 29,
               "value": "boña"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 29,
+              "value": "Chibcha'su'fa"
             }
           ]
         },
@@ -656,7 +661,7 @@
     },
     {
       "num_slots": 25,
-      "text": "Tsendeccuta tsuCaribene chiga sombo'jefanga ji'fa'chondeccu, tsa'caen jipa tsu aindeccu jacan'cho andenganampi'fa.",
+      "text": "Tsendeccuta tsu Caribene chiga sombo'jefanga ji'fa'chondeccu, tsa'caen jipa tsu aindeccu jacan'cho andenga nampi'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -715,6 +720,11 @@
               "start_slot": 23,
               "end_slot": 25,
               "value": "andenga"
+            },
+            {
+              "start_slot": 25,
+              "end_slot": 25,
+              "value": "nampi'fa"
             }
           ]
         },
@@ -1212,7 +1222,7 @@
     },
     {
       "num_slots": 16,
-      "text": "Tsasardina na'enga toya'caenPayamino na'en enttingefanga toya'caen tsunampi'fanortefanga japaApichaccunaipe.",
+      "text": "Tsa sardina na'enga toya'caen Payamino na'en enttingefanga toya'caen tsu nampi'fa nortefanga japa Apichaccu naipe.",
       "dependents": [
         {
           "tier": "T1",
@@ -1256,6 +1266,11 @@
               "start_slot": 14,
               "end_slot": 16,
               "value": "japa"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 16,
+              "value": "naipe"
             }
           ]
         },
@@ -2089,7 +2104,7 @@
     },
     {
       "num_slots": 9,
-      "text": "Tsa tsu suye in'jan biase'fa tsu10.000 canqquefave.",
+      "text": "Tsa tsu suye in'jan biase'fa tsu 10. 000 canqquefave.",
       "dependents": [
         {
           "tier": "T1",
@@ -2861,7 +2876,7 @@
     },
     {
       "num_slots": 8,
-      "text": "Tevaensundeccuta tsuincandeccune'qque condase'fa.",
+      "text": "Tevaensundeccuta tsu incandeccune'qque condase'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -3042,7 +3057,7 @@
     },
     {
       "num_slots": 31,
-      "text": "(HuaynaCapac)ccottacconeChapini andepa tsu aindeccuHatunique tsa cofan na'eni canse'fa'choma atte'fa; faesu tevaensundeccuta tsu iyi'cco'aqque toya an'mbian'fa.",
+      "text": "(Huayna Capac) ccottaccone Chapini andepa tsu aindeccu Hatunique tsa cofan na'eni canse'fa'choma atte'fa; faesu tevaensundeccuta tsu iyi'cco'aqque toya an'mbian'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -3673,7 +3688,7 @@
     },
     {
       "num_slots": 27,
-      "text": "Tsa'caeñi gi re'ri'ccoe atesu'cho'fa ña'me bia'a tsu toyaColon jimbiteja aindeccu tsampini, tsambi'taccottacconi cansesundeccune.",
+      "text": "Tsa'caeñi gi re'ri'ccoe atesu'cho'fa ña'me bia'a tsu toya Colon jimbiteja aindeccu tsampini, tsambi'ta ccottacconi cansesundeccune.",
       "dependents": [
         {
           "tier": "T1",
@@ -4289,7 +4304,7 @@
     },
     {
       "num_slots": 40,
-      "text": "Tsa'caen tson'chota tsu jongaesumachavaeñe ñotsse jacan'fa'cho iyiccoya'chove jacan'fambi tsu, tsomba aindeccuta tsu tson'fa mingae jacambachavaeña'chove'qque.",
+      "text": "Tsa'caen tson'chota tsu jongaesuma chavaeñe ñotsse jacan'fa'cho iyiccoya'chove jacan'fambi tsu, tsomba aindeccuta tsu tson'fa mingae jacamba chavaeña'chove'qque.",
       "dependents": [
         {
           "tier": "T1",
@@ -4368,6 +4383,11 @@
               "start_slot": 38,
               "end_slot": 40,
               "value": "jacamba"
+            },
+            {
+              "start_slot": 40,
+              "end_slot": 40,
+              "value": "chavaeña'chove'qque"
             }
           ]
         },
@@ -5115,7 +5135,7 @@
     },
     {
       "num_slots": 7,
-      "text": "Tsa'caen tsu ashaen'fa tsaPimamampirone.",
+      "text": "Tsa'caen tsu ashaen'fa tsa Pimamampirone.",
       "dependents": [
         {
           "tier": "T1",
@@ -5139,6 +5159,11 @@
               "start_slot": 6,
               "end_slot": 7,
               "value": "tsa"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 7,
+              "value": "Pimamampirone"
             }
           ]
         },
@@ -5316,7 +5341,7 @@
     },
     {
       "num_slots": 8,
-      "text": "Ña'me su'nija tsaCoca toya'caenshichhata'vamachavaena'chove.",
+      "text": "Ña'me su'nija tsa Coca toya'caen shichha ta'vama chavaena'chove.",
       "dependents": [
         {
           "tier": "T1",
@@ -5340,6 +5365,11 @@
               "start_slot": 5,
               "end_slot": 8,
               "value": "toya'caen"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 8,
+              "value": "chavaena'chove"
             }
           ]
         },
@@ -5537,7 +5567,7 @@
     },
     {
       "num_slots": 14,
-      "text": "Faesuve'qque tsu su'fa aindeccuta tsu ña'megeraeñe atesu'chondeccu.",
+      "text": "Faesuve'qque tsu su'fa aindeccuta tsu ña'me geraeñe atesu'chondeccu.",
       "dependents": [
         {
           "tier": "T1",
@@ -5853,7 +5883,7 @@
     },
     {
       "num_slots": 3,
-      "text": "Colonda tsu canqquefa1492niAmericaninampi(AlCaribe) ni.",
+      "text": "Colonda tsu canqquefa 1492ni Americani nampi (Al Caribe) ni.",
       "dependents": [
         {
           "tier": "T1",
@@ -5959,7 +5989,7 @@
     },
     {
       "num_slots": 8,
-      "text": "Septiembre canqquefa1526ni tsuespañolsundaroja me'ttia'yeEsmeraldaSinguccufanganampi'fa;Hernado deLuque,FranciscoPizarroyDiego deAlmagro.",
+      "text": "Septiembre canqquefa 1526ni tsu español sundaroja me'ttia'ye Esmeralda Singuccufanga nampi'fa; Hernado de Luque, Francisco Pizarro y Diego de Almagro.",
       "dependents": [
         {
           "tier": "T1",
@@ -5988,6 +6018,11 @@
               "start_slot": 7,
               "end_slot": 8,
               "value": "de"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 8,
+              "value": "Almagro"
             }
           ]
         },
@@ -6185,7 +6220,7 @@
     },
     {
       "num_slots": 3,
-      "text": "Canqquefa1527ni tsunampi'faGolfo deJambelinijan.",
+      "text": "Canqquefa 1527ni tsu nampi'fa Golfo de Jambelinijan.",
       "dependents": [
         {
           "tier": "T1",
@@ -6204,6 +6239,11 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "de"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 3,
+              "value": "Jambelinijan"
             }
           ]
         },
@@ -6291,7 +6331,7 @@
     },
     {
       "num_slots": 3,
-      "text": "Canqquefa1532ni tsuPizarro aCajamarcajanampi.",
+      "text": "Canqquefa 1532ni tsu Pizarro a Cajamarcaja nampi.",
       "dependents": [
         {
           "tier": "T1",
@@ -6310,6 +6350,11 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "a"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 3,
+              "value": "nampi"
             }
           ]
         },
@@ -6392,7 +6437,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Atahualpa pa'cho canqquefanga,1533niespañolndeccujaCusconijan ca'ni'fa.",
+      "text": "Atahualpa pa'cho canqquefanga, 1533ni españolndeccuja Cusconijan ca'ni'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -6528,7 +6573,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Canqquefa1534ni tsuQuito canqquevejacanqquian'cho:Diego deAlmagro, toya'caenSebastián deBenalcazaru'pai'ccu.",
+      "text": "Canqquefa 1534ni tsu Quito canqqueveja canqquian'cho: Diego de Almagro, toya'caen Sebastián de Benalcazaru'pai'ccu.",
       "dependents": [
         {
           "tier": "T1",
@@ -6562,6 +6607,11 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "de"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 10,
+              "value": "Benalcazaru'pai'ccu"
             }
           ]
         },
@@ -6789,7 +6839,7 @@
     },
     {
       "num_slots": 14,
-      "text": "Amazoniangaespañolndeccu me'ttiaye ca'ni'cho tsusundaro na'suGonzaloDíaz dePineda, tsa tsu can'jen, canqquefa1538fanga.",
+      "text": "Amazonianga españolndeccu me'ttiaye ca'ni'cho tsu sundaro na'su Gonzalo Díaz de Pineda, tsa tsu can'jen, canqquefa 1538fanga.",
       "dependents": [
         {
           "tier": "T1",
@@ -6838,6 +6888,11 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "canqquefa"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 14,
+              "value": "1538fanga"
             }
           ]
         },
@@ -7145,7 +7200,7 @@
     },
     {
       "num_slots": 4,
-      "text": "Can'ni'fa tsuCumbayani,Tumbaconi,Guamuesni,Papallactani, tsomba tsunampi'faCosangasinjuccuni.",
+      "text": "Can'ni'fa tsu Cumbayani, Tumbaconi, Guamuesni, Papallactani, tsomba tsu nampi'fa Cosanga sinjuccuni.",
       "dependents": [
         {
           "tier": "T1",
@@ -7164,6 +7219,11 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "tsu"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 4,
+              "value": "sinjuccuni"
             }
           ]
         },
@@ -7281,7 +7341,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Toya'caen tsuMosfani japaSomacosinjuninampi'fa.",
+      "text": "Toya'caen tsu Mosfani japa Somaco sinjuni nampi'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -7300,6 +7360,11 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "japa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 6,
+              "value": "nampi'fa"
             }
           ]
         },
@@ -7462,7 +7527,7 @@
     },
     {
       "num_slots": 25,
-      "text": "Ccoangi'ttinga ca'ni'cho tsu canqquefa1541ni, tsomba tsu puima ti'tsse'tssia pañaembaveGonzaloPizarro toya'caenFrancisco deOrellanajan da'fa'cho.",
+      "text": "Ccoangi'ttinga ca'ni'cho tsu canqquefa 1541ni, tsomba tsu puima ti'tsse'tssia pañaembave Gonzalo Pizarro toya'caen Francisco de Orellanajan da'fa'cho.",
       "dependents": [
         {
           "tier": "T1",
@@ -8013,7 +8078,7 @@
     },
     {
       "num_slots": 14,
-      "text": "( tsa cani'anga tsu parindeccu tsaGonzaloVeraMerced- toya'caenGaspar deCarvajal-op.",
+      "text": "(tsa cani'anga tsu parindeccu tsa Gonzalo Vera Merced- toya'caen Gaspar de Carvajal- op.",
       "dependents": [
         {
           "tier": "T1",
@@ -8052,6 +8117,11 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "de"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 14,
+              "value": "op"
             }
           ]
         },
@@ -8338,13 +8408,19 @@
       "dependents": [
         {
           "tier": "T1",
-          "values": []
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 0,
+              "value": "Fuitecan'fa"
+            }
+          ]
         }
       ]
     },
     {
       "num_slots": 8,
-      "text": "Tsa'cansi tsuOrellanamajanamazonanganampi'su qquen atesucho'fa.",
+      "text": "Tsa'cansi tsu Orellanamajan amazonanga nampi'su qquen atesucho'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -8555,7 +8631,7 @@
     },
     {
       "num_slots": 4,
-      "text": "Canqquefa1543ni tsuVaca deCastroGobernador tsaPerú'suma(cuandotodavíanoesvireinato)sombaen'faQuito'suGobernaciome.",
+      "text": "Canqquefa 1543ni tsu Vaca de Castro Gobernador tsa Perú'suma (cuando todavía no es vireinato) sombaen'fa Quito'su Gobernaciome.",
       "dependents": [
         {
           "tier": "T1",
@@ -8579,6 +8655,11 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "tsa"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 4,
+              "value": "Gobernaciome"
             }
           ]
         },
@@ -8686,7 +8767,7 @@
     },
     {
       "num_slots": 3,
-      "text": "Tsata tsunortefangapastopie,surfangaPiurapi.",
+      "text": "Tsata tsu nortefanga pastopie, surfanga Piurapi.",
       "dependents": [
         {
           "tier": "T1",
@@ -8700,6 +8781,11 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "tsu"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 3,
+              "value": "Piurapi"
             }
           ]
         },
@@ -8787,7 +8873,7 @@
     },
     {
       "num_slots": 3,
-      "text": "Toya'caenCostapasificopie.",
+      "text": "Toya'caen Costa pasificopie.",
       "dependents": [
         {
           "tier": "T1",
@@ -8796,6 +8882,11 @@
               "start_slot": 0,
               "end_slot": 3,
               "value": "Toya'caen"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 3,
+              "value": "pasificopie"
             }
           ]
         },
@@ -8897,13 +8988,19 @@
       "dependents": [
         {
           "tier": "T1",
-          "values": []
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 0,
+              "value": "Oestafanga"
+            }
+          ]
         }
       ]
     },
     {
       "num_slots": 1,
-      "text": "AstaBracamoros tsaoestefanga.",
+      "text": "Asta Bracamoros tsa oestefanga.",
       "dependents": [
         {
           "tier": "T1",
@@ -8912,6 +9009,11 @@
               "start_slot": 0,
               "end_slot": 1,
               "value": "tsa"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 1,
+              "value": "oestefanga"
             }
           ]
         },
@@ -9250,7 +9352,7 @@
     },
     {
       "num_slots": 2,
-      "text": "Sebastian deBenalcazar tsuaishegobernadorja.",
+      "text": "Sebastian de Benalcazar tsu aishe gobernadorja.",
       "dependents": [
         {
           "tier": "T1",
@@ -9264,6 +9366,11 @@
               "start_slot": 1,
               "end_slot": 2,
               "value": "tsu"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 2,
+              "value": "gobernadorja"
             }
           ]
         },
@@ -9331,7 +9438,7 @@
     },
     {
       "num_slots": 13,
-      "text": "Canqquefa1551ni tsu me'ttia'ye somboen'fa tsaprovincia tsambi'tagobernadorveQuijosni.",
+      "text": "Canqquefa 1551ni tsu me'ttia'ye somboen'fa tsa provincia tsambi'ta gobernadorve Quijosni.",
       "dependents": [
         {
           "tier": "T1",
@@ -9365,6 +9472,11 @@
               "start_slot": 10,
               "end_slot": 13,
               "value": "tsambi'ta"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 13,
+              "value": "Quijosni"
             }
           ]
         },
@@ -9662,7 +9774,7 @@
     },
     {
       "num_slots": 1,
-      "text": "Tsambi'ja tsa,Canelani.",
+      "text": "Tsambi'ja tsa, Canelani.",
       "dependents": [
         {
           "tier": "T1",
@@ -9671,6 +9783,11 @@
               "start_slot": 0,
               "end_slot": 1,
               "value": "tsa"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 1,
+              "value": "Canelani"
             }
           ]
         },
@@ -9718,7 +9835,7 @@
     },
     {
       "num_slots": 7,
-      "text": "Tsa tsu suye in'jannortefangaMocoa, toya'caenSucumbio'suni.",
+      "text": "Tsa tsu suye in'jan nortefanga Mocoa, toya'caen Sucumbio'suni.",
       "dependents": [
         {
           "tier": "T1",
@@ -9747,6 +9864,11 @@
               "start_slot": 4,
               "end_slot": 7,
               "value": "toya'caen"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 7,
+              "value": "Sucumbio'suni"
             }
           ]
         },
@@ -9909,7 +10031,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Tsama tsu tson tsaJiménez deQuesada.",
+      "text": "Tsama tsu tson tsa Jiménez de Quesada.",
       "dependents": [
         {
           "tier": "T1",
@@ -9938,6 +10060,11 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "de"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 6,
+              "value": "Quesada"
             }
           ]
         },
@@ -10085,7 +10212,7 @@
     },
     {
       "num_slots": 4,
-      "text": "Vaprovincia'suaishegobernadorta tsuGilRamirezDavalo, tsaBaezavecanqquian'su, Canqquefa1559ni.",
+      "text": "Va provincia'su aishe gobernadorta tsu Gil Ramirez Davalo, tsa Baezave canqquian'su, Canqquefa 1559ni.",
       "dependents": [
         {
           "tier": "T1",
@@ -10109,6 +10236,11 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "Canqquefa"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 4,
+              "value": "1559ni"
             }
           ]
         },
@@ -10216,7 +10348,7 @@
     },
     {
       "num_slots": 2,
-      "text": "TsaBaeza'suaishesaserdoteta tsuManuelDíaz.",
+      "text": "Tsa Baeza'su aishe saserdoteta tsu Manuel Díaz.",
       "dependents": [
         {
           "tier": "T1",
@@ -10230,6 +10362,11 @@
               "start_slot": 1,
               "end_slot": 2,
               "value": "tsu"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 2,
+              "value": "Díaz"
             }
           ]
         },
@@ -10297,7 +10434,7 @@
     },
     {
       "num_slots": 23,
-      "text": "Tsa tsuBaezatti pporotsse cansesundeccuma manda tise'nga ccovungae tise canseya'chone afe'paeña'chove.",
+      "text": "Tsa tsu Baezatti pporotsse cansesundeccuma manda tise'nga ccovungae tise canseya'chone afe'paeña'chove.",
       "dependents": [
         {
           "tier": "T1",
@@ -10859,7 +10996,7 @@
     },
     {
       "num_slots": 1,
-      "text": "1576nimisioneroDominicosjaQuitoni can'jen.",
+      "text": "1576ni misionero Dominicosja Quitoni can'jen.",
       "dependents": [
         {
           "tier": "T1",
@@ -10915,7 +11052,7 @@
     },
     {
       "num_slots": 2,
-      "text": "Canqquefa1541 tsuBaezavecanqquian'cho.",
+      "text": "Canqquefa 1541 tsu Baezave canqquian'cho.",
       "dependents": [
         {
           "tier": "T1",
@@ -10929,6 +11066,11 @@
               "start_slot": 1,
               "end_slot": 2,
               "value": "tsu"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 2,
+              "value": "canqquian'cho"
             }
           ]
         },
@@ -10996,7 +11138,7 @@
     },
     {
       "num_slots": 20,
-      "text": "Ccoangi'cco'tti'sugoberndor tsuRogrigoNuñez deBonilla, toya'caen ccoanifae'cco'tti'su tsuMelcocherVásquesDávila tsaitesu teniente tsuAndresCantero( tisecapitan tsuVartoloménMarin).",
+      "text": "Ccoangi'cco'tti'su goberndor tsu Rogrigo Nuñez de Bonilla, toya'caen ccoanifae'cco'tti'su tsu Melcocher Vásques Dávila tsaitesu teniente tsu Andres Cantero (tise capitan tsu Vartolomén Marin).",
       "dependents": [
         {
           "tier": "T1",
@@ -11050,6 +11192,11 @@
               "start_slot": 19,
               "end_slot": 20,
               "value": "tsu"
+            },
+            {
+              "start_slot": 20,
+              "end_slot": 20,
+              "value": "Marin"
             }
           ]
         },
@@ -11437,7 +11584,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Vaosefa'pasu condase'pa tsu injenge'cho tsaarchidonameSanPedro deAlcalave aindeccuprovinciavecanqquia'chopa.",
+      "text": "Va osefa'pasu condase'pa tsu injenge'cho tsa archidoname San Pedro de Alcalave aindeccu provinciave canqquia'chopa.",
       "dependents": [
         {
           "tier": "T1",
@@ -11476,6 +11623,11 @@
               "start_slot": 8,
               "end_slot": 10,
               "value": "aindeccu"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 10,
+              "value": "canqquia'chopa"
             }
           ]
         },
@@ -11703,7 +11855,7 @@
     },
     {
       "num_slots": 13,
-      "text": "Canqquefa1557 ni tsuFranciscoPízarro deQuezadaja aindeccumbe ande ccafamajancanqquian.",
+      "text": "Canqquefa 1557 ni tsu Francisco Pízarro de Quezadaja aindeccumbe ande ccafamajan canqquian.",
       "dependents": [
         {
           "tier": "T1",
@@ -11742,6 +11894,11 @@
               "start_slot": 9,
               "end_slot": 13,
               "value": "ccafamajan"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 13,
+              "value": "canqquian"
             }
           ]
         },
@@ -12004,7 +12161,7 @@
     },
     {
       "num_slots": 5,
-      "text": "Mocoa toya'caenEsija deSucumbiosunima, canqquefa1558ni.",
+      "text": "Mocoa toya'caen Esija de Sucumbiosunima, canqquefa 1558ni.",
       "dependents": [
         {
           "tier": "T1",
@@ -12023,6 +12180,11 @@
               "start_slot": 4,
               "end_slot": 5,
               "value": "canqquefa"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 5,
+              "value": "1558ni"
             }
           ]
         },
@@ -12160,7 +12322,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Tsa ña'me injenge'choSanMiguel utufangacanqquian.",
+      "text": "Tsa ña'me injenge'cho San Miguel utufanga canqquian.",
       "dependents": [
         {
           "tier": "T1",
@@ -12184,6 +12346,11 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "utufanga"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 6,
+              "value": "canqquian"
             }
           ]
         },
@@ -12331,7 +12498,7 @@
     },
     {
       "num_slots": 16,
-      "text": "Tsa andeni tsu ña'me cori jincho, tsenima tsucorivaja cashipaen'fa.",
+      "text": "Tsa andeni tsu ña'me cori jincho, tsenima tsu corivaja cashipaen'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -12717,7 +12884,7 @@
     },
     {
       "num_slots": 13,
-      "text": "Canqquefa1563ni tsuFelipe,españa'su na'suja ña'meQuito mingae tsoña'chove tson.",
+      "text": "Canqquefa 1563ni tsu Felipe, españa'su na'suja ña'me Quito mingae tsoña'chove tson.",
       "dependents": [
         {
           "tier": "T1",
@@ -13053,7 +13220,7 @@
     },
     {
       "num_slots": 13,
-      "text": "Tsama tsuVelascoja su: tsani tsu130 aindeccu can'jen'fa'cho.",
+      "text": "Tsama tsu Velascoja su: tsani tsu 130 aindeccu can'jen'fa'cho.",
       "dependents": [
         {
           "tier": "T1",
@@ -13369,7 +13536,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Tsaeyi me'ttia'supresidente tsuHernando deSantillan.",
+      "text": "Tsaeyi me'ttia'su presidente tsu Hernando de Santillan.",
       "dependents": [
         {
           "tier": "T1",
@@ -13388,6 +13555,11 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "de"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 6,
+              "value": "Santillan"
             }
           ]
         },
@@ -13515,7 +13687,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Canqquefa1587ni tsu tayoMisioneroJesuitandeccujaQuitoni can'jen'fa.",
+      "text": "Canqquefa 1587ni tsu tayo Misionero Jesuitandeccuja Quitoni can'jen'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -13852,7 +14024,7 @@
     },
     {
       "num_slots": 4,
-      "text": "Micomba tsu, tse'tte tsuP.",
+      "text": "Micomba tsu, tse'tte tsu P.",
       "dependents": [
         {
           "tier": "T1",
@@ -13876,6 +14048,11 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "tsu"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 4,
+              "value": "P"
             }
           ]
         },
@@ -13983,7 +14160,7 @@
     },
     {
       "num_slots": 7,
-      "text": "RafaelFerrerja canqquefa1599ni cofandeccu andeni can'jen.",
+      "text": "Rafael Ferrerja canqquefa 1599ni cofandeccu andeni can'jen.",
       "dependents": [
         {
           "tier": "T1",
@@ -14159,7 +14336,7 @@
     },
     {
       "num_slots": 8,
-      "text": "Tsomba tsu aindeccu canqquevejacanqque'qquian.",
+      "text": "Tsomba tsu aindeccu canqqueveja canqque'qquian.",
       "dependents": [
         {
           "tier": "T1",
@@ -14183,6 +14360,11 @@
               "start_slot": 5,
               "end_slot": 8,
               "value": "canqqueveja"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 8,
+              "value": "canqque'qquian"
             }
           ]
         },
@@ -14370,7 +14552,7 @@
     },
     {
       "num_slots": 9,
-      "text": "Bendoa,SanPedro delosCofanes(SanPedro deAlcalá tsambi'taSanPedrodelRíoDoradove, tsambi'ta,Alcalá deríoDoradove.",
+      "text": "Bendoa, San Pedro de los Cofanes (San Pedro de Alcalá tsambi'ta San Pedro del Río Doradove, tsambi'ta, Alcalá de río Doradove.",
       "dependents": [
         {
           "tier": "T1",
@@ -14399,6 +14581,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "de"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 9,
+              "value": "Doradove"
             }
           ]
         },
@@ -14606,7 +14793,7 @@
     },
     {
       "num_slots": 13,
-      "text": "Tsa pa'cco canqquembe inisei'ccu tsu condase'pavejasombaen'fa'cho.",
+      "text": "Tsa pa'cco canqquembe inisei'ccu tsu condase'paveja sombaen'fa'cho.",
       "dependents": [
         {
           "tier": "T1",
@@ -14640,6 +14827,11 @@
               "start_slot": 9,
               "end_slot": 13,
               "value": "condase'paveja"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 13,
+              "value": "sombaen'fa'cho"
             }
           ]
         },
@@ -14902,7 +15094,7 @@
     },
     {
       "num_slots": 7,
-      "text": "Tsa canqquene condase'cho tsujañoningaeja tsaPuertoLibreni.",
+      "text": "Tsa canqquene condase'cho tsu jañoningaeja tsa Puerto Libreni.",
       "dependents": [
         {
           "tier": "T1",
@@ -14931,6 +15123,11 @@
               "start_slot": 6,
               "end_slot": 7,
               "value": "tsa"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 7,
+              "value": "Libreni"
             }
           ]
         },
@@ -15108,7 +15305,7 @@
     },
     {
       "num_slots": 1,
-      "text": "TsaP.",
+      "text": "Tsa P.",
       "dependents": [
         {
           "tier": "T1",
@@ -15117,6 +15314,11 @@
               "start_slot": 0,
               "end_slot": 1,
               "value": "Tsa"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 1,
+              "value": "P"
             }
           ]
         },
@@ -15164,7 +15366,7 @@
     },
     {
       "num_slots": 11,
-      "text": "Ferrer tsu3.000 a'indeccuve boña, tsa andettingaja.",
+      "text": "Ferrer tsu 3. 000 a'indeccuve boña, tsa andettingaja.",
       "dependents": [
         {
           "tier": "T1",
@@ -15405,7 +15607,7 @@
     },
     {
       "num_slots": 11,
-      "text": "Tsomba ti'tsse camba tsu ccoangi faesu canqqueve'qquecanqquian'fa.",
+      "text": "Tsomba ti'tsse camba tsu ccoangi faesu canqqueve'qque canqquian'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -15444,6 +15646,11 @@
               "start_slot": 8,
               "end_slot": 11,
               "value": "canqqueve'qque"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 11,
+              "value": "canqquian'fa"
             }
           ]
         },
@@ -15691,7 +15898,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Santa Mariadel Aguaricove toya'caenSantaCuscove.",
+      "text": "Santa Maria del Aguaricove toya'caen Santa Cuscove.",
       "dependents": [
         {
           "tier": "T1",
@@ -15710,6 +15917,11 @@
               "start_slot": 3,
               "end_slot": 6,
               "value": "toya'caen"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 6,
+              "value": "Cuscove"
             }
           ]
         },
@@ -15867,7 +16079,7 @@
     },
     {
       "num_slots": 8,
-      "text": "Ferrerja11 canqquefave tsu a'indeccui'ccu canse.",
+      "text": "Ferrerja 11 canqquefave tsu a'indeccui'ccu canse.",
       "dependents": [
         {
           "tier": "T1",
@@ -16058,7 +16270,7 @@
     },
     {
       "num_slots": 35,
-      "text": "Faesu canqque'su mingae dafani'qque, tise'ja ño'anjesuitapa tsu cañajembaespañolsunderondeccumafuitecan, toya'caen tsu mingae a'indeccu andenga ca'niña'chove tson'jen.",
+      "text": "Faesu canqque'su mingae dafani'qque, tise'ja ño'an jesuitapa tsu cañajemba español sunderondeccuma fuitecan, toya'caen tsu mingae a'indeccu andenga ca'niña'chove tson'jen.",
       "dependents": [
         {
           "tier": "T1",
@@ -16809,7 +17021,7 @@
     },
     {
       "num_slots": 8,
-      "text": "Tsa'maosefa'panga tsucabondeccuja ca'ni'fa,A'indeccu andenga.",
+      "text": "Tsa'ma osefa'panga tsu cabondeccuja ca'ni'fa, A'indeccu andenga.",
       "dependents": [
         {
           "tier": "T1",
@@ -17005,7 +17217,7 @@
     },
     {
       "num_slots": 17,
-      "text": "Tsa tsu ña'me su'choa'can'on a'indeeccu tsu fi'tti'fa canqquefa1611 ni.",
+      "text": "Tsa tsu ña'me su'choa'can'on a'indeeccu tsu fi'tti'fa canqquefa 1611 ni.",
       "dependents": [
         {
           "tier": "T1",
@@ -17401,7 +17613,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Tsaiteta tsu a'indeccuja15.000 a'ia'can'tssi canse'fa.",
+      "text": "Tsaiteta tsu a'indeccuja 15. 000 a'ia'can'tssi canse'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -17642,7 +17854,7 @@
     },
     {
       "num_slots": 21,
-      "text": "Tsa canqquefangata tsu iyiccosugobernadoresundeccuja tsaprovincia, a'indeccu canqquemajan itsaye osha'fambi.",
+      "text": "Tsa canqquefangata tsu iyiccosu gobernadoresundeccuja tsa provincia, a'indeccu canqquemajan itsaye osha'fambi.",
       "dependents": [
         {
           "tier": "T1",
@@ -18103,7 +18315,7 @@
     },
     {
       "num_slots": 10,
-      "text": "A'indeccuta tsuputsa'supa dyo'otssiandeqquia.",
+      "text": "A'indeccuta tsu putsa'supa dyo'otssiandeqquia.",
       "dependents": [
         {
           "tier": "T1",
@@ -19377,7 +19589,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Tsombagueraeña'chonga tsu fa'enga boye atesu'fa.",
+      "text": "Tsomba gueraeña'chonga tsu fa'enga boye atesu'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -19623,7 +19835,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Españolndeccu a'indeccu andengacanqquian'chota tsu tsangae jinchombi.",
+      "text": "Españolndeccu a'indeccu andenga canqquian'chota tsu tsangae jinchombi.",
       "dependents": [
         {
           "tier": "T1",
@@ -19874,7 +20086,7 @@
     },
     {
       "num_slots": 21,
-      "text": "Aiyembe tsu iyiccopa a'indeccujaMocoama toya'caenEcija deSucumbiomadaño'fa canqquefa1582ni ña'me su'nijanFerrer pasi ombae.",
+      "text": "Aiyembe tsu iyiccopa a'indeccuja Mocoama toya'caen Ecija de Sucumbioma daño'fa canqquefa 1582ni ña'me su'nijan Ferrer pasi ombae.",
       "dependents": [
         {
           "tier": "T1",
@@ -20420,7 +20632,7 @@
     },
     {
       "num_slots": 2,
-      "text": "Mandaye'choveme'ín'en tsu da.",
+      "text": "Mandaye'chove me'ín'en tsu da.",
       "dependents": [
         {
           "tier": "T1",
@@ -20511,7 +20723,7 @@
     },
     {
       "num_slots": 9,
-      "text": "Ña'me su'nijan tsaBaezanicanqquian'cho a'indeccu andeja.",
+      "text": "Ña'me su'nijan tsa Baezani canqquian'cho a'indeccu andeja.",
       "dependents": [
         {
           "tier": "T1",
@@ -21018,7 +21230,7 @@
     },
     {
       "num_slots": 13,
-      "text": "Tsa'ma vana'fambi tsushichhata'vama joñe, nisunderonga mandaye'fambi.",
+      "text": "Tsa'ma vana'fambi tsu shichha ta'vama joñe, ni sunderonga mandaye'fambi.",
       "dependents": [
         {
           "tier": "T1",
@@ -21750,7 +21962,7 @@
     },
     {
       "num_slots": 12,
-      "text": "Jinchombi tsu aindeccune tevaen'choja tsa tsusiglo20te'fanga(1905)misionerocapuchinondeccuCaquetanganampiyangae.",
+      "text": "Jinchombi tsu aindeccune tevaen'choja tsa tsu siglo 20te'fanga (1905) misionero capuchinondeccu Caquetanga nampiyangae.",
       "dependents": [
         {
           "tier": "T1",
@@ -21784,6 +21996,11 @@
               "start_slot": 11,
               "end_slot": 12,
               "value": "tsu"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 12,
+              "value": "nampiyangae"
             }
           ]
         },
@@ -22026,7 +22243,7 @@
     },
     {
       "num_slots": 38,
-      "text": "Tsaquinerondeccu toya'caencaucherondeccu:Quinome ttatta'su, toya'caencauchove ttattasundeccu tsu jacan'fa a'indeccu tsambi'ta suyeosefa'paveja tsasigloXIXsigloXXma otie, ña'me injengembichoa manda'choi'ccu semaemba vanaeñe.",
+      "text": "Tsa quinerondeccu toya'caen caucherondeccu: Quinome ttatta'su, toya'caen cauchove ttattasundeccu tsu jacan'fa a'indeccu tsambi'ta suye osefa'paveja tsa siglo XIX siglo XXma otie, ña'me injengembichoa manda'choi'ccu semaemba vanaeñe.",
       "dependents": [
         {
           "tier": "T1",
@@ -23183,7 +23400,7 @@
     },
     {
       "num_slots": 23,
-      "text": "Tsasofia'su nasundeccu quiname ttattasundeccuja ña'me aindeccumajanzie vanaen'fambi tsu.",
+      "text": "Tsa sofia'su nasundeccu quiname ttattasundeccuja ña'me aindeccumajan zie vanaen'fambi tsu.",
       "dependents": [
         {
           "tier": "T1",
@@ -23639,7 +23856,7 @@
     },
     {
       "num_slots": 9,
-      "text": "Tsendeccuta tsu jacan'fambinain rande jini.",
+      "text": "Tsendeccuta tsu jacan'fambi nain rande jini.",
       "dependents": [
         {
           "tier": "T1",
@@ -23850,7 +24067,7 @@
     },
     {
       "num_slots": 7,
-      "text": "Nicauchoma injan'tsse sema'jen'fani qque.",
+      "text": "Ni cauchoma injan'tsse sema'jen'fani qque.",
       "dependents": [
         {
           "tier": "T1",
@@ -24021,7 +24238,7 @@
     },
     {
       "num_slots": 6,
-      "text": "Tsa injan'tssecauchoma taisundeccuja.",
+      "text": "Tsa injan'tsse cauchoma taisundeccuja.",
       "dependents": [
         {
           "tier": "T1",
@@ -24177,7 +24394,7 @@
     },
     {
       "num_slots": 12,
-      "text": "Tsanga tsu majandeccujacauchoma semañe sema'fa'cho.",
+      "text": "Tsanga tsu majandeccuja cauchoma semañe sema'fa'cho.",
       "dependents": [
         {
           "tier": "T1",
