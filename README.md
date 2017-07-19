@@ -13,7 +13,8 @@ Contributors:
 - Auto-generated display based on ELAN/FLEx tiers. This means the software is completely independent of tier naming, language choice, etc. and does not require any special configuration.
 - Ability to show/hide unwanted gloss tiers.
 
-**WARNING: Current offline version not compatible with Chrome. See here:  https://stackoverflow.com/questions/20904098/react-js-example-in-tutorial-not-working**
+## Warning
+**Current offline version not compatible with Chrome. See here:  https://stackoverflow.com/questions/20904098/react-js-example-in-tutorial-not-working**
 
 To view the website in Chrome, use a SimpleHTTPServer by typing the following command from your local copy of the Korpus repository:
 ~~~~
