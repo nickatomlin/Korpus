@@ -5,8 +5,8 @@
       "T2": "English",
       "T3": "Morphemes",
       "T4": "Glossed Morpheme",
-      "T5": "Spanish",
-      "T6": "Spanish Gloss"
+      "T5": "Spanish Gloss",
+      "T6": "Spanish"
     },
     "speaker IDs": {
       "S1": {
@@ -95,8 +95,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "nosotros=TOP=1"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "Somos A'i."
+              "value": "persona-HUM.PL"
             }
           ]
         },
@@ -105,13 +110,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "nosotros=TOP=1"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "persona-HUM.PL"
+              "value": "Somos A'i."
             }
           ]
         }
@@ -190,16 +190,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 4,
-              "value": "Un mil A'i viven en Ecuador."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "Ecuador=LOC=1"
             },
@@ -217,6 +207,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "persona-HUM.PL"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Un mil A'i viven en Ecuador."
             }
           ]
         }
@@ -315,16 +315,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Aproximadamente un mil más viven en Colombia."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "además"
             },
@@ -352,6 +342,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "mil"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Aproximadamente un mil más viven en Colombia."
             }
           ]
         }
@@ -430,16 +430,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 4,
-              "value": "Junto somos dos mil personas"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "todo=CONTR"
             },
@@ -457,6 +447,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "personas."
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Junto somos dos mil personas"
             }
           ]
         }
@@ -555,16 +555,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "En todos los pueblos, nosotros hablamos A'ingae."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "todo"
             },
@@ -592,6 +582,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "a'ingae"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "En todos los pueblos, nosotros hablamos A'ingae."
             }
           ]
         }
@@ -690,16 +690,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Si queremos comida de los ríos, usamos soga y piola para pescar."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "nosotros=TOP=1"
             },
@@ -727,6 +717,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "pez-PL.SUBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Si queremos comida de los ríos, usamos soga y piola para pescar."
             }
           ]
         }
@@ -825,16 +825,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Si queremos comida de las selvas, usamos las cerbatanas y las lanzas."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "selva=AGT"
             },
@@ -862,6 +852,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "lanza=ACC"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Si queremos comida de las selvas, usamos las cerbatanas y las lanzas."
             }
           ]
         }
@@ -950,16 +950,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 5,
-              "value": "Hoy en día, usamos las escopetas también."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "ANA=FRUST"
             },
@@ -982,6 +972,16 @@
               "start_slot": 4,
               "end_slot": 5,
               "value": "escopeta=INST"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 5,
+              "value": "Hoy en día, usamos las escopetas también."
             }
           ]
         }
@@ -1060,16 +1060,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 4,
-              "value": "Nuestras curacas toman ayahuasca. "
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "curaca=HUM.PL"
             },
@@ -1087,6 +1077,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "beber=SS"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Nuestras curacas toman ayahuasca. "
             }
           ]
         }
@@ -1155,16 +1155,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 3,
-              "value": "y nos curan."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "persona=HUM.PL"
             },
@@ -1177,6 +1167,16 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "vivir-PL.SUBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "y nos curan."
             }
           ]
         }
@@ -1275,16 +1275,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Hay curacas en todas las comunidades."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "todo"
             },
@@ -1312,6 +1302,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "vivir-PL.SUBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Hay curacas en todas las comunidades."
             }
           ]
         }
@@ -1410,16 +1410,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Si se sube el volcán Cayambe, se ve toda la tierra cofán."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "volcán Cayambe=IRR"
             },
@@ -1447,6 +1437,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "tierra=ACC"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Si se sube el volcán Cayambe, se ve toda la tierra cofán."
             }
           ]
         }
@@ -1525,16 +1525,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 4,
-              "value": "Nosotros Cofán vivimos en"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "nosotros"
             },
@@ -1552,6 +1542,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "vivir-PL.SUBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Nosotros Cofán vivimos en"
             }
           ]
         }
@@ -1601,7 +1601,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "Aquarico"
+              "value": "Aguarico"
             }
           ]
         },
@@ -1611,7 +1611,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "Aguarico"
+              "value": "Aquarico"
             }
           ]
         }
@@ -1670,8 +1670,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "San"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "San Miguel"
+              "value": "Miguel"
             }
           ]
         },
@@ -1680,13 +1685,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "San"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "Miguel"
+              "value": "San Miguel"
             }
           ]
         }
@@ -1736,7 +1736,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "río arriba"
+              "value": "río arriba=LOC"
             }
           ]
         },
@@ -1746,7 +1746,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "río arriba=LOC"
+              "value": "río arriba"
             }
           ]
         }
@@ -1815,16 +1815,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 3,
-              "value": "y el río Coca"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "además"
             },
@@ -1837,6 +1827,16 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "río=LOC"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "y el río Coca"
             }
           ]
         }
@@ -1895,8 +1895,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "Putumayo"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "el río Putumayo"
+              "value": "río=LOC"
             }
           ]
         },
@@ -1905,13 +1910,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "Putumayo"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "río=LOC"
+              "value": "el río Putumayo"
             }
           ]
         }
@@ -1961,7 +1961,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "el río Cuyabeno"
+              "value": "Cuyabeno=SHAPE=LOC"
             }
           ]
         },
@@ -1971,7 +1971,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "Cuyabeno=SHAPE=LOC"
+              "value": "el río Cuyabeno"
             }
           ]
         }
@@ -2030,8 +2030,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "Aguarico"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "abajo del río Aguarico"
+              "value": "río.abajo"
             }
           ]
         },
@@ -2040,13 +2045,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "Aguarico"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "río.abajo"
+              "value": "abajo del río Aguarico"
             }
           ]
         }
@@ -2105,8 +2105,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "hace.tiempo=AGT"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "Las personas ancianas"
+              "value": "persona=HUM.PL=CO"
             }
           ]
         },
@@ -2115,13 +2120,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "hace.tiempo=AGT"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "persona=HUM.PL=CO"
+              "value": "Las personas ancianas"
             }
           ]
         }
@@ -2210,16 +2210,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 5,
-              "value": "viajan todo el camino de Marañón."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "arriba=SHAPE=LOC"
             },
@@ -2242,6 +2232,16 @@
               "start_slot": 4,
               "end_slot": 5,
               "value": "marañón"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 5,
+              "value": "viajan todo el camino de Marañón."
             }
           ]
         }
@@ -2340,16 +2340,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Nosotros Cófan vivimos en trece pueblos:"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "nosotros"
             },
@@ -2377,6 +2367,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "pueblo=LOC"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Nosotros Cófan vivimos en trece pueblos:"
             }
           ]
         }
@@ -2435,8 +2435,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "viejo=AGT"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "tayo'su canqque"
+              "value": "pueblo"
             }
           ]
         },
@@ -2445,13 +2450,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "viejo=AGT"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "pueblo"
+              "value": "tayo'su canqque"
             }
           ]
         }
@@ -2570,8 +2570,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "claro"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "Chandie Na'e"
+              "value": "río"
             }
           ]
         },
@@ -2580,13 +2585,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "claro"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "río"
+              "value": "Chandie Na'e"
             }
           ]
         }
@@ -2645,8 +2645,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "Alto"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "Alto Bermejo"
+              "value": "Bermejo"
             }
           ]
         },
@@ -2655,13 +2660,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "Alto"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "Bermejo"
+              "value": "Alto Bermejo"
             }
           ]
         }
@@ -2960,8 +2960,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "blanco-ADJ"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "Totoa Nai'qui"
+              "value": "río-SHAPE"
             }
           ]
         },
@@ -2970,13 +2975,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "blanco-ADJ"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "río-SHAPE"
+              "value": "Totoa Nai'qui"
             }
           ]
         }
@@ -3095,8 +3095,13 @@
           "values": [
             {
               "start_slot": 0,
+              "end_slot": 1,
+              "value": "Pisorié"
+            },
+            {
+              "start_slot": 1,
               "end_slot": 2,
-              "value": "el pueblo Pisorié"
+              "value": "pueblo"
             }
           ]
         },
@@ -3105,13 +3110,8 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "Pisorié"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 2,
-              "value": "pueblo"
+              "value": "el pueblo Pisorié"
             }
           ]
         }
@@ -3360,16 +3360,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 9,
-              "value": "Vivimos, además, en la tierra de otros pueblos: San Pablo Puerto Bolívar."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "además=DS"
             },
@@ -3412,6 +3402,16 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "Bolívar"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 9,
+              "value": "Vivimos, además, en la tierra de otros pueblos: San Pablo Puerto Bolívar."
             }
           ]
         }
@@ -3490,16 +3490,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 4,
-              "value": "Las áreas naturales protegidas que nos importa son:"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "nosotros"
             },
@@ -3517,6 +3507,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "3"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Las áreas naturales protegidas que nos importa son:"
             }
           ]
         }
@@ -3595,16 +3595,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 4,
-              "value": "Reserva Ecológica Cayambe Coca"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "Reserva"
             },
@@ -3622,6 +3612,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "Coca"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Reserva Ecológica Cayambe Coca"
             }
           ]
         }
@@ -3700,16 +3700,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 4,
-              "value": "Reserva Ecológica Cofán Bermejo"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "Reserva"
             },
@@ -3727,6 +3717,16 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "Bermejo"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "Reserva Ecológica Cofán Bermejo"
             }
           ]
         }
@@ -3795,16 +3795,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 3,
-              "value": "Reserva Faunística Cuyabeno"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "Reserva"
             },
@@ -3817,6 +3807,16 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "Cuyabeno"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "Reserva Faunística Cuyabeno"
             }
           ]
         }
@@ -3925,16 +3925,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 7,
-              "value": "Nuestros guardaparques Cofanes pretegen esta tierra."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "PROX"
             },
@@ -3967,6 +3957,16 @@
               "start_slot": 6,
               "end_slot": 7,
               "value": "cuidar-IMPF-PL.SUBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "Nuestros guardaparques Cofanes pretegen esta tierra."
             }
           ]
         }
@@ -4075,16 +4075,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 7,
-              "value": "En ecuador, tenemos control legal de más que cuatrocientos mil hectáreas de tierra."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "Ecuador=LOC=LOC=1"
             },
@@ -4117,6 +4107,16 @@
               "start_slot": 6,
               "end_slot": 7,
               "value": "más.que"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "En ecuador, tenemos control legal de más que cuatrocientos mil hectáreas de tierra."
             }
           ]
         }
@@ -4235,16 +4235,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 8,
-              "value": "Este proyecto nos ayudará a aprender sobre nuestro territorio anciano."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "PROX"
             },
@@ -4282,6 +4272,16 @@
               "start_slot": 7,
               "end_slot": 8,
               "value": "territorio"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 8,
+              "value": "Este proyecto nos ayudará a aprender sobre nuestro territorio anciano."
             }
           ]
         }
@@ -4380,16 +4380,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Ayuda a hacer seguro que los niños de nuestros niños aprenderá sobre eso también."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "como"
             },
@@ -4417,6 +4407,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "aprender-PL.SUBJ-INF"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Ayuda a hacer seguro que los niños de nuestros niños aprenderá sobre eso también."
             }
           ]
         }
@@ -4515,16 +4515,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 6,
-              "value": "Con eso, nosotros vamos a mantender control de nuestro territorio tadicional."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "ANA=INST=1"
             },
@@ -4552,6 +4542,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "mantener"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Con eso, nosotros vamos a mantender control de nuestro territorio tadicional."
             }
           ]
         }
@@ -4685,16 +4685,6 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 10,
-              "value": "Toda esta tierra es nuestra."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 1,
               "value": "PROX"
             },
@@ -4737,6 +4727,16 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "tierra"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 10,
+              "value": "Toda esta tierra es nuestra."
             }
           ]
         }
