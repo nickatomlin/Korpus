@@ -5385,7 +5385,7 @@
     },
     {
       "num_slots": 9,
-      "text": "Tsa'ma fundo'suja ccase fundopa su:¡Angija!",
+      "text": "Tsa'ma fundo'suja ccase fundopa su:¡ Angija!",
       "dependents": [
         {
           "tier": "T1",
@@ -5414,6 +5414,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "su"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 9,
+              "value": "Angija"
             }
           ]
         },
@@ -7751,7 +7756,7 @@
     },
     {
       "num_slots": 9,
-      "text": "Anamba qquendyapa paña ta, ta, ta, qquensundu'je'chuma.",
+      "text": "Anamba qquendyapa paña ta, ta, ta, qquen sundu'je'chuma.",
       "dependents": [
         {
           "tier": "T1",
@@ -7790,6 +7795,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "qquen"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 9,
+              "value": "sundu'je'chuma"
             }
           ]
         },
@@ -8012,7 +8022,7 @@
     },
     {
       "num_slots": 10,
-      "text": "Tsama pañamba pporoembashonchhan can'nijan anjampatssuju'fa.",
+      "text": "Tsama pañamba pporoemba shonchhan can'nijan anjampa tssuju'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -8041,6 +8051,11 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "anjampa"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 10,
+              "value": "tssuju'fa"
             }
           ]
         },
