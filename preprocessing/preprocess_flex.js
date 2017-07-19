@@ -4,11 +4,12 @@ var fs = require('fs');
 var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
 
+var fileName = process.argv[2];
 // var basePath = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\";
 var basePath = "../";
 // var startJsonFileName = basePath + "data\\json_files\\001_temp.json" // only for debugging
-var xmlFileName = basePath + "data/flex_files/001.xml";
-var jsonFileName = basePath + "data/json_files/001.json";
+var xmlFileName = basePath + "data/flex_files/" + fileName + ".xml";
+var jsonFileName = basePath + "data/json_files/" + fileName + ".json";
 var indexJsonFileName = basePath + "data/index.json"; // stores metadata for all documents
 var isoFileName = basePath + "preprocessing/iso_dict.json";
 
