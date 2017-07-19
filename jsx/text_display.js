@@ -50,9 +50,17 @@ class TierCheckbox extends React.Component {
   // Status: tested, working
   constructor(props) {
     super(props);
-    this.state = {
-      checkboxState: true
-    };
+    var tier_name = this.props.tier_name;
+    if (tier_name == "Parte del habla inglés" || tier_name == "Morfema (forma típico) a'ingae" || tier_name == "Frase inglés" || tier_name == "Glosa de morfema inglés") {
+      this.state = {
+        checkboxState: false
+      };
+      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
+    } else {
+      this.state = {
+        checkboxState: true
+      };
+    }
     this.toggle = this.toggle.bind(this);
   }
 
@@ -69,16 +77,21 @@ class TierCheckbox extends React.Component {
   render() {
     var tier_id = this.props.tier_id;
     var tier_name = this.props.tier_name;
-    return React.createElement(
-      "li",
-      null,
-      React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
-      React.createElement(
-        "label",
+    if (tier_name == "hn inglés" || tier_name == "variantTypes inglés") {
+      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
+      return React.createElement("span", null);
+    } else {
+      return React.createElement(
+        "li",
         null,
-        tier_name
-      )
-    );
+        React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: this.state.checkboxState }),
+        React.createElement(
+          "label",
+          null,
+          tier_name
+        )
+      );
+    }
   }
 }
 
@@ -612,6 +625,7 @@ class TimedTextDisplay extends React.Component {
 }
 
 function clearDisplay() {
+  $("#index").css("display", "none");
   $("#leftPanel").css("width", "240px");
   $(".timedTextDisplay").css("margin-left", "240px");
   $(".timedTextDisplay").css("width", "calc(100% - 240px)");
@@ -669,6 +683,11 @@ function displayText(fileName) {
         ReactDOM.render(React.createElement("span", null), document.getElementById('footer'));
         ReactDOM.render(React.createElement(UntimedTextDisplay, { data: data }), document.getElementById('centerPanel'));
         ReactDOM.render(React.createElement(Settings, { metadata: data["metadata"], timed: false }), document.getElementById('leftPanel'));
+        // Responsive body height based on height of audio player, which differs by browser.
+        var footheight = ($("#footer").height() + 48).toString() + "px";
+        var bodyheight = "calc( 100% - " + footheight + " )";
+        $(".untimedTextDisplay").css("height", bodyheight);
+        $("#leftPanel").css("height", bodyheight);
       }
   });
 }
@@ -677,6 +696,7 @@ function displayText(fileName) {
 // -> Moved here for bundling.
 class DocLink extends React.Component {
   // I/P: fileName, the filename (including file extension, excluding file path) of the document
+  //      text, the title that will actually be displayed
   // O/P: a button to view that document
   // Status: tested, working
   render() {
@@ -688,7 +708,7 @@ class DocLink extends React.Component {
       React.createElement(
         "a",
         { className: "docLink", href: "#/story/" + encodedFileName, "data-button_text": fileName },
-        fileName
+        this.props.text
       )
     );
   }
@@ -703,11 +723,12 @@ class IndexDisplay extends React.Component {
     var output = [];
     for (var i = 0; i < files.length; i++) {
       var fileName = files[i]["title from filename"];
-      output.push(React.createElement(DocLink, { key: i, fileName: fileName }));
+      var displayName = files[i]["display_title"];
+      output.push(React.createElement(DocLink, { key: i, fileName: fileName, text: displayName }));
     }
     return React.createElement(
       "div",
-      { style: { margin: "20px" } },
+      { id: "index", style: { margin: "20px" } },
       storyListUiText,
       ": ",
       React.createElement(
@@ -720,6 +741,8 @@ class IndexDisplay extends React.Component {
 }
 
 function showIndex() {
+  $("#index").css("display", "block");
+  $("#leftPanel").css("width", "100%");
   $.getJSON("./data/index.json", function (data) {
     ReactDOM.render(React.createElement(IndexDisplay, { data: data }), document.getElementById('leftPanel'));
     ReactDOM.render(React.createElement("span", null), document.getElementById('centerPanel'));
