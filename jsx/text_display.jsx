@@ -1,6 +1,3 @@
-console.time("Read the file");
-console.time("Total");
-
 // Spanish language UI
 var speakersUiText = "Hablantes";
 var tiersUiText = "Niveles mostradas";
@@ -487,13 +484,9 @@ function clearDisplay() {
 }
 
 function displayText(fileName) {
-  console.timeEnd("Call displayText");
-  console.time("Get JSON");
   var fileName = "./data/json_files/" + fileName + ".json";
   clearDisplay();
   $.getJSON(fileName, function(data) {
-    console.timeEnd("Get JSON");
-    console.time("Render");
     if (data.metadata.timed == "true") {
       var mp3 = data.metadata.media.mp3;
       var mp4 = data.metadata.media.mp4;
@@ -573,11 +566,7 @@ function displayText(fileName) {
       );
       ReactDOM.render(
         <UntimedTextDisplay data={data}/>,
-        document.getElementById('centerPanel'),
-        function() {
-          console.timeEnd("Render");
-          console.timeEnd("Total");
-        }
+        document.getElementById('centerPanel')
       );
       ReactDOM.render(
         <Settings metadata={data["metadata"]} timed={false} />,
@@ -671,9 +660,6 @@ function update() {
   var fileName = getHash();
   checkPages(fileName);
 }
-
-console.timeEnd("Read the file");
-console.time("Call displayText");
 
 $(window).on('hashchange', function() {
   update();
