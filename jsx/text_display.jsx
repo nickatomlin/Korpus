@@ -638,9 +638,9 @@ function showIndex() {
       <span></span>,
       document.getElementById('footer')
     )
-    $(".docLink").click(function() {
-      displayText($(this).data('button_text'));
-    });
+    // $(".docLink").click(function() {
+    //   displayText($(this).data('button_text'));
+    // });
   });
 }
 
