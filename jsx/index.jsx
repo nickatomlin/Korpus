@@ -319,15 +319,9 @@ function showVideo() {
 	// do stuff
 }
 
-console.time('Time to load JSON:');
-$.getJSON("https://raw.githubusercontent.com/Designist/Korpus/master/data/json_files/Intro.json", function(data) {
-	console.timeEnd('Time to load JSON:');
-	console.time('Time to render:');
+$.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
 	ReactDOM.render(
 		<TimedTextDisplay sentences={data["sentences"]}/>,
-		document.getElementById("main"),
-		function() {
-			console.timeEnd('Time to render:')
-		}
+		document.getElementById("main")
 	);
 });
