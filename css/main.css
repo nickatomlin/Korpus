@@ -1,13 +1,14 @@
-/*	MAIN.CSS
-	-> Major Sections */
 body {
 	margin: 0px;
 	padding: 0px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 0.9em;
+	background-color: rgb(248,248,248);
 }
 
 #navbar {
 	height: 48px;
-	background-color: purple;
+	background-color: rgb(231,27,91);
 }
 
 #navbar li {
@@ -25,9 +26,15 @@ body {
 
 #navbar a {
     display: block;
-    padding: 14px;
-    /*border: 1px solid black;*/
+    padding: 14px 20px;
+    /*border: 1px solid rgb(151,151,151);*/
     color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 600;
+}
+#navbar a:hover {
+	text-decoration: underline;
 }
 
 #leftPanel {
@@ -35,6 +42,7 @@ body {
 	position: fixed;
 	overflow-x: hidden;
 	overflow-y: auto;
+	background-color: rgb(248,248,248);
 }
 
 #footer {
@@ -47,6 +55,7 @@ body {
 
 audio {
 	width: 100%;
+	display: block;
 }
 
 #hidden {
@@ -61,12 +70,12 @@ table.gloss {
 }
 
 .topRow {
-	font-weight: bold;
+	font-weight: 600;
 }
 
 td {
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
 	white-space: nowrap;
 }
 /*	MAIN.CSS
@@ -76,13 +85,14 @@ td {
 	width: calc(100% + 1px);
 }
 
-#timedTextDisplay {
+.timedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
 	width: calc(100% - 240px);
 	/*height: calc(100% - 84px);*/
 	overflow-y: auto;
 	overflow-x: hidden;
+	background-color: rgb(255,239,220);
 }
 
 .labeledTimeBlock {
@@ -91,8 +101,8 @@ td {
 	display: flex;
 	padding-right: 10px;
 	width: 100%;
-	border-bottom: 2px solid black;
-	border-left: 2px solid black;
+	border-bottom: 2px solid rgb(151,151,151);
+	border-left: 2px solid rgb(151,151,151);
 }
 
 .timeBlock {
@@ -107,7 +117,7 @@ td {
 	/*margin-right: 9px;*/
 	margin-left: 9px;
 	padding-right: 9px;
-	border-right: 2px solid black;
+	border-right: 2px solid rgb(151,151,151);
 	text-align: center;
 	min-width: 46px;
 	padding-top: 8px;
@@ -116,6 +126,8 @@ td {
 
 a.timeStamp {
 	color: black;
+	font-weight: 700;
+	text-decoration: none;
 }
 
 .labeledSentence {
@@ -127,23 +139,25 @@ a.timeStamp {
 .speakerLabel {
 	float: left;
 	margin-top: 3px;
+	font-weight: 600;
 }
 /*	MAIN.CSS
 	->	Text Display
 		Untimed */
-#untimedTextDisplay {
+.untimedTextDisplay {
 	position: fixed;
 	margin-left: 240px;
 	width: calc(100% - 240px);
 	height: calc(100% - 48px);
 	overflow-y: scroll;
 	overflow-x: hidden;
+	background-color: rgb(255,239,220);
 }
 
-.untimedBlock {
+.UntimedBlock {
 	overflow-x: auto;
-	border-bottom: 2px solid black;
-	border-left: 2px solid black;
+	border-bottom: 2px solid rgb(151,151,151);
+	border-left: 2px solid rgb(151,151,151);
 	padding-left: 9px;
 }
 
@@ -156,9 +170,9 @@ table.gloss[data-isTimeAligned="false"] {
 
 ul {
 	list-style: none;
-	-webkit-padding-start: 10px;
+	-webkit-padding-start: 0px;
 	-webkit-margin-before: 0.2em;
-	padding-inline-start: 10px;
+	padding-inline-start: 0px;
 	margin-block-start: 0.2em;
 }
 
@@ -167,13 +181,50 @@ ul {
 	padding-bottom: 10px;
 }
 
+#leftPanel ul {
+	list-style: square;
+	margin-left: 20px;
+}
+
+#settings ul {
+	margin-left: 10px;
+	list-style: none;
+}
+
 #title {
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: 700;
+	font-size: 1.7em;
 }
 
 #speakerList, #videoButton, #tierList {
 	float: left;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+a:visited, a {
+	color: black;
+}
+
+a:hover {
+	font-weight: 600;
+}
+
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url("Open_Sans/OpenSans-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url("Open_Sans/OpenSans-SemiBold.ttf");
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url("Open_Sans/OpenSans-Bold.ttf");
+    font-weight: 700;
 }
