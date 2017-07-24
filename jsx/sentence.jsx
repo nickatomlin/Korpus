@@ -24,7 +24,7 @@ class Row extends React.Component {
 		var values = this.props.values;
 		var tier = this.props.tier;
 
-		for (var i = 0; i < values.length; i++) {
+		for (var i=0; i<values.length; i++) {
 			var v = values[i];
 			var start_slot = v["start_slot"];
 			var end_slot = v["end_slot"];
@@ -33,26 +33,41 @@ class Row extends React.Component {
 			// Add blank space before current value:
 			if (start_slot > current_slot) {
 				var diff = String(start_slot - current_slot);
-				output.push(React.createElement("td", { key: 2 * i, colSpan: diff }));
+				output.push(<td key={2*i} colSpan={diff}></td>);
 			}
 			// Create element with correct "colSpan" width:
 			var size = String(end_slot - start_slot);
-			output.push(React.createElement(
-				"td",
-				{ key: 2 * i + 1, colSpan: size },
-				text
-			));
+			output.push(<td key={2*i+1} colSpan={size}>{text}</td>);
 			current_slot = end_slot;
 		}
 		// Fill blank space at end of table row:
 		if (current_slot < final_slot) {
 			var diff = String(final_slot - current_slot);
-			output.push(React.createElement("td", { key: "final", colSpan: diff }));
+			output.push(<td key={"final"} colSpan={diff}></td>);
 		}
-		return React.createElement(
-			"tr",
-			{ "data-tier": tier },
-			output
-		);
+		return <tr data-tier={tier}>{output}</tr>;
+	}
+}
+
+export class Sentence extends React.Component {
+	// I/P: value, a sentence
+	// O/P: table of glossed Row components
+	// Status: tested, working
+	render() {
+		var row_list = []; // to be output
+		var sentence = this.props.value;
+		var num_slots = sentence["num_slots"];
+		// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
+		// "colSpan={num_slots}" ensures that this row spans the entire table.
+		row_list.push(<tr key={0} data-tier={sentence["tier"]}><td colSpan={num_slots} className="topRow">{sentence["text"]}</td></tr>);
+		var dependents = sentence["dependents"]; // list of dependent tiers, flat structure
+		// Add each dependent tier to the row list:
+		for (var i=0; i<dependents.length; i++) {
+			var dependent = dependents[i];
+			// Tier attribute will be used for hiding/showing tiers:
+			var tier = dependent["tier"];
+			row_list.push(<Row key={i+1} num_slots={num_slots} values={dependent["values"]} tier={tier} />);
+		}
+		return <table className="gloss"><tbody>{row_list}</tbody></table>;
 	}
 }

@@ -72,7 +72,7 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _row = __webpack_require__(1);
+var _timed_text_display = __webpack_require__(1);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -93,61 +93,313 @@ var videoButtonUiText = "Show video";
 var storyListUiText = "List of Stories";
 */
 
-var Sentence = function (_React$Component) {
-	_inherits(Sentence, _React$Component);
+var UntimedTextDisplay = function (_React$Component) {
+  _inherits(UntimedTextDisplay, _React$Component);
 
-	function Sentence() {
-		_classCallCheck(this, Sentence);
+  function UntimedTextDisplay() {
+    _classCallCheck(this, UntimedTextDisplay);
 
-		return _possibleConstructorReturn(this, (Sentence.__proto__ || Object.getPrototypeOf(Sentence)).apply(this, arguments));
-	}
+    return _possibleConstructorReturn(this, (UntimedTextDisplay.__proto__ || Object.getPrototypeOf(UntimedTextDisplay)).apply(this, arguments));
+  }
 
-	_createClass(Sentence, [{
-		key: "render",
+  _createClass(UntimedTextDisplay, [{
+    key: "render",
 
-		// I/P: value, a sentence
-		// O/P: table of glossed Row components
-		// Status: tested, working
-		value: function render() {
-			var row_list = []; // to be output
-			var sentence = this.props.value;
-			var num_slots = sentence["num_slots"];
-			// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
-			// "colSpan={num_slots}" ensures that this row spans the entire table.
-			row_list.push(React.createElement(
-				"tr",
-				{ key: 0, "data-tier": sentence["tier"] },
-				React.createElement(
-					"td",
-					{ colSpan: num_slots, className: "topRow" },
-					sentence["text"]
-				)
-			));
-			var dependents = sentence["dependents"]; // list of dependent tiers, flat structure
-			// Add each dependent tier to the row list:
-			for (var i = 0; i < dependents.length; i++) {
-				var dependent = dependents[i];
-				// Tier attribute will be used for hiding/showing tiers:
-				var tier = dependent["tier"];
-				row_list.push(React.createElement(_row.Row, { key: i + 1, num_slots: num_slots, values: dependent["values"], tier: tier }));
-			}
-			return React.createElement(
-				"table",
-				{ className: "gloss" },
-				React.createElement(
-					"tbody",
-					null,
-					row_list
-				)
-			);
-		}
-	}]);
+    // I/P: sentences, a list of sentences
+    // O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
+    // Status: tested, working
+    value: function render() {
+      var sentences = this.props.sentences;
+      var output = [];
+      for (var i = 0; i < sentences.length; i++) {
+        var sentence = sentences[i];
+        output.push(React.createElement(
+          "div",
+          { key: i, className: "untimedBlock" },
+          React.createElement(Sentence, { key: i, value: sentence })
+        ));
+      }
+      return React.createElement(
+        "div",
+        { className: "untimedTextDisplay", id: "td" },
+        output
+      );
+    }
+  }]);
 
-	return Sentence;
+  return UntimedTextDisplay;
 }(React.Component);
 
-var LabeledSentence = function (_React$Component2) {
-	_inherits(LabeledSentence, _React$Component2);
+var CenterPanel = function (_React$Component2) {
+  _inherits(CenterPanel, _React$Component2);
+
+  function CenterPanel() {
+    _classCallCheck(this, CenterPanel);
+
+    return _possibleConstructorReturn(this, (CenterPanel.__proto__ || Object.getPrototypeOf(CenterPanel)).apply(this, arguments));
+  }
+
+  _createClass(CenterPanel, [{
+    key: "render",
+
+    // I/P: timed, a boolean value
+    //      sentences, a list of sentences
+    // O/P: untested
+    value: function render() {
+      if (this.props.timed) {
+        return React.createElement(
+          "div",
+          { id: "centerPanel" },
+          React.createElement(_timed_text_display.TimedTextDisplay, { sentences: this.props.sentences })
+        );
+      } else {
+        return React.createElement(
+          "div",
+          { id: "centerPanel" },
+          React.createElement(UntimedTextDisplay, { sentences: this.props.sentences })
+        );
+      }
+    }
+  }]);
+
+  return CenterPanel;
+}(React.Component);
+
+// SETTINGS + VIDEO PANEL
+
+var Video = function (_React$Component3) {
+  _inherits(Video, _React$Component3);
+
+  function Video() {
+    _classCallCheck(this, Video);
+
+    return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
+  }
+
+  _createClass(Video, [{
+    key: "render",
+
+    // I/P: path, the path to the video
+    //		  default, a boolean value (whether the video should appear on pageload or not)
+    // O/P: a video player
+    // Status: re-written, untested
+    value: function render() {
+      var path = this.props.path;
+      if (this.props.default) {
+        // Video shown (paused) on page-load
+        // 	className="player" - used for time-aligned syncing
+        return React.createElement("video", { src: path, id: "video", className: "player", controls: true });
+      } else {
+        // Video hidden on page-load
+        // 	className="hidden" - used by CSS, for display: none
+        return React.createElement("video", { src: path, id: "video", className: "hidden", controls: true });
+      }
+    }
+  }]);
+
+  return Video;
+}(React.Component);
+
+var TitleInfo = function (_React$Component4) {
+  _inherits(TitleInfo, _React$Component4);
+
+  function TitleInfo() {
+    _classCallCheck(this, TitleInfo);
+
+    return _possibleConstructorReturn(this, (TitleInfo.__proto__ || Object.getPrototypeOf(TitleInfo)).apply(this, arguments));
+  }
+
+  _createClass(TitleInfo, [{
+    key: "render",
+
+    // I/P: title, a string
+    // O/P: printed title
+    // Status: tested, working
+    value: function render() {
+      var title = this.props.title;
+      return React.createElement(
+        "h3",
+        { id: "title" },
+        title
+      );
+    }
+  }]);
+
+  return TitleInfo;
+}(React.Component);
+
+var TierCheckbox = function (_React$Component5) {
+  _inherits(TierCheckbox, _React$Component5);
+
+  // I/P: tier_id, a string like "T1" or "T15"
+  //    tier_name, a string like "English Morphemes"
+  // O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
+  // Status: tested, working
+  function TierCheckbox(props) {
+    _classCallCheck(this, TierCheckbox);
+
+    var _this5 = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
+
+    _this5.state = {
+      checkboxState: true
+    };
+    _this5.toggle = _this5.toggle.bind(_this5);
+    return _this5;
+  }
+
+  _createClass(TierCheckbox, [{
+    key: "toggle",
+    value: function toggle(event) {
+      this.setState({ checkboxState: !this.state.checkboxState });
+      if (this.state.checkboxState) {
+        $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
+      } else {
+        $("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var tier_id = this.props.tier_id;
+      var tier_name = this.props.tier_name;
+      return React.createElement(
+        "li",
+        null,
+        React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
+        React.createElement(
+          "label",
+          null,
+          tier_name
+        )
+      );
+    }
+  }]);
+
+  return TierCheckbox;
+}(React.Component);
+
+var TierCheckboxList = function (_React$Component6) {
+  _inherits(TierCheckboxList, _React$Component6);
+
+  function TierCheckboxList() {
+    _classCallCheck(this, TierCheckboxList);
+
+    return _possibleConstructorReturn(this, (TierCheckboxList.__proto__ || Object.getPrototypeOf(TierCheckboxList)).apply(this, arguments));
+  }
+
+  _createClass(TierCheckboxList, [{
+    key: "render",
+
+    // I/P: tiers, a hashmap from Tier IDs to their names
+    // O/P: an unordered list of TierCheckboxes
+    // Status: tested, working
+    value: function render() {
+      var output = [];
+      var tiers = this.props.tiers;
+      for (var tier_id in tiers) {
+        if (tiers.hasOwnProperty(tier_id)) {
+          output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
+        }
+      }
+      return React.createElement(
+        "div",
+        { id: "tierList" },
+        tiersUiText,
+        ": ",
+        React.createElement(
+          "ul",
+          null,
+          output
+        )
+      );
+    }
+  }]);
+
+  return TierCheckboxList;
+}(React.Component);
+
+var SpeakerInfo = function (_React$Component7) {
+  _inherits(SpeakerInfo, _React$Component7);
+
+  function SpeakerInfo() {
+    _classCallCheck(this, SpeakerInfo);
+
+    return _possibleConstructorReturn(this, (SpeakerInfo.__proto__ || Object.getPrototypeOf(SpeakerInfo)).apply(this, arguments));
+  }
+
+  _createClass(SpeakerInfo, [{
+    key: "render",
+
+    // I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
+    // O/P: some nicely formatted info about these speakers
+    // Status: tested, working
+    value: function render() {
+      var speaker_list = [];
+      var speakers = this.props.speakers;
+      if (speakers != null) {
+        for (var speaker_id in speakers) {
+          if (speakers.hasOwnProperty(speaker_id)) {
+            var speaker_name = speakers[speaker_id]["name"];
+            var speaker_display = speaker_id + ": " + speaker_name;
+            speaker_list.push(React.createElement(
+              "li",
+              { key: speaker_id },
+              speaker_display
+            ));
+          }
+        }
+        return React.createElement(
+          "div",
+          { id: "speakerList" },
+          speakersUiText,
+          ": ",
+          React.createElement(
+            "ul",
+            null,
+            speaker_list
+          )
+        );
+      } else {
+        return null;
+      }
+    }
+  }]);
+
+  return SpeakerInfo;
+}(React.Component);
+
+function showVideo() {
+  // do stuff
+}
+
+$.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
+  ReactDOM.render(React.createElement(_timed_text_display.TimedTextDisplay, { sentences: data["sentences"] }), document.getElementById("main"));
+});
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.TimedTextDisplay = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _sentence = __webpack_require__(2);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LabeledSentence = function (_React$Component) {
+	_inherits(LabeledSentence, _React$Component);
 
 	function LabeledSentence() {
 		_classCallCheck(this, LabeledSentence);
@@ -173,7 +425,7 @@ var LabeledSentence = function (_React$Component2) {
 					label,
 					": "
 				),
-				React.createElement(Sentence, { value: sentence, isTimeAligned: true })
+				React.createElement(_sentence.Sentence, { value: sentence, isTimeAligned: true })
 			);
 		}
 	}]);
@@ -181,8 +433,8 @@ var LabeledSentence = function (_React$Component2) {
 	return LabeledSentence;
 }(React.Component);
 
-var TimeBlock = function (_React$Component3) {
-	_inherits(TimeBlock, _React$Component3);
+var TimeBlock = function (_React$Component2) {
+	_inherits(TimeBlock, _React$Component2);
 
 	function TimeBlock() {
 		_classCallCheck(this, TimeBlock);
@@ -227,8 +479,8 @@ function printSeconds(r) {
 	    n = Math.floor(r % 3600 % 60);if (n >= 10) e = String(n);else var e = "0" + String(n);var o = String(i) + ":";if (0 == t) a = "";else if (i >= 10) a = String(t) + ":";else var a = String(t) + ":0";return a + o + e;
 }
 
-var LabeledTimeBlock = function (_React$Component4) {
-	_inherits(LabeledTimeBlock, _React$Component4);
+var LabeledTimeBlock = function (_React$Component3) {
+	_inherits(LabeledTimeBlock, _React$Component3);
 
 	function LabeledTimeBlock() {
 		_classCallCheck(this, LabeledTimeBlock);
@@ -284,8 +536,8 @@ var LabeledTimeBlock = function (_React$Component4) {
 	return LabeledTimeBlock;
 }(React.Component);
 
-var TimedTextDisplay = function (_React$Component5) {
-	_inherits(TimedTextDisplay, _React$Component5);
+var TimedTextDisplay = exports.TimedTextDisplay = function (_React$Component4) {
+	_inherits(TimedTextDisplay, _React$Component4);
 
 	function TimedTextDisplay() {
 		_classCallCheck(this, TimedTextDisplay);
@@ -341,291 +593,8 @@ var TimedTextDisplay = function (_React$Component5) {
 	return TimedTextDisplay;
 }(React.Component);
 
-var UntimedTextDisplay = function (_React$Component6) {
-	_inherits(UntimedTextDisplay, _React$Component6);
-
-	function UntimedTextDisplay() {
-		_classCallCheck(this, UntimedTextDisplay);
-
-		return _possibleConstructorReturn(this, (UntimedTextDisplay.__proto__ || Object.getPrototypeOf(UntimedTextDisplay)).apply(this, arguments));
-	}
-
-	_createClass(UntimedTextDisplay, [{
-		key: "render",
-
-		// I/P: sentences, a list of sentences
-		// O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
-		// Status: tested, working
-		value: function render() {
-			var sentences = this.props.sentences;
-			var output = [];
-			for (var i = 0; i < sentences.length; i++) {
-				var sentence = sentences[i];
-				output.push(React.createElement(
-					"div",
-					{ key: i, className: "untimedBlock" },
-					React.createElement(Sentence, { key: i, value: sentence })
-				));
-			}
-			return React.createElement(
-				"div",
-				{ className: "untimedTextDisplay", id: "td" },
-				output
-			);
-		}
-	}]);
-
-	return UntimedTextDisplay;
-}(React.Component);
-
-var CenterPanel = function (_React$Component7) {
-	_inherits(CenterPanel, _React$Component7);
-
-	function CenterPanel() {
-		_classCallCheck(this, CenterPanel);
-
-		return _possibleConstructorReturn(this, (CenterPanel.__proto__ || Object.getPrototypeOf(CenterPanel)).apply(this, arguments));
-	}
-
-	_createClass(CenterPanel, [{
-		key: "render",
-
-		// I/P: timed, a boolean value
-		//      sentences, a list of sentences
-		// O/P: untested
-		value: function render() {
-			if (this.props.timed) {
-				return React.createElement(
-					"div",
-					{ id: "centerPanel" },
-					React.createElement(TimedTextDisplay, { sentences: this.props.sentences })
-				);
-			} else {
-				return React.createElement(
-					"div",
-					{ id: "centerPanel" },
-					React.createElement(UntimedTextDisplay, { sentences: this.props.sentences })
-				);
-			}
-		}
-	}]);
-
-	return CenterPanel;
-}(React.Component);
-
-// SETTINGS + VIDEO PANEL
-
-var Video = function (_React$Component8) {
-	_inherits(Video, _React$Component8);
-
-	function Video() {
-		_classCallCheck(this, Video);
-
-		return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
-	}
-
-	_createClass(Video, [{
-		key: "render",
-
-		// I/P: path, the path to the video
-		//		  default, a boolean value (whether the video should appear on pageload or not)
-		// O/P: a video player
-		// Status: re-written, untested
-		value: function render() {
-			var path = this.props.path;
-			if (this.props.default) {
-				// Video shown (paused) on page-load
-				// 	className="player" - used for time-aligned syncing
-				return React.createElement("video", { src: path, id: "video", className: "player", controls: true });
-			} else {
-				// Video hidden on page-load
-				// 	className="hidden" - used by CSS, for display: none
-				return React.createElement("video", { src: path, id: "video", className: "hidden", controls: true });
-			}
-		}
-	}]);
-
-	return Video;
-}(React.Component);
-
-var TitleInfo = function (_React$Component9) {
-	_inherits(TitleInfo, _React$Component9);
-
-	function TitleInfo() {
-		_classCallCheck(this, TitleInfo);
-
-		return _possibleConstructorReturn(this, (TitleInfo.__proto__ || Object.getPrototypeOf(TitleInfo)).apply(this, arguments));
-	}
-
-	_createClass(TitleInfo, [{
-		key: "render",
-
-		// I/P: title, a string
-		// O/P: printed title
-		// Status: tested, working
-		value: function render() {
-			var title = this.props.title;
-			return React.createElement(
-				"h3",
-				{ id: "title" },
-				title
-			);
-		}
-	}]);
-
-	return TitleInfo;
-}(React.Component);
-
-var TierCheckbox = function (_React$Component10) {
-	_inherits(TierCheckbox, _React$Component10);
-
-	// I/P: tier_id, a string like "T1" or "T15"
-	//    tier_name, a string like "English Morphemes"
-	// O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
-	// Status: tested, working
-	function TierCheckbox(props) {
-		_classCallCheck(this, TierCheckbox);
-
-		var _this10 = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
-
-		_this10.state = {
-			checkboxState: true
-		};
-		_this10.toggle = _this10.toggle.bind(_this10);
-		return _this10;
-	}
-
-	_createClass(TierCheckbox, [{
-		key: "toggle",
-		value: function toggle(event) {
-			this.setState({ checkboxState: !this.state.checkboxState });
-			if (this.state.checkboxState) {
-				$("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
-			} else {
-				$("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
-			}
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			var tier_id = this.props.tier_id;
-			var tier_name = this.props.tier_name;
-			return React.createElement(
-				"li",
-				null,
-				React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
-				React.createElement(
-					"label",
-					null,
-					tier_name
-				)
-			);
-		}
-	}]);
-
-	return TierCheckbox;
-}(React.Component);
-
-var TierCheckboxList = function (_React$Component11) {
-	_inherits(TierCheckboxList, _React$Component11);
-
-	function TierCheckboxList() {
-		_classCallCheck(this, TierCheckboxList);
-
-		return _possibleConstructorReturn(this, (TierCheckboxList.__proto__ || Object.getPrototypeOf(TierCheckboxList)).apply(this, arguments));
-	}
-
-	_createClass(TierCheckboxList, [{
-		key: "render",
-
-		// I/P: tiers, a hashmap from Tier IDs to their names
-		// O/P: an unordered list of TierCheckboxes
-		// Status: tested, working
-		value: function render() {
-			var output = [];
-			var tiers = this.props.tiers;
-			for (var tier_id in tiers) {
-				if (tiers.hasOwnProperty(tier_id)) {
-					output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
-				}
-			}
-			return React.createElement(
-				"div",
-				{ id: "tierList" },
-				tiersUiText,
-				": ",
-				React.createElement(
-					"ul",
-					null,
-					output
-				)
-			);
-		}
-	}]);
-
-	return TierCheckboxList;
-}(React.Component);
-
-var SpeakerInfo = function (_React$Component12) {
-	_inherits(SpeakerInfo, _React$Component12);
-
-	function SpeakerInfo() {
-		_classCallCheck(this, SpeakerInfo);
-
-		return _possibleConstructorReturn(this, (SpeakerInfo.__proto__ || Object.getPrototypeOf(SpeakerInfo)).apply(this, arguments));
-	}
-
-	_createClass(SpeakerInfo, [{
-		key: "render",
-
-		// I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
-		// O/P: some nicely formatted info about these speakers
-		// Status: tested, working
-		value: function render() {
-			var speaker_list = [];
-			var speakers = this.props.speakers;
-			if (speakers != null) {
-				for (var speaker_id in speakers) {
-					if (speakers.hasOwnProperty(speaker_id)) {
-						var speaker_name = speakers[speaker_id]["name"];
-						var speaker_display = speaker_id + ": " + speaker_name;
-						speaker_list.push(React.createElement(
-							"li",
-							{ key: speaker_id },
-							speaker_display
-						));
-					}
-				}
-				return React.createElement(
-					"div",
-					{ id: "speakerList" },
-					speakersUiText,
-					": ",
-					React.createElement(
-						"ul",
-						null,
-						speaker_list
-					)
-				);
-			} else {
-				return null;
-			}
-		}
-	}]);
-
-	return SpeakerInfo;
-}(React.Component);
-
-function showVideo() {
-	// do stuff
-}
-
-$.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
-	ReactDOM.render(React.createElement(TimedTextDisplay, { sentences: data["sentences"] }), document.getElementById("main"));
-});
-
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -643,7 +612,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Row = exports.Row = function (_React$Component) {
+var Row = function (_React$Component) {
 	_inherits(Row, _React$Component);
 
 	function Row() {
@@ -714,6 +683,59 @@ var Row = exports.Row = function (_React$Component) {
 	}]);
 
 	return Row;
+}(React.Component);
+
+var Sentence = exports.Sentence = function (_React$Component2) {
+	_inherits(Sentence, _React$Component2);
+
+	function Sentence() {
+		_classCallCheck(this, Sentence);
+
+		return _possibleConstructorReturn(this, (Sentence.__proto__ || Object.getPrototypeOf(Sentence)).apply(this, arguments));
+	}
+
+	_createClass(Sentence, [{
+		key: "render",
+
+		// I/P: value, a sentence
+		// O/P: table of glossed Row components
+		// Status: tested, working
+		value: function render() {
+			var row_list = []; // to be output
+			var sentence = this.props.value;
+			var num_slots = sentence["num_slots"];
+			// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
+			// "colSpan={num_slots}" ensures that this row spans the entire table.
+			row_list.push(React.createElement(
+				"tr",
+				{ key: 0, "data-tier": sentence["tier"] },
+				React.createElement(
+					"td",
+					{ colSpan: num_slots, className: "topRow" },
+					sentence["text"]
+				)
+			));
+			var dependents = sentence["dependents"]; // list of dependent tiers, flat structure
+			// Add each dependent tier to the row list:
+			for (var i = 0; i < dependents.length; i++) {
+				var dependent = dependents[i];
+				// Tier attribute will be used for hiding/showing tiers:
+				var tier = dependent["tier"];
+				row_list.push(React.createElement(Row, { key: i + 1, num_slots: num_slots, values: dependent["values"], tier: tier }));
+			}
+			return React.createElement(
+				"table",
+				{ className: "gloss" },
+				React.createElement(
+					"tbody",
+					null,
+					row_list
+				)
+			);
+		}
+	}]);
+
+	return Sentence;
 }(React.Component);
 
 /***/ })
