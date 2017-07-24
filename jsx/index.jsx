@@ -1,5 +1,5 @@
-import { UntimedTextDisplay } from './untimed_text_display.jsx';
-import { TimedTextDisplay } from './timed_text_display.jsx';
+import { UntimedTextDisplay } from './text_display/untimed_text_display.jsx';
+import { TimedTextDisplay } from './text_display/timed_text_display.jsx';
 
 // Spanish language UI
 var speakersUiText = "Hablantes";
