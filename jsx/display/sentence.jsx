@@ -23,8 +23,7 @@ function Row({ numSlots, values, tier }) {
 	let currentSlot = 0;
 	let output = [];
 
-	for (let i=0; i<values.length; i++) {
-		const v = values[i];
+	for (const v of values) {
 		const startSlot = v['start_slot'];
 		const endSlot = v['end_slot'];
 		const text = v['value'];
@@ -55,14 +54,16 @@ export function Sentence({ sentence }) {
 	const numSlots = sentence['num_slots'];
 	// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
 	// 'colSpan={numSlots}' ensures that this row spans the entire table.
-	rowList.push(<tr data-tier={sentence['tier']}><td colSpan={numSlots} className="topRow">{sentence['text']}</td></tr>);
+	rowList.push(
+		<tr data-tier={sentence['tier']}>
+			<td colSpan={numSlots} className="topRow">{sentence['text']}</td>
+		</tr>
+	);
 	const dependents = sentence['dependents']; // list of dependent tiers, flat structure
 	// Add each dependent tier to the row list:
-	for (let i=0; i<dependents.length; i++) {
-		const dependent = dependents[i];
+	for (const {values, tier} of dependents) {
 		// Tier attribute will be used for hiding/showing tiers:
-		const tier = dependent['tier'];
-		rowList.push(<Row key={id.generate()} numSlots={numSlots} values={dependent['values']} tier={tier} />);
+		rowList.push(<Row key={id.generate()} numSlots={numSlots} values={values} tier={tier} />);
 	}
 	return <table className="gloss"><tbody>{rowList}</tbody></table>;
 }

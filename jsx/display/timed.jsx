@@ -21,8 +21,7 @@ function TimeBlock({ sentences }) {
 	let output = [];
 	// A timeblock may contain multiple sentences with the same start time.
 	// Iterate through the list of these sentences.
-	for (let i=0; i<sentences.length; i++) {
-		const sentence = sentences[i];
+	for (const sentence of sentences) {
 		output.push(<LabeledSentence key={id.generate()} sentence={sentence} />);
 	}
 	return <div className="timeBlock">{output}</div>;
@@ -46,8 +45,7 @@ function LabeledTimeBlock({ sentences, timestamp }) {
 	// to render the current block in time with audio/video.
 	let minStart = Number.POSITIVE_INFINITY;
 	let maxEnd = Number.NEGATIVE_INFINITY;
-	for (let i=0; i<sentences.length; i++) {
-		const sentence = sentences[i];
+	for (const sentence of sentences) {
 		const startTime = sentence["start_time_ms"];
 		const endTime = sentence["end_time_ms"];
 		if (startTime < minStart) {
@@ -60,7 +58,9 @@ function LabeledTimeBlock({ sentences, timestamp }) {
 	return (
 		<div className="labeledTimeBlock" data-startTime={minStart} data-endTime={maxEnd}>
 			<span className="timeStampContainer">
-				<a href="javascript:void(0)" data-startTime={minStart} className="timeStamp">{timestamp}</a>
+				<a href="javascript:void(0)" data-startTime={minStart} className="timeStamp">
+					{timestamp}
+				</a>
 			</span>
 			<TimeBlock sentences={sentences} />
 		</div>
@@ -81,23 +81,26 @@ export function TimedTextDisplay({ sentences }) {
 
 	let times_to_sentences = {}; // hashmap from timestamps (in sec) to lists of sentences
 	let unique_timestamps = []; // for sorting keys
-	for (let i=0; i<sentences.length; i++) {
-		const sentence = sentences[i];
+	for (const sentence of sentences) {
 		const timestamp_ms = sentence["start_time_ms"];
 		const timestamp_sec = Math.floor(timestamp_ms / 1000); // msec -> sec
 		if (timestamp_sec in times_to_sentences) {
 			times_to_sentences[timestamp_sec].push(sentence);
-		}
-		else {
+		} else {
 			unique_timestamps.push(timestamp_sec);
 			times_to_sentences[timestamp_sec] = [sentence];
 		}
 	}
 	unique_timestamps.sort((a, b) => a - b); // to avoid alphanumeric sorting
-	for (let i=0; i<unique_timestamps.length; i++) {
-		const timestamp = unique_timestamps[i];
+	for (const timestamp of unique_timestamps) {
 		const corresponding_sentences = times_to_sentences[timestamp];
-		output.push(<LabeledTimeBlock key={id.generate()} sentences={corresponding_sentences} timestamp={timestamp} />);
+		output.push(
+			<LabeledTimeBlock 
+				key={id.generate()} 
+				sentences={corresponding_sentences} 
+				timestamp={timestamp} 
+			/>
+		);
 	}
 	return <div id="timedTextDisplay">{output}</div>;
 }

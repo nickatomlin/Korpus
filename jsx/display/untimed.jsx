@@ -6,9 +6,12 @@ export function UntimedTextDisplay({ sentences }) {
 	// O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
 	// Status: tested, working
 	let output = [];
-	for (let i=0; i<sentences.length; i++) {
-		const sentence = sentences[i];
-		output.push(<div key={id.generate()} className="untimedBlock"><Sentence key={id.generate()} sentence={sentence} /></div>);
+	for (const sentence of sentences) {
+		output.push(
+			<div key={id.generate()} className="untimedBlock">
+				<Sentence key={id.generate()} sentence={sentence} />
+			</div>
+		);
 	}
 	return <div id="untimedTextDisplay">{output}</div>;
 }
