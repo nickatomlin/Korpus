@@ -1,5 +1,5 @@
-import { UntimedTextDisplay } from './text_display/untimed_text_display.jsx';
-import { TimedTextDisplay } from './text_display/timed_text_display.jsx';
+import { UntimedTextDisplay } from './display/untimed.jsx';
+import { TimedTextDisplay } from './display/timed.jsx';
 
 // Spanish language UI
 var speakersUiText = "Hablantes";
@@ -26,38 +26,6 @@ class CenterPanel extends React.Component {
 			return <div id="centerPanel"><UntimedTextDisplay sentences={this.props.sentences}/></div>;
 		}
 	}
-}
-
-// SETTINGS + VIDEO PANEL
-
-class Video extends React.Component {
-	// I/P: path, the path to the video
-	//		  default, a boolean value (whether the video should appear on pageload or not)
-	// O/P: a video player
-	// Status: re-written, untested
-	render() {
-		var path = this.props.path;
-		if (this.props.default) {
-			// Video shown (paused) on page-load
-			// 	className="player" - used for time-aligned syncing
-			return <video src={path} id="video" className="player" controls></video>;
-		}
-		else {
-			// Video hidden on page-load
-			// 	className="hidden" - used by CSS, for display: none
-			return <video src={path} id="video" className="hidden" controls></video>;
-		}
-	}
-}
-
-class TitleInfo extends React.Component {
-  // I/P: title, a string
-  // O/P: printed title
-  // Status: tested, working
-  render() {
-    var title = this.props.title;
-    return <h3 id="title">{title}</h3>;
-  }
 }
 
 class TierCheckbox extends React.Component {
@@ -133,7 +101,7 @@ function showVideo() {
 
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
 	ReactDOM.render(
-		<TimedTextDisplay sentences={data["sentences"]}/>,
+		<CenterPanel className="centerPanel" timed={true} sentences={data["sentences"]}/>,
 		document.getElementById("main")
 	);
 });

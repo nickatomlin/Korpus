@@ -60,11 +60,116 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var randomFromSeed = __webpack_require__(7);
+
+var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
+var alphabet;
+var previousSeed;
+
+var shuffled;
+
+function reset() {
+    shuffled = false;
+}
+
+function setCharacters(_alphabet_) {
+    if (!_alphabet_) {
+        if (alphabet !== ORIGINAL) {
+            alphabet = ORIGINAL;
+            reset();
+        }
+        return;
+    }
+
+    if (_alphabet_ === alphabet) {
+        return;
+    }
+
+    if (_alphabet_.length !== ORIGINAL.length) {
+        throw new Error('Custom alphabet for shortid must be ' + ORIGINAL.length + ' unique characters. You submitted ' + _alphabet_.length + ' characters: ' + _alphabet_);
+    }
+
+    var unique = _alphabet_.split('').filter(function(item, ind, arr){
+       return ind !== arr.lastIndexOf(item);
+    });
+
+    if (unique.length) {
+        throw new Error('Custom alphabet for shortid must be ' + ORIGINAL.length + ' unique characters. These characters were not unique: ' + unique.join(', '));
+    }
+
+    alphabet = _alphabet_;
+    reset();
+}
+
+function characters(_alphabet_) {
+    setCharacters(_alphabet_);
+    return alphabet;
+}
+
+function setSeed(seed) {
+    randomFromSeed.seed(seed);
+    if (previousSeed !== seed) {
+        reset();
+        previousSeed = seed;
+    }
+}
+
+function shuffle() {
+    if (!alphabet) {
+        setCharacters(ORIGINAL);
+    }
+
+    var sourceArray = alphabet.split('');
+    var targetArray = [];
+    var r = randomFromSeed.nextValue();
+    var characterIndex;
+
+    while (sourceArray.length > 0) {
+        r = randomFromSeed.nextValue();
+        characterIndex = Math.floor(r * sourceArray.length);
+        targetArray.push(sourceArray.splice(characterIndex, 1)[0]);
+    }
+    return targetArray.join('');
+}
+
+function getShuffled() {
+    if (shuffled) {
+        return shuffled;
+    }
+    shuffled = shuffle();
+    return shuffled;
+}
+
+/**
+ * lookup shuffled letter
+ * @param index
+ * @returns {string}
+ */
+function lookup(index) {
+    var alphabetShuffled = getShuffled();
+    return alphabetShuffled[index];
+}
+
+module.exports = {
+    characters: characters,
+    seed: setSeed,
+    lookup: lookup,
+    shuffled: getShuffled
+};
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82,81 +187,69 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Row = function (_React$Component) {
-	_inherits(Row, _React$Component);
+var id = __webpack_require__(5);
 
-	function Row() {
-		_classCallCheck(this, Row);
+function Row(_ref) {
+	var num_slots = _ref.num_slots,
+	    values = _ref.values,
+	    tier = _ref.tier;
 
-		return _possibleConstructorReturn(this, (Row.__proto__ || Object.getPrototypeOf(Row)).apply(this, arguments));
-	}
+	// I/P: num_slots, taken from parent sentence
+	//      values, list of segments (e.g., morphemes) with start/end times
+	//      tier, the tier name
+	// O/P: single row of glossed sentence, with colspan spacing
+	// Status: tested, working
 
-	_createClass(Row, [{
-		key: "render",
+	// Building a row requires slots to determine the width of certain
+	// table elements. Each element will have a start and end slot, and 
+	// if there is a gap between an end slot and the following start
+	// slot, then a blank table element is input. We use the attribute
+	// 'colSpan' to account for elements which require large slots.
 
-		// I/P: num_slots, taken from parent sentence
-		//      values, list of segments (e.g., morphemes) with start/end times
-		//      tier, the tier name
-		// O/P: single row of glossed sentence, with colspan spacing
-		// Status: tested, working
-		value: function render() {
-			var output = [];
-			// Building a row requires slots to determine the width of certain
-			// table elements. Each element will have a start and end slot, and 
-			// if there is a gap between an end slot and the following start
-			// slot, then a blank table element is input. We use the attribute
-			// "colSpan" to account for elements which require large slots.
+	// The current_slot counter is used to 'fill in' the missing
+	// slots when a dependent tier doesn't line up with its corresponding
+	// independent tier. For example, if the i-tier goes from 0-12, and
+	// the dependent tier goes from 2-5 and 7-12, then the current_slot
+	// counter would be responsible for filling those gaps between 0-2
+	// and 5-7.
+	var final_slot = num_slots;
+	var current_slot = 0;
+	var output = [];
 
-			// The current_slot counter is used to "fill in" the missing
-			// slots when a dependent tier doesn't line up with its corresponding
-			// independent tier. For example, if the i-tier goes from 0-12, and
-			// the dependent tier goes from 2-5 and 7-12, then the current_slot
-			// counter would be responsible for filling those gaps between 0-2
-			// and 5-7.
-			var current_slot = 0;
+	for (var i = 0; i < values.length; i++) {
+		var v = values[i];
+		var start_slot = v['start_slot'];
+		var end_slot = v['end_slot'];
+		var text = v['value'];
 
-			var final_slot = this.props.num_slots;
-			var values = this.props.values;
-			var tier = this.props.tier;
-
-			for (var i = 0; i < values.length; i++) {
-				var v = values[i];
-				var start_slot = v["start_slot"];
-				var end_slot = v["end_slot"];
-				var text = v["value"];
-
-				// Add blank space before current value:
-				if (start_slot > current_slot) {
-					var diff = String(start_slot - current_slot);
-					output.push(React.createElement("td", { key: 2 * i, colSpan: diff }));
-				}
-				// Create element with correct "colSpan" width:
-				var size = String(end_slot - start_slot);
-				output.push(React.createElement(
-					"td",
-					{ key: 2 * i + 1, colSpan: size },
-					text
-				));
-				current_slot = end_slot;
-			}
-			// Fill blank space at end of table row:
-			if (current_slot < final_slot) {
-				var diff = String(final_slot - current_slot);
-				output.push(React.createElement("td", { key: "final", colSpan: diff }));
-			}
-			return React.createElement(
-				"tr",
-				{ "data-tier": tier },
-				output
-			);
+		// Add blank space before current value:
+		if (start_slot > current_slot) {
+			var diff = String(start_slot - current_slot);
+			output.push(React.createElement('td', { key: id.generate(), colSpan: diff }));
 		}
-	}]);
+		// Create element with correct 'colSpan' width:
+		var size = String(end_slot - start_slot);
+		output.push(React.createElement(
+			'td',
+			{ key: id.generate(), colSpan: size },
+			text
+		));
+		current_slot = end_slot;
+	}
+	// Fill blank space at end of table row:
+	if (current_slot < final_slot) {
+		var _diff = String(final_slot - current_slot);
+		output.push(React.createElement('td', { key: id.generate(), colSpan: _diff }));
+	}
+	return React.createElement(
+		'tr',
+		{ 'data-tier': tier },
+		output
+	);
+}
 
-	return Row;
-}(React.Component);
-
-var Sentence = exports.Sentence = function (_React$Component2) {
-	_inherits(Sentence, _React$Component2);
+var Sentence = exports.Sentence = function (_React$Component) {
+	_inherits(Sentence, _React$Component);
 
 	function Sentence() {
 		_classCallCheck(this, Sentence);
@@ -165,7 +258,7 @@ var Sentence = exports.Sentence = function (_React$Component2) {
 	}
 
 	_createClass(Sentence, [{
-		key: "render",
+		key: 'render',
 
 		// I/P: value, a sentence
 		// O/P: table of glossed Row components
@@ -173,31 +266,31 @@ var Sentence = exports.Sentence = function (_React$Component2) {
 		value: function render() {
 			var row_list = []; // to be output
 			var sentence = this.props.value;
-			var num_slots = sentence["num_slots"];
+			var num_slots = sentence['num_slots'];
 			// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
-			// "colSpan={num_slots}" ensures that this row spans the entire table.
+			// 'colSpan={num_slots}' ensures that this row spans the entire table.
 			row_list.push(React.createElement(
-				"tr",
-				{ key: 0, "data-tier": sentence["tier"] },
+				'tr',
+				{ key: id.generate(), 'data-tier': sentence['tier'] },
 				React.createElement(
-					"td",
-					{ colSpan: num_slots, className: "topRow" },
-					sentence["text"]
+					'td',
+					{ colSpan: num_slots, className: 'topRow' },
+					sentence['text']
 				)
 			));
-			var dependents = sentence["dependents"]; // list of dependent tiers, flat structure
+			var dependents = sentence['dependents']; // list of dependent tiers, flat structure
 			// Add each dependent tier to the row list:
 			for (var i = 0; i < dependents.length; i++) {
 				var dependent = dependents[i];
 				// Tier attribute will be used for hiding/showing tiers:
-				var tier = dependent["tier"];
-				row_list.push(React.createElement(Row, { key: i + 1, num_slots: num_slots, values: dependent["values"], tier: tier }));
+				var tier = dependent['tier'];
+				row_list.push(React.createElement(Row, { key: id.generate(), num_slots: num_slots, values: dependent['values'], tier: tier }));
 			}
 			return React.createElement(
-				"table",
-				{ className: "gloss" },
+				'table',
+				{ className: 'gloss' },
 				React.createElement(
-					"tbody",
+					'tbody',
 					null,
 					row_list
 				)
@@ -209,7 +302,33 @@ var Sentence = exports.Sentence = function (_React$Component2) {
 }(React.Component);
 
 /***/ }),
-/* 1 */
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var randomByte = __webpack_require__(8);
+
+function encode(lookup, number) {
+    var loopCounter = 0;
+    var done;
+
+    var str = '';
+
+    while (!done) {
+        str = str + lookup( ( (number >> (4 * loopCounter)) & 0x0f ) | randomByte() );
+        done = number < (Math.pow(16, loopCounter + 1 ) );
+        loopCounter++;
+    }
+    return str;
+}
+
+module.exports = encode;
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -217,9 +336,9 @@ var Sentence = exports.Sentence = function (_React$Component2) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _untimed_text_display = __webpack_require__(2);
+var _untimed = __webpack_require__(4);
 
-var _timed_text_display = __webpack_require__(3);
+var _timed = __webpack_require__(13);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -260,13 +379,13 @@ var CenterPanel = function (_React$Component) {
         return React.createElement(
           'div',
           { id: 'centerPanel' },
-          React.createElement(_timed_text_display.TimedTextDisplay, { sentences: this.props.sentences })
+          React.createElement(_timed.TimedTextDisplay, { sentences: this.props.sentences })
         );
       } else {
         return React.createElement(
           'div',
           { id: 'centerPanel' },
-          React.createElement(_untimed_text_display.UntimedTextDisplay, { sentences: this.props.sentences })
+          React.createElement(_untimed.UntimedTextDisplay, { sentences: this.props.sentences })
         );
       }
     }
@@ -275,71 +394,8 @@ var CenterPanel = function (_React$Component) {
   return CenterPanel;
 }(React.Component);
 
-// SETTINGS + VIDEO PANEL
-
-var Video = function (_React$Component2) {
-  _inherits(Video, _React$Component2);
-
-  function Video() {
-    _classCallCheck(this, Video);
-
-    return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
-  }
-
-  _createClass(Video, [{
-    key: 'render',
-
-    // I/P: path, the path to the video
-    //		  default, a boolean value (whether the video should appear on pageload or not)
-    // O/P: a video player
-    // Status: re-written, untested
-    value: function render() {
-      var path = this.props.path;
-      if (this.props.default) {
-        // Video shown (paused) on page-load
-        // 	className="player" - used for time-aligned syncing
-        return React.createElement('video', { src: path, id: 'video', className: 'player', controls: true });
-      } else {
-        // Video hidden on page-load
-        // 	className="hidden" - used by CSS, for display: none
-        return React.createElement('video', { src: path, id: 'video', className: 'hidden', controls: true });
-      }
-    }
-  }]);
-
-  return Video;
-}(React.Component);
-
-var TitleInfo = function (_React$Component3) {
-  _inherits(TitleInfo, _React$Component3);
-
-  function TitleInfo() {
-    _classCallCheck(this, TitleInfo);
-
-    return _possibleConstructorReturn(this, (TitleInfo.__proto__ || Object.getPrototypeOf(TitleInfo)).apply(this, arguments));
-  }
-
-  _createClass(TitleInfo, [{
-    key: 'render',
-
-    // I/P: title, a string
-    // O/P: printed title
-    // Status: tested, working
-    value: function render() {
-      var title = this.props.title;
-      return React.createElement(
-        'h3',
-        { id: 'title' },
-        title
-      );
-    }
-  }]);
-
-  return TitleInfo;
-}(React.Component);
-
-var TierCheckbox = function (_React$Component4) {
-  _inherits(TierCheckbox, _React$Component4);
+var TierCheckbox = function (_React$Component2) {
+  _inherits(TierCheckbox, _React$Component2);
 
   // I/P: tier_id, a string like "T1" or "T15"
   //    tier_name, a string like "English Morphemes"
@@ -348,13 +404,13 @@ var TierCheckbox = function (_React$Component4) {
   function TierCheckbox(props) {
     _classCallCheck(this, TierCheckbox);
 
-    var _this4 = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
+    var _this2 = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
 
-    _this4.state = {
+    _this2.state = {
       checkboxState: true
     };
-    _this4.toggle = _this4.toggle.bind(_this4);
-    return _this4;
+    _this2.toggle = _this2.toggle.bind(_this2);
+    return _this2;
   }
 
   _createClass(TierCheckbox, [{
@@ -388,8 +444,8 @@ var TierCheckbox = function (_React$Component4) {
   return TierCheckbox;
 }(React.Component);
 
-var TierCheckboxList = function (_React$Component5) {
-  _inherits(TierCheckboxList, _React$Component5);
+var TierCheckboxList = function (_React$Component3) {
+  _inherits(TierCheckboxList, _React$Component3);
 
   function TierCheckboxList() {
     _classCallCheck(this, TierCheckboxList);
@@ -428,8 +484,8 @@ var TierCheckboxList = function (_React$Component5) {
   return TierCheckboxList;
 }(React.Component);
 
-var SpeakerInfo = function (_React$Component6) {
-  _inherits(SpeakerInfo, _React$Component6);
+var SpeakerInfo = function (_React$Component4) {
+  _inherits(SpeakerInfo, _React$Component4);
 
   function SpeakerInfo() {
     _classCallCheck(this, SpeakerInfo);
@@ -483,11 +539,11 @@ function showVideo() {
 }
 
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
-  ReactDOM.render(React.createElement(_timed_text_display.TimedTextDisplay, { sentences: data["sentences"] }), document.getElementById("main"));
+  ReactDOM.render(React.createElement(CenterPanel, { className: 'centerPanel', timed: true, sentences: data["sentences"] }), document.getElementById("main"));
 });
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -500,7 +556,7 @@ exports.UntimedTextDisplay = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _sentence = __webpack_require__(0);
+var _sentence = __webpack_require__(1);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -546,7 +602,256 @@ var UntimedTextDisplay = exports.UntimedTextDisplay = function (_React$Component
 }(React.Component);
 
 /***/ }),
-/* 3 */
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = __webpack_require__(6);
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var alphabet = __webpack_require__(0);
+var encode = __webpack_require__(2);
+var decode = __webpack_require__(9);
+var build = __webpack_require__(10);
+var isValid = __webpack_require__(11);
+
+// if you are using cluster or multiple servers use this to make each instance
+// has a unique value for worker
+// Note: I don't know if this is automatically set when using third
+// party cluster solutions such as pm2.
+var clusterWorkerId = __webpack_require__(12) || 0;
+
+/**
+ * Set the seed.
+ * Highly recommended if you don't want people to try to figure out your id schema.
+ * exposed as shortid.seed(int)
+ * @param seed Integer value to seed the random alphabet.  ALWAYS USE THE SAME SEED or you might get overlaps.
+ */
+function seed(seedValue) {
+    alphabet.seed(seedValue);
+    return module.exports;
+}
+
+/**
+ * Set the cluster worker or machine id
+ * exposed as shortid.worker(int)
+ * @param workerId worker must be positive integer.  Number less than 16 is recommended.
+ * returns shortid module so it can be chained.
+ */
+function worker(workerId) {
+    clusterWorkerId = workerId;
+    return module.exports;
+}
+
+/**
+ *
+ * sets new characters to use in the alphabet
+ * returns the shuffled alphabet
+ */
+function characters(newCharacters) {
+    if (newCharacters !== undefined) {
+        alphabet.characters(newCharacters);
+    }
+
+    return alphabet.shuffled();
+}
+
+/**
+ * Generate unique id
+ * Returns string id
+ */
+function generate() {
+  return build(clusterWorkerId);
+}
+
+// Export all other functions as properties of the generate function
+module.exports = generate;
+module.exports.generate = generate;
+module.exports.seed = seed;
+module.exports.worker = worker;
+module.exports.characters = characters;
+module.exports.decode = decode;
+module.exports.isValid = isValid;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// Found this seed-based random generator somewhere
+// Based on The Central Randomizer 1.3 (C) 1997 by Paul Houle (houle@msc.cornell.edu)
+
+var seed = 1;
+
+/**
+ * return a random number based on a seed
+ * @param seed
+ * @returns {number}
+ */
+function getNextValue() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed/(233280.0);
+}
+
+function setSeed(_seed_) {
+    seed = _seed_;
+}
+
+module.exports = {
+    nextValue: getNextValue,
+    seed: setSeed
+};
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var crypto = typeof window === 'object' && (window.crypto || window.msCrypto); // IE 11 uses window.msCrypto
+
+function randomByte() {
+    if (!crypto || !crypto.getRandomValues) {
+        return Math.floor(Math.random() * 256) & 0x30;
+    }
+    var dest = new Uint8Array(1);
+    crypto.getRandomValues(dest);
+    return dest[0] & 0x30;
+}
+
+module.exports = randomByte;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var alphabet = __webpack_require__(0);
+
+/**
+ * Decode the id to get the version and worker
+ * Mainly for debugging and testing.
+ * @param id - the shortid-generated id.
+ */
+function decode(id) {
+    var characters = alphabet.shuffled();
+    return {
+        version: characters.indexOf(id.substr(0, 1)) & 0x0f,
+        worker: characters.indexOf(id.substr(1, 1)) & 0x0f
+    };
+}
+
+module.exports = decode;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var encode = __webpack_require__(2);
+var alphabet = __webpack_require__(0);
+
+// Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
+// This number should be updated every year or so to keep the generated id short.
+// To regenerate `new Date() - 0` and bump the version. Always bump the version!
+var REDUCE_TIME = 1459707606518;
+
+// don't change unless we change the algos or REDUCE_TIME
+// must be an integer and less than 16
+var version = 6;
+
+// Counter is used when shortid is called multiple times in one second.
+var counter;
+
+// Remember the last time shortid was called in case counter is needed.
+var previousSeconds;
+
+/**
+ * Generate unique id
+ * Returns string id
+ */
+function build(clusterWorkerId) {
+
+    var str = '';
+
+    var seconds = Math.floor((Date.now() - REDUCE_TIME) * 0.001);
+
+    if (seconds === previousSeconds) {
+        counter++;
+    } else {
+        counter = 0;
+        previousSeconds = seconds;
+    }
+
+    str = str + encode(alphabet.lookup, version);
+    str = str + encode(alphabet.lookup, clusterWorkerId);
+    if (counter > 0) {
+        str = str + encode(alphabet.lookup, counter);
+    }
+    str = str + encode(alphabet.lookup, seconds);
+
+    return str;
+}
+
+module.exports = build;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var alphabet = __webpack_require__(0);
+
+function isShortId(id) {
+    if (!id || typeof id !== 'string' || id.length < 6 ) {
+        return false;
+    }
+
+    var characters = alphabet.characters();
+    var len = id.length;
+    for(var i = 0; i < len;i++) {
+        if (characters.indexOf(id[i]) === -1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+module.exports = isShortId;
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = 0;
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -559,7 +864,7 @@ exports.TimedTextDisplay = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _sentence = __webpack_require__(0);
+var _sentence = __webpack_require__(1);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
