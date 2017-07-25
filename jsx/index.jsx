@@ -91,19 +91,24 @@ class SpeakerInfo extends React.Component {
   	}
 }
 
-class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<LeftPanel id="leftPanel" >
-				<CenterPanel id="centerPanel" timed sentences={this.props.sentences} />
-		);
-	}
+function LeftPanel({ fillmein }) {
+	return <div id="leftPanel"><h1>In Progress.</h1></div>;
+}
+
+function App({ data }) {
+	const sentences = data['sentences'];
+	const timed = (data['metadata']['timed'] == 'true');
+	return (
+		<div>
+			<LeftPanel />
+			<CenterPanel timed={timed} sentences={sentences} />
+		</div>
+	);
 }
 
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
 	ReactDOM.render(
-		<CenterPanel className="centerPanel" timed sentences={data['sentences']} />,
+		<App data={data} />,
 		document.getElementById("main")
 	);
 });

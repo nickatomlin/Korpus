@@ -248,30 +248,51 @@ function Row(_ref) {
 	var currentSlot = 0;
 	var output = [];
 
-	for (var i = 0; i < values.length; i++) {
-		var v = values[i];
-		var startSlot = v['start_slot'];
-		var endSlot = v['end_slot'];
-		var text = v['value'];
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
 
-		// Add blank space before current value:
-		if (startSlot > currentSlot) {
-			var diff = String(startSlot - currentSlot);
-			output.push(React.createElement('td', { key: _shortid2.default.generate(), colSpan: diff }));
+	try {
+		for (var _iterator = values[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var v = _step.value;
+
+			var startSlot = v['start_slot'];
+			var endSlot = v['end_slot'];
+			var text = v['value'];
+
+			// Add blank space before current value:
+			if (startSlot > currentSlot) {
+				var _diff = String(startSlot - currentSlot);
+				output.push(React.createElement('td', { key: _shortid2.default.generate(), colSpan: _diff }));
+			}
+			// Create element with correct 'colSpan' width:
+			var size = String(endSlot - startSlot);
+			output.push(React.createElement(
+				'td',
+				{ key: _shortid2.default.generate(), colSpan: size },
+				text
+			));
+			currentSlot = endSlot;
 		}
-		// Create element with correct 'colSpan' width:
-		var size = String(endSlot - startSlot);
-		output.push(React.createElement(
-			'td',
-			{ key: _shortid2.default.generate(), colSpan: size },
-			text
-		));
-		currentSlot = endSlot;
+		// Fill blank space at end of table row:
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
 	}
-	// Fill blank space at end of table row:
+
 	if (currentSlot < finalSlot) {
-		var _diff = String(finalSlot - currentSlot);
-		output.push(React.createElement('td', { key: _shortid2.default.generate(), colSpan: _diff }));
+		var diff = String(finalSlot - currentSlot);
+		output.push(React.createElement('td', { key: _shortid2.default.generate(), colSpan: diff }));
 	}
 	return React.createElement(
 		'tr',
@@ -301,12 +322,34 @@ function Sentence(_ref2) {
 	));
 	var dependents = sentence['dependents']; // list of dependent tiers, flat structure
 	// Add each dependent tier to the row list:
-	for (var i = 0; i < dependents.length; i++) {
-		var dependent = dependents[i];
-		// Tier attribute will be used for hiding/showing tiers:
-		var tier = dependent['tier'];
-		rowList.push(React.createElement(Row, { key: _shortid2.default.generate(), numSlots: numSlots, values: dependent['values'], tier: tier }));
+	var _iteratorNormalCompletion2 = true;
+	var _didIteratorError2 = false;
+	var _iteratorError2 = undefined;
+
+	try {
+		for (var _iterator2 = dependents[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+			var _step2$value = _step2.value,
+			    values = _step2$value.values,
+			    tier = _step2$value.tier;
+
+			// Tier attribute will be used for hiding/showing tiers:
+			rowList.push(React.createElement(Row, { key: _shortid2.default.generate(), numSlots: numSlots, values: values, tier: tier }));
+		}
+	} catch (err) {
+		_didIteratorError2 = true;
+		_iteratorError2 = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion2 && _iterator2.return) {
+				_iterator2.return();
+			}
+		} finally {
+			if (_didIteratorError2) {
+				throw _iteratorError2;
+			}
+		}
 	}
+
 	return React.createElement(
 		'table',
 		{ className: 'gloss' },
@@ -351,169 +394,196 @@ var storyListUiText = "List of Stories";
 */
 
 function CenterPanel(_ref) {
-  var timed = _ref.timed,
-      sentences = _ref.sentences;
+	var timed = _ref.timed,
+	    sentences = _ref.sentences;
 
-  // I/P: timed, a boolean value
-  //      sentences, a list of sentences
-  // O/P: tested, working
-  if (timed) {
-    return React.createElement(
-      'div',
-      { id: 'centerPanel' },
-      React.createElement(_Timed.TimedTextDisplay, { sentences: sentences })
-    );
-  } else {
-    return React.createElement(
-      'div',
-      { id: 'centerPanel' },
-      React.createElement(_Untimed.UntimedTextDisplay, { sentences: sentences })
-    );
-  }
+	// I/P: timed, a boolean value
+	//      sentences, a list of sentences
+	// O/P: tested, working
+	if (timed) {
+		return React.createElement(
+			'div',
+			{ id: 'centerPanel' },
+			React.createElement(_Timed.TimedTextDisplay, { sentences: sentences })
+		);
+	} else {
+		return React.createElement(
+			'div',
+			{ id: 'centerPanel' },
+			React.createElement(_Untimed.UntimedTextDisplay, { sentences: sentences })
+		);
+	}
 }
 
 var TierCheckbox = function (_React$Component) {
-  _inherits(TierCheckbox, _React$Component);
+	_inherits(TierCheckbox, _React$Component);
 
-  // I/P: tier_id, a string like "T1" or "T15"
-  //    tier_name, a string like "English Morphemes"
-  // O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
-  // Status: tested, working
-  function TierCheckbox(props) {
-    _classCallCheck(this, TierCheckbox);
+	// I/P: tier_id, a string like "T1" or "T15"
+	//    tier_name, a string like "English Morphemes"
+	// O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
+	// Status: tested, working
+	function TierCheckbox(props) {
+		_classCallCheck(this, TierCheckbox);
 
-    var _this = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
 
-    _this.state = {
-      checkboxState: true
-    };
-    _this.toggle = _this.toggle.bind(_this);
-    return _this;
-  }
+		_this.state = {
+			checkboxState: true
+		};
+		_this.toggle = _this.toggle.bind(_this);
+		return _this;
+	}
 
-  _createClass(TierCheckbox, [{
-    key: 'toggle',
-    value: function toggle(event) {
-      this.setState({ checkboxState: !this.state.checkboxState });
-      if (this.state.checkboxState) {
-        $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
-      } else {
-        $("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var tier_id = this.props.tier_id;
-      var tier_name = this.props.tier_name;
-      return React.createElement(
-        'li',
-        null,
-        React.createElement('input', { type: 'checkbox', onClick: this.toggle, defaultChecked: true }),
-        React.createElement(
-          'label',
-          null,
-          tier_name
-        )
-      );
-    }
-  }]);
+	_createClass(TierCheckbox, [{
+		key: 'toggle',
+		value: function toggle(event) {
+			this.setState({ checkboxState: !this.state.checkboxState });
+			if (this.state.checkboxState) {
+				$("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
+			} else {
+				$("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
+			}
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var tier_id = this.props.tier_id;
+			var tier_name = this.props.tier_name;
+			return React.createElement(
+				'li',
+				null,
+				React.createElement('input', { type: 'checkbox', onClick: this.toggle, defaultChecked: true }),
+				React.createElement(
+					'label',
+					null,
+					tier_name
+				)
+			);
+		}
+	}]);
 
-  return TierCheckbox;
+	return TierCheckbox;
 }(React.Component);
 
 var TierCheckboxList = function (_React$Component2) {
-  _inherits(TierCheckboxList, _React$Component2);
+	_inherits(TierCheckboxList, _React$Component2);
 
-  function TierCheckboxList() {
-    _classCallCheck(this, TierCheckboxList);
+	function TierCheckboxList() {
+		_classCallCheck(this, TierCheckboxList);
 
-    return _possibleConstructorReturn(this, (TierCheckboxList.__proto__ || Object.getPrototypeOf(TierCheckboxList)).apply(this, arguments));
-  }
+		return _possibleConstructorReturn(this, (TierCheckboxList.__proto__ || Object.getPrototypeOf(TierCheckboxList)).apply(this, arguments));
+	}
 
-  _createClass(TierCheckboxList, [{
-    key: 'render',
+	_createClass(TierCheckboxList, [{
+		key: 'render',
 
-    // I/P: tiers, a hashmap from Tier IDs to their names
-    // O/P: an unordered list of TierCheckboxes
-    // Status: tested, working
-    value: function render() {
-      var output = [];
-      var tiers = this.props.tiers;
-      for (var tier_id in tiers) {
-        if (tiers.hasOwnProperty(tier_id)) {
-          output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
-        }
-      }
-      return React.createElement(
-        'div',
-        { id: 'tierList' },
-        tiersUiText,
-        ': ',
-        React.createElement(
-          'ul',
-          null,
-          output
-        )
-      );
-    }
-  }]);
+		// I/P: tiers, a hashmap from Tier IDs to their names
+		// O/P: an unordered list of TierCheckboxes
+		// Status: tested, working
+		value: function render() {
+			var output = [];
+			var tiers = this.props.tiers;
+			for (var tier_id in tiers) {
+				if (tiers.hasOwnProperty(tier_id)) {
+					output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
+				}
+			}
+			return React.createElement(
+				'div',
+				{ id: 'tierList' },
+				tiersUiText,
+				': ',
+				React.createElement(
+					'ul',
+					null,
+					output
+				)
+			);
+		}
+	}]);
 
-  return TierCheckboxList;
+	return TierCheckboxList;
 }(React.Component);
 
 var SpeakerInfo = function (_React$Component3) {
-  _inherits(SpeakerInfo, _React$Component3);
+	_inherits(SpeakerInfo, _React$Component3);
 
-  function SpeakerInfo() {
-    _classCallCheck(this, SpeakerInfo);
+	function SpeakerInfo() {
+		_classCallCheck(this, SpeakerInfo);
 
-    return _possibleConstructorReturn(this, (SpeakerInfo.__proto__ || Object.getPrototypeOf(SpeakerInfo)).apply(this, arguments));
-  }
+		return _possibleConstructorReturn(this, (SpeakerInfo.__proto__ || Object.getPrototypeOf(SpeakerInfo)).apply(this, arguments));
+	}
 
-  _createClass(SpeakerInfo, [{
-    key: 'render',
+	_createClass(SpeakerInfo, [{
+		key: 'render',
 
-    // I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
-    // O/P: some nicely formatted info about these speakers
-    // Status: tested, working
-    value: function render() {
-      var speaker_list = [];
-      var speakers = this.props.speakers;
-      if (speakers != null) {
-        for (var speaker_id in speakers) {
-          if (speakers.hasOwnProperty(speaker_id)) {
-            var speaker_name = speakers[speaker_id]["name"];
-            var speaker_display = speaker_id + ": " + speaker_name;
-            speaker_list.push(React.createElement(
-              'li',
-              { key: speaker_id },
-              speaker_display
-            ));
-          }
-        }
-        return React.createElement(
-          'div',
-          { id: 'speakerList' },
-          speakersUiText,
-          ': ',
-          React.createElement(
-            'ul',
-            null,
-            speaker_list
-          )
-        );
-      } else {
-        return null;
-      }
-    }
-  }]);
+		// I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
+		// O/P: some nicely formatted info about these speakers
+		// Status: tested, working
+		value: function render() {
+			var speaker_list = [];
+			var speakers = this.props.speakers;
+			if (speakers != null) {
+				for (var speaker_id in speakers) {
+					if (speakers.hasOwnProperty(speaker_id)) {
+						var speaker_name = speakers[speaker_id]["name"];
+						var speaker_display = speaker_id + ": " + speaker_name;
+						speaker_list.push(React.createElement(
+							'li',
+							{ key: speaker_id },
+							speaker_display
+						));
+					}
+				}
+				return React.createElement(
+					'div',
+					{ id: 'speakerList' },
+					speakersUiText,
+					': ',
+					React.createElement(
+						'ul',
+						null,
+						speaker_list
+					)
+				);
+			} else {
+				return null;
+			}
+		}
+	}]);
 
-  return SpeakerInfo;
+	return SpeakerInfo;
 }(React.Component);
 
+function LeftPanel(_ref2) {
+	var fillmein = _ref2.fillmein;
+
+	return React.createElement(
+		'div',
+		{ id: 'leftPanel' },
+		React.createElement(
+			'h1',
+			null,
+			'In Progress.'
+		)
+	);
+}
+
+function App(_ref3) {
+	var data = _ref3.data;
+
+	var sentences = data['sentences'];
+	var timed = data['metadata']['timed'] == 'true';
+	return React.createElement(
+		'div',
+		null,
+		React.createElement(LeftPanel, null),
+		React.createElement(CenterPanel, { timed: timed, sentences: sentences })
+	);
+}
+
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
-  ReactDOM.render(React.createElement(CenterPanel, { className: 'centerPanel', timed: true, sentences: data['sentences'] }), document.getElementById("main"));
+	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById("main"));
 });
 
 /***/ }),
@@ -543,14 +613,35 @@ function UntimedTextDisplay(_ref) {
 	// O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
 	// Status: tested, working
 	var output = [];
-	for (var i = 0; i < sentences.length; i++) {
-		var sentence = sentences[i];
-		output.push(React.createElement(
-			"div",
-			{ key: _shortid2.default.generate(), className: "untimedBlock" },
-			React.createElement(_Sentence.Sentence, { key: _shortid2.default.generate(), sentence: sentence })
-		));
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = sentences[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var sentence = _step.value;
+
+			output.push(React.createElement(
+				"div",
+				{ key: _shortid2.default.generate(), className: "untimedBlock" },
+				React.createElement(_Sentence.Sentence, { key: _shortid2.default.generate(), sentence: sentence })
+			));
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
 	}
+
 	return React.createElement(
 		"div",
 		{ id: "untimedTextDisplay" },
@@ -847,10 +938,31 @@ function TimeBlock(_ref2) {
 	var output = [];
 	// A timeblock may contain multiple sentences with the same start time.
 	// Iterate through the list of these sentences.
-	for (var i = 0; i < sentences.length; i++) {
-		var sentence = sentences[i];
-		output.push(React.createElement(LabeledSentence, { key: _shortid2.default.generate(), sentence: sentence }));
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = sentences[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var sentence = _step.value;
+
+			output.push(React.createElement(LabeledSentence, { key: _shortid2.default.generate(), sentence: sentence }));
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
 	}
+
 	return React.createElement(
 		'div',
 		{ className: 'timeBlock' },
@@ -881,17 +993,38 @@ function LabeledTimeBlock(_ref3) {
 	// to render the current block in time with audio/video.
 	var minStart = Number.POSITIVE_INFINITY;
 	var maxEnd = Number.NEGATIVE_INFINITY;
-	for (var i = 0; i < sentences.length; i++) {
-		var sentence = sentences[i];
-		var startTime = sentence["start_time_ms"];
-		var endTime = sentence["end_time_ms"];
-		if (startTime < minStart) {
-			minStart = startTime;
+	var _iteratorNormalCompletion2 = true;
+	var _didIteratorError2 = false;
+	var _iteratorError2 = undefined;
+
+	try {
+		for (var _iterator2 = sentences[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+			var sentence = _step2.value;
+
+			var startTime = sentence["start_time_ms"];
+			var endTime = sentence["end_time_ms"];
+			if (startTime < minStart) {
+				minStart = startTime;
+			}
+			if (endTime > maxEnd) {
+				maxEnd = endTime;
+			}
 		}
-		if (endTime > maxEnd) {
-			maxEnd = endTime;
+	} catch (err) {
+		_didIteratorError2 = true;
+		_iteratorError2 = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion2 && _iterator2.return) {
+				_iterator2.return();
+			}
+		} finally {
+			if (_didIteratorError2) {
+				throw _iteratorError2;
+			}
 		}
 	}
+
 	return React.createElement(
 		'div',
 		{ className: 'labeledTimeBlock', 'data-startTime': minStart, 'data-endTime': maxEnd },
@@ -924,25 +1057,71 @@ function TimedTextDisplay(_ref4) {
 
 	var times_to_sentences = {}; // hashmap from timestamps (in sec) to lists of sentences
 	var unique_timestamps = []; // for sorting keys
-	for (var i = 0; i < sentences.length; i++) {
-		var sentence = sentences[i];
-		var timestamp_ms = sentence["start_time_ms"];
-		var timestamp_sec = Math.floor(timestamp_ms / 1000); // msec -> sec
-		if (timestamp_sec in times_to_sentences) {
-			times_to_sentences[timestamp_sec].push(sentence);
-		} else {
-			unique_timestamps.push(timestamp_sec);
-			times_to_sentences[timestamp_sec] = [sentence];
+	var _iteratorNormalCompletion3 = true;
+	var _didIteratorError3 = false;
+	var _iteratorError3 = undefined;
+
+	try {
+		for (var _iterator3 = sentences[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+			var sentence = _step3.value;
+
+			var timestamp_ms = sentence["start_time_ms"];
+			var timestamp_sec = Math.floor(timestamp_ms / 1000); // msec -> sec
+			if (timestamp_sec in times_to_sentences) {
+				times_to_sentences[timestamp_sec].push(sentence);
+			} else {
+				unique_timestamps.push(timestamp_sec);
+				times_to_sentences[timestamp_sec] = [sentence];
+			}
+		}
+	} catch (err) {
+		_didIteratorError3 = true;
+		_iteratorError3 = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion3 && _iterator3.return) {
+				_iterator3.return();
+			}
+		} finally {
+			if (_didIteratorError3) {
+				throw _iteratorError3;
+			}
 		}
 	}
+
 	unique_timestamps.sort(function (a, b) {
 		return a - b;
 	}); // to avoid alphanumeric sorting
-	for (var _i = 0; _i < unique_timestamps.length; _i++) {
-		var timestamp = unique_timestamps[_i];
-		var corresponding_sentences = times_to_sentences[timestamp];
-		output.push(React.createElement(LabeledTimeBlock, { key: _shortid2.default.generate(), sentences: corresponding_sentences, timestamp: timestamp }));
+	var _iteratorNormalCompletion4 = true;
+	var _didIteratorError4 = false;
+	var _iteratorError4 = undefined;
+
+	try {
+		for (var _iterator4 = unique_timestamps[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+			var timestamp = _step4.value;
+
+			var corresponding_sentences = times_to_sentences[timestamp];
+			output.push(React.createElement(LabeledTimeBlock, {
+				key: _shortid2.default.generate(),
+				sentences: corresponding_sentences,
+				timestamp: timestamp
+			}));
+		}
+	} catch (err) {
+		_didIteratorError4 = true;
+		_iteratorError4 = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion4 && _iterator4.return) {
+				_iterator4.return();
+			}
+		} finally {
+			if (_didIteratorError4) {
+				throw _iteratorError4;
+			}
+		}
 	}
+
 	return React.createElement(
 		'div',
 		{ id: 'timedTextDisplay' },
