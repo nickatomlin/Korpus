@@ -21,16 +21,20 @@ class Video extends React.Component {
 		$('#leftPanel').css('height', 'calc(100% - 48px)');
 		$('#centerPanel').css('margin-left', '40%');
 		$('#centerPanel').css('height', 'calc(100% - 48px)');
+		$("#centerPanel").css("width", "60%");
+
 		// Deactivate audio:
 		$('#footer').css('display', 'none');
 		$('#audio').removeAttr('ontimeupdate');
 		$('#audio').removeAttr('onclick');
 		$('#audio').attr('data-live', 'false');
+
 		// Activate video:
 		$('#video').css('display', 'inline');
 		$('#video').attr('data-live', 'true');
 		$('#video').attr('ontimeupdate', 'sync(this.currentTime)');
 		$('#video').attr('onclick', 'sync(this.currentTime)');
+
 		// Match times:
 		var audio = document.getElementById('audio');
 		var video = document.getElementById('video');
@@ -44,29 +48,27 @@ class Video extends React.Component {
 	hide() {
 		// Resize panels:
 		var footheight = ($("#footer").height() + 48).toString() + "px";
-		var bodyheight = "calc(100% - " + footheight + " )";
+		var bodyheight = "calc(100% - " + footheight + ")";
 
 		$("#leftPanel").css("width", "240px");
 		$("#leftPanel").css("height", bodyheight);
-
 		$("#centerPanel").css("height", bodyheight);
 		$("#centerPanel").css("margin-left", "240px");
 		$("#centerPanel").css("width", "calc(100% - 240px)");
 
 		// Deactivate video:
 		$("#video").css("display", "none");
-
-		// Activate audio:
-		$("#footer").css("display", "block");
-
-		// Match times:
 		$("#video").removeAttr("onclick");
 		$("#video").removeAttr("ontimeupdate");
 		$("#video").attr("data-live", "false");
+
+		// Activate audio:
+		$("#footer").css("display", "block");
 		$("#audio").attr("data-live", "true");
 		$("#audio").attr("ontimeupdate", "sync(this.currentTime)");
 		$("#audio").attr("onclick", "sync(this.currentTime)");
 
+		// Match times:
 		var audio = document.getElementById("audio");
 		var video = document.getElementById("video");
 		if (!video.paused) {
