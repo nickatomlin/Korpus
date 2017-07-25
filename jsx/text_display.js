@@ -747,9 +747,9 @@ function showIndex() {
     ReactDOM.render(React.createElement(IndexDisplay, { data: data }), document.getElementById('leftPanel'));
     ReactDOM.render(React.createElement("span", null), document.getElementById('centerPanel'));
     ReactDOM.render(React.createElement("span", null), document.getElementById('footer'));
-    $(".docLink").click(function () {
-      displayText($(this).data('button_text'));
-    });
+    // $(".docLink").click(function() {
+    //   displayText($(this).data('button_text'));
+    // });
   });
 }
 
@@ -783,5 +783,3 @@ function update() {
 $(window).on('hashchange', function () {
   update();
 }).trigger('hashchange');
-
-update();
