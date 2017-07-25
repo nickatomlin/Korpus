@@ -31,25 +31,25 @@ class TierCheckbox extends React.Component {
   // O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
   // Status: tested, working
   constructor(props) {
-    super(props);
-    this.state = {
-      checkboxState: true
-    };
-    this.toggle = this.toggle.bind(this);
+	 super(props);
+	 this.state = {
+		checkboxState: true
+	 };
+	 this.toggle = this.toggle.bind(this);
   }
   toggle(event) {
-    this.setState({checkboxState: !this.state.checkboxState});
-    if (this.state.checkboxState) {
-      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
-    }
-    else {
-      $("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
-    }
+	 this.setState({checkboxState: !this.state.checkboxState});
+	 if (this.state.checkboxState) {
+		$("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
+	 }
+	 else {
+		$("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
+	 }
   }
   render() {
-    var tier_id = this.props.tier_id;
-    var tier_name = this.props.tier_name;
-    return <li><input type="checkbox" onClick={this.toggle} defaultChecked/><label>{tier_name}</label></li>;
+	 var tier_id = this.props.tier_id;
+	 var tier_name = this.props.tier_name;
+	 return <li><input type="checkbox" onClick={this.toggle} defaultChecked/><label>{tier_name}</label></li>;
   }
 }
 
@@ -58,15 +58,15 @@ class TierCheckboxList extends React.Component {
   // O/P: an unordered list of TierCheckboxes
   // Status: tested, working
   render() {
-    var output = [];
-    var tiers = this.props.tiers;
-    for (var tier_id in tiers) {
-      if (tiers.hasOwnProperty(tier_id)) {
-        output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]}/>);
-      }
-    }
-    return <div id="tierList">{tiersUiText}: <ul>{output}</ul></div>;
-  }
+		var output = [];
+		var tiers = this.props.tiers;
+		for (var tier_id in tiers) {
+			if (tiers.hasOwnProperty(tier_id)) {
+			output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]}/>);
+			}
+		}
+		return <div id="tierList">{tiersUiText}: <ul>{output}</ul></div>;
+	}
 }
 
 class SpeakerInfo extends React.Component {
@@ -74,22 +74,31 @@ class SpeakerInfo extends React.Component {
   // O/P: some nicely formatted info about these speakers
   // Status: tested, working
   render() {
-    var speaker_list = [];
-    var speakers = this.props.speakers;
-    if (speakers != null) {
-      for (var speaker_id in speakers) {
-        if (speakers.hasOwnProperty(speaker_id)) {
-          var speaker_name = speakers[speaker_id]["name"];
-          var speaker_display = speaker_id + ": " + speaker_name;
-          speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
-        }
-      }
-      return <div id="speakerList">{speakersUiText}: <ul>{speaker_list}</ul></div>;
-    }
-    else {
-      return null;
-    }
-  }
+		var speaker_list = [];
+		var speakers = this.props.speakers;
+		if (speakers != null) {
+			for (var speaker_id in speakers) {
+		  		if (speakers.hasOwnProperty(speaker_id)) {
+					var speaker_name = speakers[speaker_id]["name"];
+					var speaker_display = speaker_id + ": " + speaker_name;
+					speaker_list.push(<li key={speaker_id}>{speaker_display}</li>);
+		  		}
+			}
+			return <div id="speakerList">{speakersUiText}: <ul>{speaker_list}</ul></div>;
+	 	} else {
+			return null;
+	 	}
+  	}
+}
+
+class App extends React.Component {
+	render() {
+		return (
+			<div>
+				<LeftPanel id="leftPanel" >
+				<CenterPanel id="centerPanel" timed sentences={this.props.sentences} />
+		);
+	}
 }
 
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
