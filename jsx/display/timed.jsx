@@ -32,7 +32,7 @@ function printSeconds(r) {
 	// I/P: an integer number of seconds
 	// O/P: time interval in h:mm:s or m:ss format (a string)
 	// Status: tested, working
-	r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%3600/60),n=Math.floor(r%3600%60);if(n>=10)e=String(n);else var e="0"+String(n);var o=String(i)+":";if(0==t)a="";else if(i>=10)a=String(t)+":";else var a=String(t)+":0";return a+o+e
+	r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%3600/60),n=Math.floor(r%3600%60);if(n>=10)e=String(n);else var e="0"+String(n);var o=String(i)+":";if(0==t)a="";else if(i>=10)a=String(t)+":";else var a=String(t)+":0";return a+o+e;
 }
 
 function LabeledTimeBlock({ sentences, timestamp }) {

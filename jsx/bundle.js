@@ -553,7 +553,7 @@ function UntimedTextDisplay(_ref) {
 	}
 	return React.createElement(
 		"div",
-		{ className: "untimedTextDisplay" },
+		{ id: "untimedTextDisplay" },
 		output
 	);
 }

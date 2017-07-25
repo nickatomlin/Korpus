@@ -10,5 +10,5 @@ export function UntimedTextDisplay({ sentences }) {
 		const sentence = sentences[i];
 		output.push(<div key={id.generate()} className="untimedBlock"><Sentence key={id.generate()} sentence={sentence} /></div>);
 	}
-	return <div className="untimedTextDisplay">{output}</div>;
+	return <div id="untimedTextDisplay">{output}</div>;
 }
