@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -174,132 +174,8 @@ module.exports = {
 
 "use strict";
 
+module.exports = __webpack_require__(6);
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var id = __webpack_require__(5);
-
-function Row(_ref) {
-	var num_slots = _ref.num_slots,
-	    values = _ref.values,
-	    tier = _ref.tier;
-
-	// I/P: num_slots, taken from parent sentence
-	//      values, list of segments (e.g., morphemes) with start/end times
-	//      tier, the tier name
-	// O/P: single row of glossed sentence, with colspan spacing
-	// Status: tested, working
-
-	// Building a row requires slots to determine the width of certain
-	// table elements. Each element will have a start and end slot, and 
-	// if there is a gap between an end slot and the following start
-	// slot, then a blank table element is input. We use the attribute
-	// 'colSpan' to account for elements which require large slots.
-
-	// The current_slot counter is used to 'fill in' the missing
-	// slots when a dependent tier doesn't line up with its corresponding
-	// independent tier. For example, if the i-tier goes from 0-12, and
-	// the dependent tier goes from 2-5 and 7-12, then the current_slot
-	// counter would be responsible for filling those gaps between 0-2
-	// and 5-7.
-	var final_slot = num_slots;
-	var current_slot = 0;
-	var output = [];
-
-	for (var i = 0; i < values.length; i++) {
-		var v = values[i];
-		var start_slot = v['start_slot'];
-		var end_slot = v['end_slot'];
-		var text = v['value'];
-
-		// Add blank space before current value:
-		if (start_slot > current_slot) {
-			var diff = String(start_slot - current_slot);
-			output.push(React.createElement('td', { key: id.generate(), colSpan: diff }));
-		}
-		// Create element with correct 'colSpan' width:
-		var size = String(end_slot - start_slot);
-		output.push(React.createElement(
-			'td',
-			{ key: id.generate(), colSpan: size },
-			text
-		));
-		current_slot = end_slot;
-	}
-	// Fill blank space at end of table row:
-	if (current_slot < final_slot) {
-		var _diff = String(final_slot - current_slot);
-		output.push(React.createElement('td', { key: id.generate(), colSpan: _diff }));
-	}
-	return React.createElement(
-		'tr',
-		{ 'data-tier': tier },
-		output
-	);
-}
-
-var Sentence = exports.Sentence = function (_React$Component) {
-	_inherits(Sentence, _React$Component);
-
-	function Sentence() {
-		_classCallCheck(this, Sentence);
-
-		return _possibleConstructorReturn(this, (Sentence.__proto__ || Object.getPrototypeOf(Sentence)).apply(this, arguments));
-	}
-
-	_createClass(Sentence, [{
-		key: 'render',
-
-		// I/P: value, a sentence
-		// O/P: table of glossed Row components
-		// Status: tested, working
-		value: function render() {
-			var row_list = []; // to be output
-			var sentence = this.props.value;
-			var num_slots = sentence['num_slots'];
-			// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
-			// 'colSpan={num_slots}' ensures that this row spans the entire table.
-			row_list.push(React.createElement(
-				'tr',
-				{ key: id.generate(), 'data-tier': sentence['tier'] },
-				React.createElement(
-					'td',
-					{ colSpan: num_slots, className: 'topRow' },
-					sentence['text']
-				)
-			));
-			var dependents = sentence['dependents']; // list of dependent tiers, flat structure
-			// Add each dependent tier to the row list:
-			for (var i = 0; i < dependents.length; i++) {
-				var dependent = dependents[i];
-				// Tier attribute will be used for hiding/showing tiers:
-				var tier = dependent['tier'];
-				row_list.push(React.createElement(Row, { key: id.generate(), num_slots: num_slots, values: dependent['values'], tier: tier }));
-			}
-			return React.createElement(
-				'table',
-				{ className: 'gloss' },
-				React.createElement(
-					'tbody',
-					null,
-					row_list
-				)
-			);
-		}
-	}]);
-
-	return Sentence;
-}(React.Component);
 
 /***/ }),
 /* 2 */
@@ -334,9 +210,124 @@ module.exports = encode;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.sentence = sentence;
+
+var _shortid = __webpack_require__(1);
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function row(_ref) {
+	var numSlots = _ref.numSlots,
+	    values = _ref.values,
+	    tier = _ref.tier;
+
+	// I/P: numSlots, taken from parent sentence
+	//      values, list of segments (e.g., morphemes) with start/end times
+	//      tier, the tier name
+	// O/P: single row of glossed sentence, with colspan spacing
+	// Status: tested, working
+
+	// Building a row requires slots to determine the width of certain
+	// table elements. Each element will have a start and end slot, and 
+	// if there is a gap between an end slot and the following start
+	// slot, then a blank table element is input. We use the attribute
+	// 'colSpan' to account for elements which require large slots.
+
+	// The currentSlot counter is used to 'fill in' the missing
+	// slots when a dependent tier doesn't line up with its corresponding
+	// independent tier. For example, if the i-tier goes from 0-12, and
+	// the dependent tier goes from 2-5 and 7-12, then the currentSlot
+	// counter would be responsible for filling those gaps between 0-2
+	// and 5-7.
+	var finalSlot = numSlots;
+	var currentSlot = 0;
+	var output = [];
+
+	for (var i = 0; i < values.length; i++) {
+		var v = values[i];
+		var startSlot = v['startSlot'];
+		var endSlot = v['endSlot'];
+		var text = v['value'];
+
+		// Add blank space before current value:
+		if (startSlot > currentSlot) {
+			var diff = String(startSlot - currentSlot);
+			output.push(React.createElement('td', { key: _shortid2.default.generate(), colSpan: diff }));
+		}
+		// Create element with correct 'colSpan' width:
+		var size = String(endSlot - startSlot);
+		output.push(React.createElement(
+			'td',
+			{ key: _shortid2.default.generate(), colSpan: size },
+			text
+		));
+		currentSlot = endSlot;
+	}
+	// Fill blank space at end of table row:
+	if (currentSlot < finalSlot) {
+		var _diff = String(finalSlot - currentSlot);
+		output.push(React.createElement('td', { key: _shortid2.default.generate(), colSpan: _diff }));
+	}
+	return React.createElement(
+		'tr',
+		{ 'data-tier': tier },
+		output
+	);
+}
+
+function sentence(_ref2) {
+	var sentence = _ref2.sentence;
+
+	// I/P: sentence, a sentence
+	// O/P: table of glossed Row components
+	// Status: tested, working
+	var rowList = []; // to be output
+	var numSlots = sentence['numSlots'];
+	// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
+	// 'colSpan={numSlots}' ensures that this row spans the entire table.
+	rowList.push(React.createElement(
+		'tr',
+		{ key: _shortid2.default.generate(), 'data-tier': sentence['tier'] },
+		React.createElement(
+			'td',
+			{ colSpan: numSlots, className: 'topRow' },
+			sentence['text']
+		)
+	));
+	var dependents = sentence['dependents']; // list of dependent tiers, flat structure
+	// Add each dependent tier to the row list:
+	for (var i = 0; i < dependents.length; i++) {
+		var dependent = dependents[i];
+		// Tier attribute will be used for hiding/showing tiers:
+		var tier = dependent['tier'];
+		rowList.push(React.createElement('row', { key: _shortid2.default.generate(), numSlots: numSlots, values: dependent['values'], tier: tier }));
+	}
+	return React.createElement(
+		'table',
+		{ className: 'gloss' },
+		React.createElement(
+			'tbody',
+			null,
+			rowList
+		)
+	);
+}
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _untimed = __webpack_require__(4);
+var _untimed = __webpack_require__(5);
 
 var _timed = __webpack_require__(13);
 
@@ -373,19 +364,19 @@ var CenterPanel = function (_React$Component) {
 
     // I/P: timed, a boolean value
     //      sentences, a list of sentences
-    // O/P: untested
+    // O/P: tested, working
     value: function render() {
       if (this.props.timed) {
         return React.createElement(
           'div',
           { id: 'centerPanel' },
-          React.createElement(_timed.TimedTextDisplay, { sentences: this.props.sentences })
+          React.createElement('timedTextDisplay', { sentences: this.props.sentences })
         );
       } else {
         return React.createElement(
           'div',
           { id: 'centerPanel' },
-          React.createElement(_untimed.UntimedTextDisplay, { sentences: this.props.sentences })
+          React.createElement('untimedTextDisplay', { sentences: this.props.sentences })
         );
       }
     }
@@ -539,11 +530,11 @@ function showVideo() {
 }
 
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
-  ReactDOM.render(React.createElement(CenterPanel, { className: 'centerPanel', timed: true, sentences: data["sentences"] }), document.getElementById("main"));
+  ReactDOM.render(React.createElement(CenterPanel, { className: 'centerPanel', timed: true, sentences: data['sentences'] }), document.getElementById("main"));
 });
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -552,63 +543,37 @@ $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.UntimedTextDisplay = undefined;
+exports.untimedTextDisplay = untimedTextDisplay;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _shortid = __webpack_require__(1);
 
-var _sentence = __webpack_require__(1);
+var _shortid2 = _interopRequireDefault(_shortid);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _sentence = __webpack_require__(3);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function untimedTextDisplay(_ref) {
+	var sentences = _ref.sentences;
 
-var UntimedTextDisplay = exports.UntimedTextDisplay = function (_React$Component) {
-	_inherits(UntimedTextDisplay, _React$Component);
-
-	function UntimedTextDisplay() {
-		_classCallCheck(this, UntimedTextDisplay);
-
-		return _possibleConstructorReturn(this, (UntimedTextDisplay.__proto__ || Object.getPrototypeOf(UntimedTextDisplay)).apply(this, arguments));
+	// I/P: sentences, a list of sentences
+	// O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
+	// Status: tested, working
+	var output = [];
+	for (var i = 0; i < sentences.length; i++) {
+		var sentence = sentences[i];
+		output.push(React.createElement(
+			"div",
+			{ key: _shortid2.default.generate(), className: "untimedBlock" },
+			React.createElement("sentence", { key: _shortid2.default.generate(), sentence: sentence })
+		));
 	}
-
-	_createClass(UntimedTextDisplay, [{
-		key: "render",
-
-		// I/P: sentences, a list of sentences
-		// O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
-		// Status: tested, working
-		value: function render() {
-			var sentences = this.props.sentences;
-			var output = [];
-			for (var i = 0; i < sentences.length; i++) {
-				var sentence = sentences[i];
-				output.push(React.createElement(
-					"div",
-					{ key: i, className: "untimedBlock" },
-					React.createElement(_sentence.Sentence, { key: i, value: sentence })
-				));
-			}
-			return React.createElement(
-				"div",
-				{ className: "untimedTextDisplay", id: "td" },
-				output
-			);
-		}
-	}]);
-
-	return UntimedTextDisplay;
-}(React.Component);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = __webpack_require__(6);
-
+	return React.createElement(
+		"div",
+		{ className: "untimedTextDisplay" },
+		output
+	);
+}
 
 /***/ }),
 /* 6 */
@@ -864,7 +829,13 @@ exports.TimedTextDisplay = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _sentence = __webpack_require__(1);
+var _shortid = __webpack_require__(1);
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
+var _sentence = __webpack_require__(3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -872,146 +843,98 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var LabeledSentence = function (_React$Component) {
-	_inherits(LabeledSentence, _React$Component);
+function labeledSentence(_ref) {
+	var sentence = _ref.sentence;
 
-	function LabeledSentence() {
-		_classCallCheck(this, LabeledSentence);
+	// I/P: sentence, a sentence
+	// O/P: glossed sentence with speaker label
+	// Status: tested, working
+	var label = sentence['speaker'];
+	return React.createElement(
+		'div',
+		{ className: 'labeledSentence' },
+		React.createElement(
+			'span',
+			{ className: 'speakerLabel' },
+			label,
+			': '
+		),
+		React.createElement('sentence', { sentence: sentence, isTimeAligned: true })
+	);
+}
 
-		return _possibleConstructorReturn(this, (LabeledSentence.__proto__ || Object.getPrototypeOf(LabeledSentence)).apply(this, arguments));
+function timeBlock(_ref2) {
+	var sentences = _ref2.sentences;
+
+	// I/P: sentences, a list of sentences with the same start time
+	// O/P: div containing multiple LabeledSentences
+	// Status: tested, working
+	var output = [];
+	// A timeblock may contain multiple sentences with the same start time.
+	// Iterate through the list of these sentences.
+	for (var i = 0; i < sentences.length; i++) {
+		var sentence = sentences[i];
+		output.push(React.createElement('labeledSentence', { key: _shortid2.default.generate(), sentence: sentence }));
 	}
-
-	_createClass(LabeledSentence, [{
-		key: "render",
-
-		// I/P: value, a sentence
-		// O/P: glossed sentence with speaker label
-		// Status: tested, working
-		value: function render() {
-			var sentence = this.props.value;
-			var label = sentence["speaker"];
-			return React.createElement(
-				"div",
-				{ className: "labeledSentence" },
-				React.createElement(
-					"span",
-					{ className: "speakerLabel" },
-					label,
-					": "
-				),
-				React.createElement(_sentence.Sentence, { value: sentence, isTimeAligned: true })
-			);
-		}
-	}]);
-
-	return LabeledSentence;
-}(React.Component);
-
-var TimeBlock = function (_React$Component2) {
-	_inherits(TimeBlock, _React$Component2);
-
-	function TimeBlock() {
-		_classCallCheck(this, TimeBlock);
-
-		return _possibleConstructorReturn(this, (TimeBlock.__proto__ || Object.getPrototypeOf(TimeBlock)).apply(this, arguments));
-	}
-
-	_createClass(TimeBlock, [{
-		key: "render",
-
-		// I/P: sentences, a list of sentences with the same start time
-		// O/P: div containing multiple LabeledSentences
-		// Status: tested, working
-		value: function render() {
-			var sentences = this.props.sentences;
-			var output = [];
-			// A timeblock may contain multiple sentences with the same start time.
-			// Iterate through the list of these sentences.
-			for (var i = 0; i < sentences.length; i++) {
-				var sentence = sentences[i];
-				output.push(React.createElement(LabeledSentence, { key: i, value: sentence }));
-			}
-			return React.createElement(
-				"div",
-				{ className: "timeBlock" },
-				output
-			);
-		}
-	}]);
-
-	return TimeBlock;
-}(React.Component);
-
-// I/P: an integer number of seconds
-// O/P: time interval in h:mm:s or m:ss format
-// Status: tested, working
-
+	return React.createElement(
+		'div',
+		{ className: 'timeBlock' },
+		output
+	);
+}
 
 function printSeconds(r) {
+	// I/P: an integer number of seconds
+	// O/P: time interval in h:mm:s or m:ss format (a string)
+	// Status: tested, working
 	r = Number(r);var t = Math.floor(r / 3600),
 	    i = Math.floor(r % 3600 / 60),
 	    n = Math.floor(r % 3600 % 60);if (n >= 10) e = String(n);else var e = "0" + String(n);var o = String(i) + ":";if (0 == t) a = "";else if (i >= 10) a = String(t) + ":";else var a = String(t) + ":0";return a + o + e;
 }
 
-var LabeledTimeBlock = function (_React$Component3) {
-	_inherits(LabeledTimeBlock, _React$Component3);
+function labeledTimeBlock(_ref3) {
+	var sentences = _ref3.sentences,
+	    timestamp = _ref3.timestamp;
 
-	function LabeledTimeBlock() {
-		_classCallCheck(this, LabeledTimeBlock);
-
-		return _possibleConstructorReturn(this, (LabeledTimeBlock.__proto__ || Object.getPrototypeOf(LabeledTimeBlock)).apply(this, arguments));
-	}
-
-	_createClass(LabeledTimeBlock, [{
-		key: "render",
-
-		// I/P: sentences, a list of sentences with the same start time
-		//      timestamp, an integer number of seconds
-		//      isFinalBlock, a boolean value
-		// O/P: a TimeBlock with a left-floating timestamp
-		// Status: tested, working
-		value: function render() {
-			var sentences = this.props.sentences;
-			var timestamp = printSeconds(this.props.timestamp);
-			var isFinalBlock = this.props.isFinalBlock;
-			// Return the actual start and end time of this block in ms. Note that end times may differ,
-			// so take the latest endtime of any sentence in this timeblock. These will be used in attributes
-			// to render the current block in time with audio/video.
-			var min_start = Number.POSITIVE_INFINITY;
-			var max_end = Number.NEGATIVE_INFINITY;
-			for (var i = 0; i < sentences.length; i++) {
-				var sentence = sentences[i];
-				var start_time = sentence["start_time_ms"];
-				var end_time = sentence["end_time_ms"];
-				if (start_time < min_start) {
-					min_start = start_time;
-				}
-				if (end_time > max_end) {
-					max_end = end_time;
-				}
-			}
-			return React.createElement(
-				"div",
-				{ className: "labeledTimeBlock", "data-start_time": min_start, "data-end_time": max_end },
-				React.createElement(
-					"span",
-					{ className: "timeStampContainer" },
-					React.createElement(
-						"a",
-						{ href: "javascript:void(0)", "data-start_time": min_start, className: "timeStamp" },
-						timestamp
-					)
-				),
-				React.createElement(TimeBlock, { sentences: sentences })
-			);
+	// I/P: sentences, a list of sentences with the same start time
+	//      timestamp, an integer number of seconds
+	// O/P: a TimeBlock with a left-floating timestamp
+	// Status: tested, working
+	timestamp = printSeconds(timestamp);
+	// Return the actual start and end time of this block in ms. Note that end times may differ,
+	// so take the latest endtime of any sentence in this timeblock. These will be used in attributes
+	// to render the current block in time with audio/video.
+	var minStart = Number.POSITIVE_INFINITY;
+	var maxEnd = Number.NEGATIVE_INFINITY;
+	for (var i = 0; i < sentences.length; i++) {
+		var sentence = sentences[i];
+		var startTime = sentence["start_time_ms"];
+		var endTime = sentence["end_time_ms"];
+		if (startTime < minStart) {
+			minStart = startTime;
 		}
-	}]);
+		if (endTime > maxEnd) {
+			maxEnd = endTime;
+		}
+	}
+	return React.createElement(
+		'div',
+		{ className: 'labeledTimeBlock', 'data-startTime': minStart, 'data-endTime': maxEnd },
+		React.createElement(
+			'span',
+			{ className: 'timeStampContainer' },
+			React.createElement(
+				'a',
+				{ href: 'javascript:void(0)', 'data-startTime': minStart, className: 'timeStamp' },
+				timestamp
+			)
+		),
+		React.createElement('timeBlock', { sentences: sentences })
+	);
+}
 
-	return LabeledTimeBlock;
-}(React.Component);
-
-var TimedTextDisplay = exports.TimedTextDisplay = function (_React$Component4) {
-	_inherits(TimedTextDisplay, _React$Component4);
+var TimedTextDisplay = exports.TimedTextDisplay = function (_React$Component) {
+	_inherits(TimedTextDisplay, _React$Component);
 
 	function TimedTextDisplay() {
 		_classCallCheck(this, TimedTextDisplay);
@@ -1020,7 +943,7 @@ var TimedTextDisplay = exports.TimedTextDisplay = function (_React$Component4) {
 	}
 
 	_createClass(TimedTextDisplay, [{
-		key: "render",
+		key: 'render',
 
 		// I/P: sentences, stored in JSON format, as in test_data.json
 		// O/P: the main gloss view, with several LabeledTimeBlocks arranged vertically
@@ -1054,11 +977,11 @@ var TimedTextDisplay = exports.TimedTextDisplay = function (_React$Component4) {
 			for (var i = 0; i < unique_timestamps.length; i++) {
 				var timestamp = unique_timestamps[i];
 				var corresponding_sentences = times_to_sentences[timestamp];
-				output.push(React.createElement(LabeledTimeBlock, { key: i, sentences: corresponding_sentences, timestamp: timestamp }));
+				output.push(React.createElement('labeledTimeBlock', { key: _shortid2.default.generate(), sentences: corresponding_sentences, timestamp: timestamp }));
 			}
 			return React.createElement(
-				"div",
-				{ id: "timedTextDisplay" },
+				'div',
+				{ id: 'timedTextDisplay' },
 				output
 			);
 		}

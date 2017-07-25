@@ -1,69 +1,68 @@
-import { Sentence } from "./sentence.jsx";
+import id from 'shortid';
+import { Sentence } from './sentence.jsx';
 
-class LabeledSentence extends React.Component {
-	// I/P: value, a sentence
+function labeledSentence({ sentence }) {
+	// I/P: sentence, a sentence
 	// O/P: glossed sentence with speaker label
 	// Status: tested, working
-	render() {
-		var sentence = this.props.value;
-		var label = sentence["speaker"];
-		return <div className="labeledSentence"><span className="speakerLabel">{label}: </span><Sentence value={sentence} isTimeAligned={true}/></div>;
-	}
+	const label = sentence['speaker'];
+	return <div className="labeledSentence"><span className="speakerLabel">{label}: </span><sentence sentence={sentence} isTimeAligned /></div>;
 }
 
-class TimeBlock extends React.Component {
+function timeBlock({ sentences }) {
 	// I/P: sentences, a list of sentences with the same start time
 	// O/P: div containing multiple LabeledSentences
 	// Status: tested, working
-	render() {
-		var sentences = this.props.sentences;
-		var output = [];
-		// A timeblock may contain multiple sentences with the same start time.
-		// Iterate through the list of these sentences.
-		for (var i=0; i<sentences.length; i++) {
-			var sentence = sentences[i];
-			output.push(<LabeledSentence key={i} value={sentence}/>);
-		}
-		return <div className="timeBlock">{output}</div>;
+	let output = [];
+	// A timeblock may contain multiple sentences with the same start time.
+	// Iterate through the list of these sentences.
+	for (let i=0; i<sentences.length; i++) {
+		const sentence = sentences[i];
+		output.push(<labeledSentence key={id.generate()} sentence={sentence} />);
 	}
+	return <div className="timeBlock">{output}</div>;
 }
 
-// I/P: an integer number of seconds
-// O/P: time interval in h:mm:s or m:ss format
-// Status: tested, working
-function printSeconds(r){r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%3600/60),n=Math.floor(r%3600%60);if(n>=10)e=String(n);else var e="0"+String(n);var o=String(i)+":";if(0==t)a="";else if(i>=10)a=String(t)+":";else var a=String(t)+":0";return a+o+e}
+function printSeconds(r) {
+	// I/P: an integer number of seconds
+	// O/P: time interval in h:mm:s or m:ss format (a string)
+	// Status: tested, working
+	r=Number(r);var t=Math.floor(r/3600),i=Math.floor(r%3600/60),n=Math.floor(r%3600%60);if(n>=10)e=String(n);else var e="0"+String(n);var o=String(i)+":";if(0==t)a="";else if(i>=10)a=String(t)+":";else var a=String(t)+":0";return a+o+e
+}
 
-class LabeledTimeBlock extends React.Component {
+function labeledTimeBlock({ sentences, timestamp }) {
 	// I/P: sentences, a list of sentences with the same start time
 	//      timestamp, an integer number of seconds
-	//      isFinalBlock, a boolean value
 	// O/P: a TimeBlock with a left-floating timestamp
 	// Status: tested, working
-	render() {
-		var sentences = this.props.sentences;
-		var timestamp = printSeconds(this.props.timestamp);
-		var isFinalBlock = this.props.isFinalBlock;
-		// Return the actual start and end time of this block in ms. Note that end times may differ,
-		// so take the latest endtime of any sentence in this timeblock. These will be used in attributes
-		// to render the current block in time with audio/video.
-		var min_start = Number.POSITIVE_INFINITY;
-		var max_end = Number.NEGATIVE_INFINITY;
-		for (var i=0; i<sentences.length; i++) {
-			var sentence = sentences[i];
-			var start_time = sentence["start_time_ms"];
-			var end_time = sentence["end_time_ms"];
-			if (start_time < min_start) {
-				min_start = start_time;
-			}
-			if (end_time > max_end) {
-				max_end = end_time;
-			}
+	timestamp = printSeconds(timestamp);
+	// Return the actual start and end time of this block in ms. Note that end times may differ,
+	// so take the latest endtime of any sentence in this timeblock. These will be used in attributes
+	// to render the current block in time with audio/video.
+	let minStart = Number.POSITIVE_INFINITY;
+	let maxEnd = Number.NEGATIVE_INFINITY;
+	for (let i=0; i<sentences.length; i++) {
+		const sentence = sentences[i];
+		const startTime = sentence["start_time_ms"];
+		const endTime = sentence["end_time_ms"];
+		if (startTime < minStart) {
+			minStart = startTime;
 		}
-		return <div className="labeledTimeBlock" data-start_time={min_start} data-end_time={max_end}><span className="timeStampContainer"><a href="javascript:void(0)" data-start_time={min_start} className="timeStamp">{timestamp}</a></span><TimeBlock sentences={sentences}/></div>;
+		if (endTime > maxEnd) {
+			maxEnd = endTime;
+		}
 	}
+	return (
+		<div className="labeledTimeBlock" data-startTime={minStart} data-endTime={maxEnd}>
+			<span className="timeStampContainer">
+				<a href="javascript:void(0)" data-startTime={minStart} className="timeStamp">{timestamp}</a>
+			</span>
+			<timeBlock sentences={sentences} />
+		</div>
+	);
 }
 
-export class TimedTextDisplay extends React.Component {
+export class timedTextDisplay extends React.Component {
 	// I/P: sentences, stored in JSON format, as in test_data.json
 	// O/P: the main gloss view, with several LabeledTimeBlocks arranged vertically
 	// Status: tested, working
@@ -95,7 +94,7 @@ export class TimedTextDisplay extends React.Component {
 		for (var i=0; i<unique_timestamps.length; i++) {
 			var timestamp = unique_timestamps[i];
 			var corresponding_sentences = times_to_sentences[timestamp];
-			output.push(<LabeledTimeBlock key={i} sentences={corresponding_sentences} timestamp={timestamp}/>);
+			output.push(<labeledTimeBlock key={id.generate()} sentences={corresponding_sentences} timestamp={timestamp} />);
 		}
 		return <div id="timedTextDisplay">{output}</div>;
 	}

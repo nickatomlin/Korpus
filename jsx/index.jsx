@@ -17,13 +17,13 @@ var storyListUiText = "List of Stories";
 class CenterPanel extends React.Component {
 	// I/P: timed, a boolean value
 	//      sentences, a list of sentences
-	// O/P: untested
+	// O/P: tested, working
 	render() {
 		if (this.props.timed) {
-			return <div id="centerPanel"><TimedTextDisplay sentences={this.props.sentences}/></div>;
+			return <div id="centerPanel"><timedTextDisplay sentences={this.props.sentences} /></div>;
 		}
 		else {
-			return <div id="centerPanel"><UntimedTextDisplay sentences={this.props.sentences}/></div>;
+			return <div id="centerPanel"><untimedTextDisplay sentences={this.props.sentences} /></div>;
 		}
 	}
 }
@@ -101,7 +101,7 @@ function showVideo() {
 
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
 	ReactDOM.render(
-		<CenterPanel className="centerPanel" timed={true} sentences={data["sentences"]}/>,
+		<CenterPanel className="centerPanel" timed sentences={data['sentences']}/>,
 		document.getElementById("main")
 	);
 });
