@@ -3689,7 +3689,7 @@ var BasicExample = function (_React$Component) {
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
-                { to: "./" },
+                { to: "/" },
                 "Home"
               )
             ),
@@ -3698,7 +3698,7 @@ var BasicExample = function (_React$Component) {
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
-                { to: "./about" },
+                { to: "/about" },
                 "About"
               )
             ),
@@ -3707,14 +3707,14 @@ var BasicExample = function (_React$Component) {
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
-                { to: "./topics" },
+                { to: "/topics" },
                 "Topics"
               )
             )
           ),
           _react2.default.createElement("hr", null),
-          _react2.default.createElement(_reactRouterDom.Route, { path: "", component: Home }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: "/about", component: About }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: Home }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/about", component: About }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/topics", component: Topics })
         )
       );
