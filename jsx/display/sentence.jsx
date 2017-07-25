@@ -1,6 +1,6 @@
 import id from 'shortid';
 
-function row({ numSlots, values, tier }) {
+function Row({ numSlots, values, tier }) {
 	// I/P: numSlots, taken from parent sentence
 	//      values, list of segments (e.g., morphemes) with start/end times
 	//      tier, the tier name
@@ -47,7 +47,7 @@ function row({ numSlots, values, tier }) {
 	return <tr data-tier={tier}>{output}</tr>;
 }
 
-export function sentence({ sentence }) {
+export function Sentence({ sentence }) {
 	// I/P: sentence, a sentence
 	// O/P: table of glossed Row components
 	// Status: tested, working
@@ -62,7 +62,7 @@ export function sentence({ sentence }) {
 		const dependent = dependents[i];
 		// Tier attribute will be used for hiding/showing tiers:
 		const tier = dependent['tier'];
-		rowList.push(<row key={id.generate()} numSlots={numSlots} values={dependent['values']} tier={tier} />);
+		rowList.push(<Row key={id.generate()} numSlots={numSlots} values={dependent['values']} tier={tier} />);
 	}
 	return <table className="gloss"><tbody>{rowList}</tbody></table>;
 }

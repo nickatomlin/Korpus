@@ -1,5 +1,5 @@
-import { UntimedTextDisplay } from './display/untimed.jsx';
-import { TimedTextDisplay } from './display/timed.jsx';
+import { UntimedTextDisplay } from './Display/Untimed.jsx';
+import { TimedTextDisplay } from './Display/Timed.jsx';
 
 // Spanish language UI
 var speakersUiText = "Hablantes";
@@ -14,17 +14,14 @@ var videoButtonUiText = "Show video";
 var storyListUiText = "List of Stories";
 */
 
-class CenterPanel extends React.Component {
+function CenterPanel({ timed, sentences }) {
 	// I/P: timed, a boolean value
 	//      sentences, a list of sentences
 	// O/P: tested, working
-	render() {
-		if (this.props.timed) {
-			return <div id="centerPanel"><timedTextDisplay sentences={this.props.sentences} /></div>;
-		}
-		else {
-			return <div id="centerPanel"><untimedTextDisplay sentences={this.props.sentences} /></div>;
-		}
+	if (timed) {
+		return <div id="centerPanel"><TimedTextDisplay sentences={sentences} /></div>;
+	} else {
+		return <div id="centerPanel"><UntimedTextDisplay sentences={sentences} /></div>;
 	}
 }
 
@@ -95,13 +92,9 @@ class SpeakerInfo extends React.Component {
   }
 }
 
-function showVideo() {
-	// do stuff
-}
-
 $.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
 	ReactDOM.render(
-		<CenterPanel className="centerPanel" timed sentences={data['sentences']}/>,
+		<CenterPanel className="centerPanel" timed sentences={data['sentences']} />,
 		document.getElementById("main")
 	);
 });
