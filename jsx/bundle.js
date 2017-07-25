@@ -250,8 +250,8 @@ function Row(_ref) {
 
 	for (var i = 0; i < values.length; i++) {
 		var v = values[i];
-		var startSlot = v['startSlot'];
-		var endSlot = v['endSlot'];
+		var startSlot = v['start_slot'];
+		var endSlot = v['end_slot'];
 		var text = v['value'];
 
 		// Add blank space before current value:
@@ -287,12 +287,12 @@ function Sentence(_ref2) {
 	// O/P: table of glossed Row components
 	// Status: tested, working
 	var rowList = []; // to be output
-	var numSlots = sentence['numSlots'];
+	var numSlots = sentence['num_slots'];
 	// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
 	// 'colSpan={numSlots}' ensures that this row spans the entire table.
 	rowList.push(React.createElement(
 		'tr',
-		{ key: _shortid2.default.generate(), 'data-tier': sentence['tier'] },
+		{ 'data-tier': sentence['tier'] },
 		React.createElement(
 			'td',
 			{ colSpan: numSlots, className: 'topRow' },

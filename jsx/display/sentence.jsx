@@ -25,14 +25,14 @@ function Row({ numSlots, values, tier }) {
 
 	for (let i=0; i<values.length; i++) {
 		const v = values[i];
-		const startSlot = v['startSlot'];
-		const endSlot = v['endSlot'];
+		const startSlot = v['start_slot'];
+		const endSlot = v['end_slot'];
 		const text = v['value'];
 
 		// Add blank space before current value:
 		if (startSlot > currentSlot) {
 			const diff = String(startSlot - currentSlot);
-			output.push(<td key={id.generate()} colSpan={diff}></td>);
+			output.push(<td key={id.generate()} colSpan={diff} />);
 		}
 		// Create element with correct 'colSpan' width:
 		const size = String(endSlot - startSlot);
@@ -42,7 +42,7 @@ function Row({ numSlots, values, tier }) {
 	// Fill blank space at end of table row:
 	if (currentSlot < finalSlot) {
 		const diff = String(finalSlot - currentSlot);
-		output.push(<td key={id.generate()} colSpan={diff}></td>);
+		output.push(<td key={id.generate()} colSpan={diff} />);
 	}
 	return <tr data-tier={tier}>{output}</tr>;
 }
@@ -52,10 +52,10 @@ export function Sentence({ sentence }) {
 	// O/P: table of glossed Row components
 	// Status: tested, working
 	let rowList = []; // to be output
-	const numSlots = sentence['numSlots'];
+	const numSlots = sentence['num_slots'];
 	// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
 	// 'colSpan={numSlots}' ensures that this row spans the entire table.
-	rowList.push(<tr key={id.generate()} data-tier={sentence['tier']}><td colSpan={numSlots} className="topRow">{sentence['text']}</td></tr>);
+	rowList.push(<tr data-tier={sentence['tier']}><td colSpan={numSlots} className="topRow">{sentence['text']}</td></tr>);
 	const dependents = sentence['dependents']; // list of dependent tiers, flat structure
 	// Add each dependent tier to the row list:
 	for (let i=0; i<dependents.length; i++) {
