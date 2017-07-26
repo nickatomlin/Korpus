@@ -106,6 +106,12 @@ function App({ data }) {
 $.getJSON("db/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
 	ReactDOM.render(
 		<App data={data} />,
-		document.getElementById("main")
+		document.getElementById("main"),
+		function() { 
+			$.ajax({
+				url: "./js/txt_sync.js",
+				dataType: "script"
+			}); 
+		}
 	);
 });

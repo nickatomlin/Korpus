@@ -390,16 +390,16 @@ var Video = exports.Video = function (_React$Component) {
 	}
 
 	_createClass(Video, [{
-		key: "render",
+		key: 'render',
 
 		// I/P: path, the path to the video
 		// O/P: a video player
 		// Status: re-written, untested
 		value: function render() {
-			return React.createElement("video", { src: this.props.path, id: "video", className: "hidden", controls: true });
+			return React.createElement('video', { src: this.props.path, id: 'video', controls: true });
 		}
 	}], [{
-		key: "show",
+		key: 'show',
 		value: function show() {
 			// Resize panels:
 			$('#leftPanel').css('width', '40%');
@@ -430,7 +430,7 @@ var Video = exports.Video = function (_React$Component) {
 			video.currentTime = audio.currentTime;
 		}
 	}, {
-		key: "hide",
+		key: 'hide',
 		value: function hide() {
 			// Resize panels:
 			var footheight = ($("#footer").height() + 48).toString() + "px";
@@ -678,7 +678,12 @@ function App(_ref2) {
 }
 
 $.getJSON("db/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
-	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById("main"));
+	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById("main"), function () {
+		$.ajax({
+			url: "./js/txt_sync.js",
+			dataType: "script"
+		});
+	});
 });
 
 /***/ }),
@@ -1122,13 +1127,13 @@ function LabeledTimeBlock(_ref3) {
 
 	return React.createElement(
 		'div',
-		{ className: 'labeledTimeBlock', 'data-startTime': minStart, 'data-endTime': maxEnd },
+		{ className: 'labeledTimeBlock', 'data-start_time': minStart, 'data-end_time': maxEnd },
 		React.createElement(
 			'span',
 			{ className: 'timeStampContainer' },
 			React.createElement(
 				'a',
-				{ href: 'javascript:void(0)', 'data-startTime': minStart, className: 'timeStamp' },
+				{ href: 'javascript:void(0)', 'data-start_time': minStart, className: 'timeStamp' },
 				timestamp
 			)
 		),
