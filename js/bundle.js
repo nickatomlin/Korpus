@@ -1133,6 +1133,8 @@ var _Title = __webpack_require__(15);
 
 var _Video = __webpack_require__(16);
 
+var _Minibar = __webpack_require__(17);
+
 function Sidebar(_ref) {
 	var metadata = _ref.metadata;
 
@@ -1147,14 +1149,16 @@ function Sidebar(_ref) {
 			'div',
 			{ id: 'leftPanel' },
 			React.createElement(_Title.Title, { title: metadata['title'] }),
-			React.createElement(_Video.Video, { path: path })
+			React.createElement(_Video.Video, { path: path }),
+			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
 		);
 	} catch (err) {
 		console.log(err);
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
-			React.createElement(_Title.Title, { title: metadata['title'] })
+			React.createElement(_Title.Title, { title: metadata['title'] }),
+			React.createElement(_Minibar.Minibar, { metadata: metadata })
 		);
 	}
 }
@@ -1289,6 +1293,57 @@ var Video = exports.Video = function (_React$Component) {
 
 	return Video;
 }(React.Component);
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Minibar = Minibar;
+function Minibar(_ref) {
+	var metadata = _ref.metadata;
+
+	return React.createElement(
+		"div",
+		null,
+		React.createElement(
+			"ul",
+			{ "class": "nav nav-tabs" },
+			React.createElement(
+				"li",
+				{ "class": "active" },
+				React.createElement(
+					"a",
+					{ href: "#info" },
+					"Show Tab 1"
+				)
+			),
+			React.createElement(
+				"li",
+				null,
+				React.createElement(
+					"a",
+					{ href: "#search" },
+					"Show Tab 2"
+				)
+			),
+			React.createElement(
+				"li",
+				null,
+				React.createElement(
+					"a",
+					{ href: "#settings" },
+					"Show Tab 3"
+				)
+			)
+		)
+	);
+}
 
 /***/ })
 /******/ ]);

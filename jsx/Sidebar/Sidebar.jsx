@@ -1,10 +1,11 @@
 import { Title } from './Title.jsx';
 import { Video } from './Video.jsx';
+import { Minibar } from './Minibar/Minibar.jsx'
 
 export function Sidebar({ metadata }) {
 	// I/P: metadata, in JSON format
 	// O/P: a sidebar complement to the TextDisplay
-	// Status: unfinished
+	// Status: untested
 	try {
 		const filename = metadata['media']['mp4'];
 		const path = '/data/media_files/' + filename;
@@ -13,6 +14,7 @@ export function Sidebar({ metadata }) {
 			<div id="leftPanel">
 				<Title title={metadata['title']} />
 				<Video path={path} />
+				<Minibar metadata={metadata} hasVideo />
 			</div>
 		);
 	} catch (err) {
@@ -20,6 +22,7 @@ export function Sidebar({ metadata }) {
 		return (
 			<div id="leftPanel">
 				<Title title={metadata['title']} />
+				<Minibar metadata={metadata} />
 			</div>
 		);
 	}
