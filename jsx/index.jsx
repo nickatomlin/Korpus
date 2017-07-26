@@ -4,6 +4,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import id from 'shortid';
 import { UntimedTextDisplay } from './Display/Untimed.jsx';
 import { TimedTextDisplay } from './Display/Timed.jsx';
 import { Sidebar } from './Sidebar/Sidebar.jsx'
@@ -98,11 +99,20 @@ class SpeakerInfo extends React.Component {
   	}
 }
 
-function StoryIndex() {
+function StoryIndex({ data }) {
 	return (
 		<div>
 			<h2>Imagine a list of stories.</h2>
 			<Link to="/story">story link</Link>
+			<ul>
+                {
+                    data.map(s => (
+						<li key={id.generate()}>
+							<Link to={`/story/${s.storyId}`}>{s.displayTitle}</Link>
+						</li>
+                    ))
+                }
+			</ul>
 		</div>
 	);
 }
@@ -118,26 +128,35 @@ function Story({ data }) {
     );
 }
 
-function App({ data }) {
+function Stories({ data }) {
 	return (
 		<div>
-			<Route exact path="/index" component={StoryIndex} />
-			<Route exact path="/story" render={props => <Story data={data} />} />
+			{
+				data.map(s => (
+					<Route
+						exact path={`/story/${s.storyId}`}
+						render={props => <Story data={s} />}
+					/>
+				))
+			}
 		</div>
 	);
 }
 
-function AppContainer({ data }) {
+function App({ data }) {
 	return (
-		<Router>
-			<App data={data} />
-		</Router>
+		<div>
+			<Route exact path="/index" render={props => <StoryIndex data={data.stories} />} />
+			<Route path="/story" render={props => <Stories data={data.sentences} />} />
+		</div>
 	);
 }
 
 $.getJSON("data/json_files/Intro.json", function(data) {
 	ReactDOM.render(
-		<AppContainer data={data} />,
+		<Router>
+			<App data={data} />
+		</Router>,
 		document.getElementById("main")
 	);
 });
