@@ -1,5 +1,6 @@
 import { UntimedTextDisplay } from './Display/Untimed.jsx';
 import { TimedTextDisplay } from './Display/Timed.jsx';
+import { Sidebar } from './Sidebar/Sidebar.jsx'
 
 // Spanish language UI
 var speakersUiText = "Hablantes";
@@ -91,22 +92,18 @@ class SpeakerInfo extends React.Component {
   	}
 }
 
-function LeftPanel({ fillmein }) {
-	return <div id="leftPanel"><h1>In Progress.</h1></div>;
-}
-
 function App({ data }) {
 	const sentences = data['sentences'];
 	const timed = (data['metadata']['timed'] == 'true');
 	return (
 		<div>
-			<LeftPanel />
+			<Sidebar metadata={data['metadata']} />
 			<CenterPanel timed={timed} sentences={sentences} />
 		</div>
 	);
 }
 
-$.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
+$.getJSON("database/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
 	ReactDOM.render(
 		<App data={data} />,
 		document.getElementById("main")

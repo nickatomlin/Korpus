@@ -1,4 +1,4 @@
-function Title({ title }) {
+export function Title({ title }) {
 	// I/P: title, a string
 	// O/P: printed title
 	// Status: tested, working

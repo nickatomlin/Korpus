@@ -374,6 +374,8 @@ var _Untimed = __webpack_require__(5);
 
 var _Timed = __webpack_require__(13);
 
+var _Sidebar = __webpack_require__(14);
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -555,34 +557,20 @@ var SpeakerInfo = function (_React$Component3) {
 	return SpeakerInfo;
 }(React.Component);
 
-function LeftPanel(_ref2) {
-	var fillmein = _ref2.fillmein;
-
-	return React.createElement(
-		'div',
-		{ id: 'leftPanel' },
-		React.createElement(
-			'h1',
-			null,
-			'In Progress.'
-		)
-	);
-}
-
-function App(_ref3) {
-	var data = _ref3.data;
+function App(_ref2) {
+	var data = _ref2.data;
 
 	var sentences = data['sentences'];
 	var timed = data['metadata']['timed'] == 'true';
 	return React.createElement(
 		'div',
 		null,
-		React.createElement(LeftPanel, null),
+		React.createElement(_Sidebar.Sidebar, { metadata: data['metadata'] }),
 		React.createElement(CenterPanel, { timed: timed, sentences: sentences })
 	);
 }
 
-$.getJSON("data/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
+$.getJSON("database/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
 	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById("main"));
 });
 
@@ -1128,6 +1116,179 @@ function TimedTextDisplay(_ref4) {
 		output
 	);
 }
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Sidebar = Sidebar;
+
+var _Title = __webpack_require__(15);
+
+var _Video = __webpack_require__(16);
+
+function Sidebar(_ref) {
+	var metadata = _ref.metadata;
+
+	// I/P: metadata, in JSON format
+	// O/P: a sidebar complement to the TextDisplay
+	// Status: unfinished
+	try {
+		var filename = metadata['media']['mp4'];
+		var path = '/data/media_files/' + filename;
+		console.log(path);
+		return React.createElement(
+			'div',
+			{ id: 'leftPanel' },
+			React.createElement(_Title.Title, { title: metadata['title'] }),
+			React.createElement(_Video.Video, { path: path })
+		);
+	} catch (err) {
+		console.log(err);
+		return React.createElement(
+			'div',
+			{ id: 'leftPanel' },
+			React.createElement(_Title.Title, { title: metadata['title'] })
+		);
+	}
+}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Title = Title;
+function Title(_ref) {
+	var title = _ref.title;
+
+	// I/P: title, a string
+	// O/P: printed title
+	// Status: tested, working
+	return React.createElement(
+		"h3",
+		{ id: "title" },
+		title
+	);
+}
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Video = exports.Video = function (_React$Component) {
+	_inherits(Video, _React$Component);
+
+	function Video() {
+		_classCallCheck(this, Video);
+
+		return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
+	}
+
+	_createClass(Video, [{
+		key: "render",
+
+		// I/P: path, the path to the video
+		// O/P: a video player
+		// Status: re-written, untested
+		value: function render() {
+			return React.createElement("video", { src: this.props.path, id: "video", className: "hidden", controls: true });
+		}
+	}, {
+		key: "show",
+		value: function show() {
+			// Resize panels:
+			$('#leftPanel').css('width', '40%');
+			$('#leftPanel').css('height', 'calc(100% - 48px)');
+			$('#centerPanel').css('margin-left', '40%');
+			$('#centerPanel').css('height', 'calc(100% - 48px)');
+			$("#centerPanel").css("width", "60%");
+
+			// Deactivate audio:
+			$('#footer').css('display', 'none');
+			$('#audio').removeAttr('ontimeupdate');
+			$('#audio').removeAttr('onclick');
+			$('#audio').attr('data-live', 'false');
+
+			// Activate video:
+			$('#video').css('display', 'inline');
+			$('#video').attr('data-live', 'true');
+			$('#video').attr('ontimeupdate', 'sync(this.currentTime)');
+			$('#video').attr('onclick', 'sync(this.currentTime)');
+
+			// Match times:
+			var audio = document.getElementById('audio');
+			var video = document.getElementById('video');
+			if (!audio.paused) {
+				audio.pause();
+				video.play();
+			}
+			video.currentTime = audio.currentTime;
+		}
+	}, {
+		key: "hide",
+		value: function hide() {
+			// Resize panels:
+			var footheight = ($("#footer").height() + 48).toString() + "px";
+			var bodyheight = "calc(100% - " + footheight + ")";
+
+			$("#leftPanel").css("width", "240px");
+			$("#leftPanel").css("height", bodyheight);
+			$("#centerPanel").css("height", bodyheight);
+			$("#centerPanel").css("margin-left", "240px");
+			$("#centerPanel").css("width", "calc(100% - 240px)");
+
+			// Deactivate video:
+			$("#video").css("display", "none");
+			$("#video").removeAttr("onclick");
+			$("#video").removeAttr("ontimeupdate");
+			$("#video").attr("data-live", "false");
+
+			// Activate audio:
+			$("#footer").css("display", "block");
+			$("#audio").attr("data-live", "true");
+			$("#audio").attr("ontimeupdate", "sync(this.currentTime)");
+			$("#audio").attr("onclick", "sync(this.currentTime)");
+
+			// Match times:
+			var audio = document.getElementById("audio");
+			var video = document.getElementById("video");
+			if (!video.paused) {
+				video.pause();
+				audio.play();
+			}
+			audio.currentTime = video.currentTime;
+		}
+	}]);
+
+	return Video;
+}(React.Component);
 
 /***/ })
 /******/ ]);

@@ -4,7 +4,7 @@ module.exports = {
   entry: './jsx/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'jsx')
+    path: path.resolve(__dirname, 'js')
   },
   module: {
     loaders: [{
