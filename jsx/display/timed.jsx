@@ -87,7 +87,7 @@ export function TimedTextDisplay({ sentences }) {
 		if (timestampSec in timesToSentences) {
 			timesToSentences[timestampSec].push(sentence);
 		} else {
-			uniqueTimestamps.push(timestamp_sec);
+			uniqueTimestamps.push(timestampSec);
 			timesToSentences[timestampSec] = [sentence];
 		}
 	}

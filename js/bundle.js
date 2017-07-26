@@ -1040,11 +1040,11 @@ function TimedTextDisplay(_ref4) {
 
 	// Steps to create ordered, unique TimeBlocks:
 	//  1) Create a hashmap from start_times (in sec) to lists of sentences
-	//  2) Sort the keys of this hashmap (stored in unique_timestamps)
+	//  2) Sort the keys of this hashmap (stored in uniqueTimestamps)
 	//  3) Each key-value pair corresponds to a unique TimeBlock
 
-	var times_to_sentences = {}; // hashmap from timestamps (in sec) to lists of sentences
-	var unique_timestamps = []; // for sorting keys
+	var timesToSentences = {}; // hashmap from timestamps (in sec) to lists of sentences
+	var uniqueTimestamps = []; // for sorting keys
 	var _iteratorNormalCompletion3 = true;
 	var _didIteratorError3 = false;
 	var _iteratorError3 = undefined;
@@ -1053,13 +1053,13 @@ function TimedTextDisplay(_ref4) {
 		for (var _iterator3 = sentences[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 			var sentence = _step3.value;
 
-			var timestamp_ms = sentence["start_time_ms"];
-			var timestamp_sec = Math.floor(timestamp_ms / 1000); // msec -> sec
-			if (timestamp_sec in times_to_sentences) {
-				times_to_sentences[timestamp_sec].push(sentence);
+			var timestampMs = sentence['start_time_ms'];
+			var timestampSec = Math.floor(timestampMs / 1000); // msec -> sec
+			if (timestampSec in timesToSentences) {
+				timesToSentences[timestampSec].push(sentence);
 			} else {
-				unique_timestamps.push(timestamp_sec);
-				times_to_sentences[timestamp_sec] = [sentence];
+				uniqueTimestamps.push(timestampSec);
+				timesToSentences[timestampSec] = [sentence];
 			}
 		}
 	} catch (err) {
@@ -1077,7 +1077,7 @@ function TimedTextDisplay(_ref4) {
 		}
 	}
 
-	unique_timestamps.sort(function (a, b) {
+	uniqueTimestamps.sort(function (a, b) {
 		return a - b;
 	}); // to avoid alphanumeric sorting
 	var _iteratorNormalCompletion4 = true;
@@ -1085,13 +1085,13 @@ function TimedTextDisplay(_ref4) {
 	var _iteratorError4 = undefined;
 
 	try {
-		for (var _iterator4 = unique_timestamps[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+		for (var _iterator4 = uniqueTimestamps[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
 			var timestamp = _step4.value;
 
-			var corresponding_sentences = times_to_sentences[timestamp];
+			var correspondingSentences = timesToSentences[timestamp];
 			output.push(React.createElement(LabeledTimeBlock, {
 				key: _shortid2.default.generate(),
-				sentences: corresponding_sentences,
+				sentences: correspondingSentences,
 				timestamp: timestamp
 			}));
 		}
@@ -1318,26 +1318,29 @@ function Minibar(_ref) {
 	//      hasVideo, a boolean
 	// O/P: a subsection of the sidebar with hide-able tabs
 	// Status: untested, unwritten dependencies
+
+	// Click events for the minibar subsections:
 	$(document.body).on('click', '.minibarLink', function () {
-		event.preventDefault();
-		var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+		event.preventDefault(); // Prevents from following link.
+		var activeLink = $('.nav-tabs > li.active > a').attr('href');
 
-		//find actived navigation and remove 'active' css
-		var actived_nav = $('.nav-tabs > li.active');
-		actived_nav.removeClass('active');
+		// Find actived navigation and remove 'active' css
+		var activeLI = $('.nav-tabs > li.active');
+		activeLI.removeClass('active');
 
-		//add 'active' css into clicked navigation
+		// Add 'active' css into clicked navigation
 		$(this).parents('li').addClass('active');
 
-		//hide displaying tab content
-		$(active_tab_selector).removeClass('active');
-		$(active_tab_selector).addClass('hide');
+		// Hide displaying tab content
+		$(activeLink).removeClass('active');
+		$(activeLink).addClass('hide');
 
-		//show target tab content
-		var target_tab_selector = $(this).attr('href');
-		$(target_tab_selector).removeClass('hide');
-		$(target_tab_selector).addClass('active');
+		// Show target tab content
+		var newLink = $(this).attr('href');
+		$(newLink).removeClass('hide');
+		$(newLink).addClass('active');
 	});
+
 	return React.createElement(
 		'div',
 		{ id: 'minibar' },
