@@ -570,7 +570,7 @@ function App(_ref2) {
 	);
 }
 
-$.getJSON("database/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
+$.getJSON("db/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
 	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById("main"));
 });
 
@@ -1140,11 +1140,10 @@ function Sidebar(_ref) {
 
 	// I/P: metadata, in JSON format
 	// O/P: a sidebar complement to the TextDisplay
-	// Status: unfinished
+	// Status: untested
 	try {
 		var filename = metadata['media']['mp4'];
 		var path = '/data/media_files/' + filename;
-		console.log(path);
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
@@ -1153,7 +1152,6 @@ function Sidebar(_ref) {
 			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
 		);
 	} catch (err) {
-		console.log(err);
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
@@ -1305,43 +1303,150 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.Minibar = Minibar;
-function Minibar(_ref) {
-	var metadata = _ref.metadata;
 
+var _Info = __webpack_require__(18);
+
+var _Search = __webpack_require__(19);
+
+var _Settings = __webpack_require__(20);
+
+function Minibar(_ref) {
+	var metadata = _ref.metadata,
+	    hasVideo = _ref.hasVideo;
+
+	// I/P: metadata, in JSON format
+	//      hasVideo, a boolean
+	// O/P: a subsection of the sidebar with hide-able tabs
+	// Status: untested, unwritten dependencies
+	$(document.body).on('click', '.minibarLink', function () {
+		event.preventDefault();
+		var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+
+		//find actived navigation and remove 'active' css
+		var actived_nav = $('.nav-tabs > li.active');
+		actived_nav.removeClass('active');
+
+		//add 'active' css into clicked navigation
+		$(this).parents('li').addClass('active');
+
+		//hide displaying tab content
+		$(active_tab_selector).removeClass('active');
+		$(active_tab_selector).addClass('hide');
+
+		//show target tab content
+		var target_tab_selector = $(this).attr('href');
+		$(target_tab_selector).removeClass('hide');
+		$(target_tab_selector).addClass('active');
+	});
 	return React.createElement(
-		"div",
-		null,
+		'div',
+		{ id: 'minibar' },
 		React.createElement(
-			"ul",
-			{ "class": "nav nav-tabs" },
+			'ul',
+			{ className: 'nav nav-tabs' },
 			React.createElement(
-				"li",
-				{ "class": "active" },
+				'li',
+				{ className: 'active' },
 				React.createElement(
-					"a",
-					{ href: "#info" },
-					"Show Tab 1"
+					'a',
+					{ className: 'minibarLink', href: '#info' },
+					'Show Tab 1'
 				)
 			),
 			React.createElement(
-				"li",
+				'li',
 				null,
 				React.createElement(
-					"a",
-					{ href: "#search" },
-					"Show Tab 2"
+					'a',
+					{ className: 'minibarLink', href: '#search' },
+					'Show Tab 2'
 				)
 			),
 			React.createElement(
-				"li",
+				'li',
 				null,
 				React.createElement(
-					"a",
-					{ href: "#settings" },
-					"Show Tab 3"
+					'a',
+					{ className: 'minibarLink', href: '#settings' },
+					'Show Tab 3'
 				)
 			)
-		)
+		),
+		React.createElement(_Info.Info, { metadata: metadata }),
+		React.createElement(_Search.Search, null),
+		React.createElement(_Settings.Settings, { tiers: metadata['tier IDs'], hasVideo: hasVideo })
+	);
+}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Info = Info;
+function Info(_ref) {
+	var metadata = _ref.metadata;
+
+	// I/P: metadata, in JSON format
+	// O/P: a nice display of speaker names + other metadata
+	// Status: unfinished
+	return React.createElement(
+		"h4",
+		{ id: "info", className: "tab-content active" },
+		"Here's some cool info about the story you're reading"
+	);
+}
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Search = Search;
+function Search() {
+	// I/P: 
+	// O/P: a search bar with concordance functionality
+	// Status: unfinished
+	return React.createElement(
+		"h4",
+		{ id: "search", className: "tab-content hide" },
+		"Wanna look for a word?!"
+	);
+}
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Settings = Settings;
+function Settings(_ref) {
+	var tiers = _ref.tiers,
+	    hasVideo = _ref.hasVideo;
+
+	// I/P: tiers, a hashmap from Tier IDs to their names
+	//      hasVideo, a boolean
+	// O/P: a search bar with concordance functionality
+	// Status: unfinished
+	return React.createElement(
+		"h4",
+		{ id: "settings", className: "tab-content hide" },
+		"Show/hide tiers:"
 	);
 }
 

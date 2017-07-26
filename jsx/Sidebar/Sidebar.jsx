@@ -9,7 +9,6 @@ export function Sidebar({ metadata }) {
 	try {
 		const filename = metadata['media']['mp4'];
 		const path = '/data/media_files/' + filename;
-		console.log(path);
 		return (
 			<div id="leftPanel">
 				<Title title={metadata['title']} />
@@ -18,7 +17,6 @@ export function Sidebar({ metadata }) {
 			</div>
 		);
 	} catch (err) {
-		console.log(err);
 		return (
 			<div id="leftPanel">
 				<Title title={metadata['title']} />
