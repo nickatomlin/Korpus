@@ -1322,10 +1322,10 @@ function Minibar(_ref) {
 	// Click events for the minibar subsections:
 	$(document.body).on('click', '.minibarLink', function () {
 		event.preventDefault(); // Prevents from following link.
-		var activeLink = $('.nav-tabs > li.active > a').attr('href');
+		var activeLink = $('.minibarTabs > li.active > a').attr('href');
 
 		// Find actived navigation and remove 'active' css
-		var activeLI = $('.nav-tabs > li.active');
+		var activeLI = $('.minibarTabs > li.active');
 		activeLI.removeClass('active');
 
 		// Add 'active' css into clicked navigation
@@ -1346,14 +1346,14 @@ function Minibar(_ref) {
 		{ id: 'minibar' },
 		React.createElement(
 			'ul',
-			{ className: 'nav nav-tabs' },
+			{ className: 'minibarTabs' },
 			React.createElement(
 				'li',
 				{ className: 'active' },
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#info' },
-					'Show Tab 1'
+					React.createElement('img', { src: '/images/info.svg' })
 				)
 			),
 			React.createElement(
@@ -1362,7 +1362,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#search' },
-					'Show Tab 2'
+					React.createElement('img', { src: '/images/search.svg' })
 				)
 			),
 			React.createElement(
@@ -1371,7 +1371,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#settings' },
-					'Show Tab 3'
+					React.createElement('img', { src: '/images/settings.svg' })
 				)
 			)
 		),
@@ -1400,7 +1400,7 @@ function Info(_ref) {
 	// Status: unfinished
 	return React.createElement(
 		"h4",
-		{ id: "info", className: "tab-content active" },
+		{ id: "info", className: "miniPage active" },
 		"Here's some cool info about the story you're reading"
 	);
 }
@@ -1417,12 +1417,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Search = Search;
 function Search() {
-	// I/P: 
+	// I/P: ---
 	// O/P: a search bar with concordance functionality
 	// Status: unfinished
 	return React.createElement(
 		"h4",
-		{ id: "search", className: "tab-content hide" },
+		{ id: "search", className: "miniPage hide" },
 		"Wanna look for a word?!"
 	);
 }
@@ -1448,7 +1448,7 @@ function Settings(_ref) {
 	// Status: unfinished
 	return React.createElement(
 		"h4",
-		{ id: "settings", className: "tab-content hide" },
+		{ id: "settings", className: "miniPage hide" },
 		"Show/hide tiers:"
 	);
 }

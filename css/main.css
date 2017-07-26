@@ -176,11 +176,6 @@ ul {
 	margin-block-start: 0.2em;
 }
 
-#leftPanel ul {
-	list-style: square;
-	margin-left: 20px;
-}
-
 #settings ul {
 	margin-left: 10px;
 	list-style: none;
@@ -224,10 +219,45 @@ a:hover {
 	display: none;
 }
 
-.tab-content.hide {
+.minibarTabs {
+	list-style: none;
+	float: left;
+	width: 100%;
+	border-top: 2px solid rgb(151,151,151);
+	border-bottom: 2px solid rgb(151,151,151);
+	background: white;
+/*	padding-left: 2%;
+	padding-right: 2%;*/
+}
+
+.minibarTabs > li {
+	float: left;
+	width: 33.3333%;
+	text-align: center;
+}
+
+.minibarTabs > li > a {
+	height: 30px;
+	display: block;
+	padding: 5px 0px;
+}
+
+.minibarTabs > li:hover {
+	background-color: lightsteelblue;
+}
+
+.minibarTabs > li.active {
+	background-color: steelblue;
+}
+
+.minibarTabs > li > a > img {
+	height: 30px;
+}
+
+.miniPage.hide {
     display: none;
 }
 
-.tab-content.active {
+.miniPage.active {
     display: block;
 }

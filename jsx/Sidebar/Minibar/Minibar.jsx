@@ -11,10 +11,10 @@ export function Minibar({ metadata, hasVideo }) {
 	// Click events for the minibar subsections:
 	$(document.body).on('click', '.minibarLink', function() {
 		event.preventDefault(); // Prevents from following link.
-		const activeLink = $('.nav-tabs > li.active > a').attr('href');
+		const activeLink = $('.minibarTabs > li.active > a').attr('href');
 
 		// Find actived navigation and remove 'active' css
-		const activeLI = $('.nav-tabs > li.active');
+		const activeLI = $('.minibarTabs > li.active');
 		activeLI.removeClass('active');
 
 		// Add 'active' css into clicked navigation
@@ -32,10 +32,10 @@ export function Minibar({ metadata, hasVideo }) {
 
 	return (
 		<div id="minibar">
-			<ul className="nav nav-tabs">
-        		<li className="active"><a className="minibarLink" href="#info">Show Tab 1</a></li>
-        		<li><a className="minibarLink" href="#search">Show Tab 2</a></li>
-        		<li><a className="minibarLink" href="#settings">Show Tab 3</a></li>
+			<ul className="minibarTabs">
+        		<li className="active"><a className="minibarLink" href="#info"><img src="/images/info.svg" /></a></li>
+        		<li><a className="minibarLink" href="#search"><img src="/images/search.svg" /></a></li>
+        		<li><a className="minibarLink" href="#settings"><img src="/images/settings.svg" /></a></li>
     		</ul>
     		<Info metadata={metadata} />
     		<Search />
