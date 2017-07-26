@@ -6,7 +6,7 @@ export class Video extends React.Component {
 		return <video src={this.props.path} id="video" className="hidden" controls />;
 	}
 
-	show() {
+	static show() {
 		// Resize panels:
 		$('#leftPanel').css('width', '40%');
 		$('#leftPanel').css('height', 'calc(100% - 48px)');
@@ -36,7 +36,7 @@ export class Video extends React.Component {
 		video.currentTime = audio.currentTime;
 	}
 
-	hide() {
+	static hide() {
 		// Resize panels:
 		var footheight = ($("#footer").height() + 48).toString() + "px";
 		var bodyheight = "calc(100% - " + footheight + ")";

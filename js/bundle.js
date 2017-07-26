@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -69,7 +69,7 @@
 
 "use strict";
 
-module.exports = __webpack_require__(6);
+module.exports = __webpack_require__(7);
 
 
 /***/ }),
@@ -79,7 +79,7 @@ module.exports = __webpack_require__(6);
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(7);
+var randomFromSeed = __webpack_require__(8);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -184,7 +184,7 @@ module.exports = {
 "use strict";
 
 
-var randomByte = __webpack_require__(8);
+var randomByte = __webpack_require__(9);
 
 function encode(lookup, number) {
     var loopCounter = 0;
@@ -368,13 +368,120 @@ function Sentence(_ref2) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Untimed = __webpack_require__(5);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var _Timed = __webpack_require__(13);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-var _Sidebar = __webpack_require__(14);
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Video = exports.Video = function (_React$Component) {
+	_inherits(Video, _React$Component);
+
+	function Video() {
+		_classCallCheck(this, Video);
+
+		return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
+	}
+
+	_createClass(Video, [{
+		key: "render",
+
+		// I/P: path, the path to the video
+		// O/P: a video player
+		// Status: re-written, untested
+		value: function render() {
+			return React.createElement("video", { src: this.props.path, id: "video", className: "hidden", controls: true });
+		}
+	}], [{
+		key: "show",
+		value: function show() {
+			// Resize panels:
+			$('#leftPanel').css('width', '40%');
+			$('#leftPanel').css('height', 'calc(100% - 48px)');
+			$('#centerPanel').css('margin-left', '40%');
+			$('#centerPanel').css('height', 'calc(100% - 48px)');
+			$("#centerPanel").css("width", "60%");
+
+			// Deactivate audio:
+			$('#footer').css('display', 'none');
+			$('#audio').removeAttr('ontimeupdate');
+			$('#audio').removeAttr('onclick');
+			$('#audio').attr('data-live', 'false');
+
+			// Activate video:
+			$('#video').css('display', 'inline');
+			$('#video').attr('data-live', 'true');
+			$('#video').attr('ontimeupdate', 'sync(this.currentTime)');
+			$('#video').attr('onclick', 'sync(this.currentTime)');
+
+			// Match times:
+			var audio = document.getElementById('audio');
+			var video = document.getElementById('video');
+			if (!audio.paused) {
+				audio.pause();
+				video.play();
+			}
+			video.currentTime = audio.currentTime;
+		}
+	}, {
+		key: "hide",
+		value: function hide() {
+			// Resize panels:
+			var footheight = ($("#footer").height() + 48).toString() + "px";
+			var bodyheight = "calc(100% - " + footheight + ")";
+
+			$("#leftPanel").css("width", "240px");
+			$("#leftPanel").css("height", bodyheight);
+			$("#centerPanel").css("height", bodyheight);
+			$("#centerPanel").css("margin-left", "240px");
+			$("#centerPanel").css("width", "calc(100% - 240px)");
+
+			// Deactivate video:
+			$("#video").css("display", "none");
+			$("#video").removeAttr("onclick");
+			$("#video").removeAttr("ontimeupdate");
+			$("#video").attr("data-live", "false");
+
+			// Activate audio:
+			$("#footer").css("display", "block");
+			$("#audio").attr("data-live", "true");
+			$("#audio").attr("ontimeupdate", "sync(this.currentTime)");
+			$("#audio").attr("onclick", "sync(this.currentTime)");
+
+			// Match times:
+			var audio = document.getElementById("audio");
+			var video = document.getElementById("video");
+			if (!video.paused) {
+				video.pause();
+				audio.play();
+			}
+			audio.currentTime = video.currentTime;
+		}
+	}]);
+
+	return Video;
+}(React.Component);
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Untimed = __webpack_require__(6);
+
+var _Timed = __webpack_require__(14);
+
+var _Sidebar = __webpack_require__(15);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -575,7 +682,7 @@ $.getJSON("db/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
 });
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -638,7 +745,7 @@ function UntimedTextDisplay(_ref) {
 }
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -646,15 +753,15 @@ function UntimedTextDisplay(_ref) {
 
 var alphabet = __webpack_require__(1);
 var encode = __webpack_require__(2);
-var decode = __webpack_require__(9);
-var build = __webpack_require__(10);
-var isValid = __webpack_require__(11);
+var decode = __webpack_require__(10);
+var build = __webpack_require__(11);
+var isValid = __webpack_require__(12);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(12) || 0;
+var clusterWorkerId = __webpack_require__(13) || 0;
 
 /**
  * Set the seed.
@@ -710,7 +817,7 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -742,7 +849,7 @@ module.exports = {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -763,7 +870,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -787,7 +894,7 @@ module.exports = decode;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -842,7 +949,7 @@ module.exports = build;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -868,7 +975,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -878,7 +985,7 @@ module.exports = 0;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1118,7 +1225,7 @@ function TimedTextDisplay(_ref4) {
 }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1129,9 +1236,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Sidebar = Sidebar;
 
-var _Title = __webpack_require__(15);
+var _Title = __webpack_require__(16);
 
-var _Video = __webpack_require__(16);
+var _Video = __webpack_require__(4);
 
 var _Minibar = __webpack_require__(17);
 
@@ -1162,7 +1269,7 @@ function Sidebar(_ref) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1184,113 +1291,6 @@ function Title(_ref) {
 		title
 	);
 }
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Video = exports.Video = function (_React$Component) {
-	_inherits(Video, _React$Component);
-
-	function Video() {
-		_classCallCheck(this, Video);
-
-		return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
-	}
-
-	_createClass(Video, [{
-		key: "render",
-
-		// I/P: path, the path to the video
-		// O/P: a video player
-		// Status: re-written, untested
-		value: function render() {
-			return React.createElement("video", { src: this.props.path, id: "video", className: "hidden", controls: true });
-		}
-	}, {
-		key: "show",
-		value: function show() {
-			// Resize panels:
-			$('#leftPanel').css('width', '40%');
-			$('#leftPanel').css('height', 'calc(100% - 48px)');
-			$('#centerPanel').css('margin-left', '40%');
-			$('#centerPanel').css('height', 'calc(100% - 48px)');
-			$("#centerPanel").css("width", "60%");
-
-			// Deactivate audio:
-			$('#footer').css('display', 'none');
-			$('#audio').removeAttr('ontimeupdate');
-			$('#audio').removeAttr('onclick');
-			$('#audio').attr('data-live', 'false');
-
-			// Activate video:
-			$('#video').css('display', 'inline');
-			$('#video').attr('data-live', 'true');
-			$('#video').attr('ontimeupdate', 'sync(this.currentTime)');
-			$('#video').attr('onclick', 'sync(this.currentTime)');
-
-			// Match times:
-			var audio = document.getElementById('audio');
-			var video = document.getElementById('video');
-			if (!audio.paused) {
-				audio.pause();
-				video.play();
-			}
-			video.currentTime = audio.currentTime;
-		}
-	}, {
-		key: "hide",
-		value: function hide() {
-			// Resize panels:
-			var footheight = ($("#footer").height() + 48).toString() + "px";
-			var bodyheight = "calc(100% - " + footheight + ")";
-
-			$("#leftPanel").css("width", "240px");
-			$("#leftPanel").css("height", bodyheight);
-			$("#centerPanel").css("height", bodyheight);
-			$("#centerPanel").css("margin-left", "240px");
-			$("#centerPanel").css("width", "calc(100% - 240px)");
-
-			// Deactivate video:
-			$("#video").css("display", "none");
-			$("#video").removeAttr("onclick");
-			$("#video").removeAttr("ontimeupdate");
-			$("#video").attr("data-live", "false");
-
-			// Activate audio:
-			$("#footer").css("display", "block");
-			$("#audio").attr("data-live", "true");
-			$("#audio").attr("ontimeupdate", "sync(this.currentTime)");
-			$("#audio").attr("onclick", "sync(this.currentTime)");
-
-			// Match times:
-			var audio = document.getElementById("audio");
-			var video = document.getElementById("video");
-			if (!video.paused) {
-				video.pause();
-				audio.play();
-			}
-			audio.currentTime = video.currentTime;
-		}
-	}]);
-
-	return Video;
-}(React.Component);
 
 /***/ }),
 /* 17 */
@@ -1495,25 +1495,85 @@ function Search() {
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 exports.Settings = Settings;
 
 var _TierCheckboxList = __webpack_require__(22);
 
-function Settings(_ref) {
-	var tiers = _ref.tiers,
-	    hasVideo = _ref.hasVideo;
+var _Video = __webpack_require__(4);
 
-	// I/P: tiers, a hashmap from Tier IDs to their names
-	//      hasVideo, a boolean
-	// O/P: a search bar with concordance functionality
-	// Status: unfinished
-	return React.createElement(
-		"div",
-		{ id: "settings", className: "miniPage hide" },
-		React.createElement(_TierCheckboxList.TierCheckboxList, { tiers: tiers })
-	);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VideoButton = function (_React$Component) {
+  _inherits(VideoButton, _React$Component);
+
+  // I/P: --
+  // O/P: a button that can show/hide video, reset "player" ID, etc.
+  // Status: unfinished
+  function VideoButton(props) {
+    _classCallCheck(this, VideoButton);
+
+    var _this = _possibleConstructorReturn(this, (VideoButton.__proto__ || Object.getPrototypeOf(VideoButton)).call(this, props));
+
+    _this.state = {
+      checkboxState: false
+    };
+    _this.toggle = _this.toggle.bind(_this);
+    return _this;
+  }
+
+  _createClass(VideoButton, [{
+    key: 'toggle',
+    value: function toggle(event) {
+      this.setState({ checkboxState: !this.state.checkboxState });
+
+      if (!this.state.checkboxState) {
+        _Video.Video.show();
+      } else {
+        _Video.Video.hide();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        { id: 'videoButton' },
+        React.createElement('input', { type: 'checkbox', onClick: this.toggle }),
+        React.createElement(
+          'label',
+          null,
+          'Show video'
+        )
+      );
+    }
+  }]);
+
+  return VideoButton;
+}(React.Component);
+
+function Settings(_ref) {
+  var tiers = _ref.tiers,
+      hasVideo = _ref.hasVideo;
+
+  // I/P: tiers, a hashmap from Tier IDs to their names
+  //      hasVideo, a boolean
+  // O/P: a search bar with concordance functionality
+  // Status: unfinished
+  return React.createElement(
+    'div',
+    { id: 'settings', className: 'miniPage hide' },
+    React.createElement(_TierCheckboxList.TierCheckboxList, { tiers: tiers }),
+    React.createElement(VideoButton, null)
+  );
 }
 
 /***/ }),
