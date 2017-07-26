@@ -1,6 +1,6 @@
-import { Info } from './Info.jsx';
-import { Search } from './Search.jsx';
-import { Settings } from './Settings.jsx';
+import { Info } from './Info/Info.jsx';
+import { Search } from './Search/Search.jsx';
+import { Settings } from './Settings/Settings.jsx';
 
 export function Minibar({ metadata, hasVideo }) {
 	// I/P: metadata, in JSON format
@@ -37,9 +37,11 @@ export function Minibar({ metadata, hasVideo }) {
         		<li><a className="minibarLink" href="#search"><img src="/images/search.svg" /></a></li>
         		<li><a className="minibarLink" href="#settings"><img src="/images/settings.svg" /></a></li>
     		</ul>
-    		<Info metadata={metadata} />
-    		<Search />
-    		<Settings tiers={metadata['tier IDs']} hasVideo={hasVideo} />
+    		<div id="miniPage">
+	    		<Info metadata={metadata} />
+	    		<Search />
+	    		<Settings tiers={metadata['tier IDs']} hasVideo={hasVideo} />
+	    	</div>
 		</div>
 	);
 }

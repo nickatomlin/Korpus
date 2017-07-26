@@ -69,6 +69,15 @@
 
 "use strict";
 
+module.exports = __webpack_require__(6);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 var randomFromSeed = __webpack_require__(7);
 
@@ -169,15 +178,6 @@ module.exports = {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = __webpack_require__(6);
-
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -215,7 +215,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Sentence = Sentence;
 
-var _shortid = __webpack_require__(1);
+var _shortid = __webpack_require__(0);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
@@ -586,7 +586,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.UntimedTextDisplay = UntimedTextDisplay;
 
-var _shortid = __webpack_require__(1);
+var _shortid = __webpack_require__(0);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
@@ -644,7 +644,7 @@ function UntimedTextDisplay(_ref) {
 "use strict";
 
 
-var alphabet = __webpack_require__(0);
+var alphabet = __webpack_require__(1);
 var encode = __webpack_require__(2);
 var decode = __webpack_require__(9);
 var build = __webpack_require__(10);
@@ -768,7 +768,7 @@ module.exports = randomByte;
 
 "use strict";
 
-var alphabet = __webpack_require__(0);
+var alphabet = __webpack_require__(1);
 
 /**
  * Decode the id to get the version and worker
@@ -794,7 +794,7 @@ module.exports = decode;
 
 
 var encode = __webpack_require__(2);
-var alphabet = __webpack_require__(0);
+var alphabet = __webpack_require__(1);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
 // This number should be updated every year or so to keep the generated id short.
@@ -847,7 +847,7 @@ module.exports = build;
 
 "use strict";
 
-var alphabet = __webpack_require__(0);
+var alphabet = __webpack_require__(1);
 
 function isShortId(id) {
     if (!id || typeof id !== 'string' || id.length < 6 ) {
@@ -889,7 +889,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.TimedTextDisplay = TimedTextDisplay;
 
-var _shortid = __webpack_require__(1);
+var _shortid = __webpack_require__(0);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
@@ -1147,8 +1147,8 @@ function Sidebar(_ref) {
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
-			React.createElement(_Title.Title, { title: metadata['title'] }),
 			React.createElement(_Video.Video, { path: path }),
+			React.createElement(_Title.Title, { title: metadata['title'] }),
 			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
 		);
 	} catch (err) {
@@ -1306,9 +1306,9 @@ exports.Minibar = Minibar;
 
 var _Info = __webpack_require__(18);
 
-var _Search = __webpack_require__(19);
+var _Search = __webpack_require__(20);
 
-var _Settings = __webpack_require__(20);
+var _Settings = __webpack_require__(21);
 
 function Minibar(_ref) {
 	var metadata = _ref.metadata,
@@ -1375,9 +1375,13 @@ function Minibar(_ref) {
 				)
 			)
 		),
-		React.createElement(_Info.Info, { metadata: metadata }),
-		React.createElement(_Search.Search, null),
-		React.createElement(_Settings.Settings, { tiers: metadata['tier IDs'], hasVideo: hasVideo })
+		React.createElement(
+			'div',
+			{ id: 'miniPage' },
+			React.createElement(_Info.Info, { metadata: metadata }),
+			React.createElement(_Search.Search, null),
+			React.createElement(_Settings.Settings, { tiers: metadata['tier IDs'], hasVideo: hasVideo })
+		)
 	);
 }
 
@@ -1392,6 +1396,9 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.Info = Info;
+
+var _SpeakerInfo = __webpack_require__(19);
+
 function Info(_ref) {
 	var metadata = _ref.metadata;
 
@@ -1399,14 +1406,67 @@ function Info(_ref) {
 	// O/P: a nice display of speaker names + other metadata
 	// Status: unfinished
 	return React.createElement(
-		"h4",
+		"div",
 		{ id: "info", className: "miniPage active" },
-		"Here's some cool info about the story you're reading"
+		React.createElement(_SpeakerInfo.SpeakerInfo, { speakers: metadata['speaker IDs'] })
 	);
 }
 
 /***/ }),
 /* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.SpeakerInfo = SpeakerInfo;
+
+var _shortid = __webpack_require__(0);
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SpeakerInfo(_ref) {
+	var speakers = _ref.speakers;
+
+	// I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
+	// O/P: some nicely formatted info about these speakers
+	// Status: tested, not working
+	var speaker_list = [];
+	if (speakers != null) {
+		// Form a list of speakers:
+		for (var speaker_id in speakers) {
+			if (speakers.hasOwnProperty(speaker_id)) {
+				var speaker_name = speakers[speaker_id]['name'];
+				var speaker_display = speaker_id + ': ' + speaker_name;
+				speaker_list.push(React.createElement(
+					'li',
+					{ key: _shortid2.default.generate() },
+					speaker_display
+				));
+			}
+		}
+		return React.createElement(
+			'div',
+			{ id: 'speakerList' },
+			'Speakers: ',
+			React.createElement(
+				'ul',
+				null,
+				speaker_list
+			)
+		);
+	} else {
+		return null;
+	}
+}
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1423,12 +1483,12 @@ function Search() {
 	return React.createElement(
 		"h4",
 		{ id: "search", className: "miniPage hide" },
-		"Wanna look for a word?!"
+		"Not yet implemented."
 	);
 }
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1438,6 +1498,9 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.Settings = Settings;
+
+var _TierCheckboxList = __webpack_require__(22);
+
 function Settings(_ref) {
 	var tiers = _ref.tiers,
 	    hasVideo = _ref.hasVideo;
@@ -1447,10 +1510,106 @@ function Settings(_ref) {
 	// O/P: a search bar with concordance functionality
 	// Status: unfinished
 	return React.createElement(
-		"h4",
+		"div",
 		{ id: "settings", className: "miniPage hide" },
-		"Show/hide tiers:"
+		React.createElement(_TierCheckboxList.TierCheckboxList, { tiers: tiers })
 	);
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+exports.TierCheckboxList = TierCheckboxList;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TierCheckbox = function (_React$Component) {
+   _inherits(TierCheckbox, _React$Component);
+
+   // I/P: tier_id, a string like "T1" or "T15"
+   //    tier_name, a string like "English Morphemes"
+   // O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
+   // Status: tested, working
+   function TierCheckbox(props) {
+      _classCallCheck(this, TierCheckbox);
+
+      var _this = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
+
+      _this.state = {
+         checkboxState: true
+      };
+      _this.toggle = _this.toggle.bind(_this);
+      return _this;
+   }
+
+   _createClass(TierCheckbox, [{
+      key: "toggle",
+      value: function toggle(event) {
+         this.setState({ checkboxState: !this.state.checkboxState });
+
+         if (this.state.checkboxState) {
+            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'none');
+         } else {
+            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'table-row');
+         }
+      }
+   }, {
+      key: "render",
+      value: function render() {
+         var tier_id = this.props.tier_id;
+         var tier_name = this.props.tier_name;
+         return React.createElement(
+            "li",
+            null,
+            React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
+            React.createElement(
+               "label",
+               null,
+               tier_name
+            )
+         );
+      }
+   }]);
+
+   return TierCheckbox;
+}(React.Component);
+
+function TierCheckboxList(_ref) {
+   var tiers = _ref.tiers;
+
+   // I/P: tiers, a hashmap from Tier IDs to their names
+   // O/P: an unordered list of TierCheckboxes
+   // Status: tested, working
+   var output = [];
+   for (var tier_id in tiers) {
+      if (tiers.hasOwnProperty(tier_id)) {
+         output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
+      }
+   }
+   return React.createElement(
+      "div",
+      { id: "tierList" },
+      "Show/hide tiers: ",
+      React.createElement(
+         "ul",
+         null,
+         output
+      )
+   );
 }
 
 /***/ })

@@ -188,12 +188,6 @@ ul {
 	font-size: 1.7em;
 }
 
-#speakerList, #videoButton, #tierList {
-	float: left;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
 a:visited, a {
 	color: black;
 }
@@ -260,4 +254,13 @@ a:hover {
 
 .miniPage.active {
     display: block;
+}
+
+#miniPage {
+	margin: 20px 10px;
+}
+
+#speakerList ul {
+	margin-left: 17px;
+	list-style: square;
 }
