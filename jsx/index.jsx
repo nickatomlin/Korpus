@@ -1,3 +1,9 @@
+import React from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from "react-router-dom";
 import { UntimedTextDisplay } from './Display/Untimed.jsx';
 import { TimedTextDisplay } from './Display/Timed.jsx';
 import { Sidebar } from './Sidebar/Sidebar.jsx'
@@ -92,20 +98,46 @@ class SpeakerInfo extends React.Component {
   	}
 }
 
-function App({ data }) {
-	const sentences = data['sentences'];
-	const timed = (data['metadata']['timed'] == 'true');
+function StoryIndex() {
 	return (
 		<div>
-			<Sidebar metadata={data['metadata']} />
-			<CenterPanel timed={timed} sentences={sentences} />
+			<h2>Imagine a list of stories.</h2>
+			<Link to="/story">story link</Link>
 		</div>
 	);
 }
 
-$.getJSON("database/aldar/5459352f3b9eb1d2b71071a7f40008ef", function(data) {
+function Story({ data }) {
+    const sentences = data['sentences'];
+    const timed = (data['metadata']['timed'] === 'true');
+    return (
+		<div>
+			<Sidebar metadata={data['metadata']} />
+			<CenterPanel timed={timed} sentences={sentences} />
+		</div>
+    );
+}
+
+function App({ data }) {
+	return (
+		<div>
+			<Route exact path="/index" component={StoryIndex} />
+			<Route exact path="/story" render={props => <Story data={data} />} />
+		</div>
+	);
+}
+
+function AppContainer({ data }) {
+	return (
+		<Router>
+			<App data={data} />
+		</Router>
+	);
+}
+
+$.getJSON("data/json_files/Intro.json", function(data) {
 	ReactDOM.render(
-		<App data={data} />,
+		<AppContainer data={data} />,
 		document.getElementById("main")
 	);
 });
