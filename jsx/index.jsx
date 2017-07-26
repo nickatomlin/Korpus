@@ -108,7 +108,7 @@ function StoryIndex({ data }) {
                 {
                     data.map(s => (
 						<li key={id.generate()}>
-							<Link to={`/story/${s.storyId}`}>{s.displayTitle}</Link>
+							<Link to={`/story/${s['title from filename']}`}>{s['display_title']}</Link>
 						</li>
                     ))
                 }
@@ -134,7 +134,7 @@ function Stories({ data }) {
 			{
 				data.map(s => (
 					<Route
-						exact path={`/story/${s.storyId}`}
+						exact path={`/story/${s['title from filename']}`}
 						render={props => <Story data={s} />}
 					/>
 				))
@@ -152,7 +152,7 @@ function App({ data }) {
 	);
 }
 
-$.getJSON("data/json_files/Intro.json", function(data) {
+$.getJSON("data/fake_database.json", function(data) {
 	ReactDOM.render(
 		<Router>
 			<App data={data} />

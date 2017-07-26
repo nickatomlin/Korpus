@@ -4057,7 +4057,9 @@ var SpeakerInfo = function (_React$Component3) {
 	return SpeakerInfo;
 }(_react2.default.Component);
 
-function StoryIndex() {
+function StoryIndex(_ref2) {
+	var data = _ref2.data;
+
 	return _react2.default.createElement(
 		'div',
 		null,
@@ -4070,12 +4072,27 @@ function StoryIndex() {
 			_reactRouterDom.Link,
 			{ to: '/story' },
 			'story link'
+		),
+		_react2.default.createElement(
+			'ul',
+			null,
+			data.map(function (s) {
+				return _react2.default.createElement(
+					'li',
+					{ key: _shortid2.default.generate() },
+					_react2.default.createElement(
+						_reactRouterDom.Link,
+						{ to: '/story/' + s['title from filename'] },
+						s['display_title']
+					)
+				);
+			})
 		)
 	);
 }
 
-function Story(_ref2) {
-	var data = _ref2.data;
+function Story(_ref3) {
+	var data = _ref3.data;
 
 	var sentences = data['sentences'];
 	var timed = data['metadata']['timed'] === 'true';
@@ -4087,15 +4104,15 @@ function Story(_ref2) {
 	);
 }
 
-function Stories(_ref3) {
-	var data = _ref3.data;
+function Stories(_ref4) {
+	var data = _ref4.data;
 
 	return _react2.default.createElement(
 		'div',
 		null,
-		data.sentences.map(function (s) {
+		data.map(function (s) {
 			return _react2.default.createElement(_reactRouterDom.Route, {
-				exact: true, path: '/story/' + s.storyId,
+				exact: true, path: '/story/' + s['title from filename'],
 				render: function render(props) {
 					return _react2.default.createElement(Story, { data: s });
 				}
@@ -4104,20 +4121,22 @@ function Stories(_ref3) {
 	);
 }
 
-function App(_ref4) {
-	var data = _ref4.data;
+function App(_ref5) {
+	var data = _ref5.data;
 
 	return _react2.default.createElement(
 		'div',
 		null,
-		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', component: StoryIndex }),
+		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
+				return _react2.default.createElement(StoryIndex, { data: data.stories });
+			} }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/story', render: function render(props) {
-				return _react2.default.createElement(Stories, { data: data });
+				return _react2.default.createElement(Stories, { data: data.sentences });
 			} })
 	);
 }
 
-$.getJSON("data/json_files/Intro.json", function (data) {
+$.getJSON("data/fake_database.json", function (data) {
 	ReactDOM.render(_react2.default.createElement(
 		_reactRouterDom.BrowserRouter,
 		null,
