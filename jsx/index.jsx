@@ -32,13 +32,13 @@ function Story({ sentencesDataThisStory }) {
     let footer = null;
     if (timed) {
     let audioFile;
-    const media = data['metadata']['media'];
+    const media = sentencesDataThisStory['metadata']['media'];
     if ('mp3' in media) {
 		audioFile = media['mp3'];
 	} else {
 		audioFile = media['mp4'];
 	}
-		footer = <audio data-live="true" controls id="audio" src={"data/media_files/" + audioFile} />;
+		footer = <audio data-live="true" controls id="audio" src={"/data/media_files/" + audioFile} />;
 	}
 	return (
 		<div key={id.generate()}>
@@ -69,7 +69,7 @@ function Stories({ sentencesData }) {
 function App({ data }) {
 	return (
 		<div key={id.generate()}>
-			<p>it works! next up is removing debug statements maybe</p>
+			<p>it works! still no textsync, and need to get rid of that pesky key prop warning.</p>
 			<Route exact path="/index" render={props => <StoryIndex storiesData={data.stories} />} />
 			<Route path="/story" render={props => <Stories sentencesData={data.sentences} />} />
 		</div>

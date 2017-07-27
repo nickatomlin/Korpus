@@ -4021,13 +4021,13 @@ function Story(_ref2) {
 	var footer = null;
 	if (timed) {
 		var audioFile = void 0;
-		var media = data['metadata']['media'];
+		var media = sentencesDataThisStory['metadata']['media'];
 		if ('mp3' in media) {
 			audioFile = media['mp3'];
 		} else {
 			audioFile = media['mp4'];
 		}
-		footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: "data/media_files/" + audioFile });
+		footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: "/data/media_files/" + audioFile });
 	}
 	return _react2.default.createElement(
 		'div',
@@ -4080,7 +4080,7 @@ function App(_ref4) {
 		_react2.default.createElement(
 			'p',
 			null,
-			'it works! next up is removing debug statements maybe'
+			'it works! next up is making media work and getting rid of that pesky key error'
 		),
 		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
 				return _react2.default.createElement(StoryIndex, { storiesData: data.stories });
