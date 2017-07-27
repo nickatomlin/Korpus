@@ -9,7 +9,7 @@ export function Minibar({ metadata, hasVideo }) {
 	// Status: untested, unwritten dependencies
 
 	// Click events for the minibar subsections:
-	$(document.body).on('click', '.minibarLink', function() {
+	$(document.body).on('click', '.minibarLink', function(event) {
 		event.preventDefault(); // Prevents from following link.
 		const activeLink = $('.minibarTabs > li.active > a').attr('href');
 
