@@ -4058,11 +4058,11 @@ var SpeakerInfo = function (_React$Component3) {
 }(_react2.default.Component);
 
 function StoryIndex(_ref2) {
-	var data = _ref2.data;
+	var storiesData = _ref2.storiesData;
 
 	return _react2.default.createElement(
 		'div',
-		null,
+		{ key: _shortid2.default.generate() },
 		_react2.default.createElement(
 			'h2',
 			null,
@@ -4076,7 +4076,7 @@ function StoryIndex(_ref2) {
 		_react2.default.createElement(
 			'ul',
 			null,
-			data.map(function (s) {
+			storiesData.map(function (s) {
 				return _react2.default.createElement(
 					'li',
 					{ key: _shortid2.default.generate() },
@@ -4092,31 +4092,39 @@ function StoryIndex(_ref2) {
 }
 
 function Story(_ref3) {
-	var data = _ref3.data;
+	var sentencesDataThisStory = _ref3.sentencesDataThisStory;
 
-	var sentences = data['sentences'];
-	var timed = data['metadata']['timed'] === 'true';
+	var sentences = sentencesDataThisStory['sentences'];
+	var timed = sentencesDataThisStory['metadata']['timed'] === 'true';
 	return _react2.default.createElement(
 		'div',
-		null,
-		_react2.default.createElement(_Sidebar.Sidebar, { metadata: data['metadata'] }),
+		{ key: _shortid2.default.generate() },
+		_react2.default.createElement(
+			'h3',
+			null,
+			'a story'
+		),
+		_react2.default.createElement(_Sidebar.Sidebar, { metadata: sentencesDataThisStory['metadata'] }),
 		_react2.default.createElement(CenterPanel, { timed: timed, sentences: sentences })
 	);
 }
 
 function Stories(_ref4) {
-	var data = _ref4.data;
+	var sentencesData = _ref4.sentencesData;
 
+	console.log("Stories...");
 	return _react2.default.createElement(
 		'div',
-		null,
-		data.map(function (s) {
-			return _react2.default.createElement(_reactRouterDom.Route, {
-				exact: true, path: '/story/' + s['title from filename'],
-				render: function render(props) {
-					return _react2.default.createElement(Story, { data: s });
-				}
-			});
+		{ key: _shortid2.default.generate() },
+		_react2.default.createElement(
+			'p',
+			null,
+			'Stories'
+		),
+		sentencesData.map(function (s) {
+			return _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/story/' + s['metadata']['title from filename'], render: function render(props) {
+					return _react2.default.createElement(Story, { sentencesDataThisStory: s });
+				} });
 		})
 	);
 }
@@ -4126,12 +4134,17 @@ function App(_ref5) {
 
 	return _react2.default.createElement(
 		'div',
-		null,
+		{ key: _shortid2.default.generate() },
+		_react2.default.createElement(
+			'p',
+			null,
+			'now that react knows each story exists... fix bug with storiesData undefined, use crazy long names'
+		),
 		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
-				return _react2.default.createElement(StoryIndex, { data: data.stories });
+				return _react2.default.createElement(StoryIndex, { storiesData: data.stories });
 			} }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/story', render: function render(props) {
-				return _react2.default.createElement(Stories, { data: data.sentences });
+				return _react2.default.createElement(Stories, { sentencesData: data.sentences });
 			} })
 	);
 }

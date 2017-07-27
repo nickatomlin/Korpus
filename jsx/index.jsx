@@ -99,14 +99,14 @@ class SpeakerInfo extends React.Component {
   	}
 }
 
-function StoryIndex({ data }) {
+function StoryIndex({ storiesData }) {
 	return (
-		<div>
+		<div key={id.generate()}>
 			<h2>Imagine a list of stories.</h2>
 			<Link to="/story">story link</Link>
 			<ul>
                 {
-                    data.map(s => (
+                    storiesData.map(s => (
 						<li key={id.generate()}>
 							<Link to={`/story/${s['title from filename']}`}>{s['display_title']}</Link>
 						</li>
@@ -117,27 +117,27 @@ function StoryIndex({ data }) {
 	);
 }
 
-function Story({ data }) {
-    const sentences = data['sentences'];
-    const timed = (data['metadata']['timed'] === 'true');
+function Story({ sentencesDataThisStory }) {
+    const sentences = sentencesDataThisStory['sentences'];
+    const timed = (sentencesDataThisStory['metadata']['timed'] === 'true');
     return (
-		<div>
-			<Sidebar metadata={data['metadata']} />
+		<div key={id.generate()}>
+			<h3>a story</h3>
+			<Sidebar metadata={sentencesDataThisStory['metadata']} />
 			<CenterPanel timed={timed} sentences={sentences} />
 		</div>
     );
 }
 
-function Stories({ data }) {
+function Stories({ sentencesData }) {
+	console.log("Stories...");
 	return (
-		<div>
+		<div key={id.generate()}>
+			<p>Stories</p>
 			{
-				data.map(s => (
-					<Route
-						exact path={`/story/${s['title from filename']}`}
-						render={props => <Story data={s} />}
-					/>
-				))
+				sentencesData.map(s =>
+					(<Route exact path={`/story/${s['metadata']['title from filename']}`} render={props => <Story sentencesDataThisStory={s} />} />)
+				)
 			}
 		</div>
 	);
@@ -145,9 +145,10 @@ function Stories({ data }) {
 
 function App({ data }) {
 	return (
-		<div>
-			<Route exact path="/index" render={props => <StoryIndex data={data.stories} />} />
-			<Route path="/story" render={props => <Stories data={data.sentences} />} />
+		<div key={id.generate()}>
+			<p>it works! next up is removing debug statements maybe</p>
+			<Route exact path="/index" render={props => <StoryIndex storiesData={data.stories} />} />
+			<Route path="/story" render={props => <Stories sentencesData={data.sentences} />} />
 		</div>
 	);
 }
