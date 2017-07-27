@@ -3980,8 +3980,9 @@ var _CenterPanel = __webpack_require__(97);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function StoryIndex(_ref) {
-	var storiesData = _ref.storiesData;
+	var index = _ref.index;
 
+	console.log(index);
 	return _react2.default.createElement(
 		'div',
 		{ key: _shortid2.default.generate() },
@@ -3998,14 +3999,14 @@ function StoryIndex(_ref) {
 		_react2.default.createElement(
 			'ul',
 			null,
-			storiesData.map(function (s) {
+			index.map(function (story) {
 				return _react2.default.createElement(
 					'li',
 					{ key: _shortid2.default.generate() },
 					_react2.default.createElement(
 						_reactRouterDom.Link,
-						{ to: '/story/' + s['title from filename'] },
-						s['display_title']
+						{ to: '/story/' + story['title from filename'] },
+						story['display_title']
 					)
 				);
 			})
@@ -4014,20 +4015,20 @@ function StoryIndex(_ref) {
 }
 
 function Story(_ref2) {
-	var sentencesDataThisStory = _ref2.sentencesDataThisStory;
+	var story = _ref2.story;
 
-	var sentences = sentencesDataThisStory['sentences'];
-	var timed = sentencesDataThisStory['metadata']['timed'] === 'true';
+	var sentences = story['sentences'];
+	var timed = story['metadata']['timed'] === 'true';
 	var footer = null;
 	if (timed) {
 		var audioFile = void 0;
-		var media = sentencesDataThisStory['metadata']['media'];
+		var media = story['metadata']['media'];
 		if ('mp3' in media) {
 			audioFile = media['mp3'];
 		} else {
 			audioFile = media['mp4'];
 		}
-		footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: "/data/media_files/" + audioFile });
+		footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: '/data/media_files/' + audioFile });
 	}
 	return _react2.default.createElement(
 		'div',
@@ -4040,7 +4041,7 @@ function Story(_ref2) {
 		_react2.default.createElement(
 			'div',
 			{ id: 'middle' },
-			_react2.default.createElement(_Sidebar.Sidebar, { metadata: sentencesDataThisStory['metadata'] }),
+			_react2.default.createElement(_Sidebar.Sidebar, { metadata: story['metadata'] }),
 			_react2.default.createElement(_CenterPanel.CenterPanel, { timed: timed, sentences: sentences })
 		),
 		_react2.default.createElement(
@@ -4052,9 +4053,9 @@ function Story(_ref2) {
 }
 
 function Stories(_ref3) {
-	var sentencesData = _ref3.sentencesData;
+	var stories = _ref3.stories;
 
-	console.log("Stories...");
+	console.log('Stories...');
 	return _react2.default.createElement(
 		'div',
 		{ key: _shortid2.default.generate() },
@@ -4063,10 +4064,13 @@ function Stories(_ref3) {
 			null,
 			'Stories'
 		),
-		sentencesData.map(function (s) {
-			return _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/story/' + s['metadata']['title from filename'], render: function render(props) {
-					return _react2.default.createElement(Story, { sentencesDataThisStory: s });
-				} });
+		stories.map(function (story) {
+			return _react2.default.createElement(_reactRouterDom.Route, {
+				exact: true, path: '/story/' + story['metadata']['title from filename'],
+				render: function render(props) {
+					return _react2.default.createElement(Story, { story: story });
+				}
+			});
 		})
 	);
 }
@@ -4083,10 +4087,10 @@ function App(_ref4) {
 			'it works! still no textsync, and need to get rid of that pesky key prop warning.'
 		),
 		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
-				return _react2.default.createElement(StoryIndex, { storiesData: data.stories });
+				return _react2.default.createElement(StoryIndex, { index: data.index });
 			} }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/story', render: function render(props) {
-				return _react2.default.createElement(Stories, { sentencesData: data.sentences });
+				return _react2.default.createElement(Stories, { stories: data.stories });
 			} })
 	);
 }
@@ -8872,7 +8876,7 @@ function Sidebar(_ref) {
 	// Status: untested
 	try {
 		var filename = metadata['media']['mp4'];
-		var path = 'data/media_files/' + filename;
+		var path = '/data/media_files/' + filename;
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
@@ -8975,7 +8979,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#info' },
-					React.createElement('img', { src: 'images/info.svg' })
+					React.createElement('img', { src: '/images/info.svg' })
 				)
 			),
 			React.createElement(
@@ -8984,7 +8988,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#search' },
-					React.createElement('img', { src: 'images/search.svg' })
+					React.createElement('img', { src: '/images/search.svg' })
 				)
 			),
 			React.createElement(
@@ -8993,7 +8997,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#settings' },
-					React.createElement('img', { src: 'images/settings.svg' })
+					React.createElement('img', { src: '/images/settings.svg' })
 				)
 			)
 		),

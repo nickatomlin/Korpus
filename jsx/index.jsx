@@ -15,9 +15,9 @@ function StoryIndex({ index }) {
 			<Link to="/story">story link</Link>
 			<ul>
                 {
-                    index.map(s => (
+                    index.map(story => (
 						<li key={id.generate()}>
-							<Link to={`/story/${s['title from filename']}`}>{s['display_title']}</Link>
+							<Link to={`/story/${story['title from filename']}`}>{story['display_title']}</Link>
 						</li>
                     ))
                 }
@@ -61,7 +61,7 @@ function Stories({ stories }) {
 				stories.map(story => (
 					<Route
                         exact path={`/story/${story['metadata']['title from filename']}`}
-                        render={props => <Story sentencesDataThisStory={story} />}
+                        render={props => <Story story={story} />}
                     />
                 ))
 			}
