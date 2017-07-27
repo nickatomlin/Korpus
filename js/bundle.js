@@ -69,7 +69,7 @@
 
 "use strict";
 
-module.exports = __webpack_require__(7);
+module.exports = __webpack_require__(11);
 
 
 /***/ }),
@@ -79,7 +79,7 @@ module.exports = __webpack_require__(7);
 "use strict";
 
 
-var randomFromSeed = __webpack_require__(8);
+var randomFromSeed = __webpack_require__(12);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -184,7 +184,114 @@ module.exports = {
 "use strict";
 
 
-var randomByte = __webpack_require__(9);
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Video = exports.Video = function (_React$Component) {
+	_inherits(Video, _React$Component);
+
+	function Video() {
+		_classCallCheck(this, Video);
+
+		return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
+	}
+
+	_createClass(Video, [{
+		key: 'render',
+
+		// I/P: path, the path to the video
+		// O/P: a video player
+		// Status: re-written, untested
+		value: function render() {
+			return React.createElement('video', { src: this.props.path, id: 'video', controls: true });
+		}
+	}], [{
+		key: 'show',
+		value: function show() {
+			// Resize panels:
+			$('#leftPanel').css('width', '40%');
+			$('#leftPanel').css('height', 'calc(100% - 48px)');
+			$('#centerPanel').css('margin-left', '40%');
+			$('#centerPanel').css('height', 'calc(100% - 48px)');
+			$("#centerPanel").css("width", "60%");
+
+			// Deactivate audio:
+			$('#footer').css('display', 'none');
+			$('#audio').removeAttr('ontimeupdate');
+			$('#audio').removeAttr('onclick');
+			$('#audio').attr('data-live', 'false');
+
+			// Activate video:
+			$('#video').css('display', 'inline');
+			$('#video').attr('data-live', 'true');
+			$('#video').attr('ontimeupdate', 'sync(this.currentTime)');
+			$('#video').attr('onclick', 'sync(this.currentTime)');
+
+			// Match times:
+			var audio = document.getElementById('audio');
+			var video = document.getElementById('video');
+			if (!audio.paused) {
+				audio.pause();
+				video.play();
+			}
+			video.currentTime = audio.currentTime;
+		}
+	}, {
+		key: 'hide',
+		value: function hide() {
+			// Resize panels:
+			var footheight = ($("#footer").height() + 48).toString() + "px";
+			var bodyheight = "calc(100% - " + footheight + ")";
+
+			$("#leftPanel").css("width", "240px");
+			$("#leftPanel").css("height", bodyheight);
+			$("#centerPanel").css("height", bodyheight);
+			$("#centerPanel").css("margin-left", "240px");
+			$("#centerPanel").css("width", "calc(100% - 240px)");
+
+			// Deactivate video:
+			$("#video").css("display", "none");
+			$("#video").removeAttr("onclick");
+			$("#video").removeAttr("ontimeupdate");
+			$("#video").attr("data-live", "false");
+
+			// Activate audio:
+			$("#footer").css("display", "block");
+			$("#audio").attr("data-live", "true");
+			$("#audio").attr("ontimeupdate", "sync(this.currentTime)");
+			$("#audio").attr("onclick", "sync(this.currentTime)");
+
+			// Match times:
+			var audio = document.getElementById("audio");
+			var video = document.getElementById("video");
+			if (!video.paused) {
+				video.pause();
+				audio.play();
+			}
+			audio.currentTime = video.currentTime;
+		}
+	}]);
+
+	return Video;
+}(React.Component);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var randomByte = __webpack_require__(13);
 
 function encode(lookup, number) {
     var loopCounter = 0;
@@ -204,7 +311,7 @@ module.exports = encode;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -362,132 +469,15 @@ function Sentence(_ref2) {
 }
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Video = exports.Video = function (_React$Component) {
-	_inherits(Video, _React$Component);
-
-	function Video() {
-		_classCallCheck(this, Video);
-
-		return _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).apply(this, arguments));
-	}
-
-	_createClass(Video, [{
-		key: 'render',
-
-		// I/P: path, the path to the video
-		// O/P: a video player
-		// Status: re-written, untested
-		value: function render() {
-			return React.createElement('video', { src: this.props.path, id: 'video', controls: true });
-		}
-	}], [{
-		key: 'show',
-		value: function show() {
-			// Resize panels:
-			$('#leftPanel').css('width', '40%');
-			$('#leftPanel').css('height', 'calc(100% - 48px)');
-			$('#centerPanel').css('margin-left', '40%');
-			$('#centerPanel').css('height', 'calc(100% - 48px)');
-			$("#centerPanel").css("width", "60%");
-
-			// Deactivate audio:
-			$('#footer').css('display', 'none');
-			$('#audio').removeAttr('ontimeupdate');
-			$('#audio').removeAttr('onclick');
-			$('#audio').attr('data-live', 'false');
-
-			// Activate video:
-			$('#video').css('display', 'inline');
-			$('#video').attr('data-live', 'true');
-			$('#video').attr('ontimeupdate', 'sync(this.currentTime)');
-			$('#video').attr('onclick', 'sync(this.currentTime)');
-
-			// Match times:
-			var audio = document.getElementById('audio');
-			var video = document.getElementById('video');
-			if (!audio.paused) {
-				audio.pause();
-				video.play();
-			}
-			video.currentTime = audio.currentTime;
-		}
-	}, {
-		key: 'hide',
-		value: function hide() {
-			// Resize panels:
-			var footheight = ($("#footer").height() + 48).toString() + "px";
-			var bodyheight = "calc(100% - " + footheight + ")";
-
-			$("#leftPanel").css("width", "240px");
-			$("#leftPanel").css("height", bodyheight);
-			$("#centerPanel").css("height", bodyheight);
-			$("#centerPanel").css("margin-left", "240px");
-			$("#centerPanel").css("width", "calc(100% - 240px)");
-
-			// Deactivate video:
-			$("#video").css("display", "none");
-			$("#video").removeAttr("onclick");
-			$("#video").removeAttr("ontimeupdate");
-			$("#video").attr("data-live", "false");
-
-			// Activate audio:
-			$("#footer").css("display", "block");
-			$("#audio").attr("data-live", "true");
-			$("#audio").attr("ontimeupdate", "sync(this.currentTime)");
-			$("#audio").attr("onclick", "sync(this.currentTime)");
-
-			// Match times:
-			var audio = document.getElementById("audio");
-			var video = document.getElementById("video");
-			if (!video.paused) {
-				video.pause();
-				audio.play();
-			}
-			audio.currentTime = video.currentTime;
-		}
-	}]);
-
-	return Video;
-}(React.Component);
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _Sidebar = __webpack_require__(6);
 
-var _Untimed = __webpack_require__(6);
-
-var _Timed = __webpack_require__(14);
-
-var _Sidebar = __webpack_require__(15);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _CenterPanel = __webpack_require__(21);
 
 // Spanish language UI
 var speakersUiText = "Hablantes";
@@ -502,178 +492,36 @@ var videoButtonUiText = "Show video";
 var storyListUiText = "List of Stories";
 */
 
-function CenterPanel(_ref) {
-	var timed = _ref.timed,
-	    sentences = _ref.sentences;
-
-	// I/P: timed, a boolean value
-	//      sentences, a list of sentences
-	// O/P: tested, working
-	if (timed) {
-		return React.createElement(
-			'div',
-			{ id: 'centerPanel' },
-			React.createElement(_Timed.TimedTextDisplay, { sentences: sentences })
-		);
-	} else {
-		return React.createElement(
-			'div',
-			{ id: 'centerPanel' },
-			React.createElement(_Untimed.UntimedTextDisplay, { sentences: sentences })
-		);
-	}
-}
-
-var TierCheckbox = function (_React$Component) {
-	_inherits(TierCheckbox, _React$Component);
-
-	// I/P: tier_id, a string like "T1" or "T15"
-	//    tier_name, a string like "English Morphemes"
-	// O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
-	// Status: tested, working
-	function TierCheckbox(props) {
-		_classCallCheck(this, TierCheckbox);
-
-		var _this = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
-
-		_this.state = {
-			checkboxState: true
-		};
-		_this.toggle = _this.toggle.bind(_this);
-		return _this;
-	}
-
-	_createClass(TierCheckbox, [{
-		key: 'toggle',
-		value: function toggle(event) {
-			this.setState({ checkboxState: !this.state.checkboxState });
-			if (this.state.checkboxState) {
-				$("tr[data-tier='" + this.props.tier_id + "']").css("display", "none");
-			} else {
-				$("tr[data-tier='" + this.props.tier_id + "']").css("display", "table-row");
-			}
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var tier_id = this.props.tier_id;
-			var tier_name = this.props.tier_name;
-			return React.createElement(
-				'li',
-				null,
-				React.createElement('input', { type: 'checkbox', onClick: this.toggle, defaultChecked: true }),
-				React.createElement(
-					'label',
-					null,
-					tier_name
-				)
-			);
-		}
-	}]);
-
-	return TierCheckbox;
-}(React.Component);
-
-var TierCheckboxList = function (_React$Component2) {
-	_inherits(TierCheckboxList, _React$Component2);
-
-	function TierCheckboxList() {
-		_classCallCheck(this, TierCheckboxList);
-
-		return _possibleConstructorReturn(this, (TierCheckboxList.__proto__ || Object.getPrototypeOf(TierCheckboxList)).apply(this, arguments));
-	}
-
-	_createClass(TierCheckboxList, [{
-		key: 'render',
-
-		// I/P: tiers, a hashmap from Tier IDs to their names
-		// O/P: an unordered list of TierCheckboxes
-		// Status: tested, working
-		value: function render() {
-			var output = [];
-			var tiers = this.props.tiers;
-			for (var tier_id in tiers) {
-				if (tiers.hasOwnProperty(tier_id)) {
-					output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
-				}
-			}
-			return React.createElement(
-				'div',
-				{ id: 'tierList' },
-				tiersUiText,
-				': ',
-				React.createElement(
-					'ul',
-					null,
-					output
-				)
-			);
-		}
-	}]);
-
-	return TierCheckboxList;
-}(React.Component);
-
-var SpeakerInfo = function (_React$Component3) {
-	_inherits(SpeakerInfo, _React$Component3);
-
-	function SpeakerInfo() {
-		_classCallCheck(this, SpeakerInfo);
-
-		return _possibleConstructorReturn(this, (SpeakerInfo.__proto__ || Object.getPrototypeOf(SpeakerInfo)).apply(this, arguments));
-	}
-
-	_createClass(SpeakerInfo, [{
-		key: 'render',
-
-		// I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
-		// O/P: some nicely formatted info about these speakers
-		// Status: tested, working
-		value: function render() {
-			var speaker_list = [];
-			var speakers = this.props.speakers;
-			if (speakers != null) {
-				for (var speaker_id in speakers) {
-					if (speakers.hasOwnProperty(speaker_id)) {
-						var speaker_name = speakers[speaker_id]["name"];
-						var speaker_display = speaker_id + ": " + speaker_name;
-						speaker_list.push(React.createElement(
-							'li',
-							{ key: speaker_id },
-							speaker_display
-						));
-					}
-				}
-				return React.createElement(
-					'div',
-					{ id: 'speakerList' },
-					speakersUiText,
-					': ',
-					React.createElement(
-						'ul',
-						null,
-						speaker_list
-					)
-				);
-			} else {
-				return null;
-			}
-		}
-	}]);
-
-	return SpeakerInfo;
-}(React.Component);
-
-function App(_ref2) {
-	var data = _ref2.data;
+function App(_ref) {
+	var data = _ref.data;
 
 	var sentences = data['sentences'];
 	var timed = data['metadata']['timed'] == 'true';
+	var footer = null;
+	if (timed) {
+		var audioFile = void 0;
+		var media = data['metadata']['media'];
+		if ('mp3' in media) {
+			audioFile = media['mp3'];
+		} else {
+			audioFile = media['mp4'];
+		}
+		footer = React.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: "data/media_files/" + audioFile });
+	}
 	return React.createElement(
 		'div',
 		null,
-		React.createElement(_Sidebar.Sidebar, { metadata: data['metadata'] }),
-		React.createElement(CenterPanel, { timed: timed, sentences: sentences })
+		React.createElement(
+			'div',
+			{ id: 'middle' },
+			React.createElement(_Sidebar.Sidebar, { metadata: data['metadata'] }),
+			React.createElement(_CenterPanel.CenterPanel, { timed: timed, sentences: sentences })
+		),
+		React.createElement(
+			'div',
+			{ id: 'footer' },
+			footer
+		)
 	);
 }
 
@@ -683,6 +531,15 @@ $.getJSON("db/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
 			url: "./js/txt_sync.js",
 			dataType: "script"
 		});
+		// Resize elements based on footer height:
+		if ($("#footer").length !== 0) {
+			var footheight = ($("#footer").height() + 48).toString() + "px";
+			var bodyheight = "calc(100% - " + footheight + ")";
+
+			$("#leftPanel").css("width", "240px");
+			$("#leftPanel").css("height", bodyheight);
+			$("#centerPanel").css("height", bodyheight);
+		}
 	});
 });
 
@@ -696,57 +553,38 @@ $.getJSON("db/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.UntimedTextDisplay = UntimedTextDisplay;
+exports.Sidebar = Sidebar;
 
-var _shortid = __webpack_require__(0);
+var _Title = __webpack_require__(7);
 
-var _shortid2 = _interopRequireDefault(_shortid);
+var _Video = __webpack_require__(2);
 
-var _Sentence = __webpack_require__(3);
+var _Minibar = __webpack_require__(8);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function Sidebar(_ref) {
+	var metadata = _ref.metadata;
 
-function UntimedTextDisplay(_ref) {
-	var sentences = _ref.sentences;
-
-	// I/P: sentences, a list of sentences
-	// O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
-	// Status: tested, working
-	var output = [];
-	var _iteratorNormalCompletion = true;
-	var _didIteratorError = false;
-	var _iteratorError = undefined;
-
+	// I/P: metadata, in JSON format
+	// O/P: a sidebar complement to the TextDisplay
+	// Status: untested
 	try {
-		for (var _iterator = sentences[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-			var sentence = _step.value;
-
-			output.push(React.createElement(
-				"div",
-				{ key: _shortid2.default.generate(), className: "untimedBlock" },
-				React.createElement(_Sentence.Sentence, { key: _shortid2.default.generate(), sentence: sentence })
-			));
-		}
+		var filename = metadata['media']['mp4'];
+		var path = '/data/media_files/' + filename;
+		return React.createElement(
+			'div',
+			{ id: 'leftPanel' },
+			React.createElement(_Video.Video, { path: path }),
+			React.createElement(_Title.Title, { title: metadata['title'] }),
+			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
+		);
 	} catch (err) {
-		_didIteratorError = true;
-		_iteratorError = err;
-	} finally {
-		try {
-			if (!_iteratorNormalCompletion && _iterator.return) {
-				_iterator.return();
-			}
-		} finally {
-			if (_didIteratorError) {
-				throw _iteratorError;
-			}
-		}
+		return React.createElement(
+			'div',
+			{ id: 'leftPanel' },
+			React.createElement(_Title.Title, { title: metadata['title'] }),
+			React.createElement(_Minibar.Minibar, { metadata: metadata })
+		);
 	}
-
-	return React.createElement(
-		"div",
-		{ id: "untimedTextDisplay" },
-		output
-	);
 }
 
 /***/ }),
@@ -756,17 +594,214 @@ function UntimedTextDisplay(_ref) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Title = Title;
+function Title(_ref) {
+	var title = _ref.title;
+
+	// I/P: title, a string
+	// O/P: printed title
+	// Status: tested, working
+	return React.createElement(
+		"h3",
+		{ id: "title" },
+		title
+	);
+}
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Minibar = Minibar;
+
+var _Info = __webpack_require__(9);
+
+var _Search = __webpack_require__(18);
+
+var _Settings = __webpack_require__(19);
+
+function Minibar(_ref) {
+	var metadata = _ref.metadata,
+	    hasVideo = _ref.hasVideo;
+
+	// I/P: metadata, in JSON format
+	//      hasVideo, a boolean
+	// O/P: a subsection of the sidebar with hide-able tabs
+	// Status: untested, unwritten dependencies
+
+	// Click events for the minibar subsections:
+	$(document.body).on('click', '.minibarLink', function () {
+		event.preventDefault(); // Prevents from following link.
+		var activeLink = $('.minibarTabs > li.active > a').attr('href');
+
+		// Find actived navigation and remove 'active' css
+		var activeLI = $('.minibarTabs > li.active');
+		activeLI.removeClass('active');
+
+		// Add 'active' css into clicked navigation
+		$(this).parents('li').addClass('active');
+
+		// Hide displaying tab content
+		$(activeLink).removeClass('active');
+		$(activeLink).addClass('hide');
+
+		// Show target tab content
+		var newLink = $(this).attr('href');
+		$(newLink).removeClass('hide');
+		$(newLink).addClass('active');
+	});
+
+	return React.createElement(
+		'div',
+		{ id: 'minibar' },
+		React.createElement(
+			'ul',
+			{ className: 'minibarTabs' },
+			React.createElement(
+				'li',
+				{ className: 'active' },
+				React.createElement(
+					'a',
+					{ className: 'minibarLink', href: '#info' },
+					React.createElement('img', { src: '/images/info.svg' })
+				)
+			),
+			React.createElement(
+				'li',
+				null,
+				React.createElement(
+					'a',
+					{ className: 'minibarLink', href: '#search' },
+					React.createElement('img', { src: '/images/search.svg' })
+				)
+			),
+			React.createElement(
+				'li',
+				null,
+				React.createElement(
+					'a',
+					{ className: 'minibarLink', href: '#settings' },
+					React.createElement('img', { src: '/images/settings.svg' })
+				)
+			)
+		),
+		React.createElement(
+			'div',
+			{ id: 'miniPage' },
+			React.createElement(_Info.Info, { metadata: metadata }),
+			React.createElement(_Search.Search, null),
+			React.createElement(_Settings.Settings, { tiers: metadata['tier IDs'], hasVideo: hasVideo })
+		)
+	);
+}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Info = Info;
+
+var _SpeakerInfo = __webpack_require__(10);
+
+function Info(_ref) {
+	var metadata = _ref.metadata;
+
+	// I/P: metadata, in JSON format
+	// O/P: a nice display of speaker names + other metadata
+	// Status: unfinished
+	return React.createElement(
+		"div",
+		{ id: "info", className: "miniPage active" },
+		React.createElement(_SpeakerInfo.SpeakerInfo, { speakers: metadata['speaker IDs'] })
+	);
+}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.SpeakerInfo = SpeakerInfo;
+
+var _shortid = __webpack_require__(0);
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SpeakerInfo(_ref) {
+	var speakers = _ref.speakers;
+
+	// I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
+	// O/P: some nicely formatted info about these speakers
+	// Status: tested, not working
+	var speaker_list = [];
+	if (speakers != null) {
+		// Form a list of speakers:
+		for (var speaker_id in speakers) {
+			if (speakers.hasOwnProperty(speaker_id)) {
+				var speaker_name = speakers[speaker_id]['name'];
+				var speaker_display = speaker_id + ': ' + speaker_name;
+				speaker_list.push(React.createElement(
+					'li',
+					{ key: _shortid2.default.generate() },
+					speaker_display
+				));
+			}
+		}
+		return React.createElement(
+			'div',
+			{ id: 'speakerList' },
+			'Speakers: ',
+			React.createElement(
+				'ul',
+				null,
+				speaker_list
+			)
+		);
+	} else {
+		return null;
+	}
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var alphabet = __webpack_require__(1);
-var encode = __webpack_require__(2);
-var decode = __webpack_require__(10);
-var build = __webpack_require__(11);
-var isValid = __webpack_require__(12);
+var encode = __webpack_require__(3);
+var decode = __webpack_require__(14);
+var build = __webpack_require__(15);
+var isValid = __webpack_require__(16);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __webpack_require__(13) || 0;
+var clusterWorkerId = __webpack_require__(17) || 0;
 
 /**
  * Set the seed.
@@ -822,7 +857,7 @@ module.exports.isValid = isValid;
 
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -854,7 +889,7 @@ module.exports = {
 
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -875,7 +910,7 @@ module.exports = randomByte;
 
 
 /***/ }),
-/* 10 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -899,13 +934,13 @@ module.exports = decode;
 
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var encode = __webpack_require__(2);
+var encode = __webpack_require__(3);
 var alphabet = __webpack_require__(1);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
@@ -954,7 +989,7 @@ module.exports = build;
 
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -980,7 +1015,7 @@ module.exports = isShortId;
 
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -990,7 +1025,317 @@ module.exports = 0;
 
 
 /***/ }),
-/* 14 */
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Search = Search;
+function Search() {
+	// I/P: ---
+	// O/P: a search bar with concordance functionality
+	// Status: unfinished
+	return React.createElement(
+		"h4",
+		{ id: "search", className: "miniPage hide" },
+		"Not yet implemented."
+	);
+}
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+exports.Settings = Settings;
+
+var _TierCheckboxList = __webpack_require__(20);
+
+var _Video = __webpack_require__(2);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VideoButton = function (_React$Component) {
+  _inherits(VideoButton, _React$Component);
+
+  // I/P: --
+  // O/P: a button that can show/hide video, reset "player" ID, etc.
+  // Status: unfinished
+  function VideoButton(props) {
+    _classCallCheck(this, VideoButton);
+
+    var _this = _possibleConstructorReturn(this, (VideoButton.__proto__ || Object.getPrototypeOf(VideoButton)).call(this, props));
+
+    _this.state = {
+      checkboxState: false
+    };
+    _this.toggle = _this.toggle.bind(_this);
+    return _this;
+  }
+
+  _createClass(VideoButton, [{
+    key: 'toggle',
+    value: function toggle(event) {
+      this.setState({ checkboxState: !this.state.checkboxState });
+
+      if (!this.state.checkboxState) {
+        _Video.Video.show();
+      } else {
+        _Video.Video.hide();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        { id: 'videoButton' },
+        React.createElement('input', { type: 'checkbox', onClick: this.toggle }),
+        React.createElement(
+          'label',
+          null,
+          'Show video'
+        )
+      );
+    }
+  }]);
+
+  return VideoButton;
+}(React.Component);
+
+function Settings(_ref) {
+  var tiers = _ref.tiers,
+      hasVideo = _ref.hasVideo;
+
+  // I/P: tiers, a hashmap from Tier IDs to their names
+  //      hasVideo, a boolean
+  // O/P: a search bar with concordance functionality
+  // Status: unfinished
+  return React.createElement(
+    'div',
+    { id: 'settings', className: 'miniPage hide' },
+    React.createElement(_TierCheckboxList.TierCheckboxList, { tiers: tiers }),
+    React.createElement(VideoButton, null)
+  );
+}
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+exports.TierCheckboxList = TierCheckboxList;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TierCheckbox = function (_React$Component) {
+   _inherits(TierCheckbox, _React$Component);
+
+   // I/P: tier_id, a string like "T1" or "T15"
+   //    tier_name, a string like "English Morphemes"
+   // O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
+   // Status: tested, working
+   function TierCheckbox(props) {
+      _classCallCheck(this, TierCheckbox);
+
+      var _this = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
+
+      _this.state = {
+         checkboxState: true
+      };
+      _this.toggle = _this.toggle.bind(_this);
+      return _this;
+   }
+
+   _createClass(TierCheckbox, [{
+      key: "toggle",
+      value: function toggle(event) {
+         this.setState({ checkboxState: !this.state.checkboxState });
+
+         if (this.state.checkboxState) {
+            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'none');
+         } else {
+            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'table-row');
+         }
+      }
+   }, {
+      key: "render",
+      value: function render() {
+         var tier_id = this.props.tier_id;
+         var tier_name = this.props.tier_name;
+         return React.createElement(
+            "li",
+            null,
+            React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
+            React.createElement(
+               "label",
+               null,
+               tier_name
+            )
+         );
+      }
+   }]);
+
+   return TierCheckbox;
+}(React.Component);
+
+function TierCheckboxList(_ref) {
+   var tiers = _ref.tiers;
+
+   // I/P: tiers, a hashmap from Tier IDs to their names
+   // O/P: an unordered list of TierCheckboxes
+   // Status: tested, working
+   var output = [];
+   for (var tier_id in tiers) {
+      if (tiers.hasOwnProperty(tier_id)) {
+         output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
+      }
+   }
+   return React.createElement(
+      "div",
+      { id: "tierList" },
+      "Show/hide tiers: ",
+      React.createElement(
+         "ul",
+         null,
+         output
+      )
+   );
+}
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.CenterPanel = CenterPanel;
+
+var _Untimed = __webpack_require__(22);
+
+var _Timed = __webpack_require__(23);
+
+function CenterPanel(_ref) {
+	var timed = _ref.timed,
+	    sentences = _ref.sentences;
+
+	// I/P: timed, a boolean value
+	//      sentences, a list of sentences
+	// O/P: the main panel showing glossing, timestamps, etc.
+	// Status: tested, working
+
+	if (timed) {
+		return React.createElement(
+			'div',
+			{ id: 'centerPanel' },
+			React.createElement(_Timed.TimedTextDisplay, { sentences: sentences })
+		);
+	} else {
+		return React.createElement(
+			'div',
+			{ id: 'centerPanel' },
+			React.createElement(_Untimed.UntimedTextDisplay, { sentences: sentences })
+		);
+	}
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.UntimedTextDisplay = UntimedTextDisplay;
+
+var _shortid = __webpack_require__(0);
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
+var _Sentence = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function UntimedTextDisplay(_ref) {
+	var sentences = _ref.sentences;
+
+	// I/P: sentences, a list of sentences
+	// O/P: the main gloss view, with several Sentences arranged vertically, each wrapped in an UntimedBlock
+	// Status: tested, working
+	var output = [];
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = sentences[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var sentence = _step.value;
+
+			output.push(React.createElement(
+				"div",
+				{ key: _shortid2.default.generate(), className: "untimedBlock" },
+				React.createElement(_Sentence.Sentence, { key: _shortid2.default.generate(), sentence: sentence })
+			));
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
+
+	return React.createElement(
+		"div",
+		{ id: "untimedTextDisplay" },
+		output
+	);
+}
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1005,7 +1350,7 @@ var _shortid = __webpack_require__(0);
 
 var _shortid2 = _interopRequireDefault(_shortid);
 
-var _Sentence = __webpack_require__(3);
+var _Sentence = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1227,454 +1572,6 @@ function TimedTextDisplay(_ref4) {
 		{ id: 'timedTextDisplay' },
 		output
 	);
-}
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Sidebar = Sidebar;
-
-var _Title = __webpack_require__(16);
-
-var _Video = __webpack_require__(4);
-
-var _Minibar = __webpack_require__(17);
-
-function Sidebar(_ref) {
-	var metadata = _ref.metadata;
-
-	// I/P: metadata, in JSON format
-	// O/P: a sidebar complement to the TextDisplay
-	// Status: untested
-	try {
-		var filename = metadata['media']['mp4'];
-		var path = '/data/media_files/' + filename;
-		return React.createElement(
-			'div',
-			{ id: 'leftPanel' },
-			React.createElement(_Video.Video, { path: path }),
-			React.createElement(_Title.Title, { title: metadata['title'] }),
-			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
-		);
-	} catch (err) {
-		return React.createElement(
-			'div',
-			{ id: 'leftPanel' },
-			React.createElement(_Title.Title, { title: metadata['title'] }),
-			React.createElement(_Minibar.Minibar, { metadata: metadata })
-		);
-	}
-}
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Title = Title;
-function Title(_ref) {
-	var title = _ref.title;
-
-	// I/P: title, a string
-	// O/P: printed title
-	// Status: tested, working
-	return React.createElement(
-		"h3",
-		{ id: "title" },
-		title
-	);
-}
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Minibar = Minibar;
-
-var _Info = __webpack_require__(18);
-
-var _Search = __webpack_require__(20);
-
-var _Settings = __webpack_require__(21);
-
-function Minibar(_ref) {
-	var metadata = _ref.metadata,
-	    hasVideo = _ref.hasVideo;
-
-	// I/P: metadata, in JSON format
-	//      hasVideo, a boolean
-	// O/P: a subsection of the sidebar with hide-able tabs
-	// Status: untested, unwritten dependencies
-
-	// Click events for the minibar subsections:
-	$(document.body).on('click', '.minibarLink', function () {
-		event.preventDefault(); // Prevents from following link.
-		var activeLink = $('.minibarTabs > li.active > a').attr('href');
-
-		// Find actived navigation and remove 'active' css
-		var activeLI = $('.minibarTabs > li.active');
-		activeLI.removeClass('active');
-
-		// Add 'active' css into clicked navigation
-		$(this).parents('li').addClass('active');
-
-		// Hide displaying tab content
-		$(activeLink).removeClass('active');
-		$(activeLink).addClass('hide');
-
-		// Show target tab content
-		var newLink = $(this).attr('href');
-		$(newLink).removeClass('hide');
-		$(newLink).addClass('active');
-	});
-
-	return React.createElement(
-		'div',
-		{ id: 'minibar' },
-		React.createElement(
-			'ul',
-			{ className: 'minibarTabs' },
-			React.createElement(
-				'li',
-				{ className: 'active' },
-				React.createElement(
-					'a',
-					{ className: 'minibarLink', href: '#info' },
-					React.createElement('img', { src: '/images/info.svg' })
-				)
-			),
-			React.createElement(
-				'li',
-				null,
-				React.createElement(
-					'a',
-					{ className: 'minibarLink', href: '#search' },
-					React.createElement('img', { src: '/images/search.svg' })
-				)
-			),
-			React.createElement(
-				'li',
-				null,
-				React.createElement(
-					'a',
-					{ className: 'minibarLink', href: '#settings' },
-					React.createElement('img', { src: '/images/settings.svg' })
-				)
-			)
-		),
-		React.createElement(
-			'div',
-			{ id: 'miniPage' },
-			React.createElement(_Info.Info, { metadata: metadata }),
-			React.createElement(_Search.Search, null),
-			React.createElement(_Settings.Settings, { tiers: metadata['tier IDs'], hasVideo: hasVideo })
-		)
-	);
-}
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Info = Info;
-
-var _SpeakerInfo = __webpack_require__(19);
-
-function Info(_ref) {
-	var metadata = _ref.metadata;
-
-	// I/P: metadata, in JSON format
-	// O/P: a nice display of speaker names + other metadata
-	// Status: unfinished
-	return React.createElement(
-		"div",
-		{ id: "info", className: "miniPage active" },
-		React.createElement(_SpeakerInfo.SpeakerInfo, { speakers: metadata['speaker IDs'] })
-	);
-}
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.SpeakerInfo = SpeakerInfo;
-
-var _shortid = __webpack_require__(0);
-
-var _shortid2 = _interopRequireDefault(_shortid);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function SpeakerInfo(_ref) {
-	var speakers = _ref.speakers;
-
-	// I/P: speakers, a map from speaker IDs to objects containing speaker names, languages, etc.
-	// O/P: some nicely formatted info about these speakers
-	// Status: tested, not working
-	var speaker_list = [];
-	if (speakers != null) {
-		// Form a list of speakers:
-		for (var speaker_id in speakers) {
-			if (speakers.hasOwnProperty(speaker_id)) {
-				var speaker_name = speakers[speaker_id]['name'];
-				var speaker_display = speaker_id + ': ' + speaker_name;
-				speaker_list.push(React.createElement(
-					'li',
-					{ key: _shortid2.default.generate() },
-					speaker_display
-				));
-			}
-		}
-		return React.createElement(
-			'div',
-			{ id: 'speakerList' },
-			'Speakers: ',
-			React.createElement(
-				'ul',
-				null,
-				speaker_list
-			)
-		);
-	} else {
-		return null;
-	}
-}
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Search = Search;
-function Search() {
-	// I/P: ---
-	// O/P: a search bar with concordance functionality
-	// Status: unfinished
-	return React.createElement(
-		"h4",
-		{ id: "search", className: "miniPage hide" },
-		"Not yet implemented."
-	);
-}
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-exports.Settings = Settings;
-
-var _TierCheckboxList = __webpack_require__(22);
-
-var _Video = __webpack_require__(4);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var VideoButton = function (_React$Component) {
-  _inherits(VideoButton, _React$Component);
-
-  // I/P: --
-  // O/P: a button that can show/hide video, reset "player" ID, etc.
-  // Status: unfinished
-  function VideoButton(props) {
-    _classCallCheck(this, VideoButton);
-
-    var _this = _possibleConstructorReturn(this, (VideoButton.__proto__ || Object.getPrototypeOf(VideoButton)).call(this, props));
-
-    _this.state = {
-      checkboxState: false
-    };
-    _this.toggle = _this.toggle.bind(_this);
-    return _this;
-  }
-
-  _createClass(VideoButton, [{
-    key: 'toggle',
-    value: function toggle(event) {
-      this.setState({ checkboxState: !this.state.checkboxState });
-
-      if (!this.state.checkboxState) {
-        _Video.Video.show();
-      } else {
-        _Video.Video.hide();
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return React.createElement(
-        'div',
-        { id: 'videoButton' },
-        React.createElement('input', { type: 'checkbox', onClick: this.toggle }),
-        React.createElement(
-          'label',
-          null,
-          'Show video'
-        )
-      );
-    }
-  }]);
-
-  return VideoButton;
-}(React.Component);
-
-function Settings(_ref) {
-  var tiers = _ref.tiers,
-      hasVideo = _ref.hasVideo;
-
-  // I/P: tiers, a hashmap from Tier IDs to their names
-  //      hasVideo, a boolean
-  // O/P: a search bar with concordance functionality
-  // Status: unfinished
-  return React.createElement(
-    'div',
-    { id: 'settings', className: 'miniPage hide' },
-    React.createElement(_TierCheckboxList.TierCheckboxList, { tiers: tiers }),
-    React.createElement(VideoButton, null)
-  );
-}
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-   value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-exports.TierCheckboxList = TierCheckboxList;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var TierCheckbox = function (_React$Component) {
-   _inherits(TierCheckbox, _React$Component);
-
-   // I/P: tier_id, a string like "T1" or "T15"
-   //    tier_name, a string like "English Morphemes"
-   // O/P: a checkbox with the ability to hide/show elements with tier-data={tier_id}
-   // Status: tested, working
-   function TierCheckbox(props) {
-      _classCallCheck(this, TierCheckbox);
-
-      var _this = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
-
-      _this.state = {
-         checkboxState: true
-      };
-      _this.toggle = _this.toggle.bind(_this);
-      return _this;
-   }
-
-   _createClass(TierCheckbox, [{
-      key: "toggle",
-      value: function toggle(event) {
-         this.setState({ checkboxState: !this.state.checkboxState });
-
-         if (this.state.checkboxState) {
-            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'none');
-         } else {
-            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'table-row');
-         }
-      }
-   }, {
-      key: "render",
-      value: function render() {
-         var tier_id = this.props.tier_id;
-         var tier_name = this.props.tier_name;
-         return React.createElement(
-            "li",
-            null,
-            React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
-            React.createElement(
-               "label",
-               null,
-               tier_name
-            )
-         );
-      }
-   }]);
-
-   return TierCheckbox;
-}(React.Component);
-
-function TierCheckboxList(_ref) {
-   var tiers = _ref.tiers;
-
-   // I/P: tiers, a hashmap from Tier IDs to their names
-   // O/P: an unordered list of TierCheckboxes
-   // Status: tested, working
-   var output = [];
-   for (var tier_id in tiers) {
-      if (tiers.hasOwnProperty(tier_id)) {
-         output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
-      }
-   }
-   return React.createElement(
-      "div",
-      { id: "tierList" },
-      "Show/hide tiers: ",
-      React.createElement(
-         "ul",
-         null,
-         output
-      )
-   );
 }
 
 /***/ })

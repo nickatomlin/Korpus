@@ -481,7 +481,7 @@ function displayText(fileName) {
           document.getElementById('centerPanel')
         );
         ReactDOM.render(
-          <audio data-live="true" controls id="audio" src={"data/media_files/" + mp}></audio>,
+          <audio data-live="true" controls id="audio" src={"data/media_files/" + mp3}></audio>,
           document.getElementById('footer')
         );
         ReactDOM.render(
