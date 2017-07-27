@@ -84,19 +84,19 @@ $.getJSON("data/fake_database.json", function(data) {
 		document.getElementById("main"),
 		function() { 
 			// If there is a footer, i.e., if audio exists:
-			if ($("#footer").length !== 0) {
+			if ($('#footer').length !== 0) {
 				$.ajax({
-					url: "./js/txt_sync.js",
-					dataType: "script"
+					url: './js/txt_sync.js',
+					dataType: 'script'
 				});
 
 				// Resize elements based on footer height:
-				var footheight = ($("#footer").height() + 48).toString() + "px";
-				var bodyheight = "calc(100% - " + footheight + ")";
+				var footheight = ($('#footer').height() + 48).toString() + 'px';
+				var bodyheight = 'calc(100% - ' + footheight + ')';
 
-				$("#leftPanel").css("width", "240px");
-				$("#leftPanel").css("height", bodyheight);
-				$("#centerPanel").css("height", bodyheight);
+				$('#leftPanel').css('width', '240px');
+				$('#leftPanel').css('height', bodyheight);
+				$('#centerPanel').css('height', bodyheight);
 			}
 		}
 	);

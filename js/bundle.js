@@ -4080,7 +4080,7 @@ function App(_ref4) {
 		_react2.default.createElement(
 			'p',
 			null,
-			'it works! next up is making media work and getting rid of that pesky key error'
+			'it works! still no textsync, and need to get rid of that pesky key prop warning.'
 		),
 		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
 				return _react2.default.createElement(StoryIndex, { storiesData: data.stories });
@@ -4098,19 +4098,19 @@ $.getJSON("data/fake_database.json", function (data) {
 		_react2.default.createElement(App, { data: data })
 	), document.getElementById("main"), function () {
 		// If there is a footer, i.e., if audio exists:
-		if ($("#footer").length !== 0) {
+		if ($('#footer').length !== 0) {
 			$.ajax({
-				url: "./js/txt_sync.js",
-				dataType: "script"
+				url: './js/txt_sync.js',
+				dataType: 'script'
 			});
 
 			// Resize elements based on footer height:
-			var footheight = ($("#footer").height() + 48).toString() + "px";
-			var bodyheight = "calc(100% - " + footheight + ")";
+			var footheight = ($('#footer').height() + 48).toString() + 'px';
+			var bodyheight = 'calc(100% - ' + footheight + ')';
 
-			$("#leftPanel").css("width", "240px");
-			$("#leftPanel").css("height", bodyheight);
-			$("#centerPanel").css("height", bodyheight);
+			$('#leftPanel').css('width', '240px');
+			$('#leftPanel').css('height', bodyheight);
+			$('#centerPanel').css('height', bodyheight);
 		}
 	});
 });
@@ -8872,7 +8872,7 @@ function Sidebar(_ref) {
 	// Status: untested
 	try {
 		var filename = metadata['media']['mp4'];
-		var path = '/data/media_files/' + filename;
+		var path = 'data/media_files/' + filename;
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
@@ -8942,7 +8942,7 @@ function Minibar(_ref) {
 	// Status: untested, unwritten dependencies
 
 	// Click events for the minibar subsections:
-	$(document.body).on('click', '.minibarLink', function () {
+	$(document.body).on('click', '.minibarLink', function (event) {
 		event.preventDefault(); // Prevents from following link.
 		var activeLink = $('.minibarTabs > li.active > a').attr('href');
 
@@ -8975,7 +8975,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#info' },
-					React.createElement('img', { src: '/images/info.svg' })
+					React.createElement('img', { src: 'images/info.svg' })
 				)
 			),
 			React.createElement(
@@ -8984,7 +8984,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#search' },
-					React.createElement('img', { src: '/images/search.svg' })
+					React.createElement('img', { src: 'images/search.svg' })
 				)
 			),
 			React.createElement(
@@ -8993,7 +8993,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#settings' },
-					React.createElement('img', { src: '/images/settings.svg' })
+					React.createElement('img', { src: 'images/settings.svg' })
 				)
 			)
 		),
