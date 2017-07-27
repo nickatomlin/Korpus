@@ -498,7 +498,7 @@ function App(_ref) {
 	var sentences = data['sentences'];
 	var timed = data['metadata']['timed'] == 'true';
 	var footer = null;
-	if (timed) {
+	if (!timed) {
 		var audioFile = void 0;
 		var media = data['metadata']['media'];
 		if ('mp3' in media) {
@@ -515,7 +515,7 @@ function App(_ref) {
 			'div',
 			{ id: 'middle' },
 			React.createElement(_Sidebar.Sidebar, { metadata: data['metadata'] }),
-			React.createElement(_CenterPanel.CenterPanel, { timed: timed, sentences: sentences })
+			React.createElement(_CenterPanel.CenterPanel, { timed: !timed, sentences: sentences })
 		),
 		React.createElement(
 			'div',
