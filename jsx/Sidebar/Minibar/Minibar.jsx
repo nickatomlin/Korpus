@@ -33,9 +33,9 @@ export function Minibar({ metadata, hasVideo }) {
 	return (
 		<div id="minibar">
 			<ul className="minibarTabs">
-        		<li className="active"><a className="minibarLink" href="#info"><img src="/images/info.svg" /></a></li>
-        		<li><a className="minibarLink" href="#search"><img src="/images/search.svg" /></a></li>
-        		<li><a className="minibarLink" href="#settings"><img src="/images/settings.svg" /></a></li>
+        		<li className="active"><a className="minibarLink" href="#info"><img src="images/info.svg" /></a></li>
+        		<li><a className="minibarLink" href="#search"><img src="images/search.svg" /></a></li>
+        		<li><a className="minibarLink" href="#settings"><img src="images/settings.svg" /></a></li>
     		</ul>
     		<div id="miniPage">
 	    		<Info metadata={metadata} />
