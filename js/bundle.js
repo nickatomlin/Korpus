@@ -498,7 +498,7 @@ function App(_ref) {
 	var sentences = data['sentences'];
 	var timed = data['metadata']['timed'] == 'true';
 	var footer = null;
-	if (!timed) {
+	if (timed) {
 		var audioFile = void 0;
 		var media = data['metadata']['media'];
 		if ('mp3' in media) {
@@ -506,7 +506,7 @@ function App(_ref) {
 		} else {
 			audioFile = media['mp4'];
 		}
-		footer = React.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: "data/media_files/" + audioFile });
+		footer = React.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: 'data/media_files/' + audioFile });
 	}
 	return React.createElement(
 		'div',
@@ -515,7 +515,7 @@ function App(_ref) {
 			'div',
 			{ id: 'middle' },
 			React.createElement(_Sidebar.Sidebar, { metadata: data['metadata'] }),
-			React.createElement(_CenterPanel.CenterPanel, { timed: !timed, sentences: sentences })
+			React.createElement(_CenterPanel.CenterPanel, { timed: timed, sentences: sentences })
 		),
 		React.createElement(
 			'div',
@@ -525,22 +525,22 @@ function App(_ref) {
 	);
 }
 
-$.getJSON("data/json_files/Intro.json", function (data) {
-	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById("main"), function () {
+$.getJSON('data/json_files/Intro.json', function (data) {
+	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById('main'), function () {
 		// If there is a footer, i.e., if audio exists:
-		if ($("#footer").length !== 0) {
+		if ($('#footer').length !== 0) {
 			$.ajax({
-				url: "./js/txt_sync.js",
-				dataType: "script"
+				url: './js/txt_sync.js',
+				dataType: 'script'
 			});
 
 			// Resize elements based on footer height:
-			var footheight = ($("#footer").height() + 48).toString() + "px";
-			var bodyheight = "calc(100% - " + footheight + ")";
+			var footheight = ($('#footer').height() + 48).toString() + 'px';
+			var bodyheight = 'calc(100% - ' + footheight + ')';
 
-			$("#leftPanel").css("width", "240px");
-			$("#leftPanel").css("height", bodyheight);
-			$("#centerPanel").css("height", bodyheight);
+			$('#leftPanel').css('width', '240px');
+			$('#leftPanel').css('height', bodyheight);
+			$('#centerPanel').css('height', bodyheight);
 		}
 	});
 });

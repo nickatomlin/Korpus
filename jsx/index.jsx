@@ -18,7 +18,7 @@ function App({ data }) {
 	const sentences = data['sentences'];
 	const timed = (data['metadata']['timed'] == 'true');
 	let footer = null;
-	if (!timed) {
+	if (timed) {
 		let audioFile;
 		const media = data['metadata']['media'];
 		if ('mp3' in media) {
@@ -32,7 +32,7 @@ function App({ data }) {
 		<div>
 			<div id="middle">
 				<Sidebar metadata={data['metadata']} />
-				<CenterPanel timed={!timed} sentences={sentences} />
+				<CenterPanel timed={timed} sentences={sentences} />
 			</div>
 			<div id="footer">{footer}</div>
 		</div>
