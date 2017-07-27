@@ -285,8 +285,8 @@ function preprocess(xmlFileName, jsonFileName) {
     });
 }
 
-var basePath = "C:\\Users\\Kalinda\\Desktop\\Korpus\\";
-// var basePath = "../";
+// var basePath = "C:\\Users\\Kalinda\\Desktop\\Korpus\\";
+var basePath = "../";
 var xmlFilesDir = basePath + "data/flex_files/";
 var jsonFilesDir = basePath + "data/json_files/";
 indexJsonFileName = basePath + "data/index.json"; // stores metadata for all documents

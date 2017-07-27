@@ -2,10 +2,10 @@ var fs = require('fs');
 var util = require('util');
 var parseString = require('xml2js').parseString; // or we could use simple-xml
 
-var basePath = "C:\\Users\\Kalinda\\Desktop\\Korpus\\data\\";
-// var basePath = "../data/";
-var xmlFileName = basePath + "elan_files\\Intro.eaf";
-var jsonFileName = basePath + "json_files\\Intro.json";
+// var basePath = "C:\\Users\\Kalinda\\Desktop\\Korpus\\data\\";
+var basePath = "../data/";
+var xmlFileName = basePath + "elan_files/Intro.eaf";
+var jsonFileName = basePath + "json_files/Intro.json";
 var indexJsonFileName = basePath + "index.json";
 
 function swapJsonKeyValues(input) {
