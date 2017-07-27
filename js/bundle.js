@@ -525,14 +525,16 @@ function App(_ref) {
 	);
 }
 
-$.getJSON("db/aldar/5459352f3b9eb1d2b71071a7f40008ef", function (data) {
+$.getJSON("data/json_files/Intro.json", function (data) {
 	ReactDOM.render(React.createElement(App, { data: data }), document.getElementById("main"), function () {
-		$.ajax({
-			url: "./js/txt_sync.js",
-			dataType: "script"
-		});
-		// Resize elements based on footer height:
+		// If there is a footer, i.e., if audio exists:
 		if ($("#footer").length !== 0) {
+			$.ajax({
+				url: "./js/txt_sync.js",
+				dataType: "script"
+			});
+
+			// Resize elements based on footer height:
 			var footheight = ($("#footer").height() + 48).toString() + "px";
 			var bodyheight = "calc(100% - " + footheight + ")";
 
