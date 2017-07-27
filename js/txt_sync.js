@@ -16,7 +16,7 @@ function sync(current_time) {
             ts_tag_array[i].setAttribute("id", "current");
             // $('#example, #td').animate({scrollTop:$("#current").offset().top}, 500);
             scrollIntoViewIfNeeded($("#current")[0]);
-            ts_tag_array[i].style.backgroundColor = "rgba(76, 175, 80, 0.3)";
+            ts_tag_array[i].style.backgroundColor = "rgb(234, 226, 216)";
 		}
 		else {
 			ts_tag_array[i].style.backgroundColor = "transparent";
@@ -27,9 +27,14 @@ function sync(current_time) {
 }
 
 
-media = document.querySelectorAll("[data-live='true']")[0];
-media.setAttribute("ontimeupdate", "sync(this.currentTime)");
-media.setAttribute("onclick", "sync(this.currentTime)");
+try {
+    media = document.querySelectorAll("[data-live='true']")[0];
+    media.setAttribute("ontimeupdate", "sync(this.currentTime)");
+    media.setAttribute("onclick", "sync(this.currentTime)");
+} catch (err) {
+    console.log(err);
+}
+
 
 ts_tag_array = document.getElementsByClassName("labeledTimeBlock");
 ts_start_time_array = [];
