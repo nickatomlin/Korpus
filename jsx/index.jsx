@@ -26,34 +26,54 @@ function StoryIndex({ index }) {
 	);
 }
 
-function Story({ story }) {
-    const sentences = story['sentences'];
-    const timed = (story['metadata']['timed'] === 'true');
-    let footer = null;
-    if (timed) {
-    let audioFile;
-    const media = story['metadata']['media'];
-    if ('mp3' in media) {
-		audioFile = media['mp3'];
-	} else {
-		audioFile = media['mp4'];
-	}
-		footer = <audio data-live="true" controls id="audio" src={'/data/media_files/' + audioFile} />;
-	}
-	return (
-		<div key={id.generate()}>
-			<h3>a story</h3>
-			<div id="middle">
-				<Sidebar metadata={story['metadata']} />
-				<CenterPanel timed={timed} sentences={sentences} />
-			</div>
-			<div id="footer">{footer}</div>
-		</div>
-    );
+class Story extends React.Component {
+    componentDidMount() {
+        // If there is a footer, i.e., if audio exists:
+        if ($('#footer').length !== 0) {
+            $.ajax({
+                url: '/js/txt_sync.js',
+                dataType: 'script',
+            });
+
+            // Resize elements based on footer height:
+            var footheight = ($('#footer').height() + 48).toString() + 'px';
+            var bodyheight = 'calc(100% - ' + footheight + ')';
+
+            $('#leftPanel').css('width', '240px');
+            $('#leftPanel').css('height', bodyheight);
+            $('#centerPanel').css('height', bodyheight);
+        }
+    }
+
+    render() {
+        const story = this.props.story;
+        const sentences = story['sentences'];
+        const timed = (story['metadata']['timed'] === 'true');
+        let footer = null;
+        if (timed) {
+            let audioFile;
+            const media = story['metadata']['media'];
+            if ('mp3' in media) {
+                audioFile = media['mp3'];
+            } else {
+                audioFile = media['mp4'];
+            }
+            footer = <audio data-live="true" controls id="audio" src={'/data/media_files/' + audioFile}/>;
+        }
+        return (
+            <div key={id.generate()}>
+                <h3>a story</h3>
+                <div id="middle">
+                    <Sidebar metadata={story['metadata']}/>
+                    <CenterPanel timed={timed} sentences={sentences}/>
+                </div>
+                <div id="footer">{footer}</div>
+            </div>
+        );
+    }
 }
 
 function Stories({ stories }) {
-	console.log('Stories...');
 	return (
 		<div key={id.generate()}>
 			<p>Stories</p>
@@ -72,7 +92,7 @@ function Stories({ stories }) {
 function App({ data }) {
 	return (
 		<div key={id.generate()}>
-			<p>it works! still no textsync, and need to get rid of that pesky key prop warning.</p>
+			<p>Need to get rid of that pesky key prop warning. Also "show video" exists even on singo a'i and clicking certain minibar icons makes the video so big that the minibar is inaccessible.</p>
 			<Route exact path="/index" render={props => <StoryIndex index={data.index} />} />
 			<Route path="/story" render={props => <Stories stories={data.stories} />} />
 		</div>
@@ -84,23 +104,6 @@ $.getJSON("data/fake_database.json", function(data) {
 		<Router>
 			<App data={data} />
 		</Router>,
-		document.getElementById("main"),
-		function() { 
-			// If there is a footer, i.e., if audio exists:
-			if ($('#footer').length !== 0) {
-				$.ajax({
-					url: './js/txt_sync.js',
-					dataType: 'script'
-				});
-
-				// Resize elements based on footer height:
-				var footheight = ($('#footer').height() + 48).toString() + 'px';
-				var bodyheight = 'calc(100% - ' + footheight + ')';
-
-				$('#leftPanel').css('width', '240px');
-				$('#leftPanel').css('height', bodyheight);
-				$('#centerPanel').css('height', bodyheight);
-			}
-		}
+		document.getElementById("main")
 	);
 });

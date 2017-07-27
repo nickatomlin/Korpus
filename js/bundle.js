@@ -3963,6 +3963,8 @@ function Sentence(_ref2) {
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -3979,144 +3981,165 @@ var _CenterPanel = __webpack_require__(97);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 function StoryIndex(_ref) {
-	var index = _ref.index;
+    var index = _ref.index;
 
-	console.log(index);
-	return _react2.default.createElement(
-		'div',
-		{ key: _shortid2.default.generate() },
-		_react2.default.createElement(
-			'h2',
-			null,
-			'Imagine a list of stories.'
-		),
-		_react2.default.createElement(
-			_reactRouterDom.Link,
-			{ to: '/story' },
-			'story link'
-		),
-		_react2.default.createElement(
-			'ul',
-			null,
-			index.map(function (story) {
-				return _react2.default.createElement(
-					'li',
-					{ key: _shortid2.default.generate() },
-					_react2.default.createElement(
-						_reactRouterDom.Link,
-						{ to: '/story/' + story['title from filename'] },
-						story['display_title']
-					)
-				);
-			})
-		)
-	);
+    return _react2.default.createElement(
+        'div',
+        { key: _shortid2.default.generate() },
+        _react2.default.createElement(
+            'h2',
+            null,
+            'Imagine a list of stories.'
+        ),
+        _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/story' },
+            'story link'
+        ),
+        _react2.default.createElement(
+            'ul',
+            null,
+            index.map(function (story) {
+                return _react2.default.createElement(
+                    'li',
+                    { key: _shortid2.default.generate() },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { to: '/story/' + story['title from filename'] },
+                        story['display_title']
+                    )
+                );
+            })
+        )
+    );
 }
 
-function Story(_ref2) {
-	var story = _ref2.story;
+var Story = function (_React$Component) {
+    _inherits(Story, _React$Component);
 
-	var sentences = story['sentences'];
-	var timed = story['metadata']['timed'] === 'true';
-	var footer = null;
-	if (timed) {
-		var audioFile = void 0;
-		var media = story['metadata']['media'];
-		if ('mp3' in media) {
-			audioFile = media['mp3'];
-		} else {
-			audioFile = media['mp4'];
-		}
-		footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: '/data/media_files/' + audioFile });
-	}
-	return _react2.default.createElement(
-		'div',
-		{ key: _shortid2.default.generate() },
-		_react2.default.createElement(
-			'h3',
-			null,
-			'a story'
-		),
-		_react2.default.createElement(
-			'div',
-			{ id: 'middle' },
-			_react2.default.createElement(_Sidebar.Sidebar, { metadata: story['metadata'] }),
-			_react2.default.createElement(_CenterPanel.CenterPanel, { timed: timed, sentences: sentences })
-		),
-		_react2.default.createElement(
-			'div',
-			{ id: 'footer' },
-			footer
-		)
-	);
+    function Story() {
+        _classCallCheck(this, Story);
+
+        return _possibleConstructorReturn(this, (Story.__proto__ || Object.getPrototypeOf(Story)).apply(this, arguments));
+    }
+
+    _createClass(Story, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            // If there is a footer, i.e., if audio exists:
+            if ($('#footer').length !== 0) {
+                $.ajax({
+                    url: '/js/txt_sync.js',
+                    dataType: 'script'
+                });
+
+                // Resize elements based on footer height:
+                var footheight = ($('#footer').height() + 48).toString() + 'px';
+                var bodyheight = 'calc(100% - ' + footheight + ')';
+
+                $('#leftPanel').css('width', '240px');
+                $('#leftPanel').css('height', bodyheight);
+                $('#centerPanel').css('height', bodyheight);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var story = this.props.story;
+            var sentences = story['sentences'];
+            var timed = story['metadata']['timed'] === 'true';
+            var footer = null;
+            if (timed) {
+                var audioFile = void 0;
+                var media = story['metadata']['media'];
+                if ('mp3' in media) {
+                    audioFile = media['mp3'];
+                } else {
+                    audioFile = media['mp4'];
+                }
+                footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: '/data/media_files/' + audioFile });
+            }
+            return _react2.default.createElement(
+                'div',
+                { key: _shortid2.default.generate() },
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    'a story'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'middle' },
+                    _react2.default.createElement(_Sidebar.Sidebar, { metadata: story['metadata'] }),
+                    _react2.default.createElement(_CenterPanel.CenterPanel, { timed: timed, sentences: sentences })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'footer' },
+                    footer
+                )
+            );
+        }
+    }]);
+
+    return Story;
+}(_react2.default.Component);
+
+function Stories(_ref2) {
+    var stories = _ref2.stories;
+
+    return _react2.default.createElement(
+        'div',
+        { key: _shortid2.default.generate() },
+        _react2.default.createElement(
+            'p',
+            null,
+            'Stories'
+        ),
+        stories.map(function (story) {
+            return _react2.default.createElement(_reactRouterDom.Route, {
+                exact: true, path: '/story/' + story['metadata']['title from filename'],
+                render: function render(props) {
+                    return _react2.default.createElement(Story, { story: story });
+                }
+            });
+        })
+    );
 }
 
-function Stories(_ref3) {
-	var stories = _ref3.stories;
+function App(_ref3) {
+    var data = _ref3.data;
 
-	console.log('Stories...');
-	return _react2.default.createElement(
-		'div',
-		{ key: _shortid2.default.generate() },
-		_react2.default.createElement(
-			'p',
-			null,
-			'Stories'
-		),
-		stories.map(function (story) {
-			return _react2.default.createElement(_reactRouterDom.Route, {
-				exact: true, path: '/story/' + story['metadata']['title from filename'],
-				render: function render(props) {
-					return _react2.default.createElement(Story, { story: story });
-				}
-			});
-		})
-	);
-}
-
-function App(_ref4) {
-	var data = _ref4.data;
-
-	return _react2.default.createElement(
-		'div',
-		{ key: _shortid2.default.generate() },
-		_react2.default.createElement(
-			'p',
-			null,
-			'it works! still no textsync, and need to get rid of that pesky key prop warning.'
-		),
-		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
-				return _react2.default.createElement(StoryIndex, { index: data.index });
-			} }),
-		_react2.default.createElement(_reactRouterDom.Route, { path: '/story', render: function render(props) {
-				return _react2.default.createElement(Stories, { stories: data.stories });
-			} })
-	);
+    return _react2.default.createElement(
+        'div',
+        { key: _shortid2.default.generate() },
+        _react2.default.createElement(
+            'p',
+            null,
+            'Need to get rid of that pesky key prop warning. Also "show video" exists even on singo a\'i and clicking certain minibar icons makes the video so big that the minibar is inaccessible.'
+        ),
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
+                return _react2.default.createElement(StoryIndex, { index: data.index });
+            } }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/story', render: function render(props) {
+                return _react2.default.createElement(Stories, { stories: data.stories });
+            } })
+    );
 }
 
 $.getJSON("data/fake_database.json", function (data) {
-	ReactDOM.render(_react2.default.createElement(
-		_reactRouterDom.BrowserRouter,
-		null,
-		_react2.default.createElement(App, { data: data })
-	), document.getElementById("main"), function () {
-		// If there is a footer, i.e., if audio exists:
-		if ($('#footer').length !== 0) {
-			$.ajax({
-				url: './js/txt_sync.js',
-				dataType: 'script'
-			});
-
-			// Resize elements based on footer height:
-			var footheight = ($('#footer').height() + 48).toString() + 'px';
-			var bodyheight = 'calc(100% - ' + footheight + ')';
-
-			$('#leftPanel').css('width', '240px');
-			$('#leftPanel').css('height', bodyheight);
-			$('#centerPanel').css('height', bodyheight);
-		}
-	});
+    ReactDOM.render(_react2.default.createElement(
+        _reactRouterDom.BrowserRouter,
+        null,
+        _react2.default.createElement(App, { data: data })
+    ), document.getElementById("main"));
 });
 
 /***/ }),
