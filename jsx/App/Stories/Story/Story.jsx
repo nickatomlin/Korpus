@@ -1,4 +1,3 @@
-import id from 'shortid';
 import { Sidebar } from './Sidebar/Sidebar.jsx';
 import { CenterPanel } from './Display/CenterPanel.jsx';
 
@@ -37,7 +36,7 @@ export class Story extends React.Component {
             footer = <audio data-live="true" controls id="audio" src={'/Korpus/data/media_files/' + audioFile}/>;
         }
         return (
-            <div key={id.generate()}>
+            <div>
                 <div id="middle">
                     <Sidebar metadata={story['metadata']}/>
                     <CenterPanel timed={timed} sentences={sentences}/>

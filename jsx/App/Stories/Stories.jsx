@@ -5,13 +5,15 @@ import { Story } from './Story/Story.jsx';
 
 export function Stories({ stories }) {
     return (
-        <div key={id.generate()}>
+        <div>
             {
                 stories.map(story => (
-                    <Route
-                        exact path={`/Korpus/story/${story['metadata']['title from filename']}`}
-                        render={props => <Story story={story} />}
-                    />
+                    <div key={id.generate()}>
+                        <Route
+                            exact path={`/Korpus/story/${story['metadata']['title from filename']}`}
+                            render={props => <Story story={story} />}
+                        />
+                    </div>
                 ))
             }
         </div>
