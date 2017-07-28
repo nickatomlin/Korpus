@@ -3994,16 +3994,6 @@ function StoryIndex(_ref) {
         'div',
         { key: _shortid2.default.generate() },
         _react2.default.createElement(
-            'h2',
-            null,
-            'Imagine a list of stories.'
-        ),
-        _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/Korpus/story' },
-            'story link'
-        ),
-        _react2.default.createElement(
             'ul',
             null,
             index.map(function (story) {
@@ -4070,11 +4060,6 @@ var Story = function (_React$Component) {
                 'div',
                 { key: _shortid2.default.generate() },
                 _react2.default.createElement(
-                    'h3',
-                    null,
-                    'a story'
-                ),
-                _react2.default.createElement(
                     'div',
                     { id: 'middle' },
                     _react2.default.createElement(_Sidebar.Sidebar, { metadata: story['metadata'] }),
@@ -4098,11 +4083,6 @@ function Stories(_ref2) {
     return _react2.default.createElement(
         'div',
         { key: _shortid2.default.generate() },
-        _react2.default.createElement(
-            'p',
-            null,
-            'Stories'
-        ),
         stories.map(function (story) {
             return _react2.default.createElement(_reactRouterDom.Route, {
                 exact: true, path: '/Korpus/story/' + story['metadata']['title from filename'],
@@ -4120,11 +4100,6 @@ function App(_ref3) {
     return _react2.default.createElement(
         'div',
         { key: _shortid2.default.generate() },
-        _react2.default.createElement(
-            'p',
-            null,
-            'Start routes with /Korpus in hopes of making Router on Github happy.'
-        ),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/Korpus/index', render: function render(props) {
                 return _react2.default.createElement(StoryIndex, { index: data.index });
             } }),

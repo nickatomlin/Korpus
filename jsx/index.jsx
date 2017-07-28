@@ -11,8 +11,6 @@ import { CenterPanel } from './Display/CenterPanel.jsx';
 function StoryIndex({ index }) {
 	return (
 		<div key={id.generate()}>
-			<h2>Imagine a list of stories.</h2>
-			<Link to="/Korpus/story">story link</Link>
 			<ul>
                 {
                     index.map(story => (
@@ -62,7 +60,6 @@ class Story extends React.Component {
         }
         return (
             <div key={id.generate()}>
-                <h3>a story</h3>
                 <div id="middle">
                     <Sidebar metadata={story['metadata']}/>
                     <CenterPanel timed={timed} sentences={sentences}/>
@@ -76,7 +73,6 @@ class Story extends React.Component {
 function Stories({ stories }) {
 	return (
 		<div key={id.generate()}>
-			<p>Stories</p>
 			{
 				stories.map(story => (
 					<Route
@@ -92,7 +88,6 @@ function Stories({ stories }) {
 function App({ data }) {
 	return (
 		<div key={id.generate()}>
-			<p>Start routes with /Korpus in hopes of making Router on Github happy.</p>
 			<Route exact path="/Korpus/index" render={props => <StoryIndex index={data.index} />} />
 			<Route path="/Korpus/story" render={props => <Stories stories={data.stories} />} />
 		</div>
