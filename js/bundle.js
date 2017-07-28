@@ -4036,7 +4036,7 @@ var Story = function (_React$Component) {
             // If there is a footer, i.e., if audio exists:
             if ($('#footer').length !== 0) {
                 $.ajax({
-                    url: './js/txt_sync.js',
+                    url: '/Korpus/js/txt_sync.js',
                     dataType: 'script'
                 });
 
@@ -4064,7 +4064,7 @@ var Story = function (_React$Component) {
                 } else {
                     audioFile = media['mp4'];
                 }
-                footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: './data/media_files/' + audioFile });
+                footer = _react2.default.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: '/Korpus/data/media_files/' + audioFile });
             }
             return _react2.default.createElement(
                 'div',
@@ -8899,7 +8899,7 @@ function Sidebar(_ref) {
 	// Status: untested
 	try {
 		var filename = metadata['media']['mp4'];
-		var path = './data/media_files/' + filename;
+		var path = '/Korpus/data/media_files/' + filename;
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
@@ -9002,7 +9002,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#info' },
-					React.createElement('img', { src: './images/info.svg' })
+					React.createElement('img', { src: '/Korpus/images/info.svg' })
 				)
 			),
 			React.createElement(
@@ -9011,7 +9011,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#search' },
-					React.createElement('img', { src: './images/search.svg' })
+					React.createElement('img', { src: '/Korpus/images/search.svg' })
 				)
 			),
 			React.createElement(
@@ -9020,7 +9020,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#settings' },
-					React.createElement('img', { src: './images/settings.svg' })
+					React.createElement('img', { src: '/Korpus/images/settings.svg' })
 				)
 			)
 		),

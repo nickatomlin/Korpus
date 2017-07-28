@@ -31,7 +31,7 @@ class Story extends React.Component {
         // If there is a footer, i.e., if audio exists:
         if ($('#footer').length !== 0) {
             $.ajax({
-                url: './js/txt_sync.js',
+                url: '/Korpus/js/txt_sync.js',
                 dataType: 'script',
             });
 
@@ -58,7 +58,7 @@ class Story extends React.Component {
             } else {
                 audioFile = media['mp4'];
             }
-            footer = <audio data-live="true" controls id="audio" src={'./data/media_files/' + audioFile}/>;
+            footer = <audio data-live="true" controls id="audio" src={'/Korpus/data/media_files/' + audioFile}/>;
         }
         return (
             <div key={id.generate()}>
