@@ -4000,7 +4000,7 @@ function StoryIndex(_ref) {
         ),
         _react2.default.createElement(
             _reactRouterDom.Link,
-            { to: '/story' },
+            { to: '/Korpus/story' },
             'story link'
         ),
         _react2.default.createElement(
@@ -4012,7 +4012,7 @@ function StoryIndex(_ref) {
                     { key: _shortid2.default.generate() },
                     _react2.default.createElement(
                         _reactRouterDom.Link,
-                        { to: '/story/' + story['title from filename'] },
+                        { to: '/Korpus/story/' + story['title from filename'] },
                         story['display_title']
                     )
                 );
@@ -4105,7 +4105,7 @@ function Stories(_ref2) {
         ),
         stories.map(function (story) {
             return _react2.default.createElement(_reactRouterDom.Route, {
-                exact: true, path: '/story/' + story['metadata']['title from filename'],
+                exact: true, path: '/Korpus/story/' + story['metadata']['title from filename'],
                 render: function render(props) {
                     return _react2.default.createElement(Story, { story: story });
                 }
@@ -4123,12 +4123,12 @@ function App(_ref3) {
         _react2.default.createElement(
             'p',
             null,
-            'Start filepaths with ./ in hopes of making Router and GitHub both happy.'
+            'Start routes with /Korpus in hopes of making Router on Github happy.'
         ),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/Korpus/index', render: function render(props) {
                 return _react2.default.createElement(StoryIndex, { index: data.index });
             } }),
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/story', render: function render(props) {
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/Korpus/story', render: function render(props) {
                 return _react2.default.createElement(Stories, { stories: data.stories });
             } })
     );
