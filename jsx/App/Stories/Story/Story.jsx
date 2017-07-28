@@ -1,30 +1,8 @@
-import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from "react-router-dom";
 import id from 'shortid';
-import { Sidebar } from './Sidebar/Sidebar.jsx'
+import { Sidebar } from './Sidebar/Sidebar.jsx';
 import { CenterPanel } from './Display/CenterPanel.jsx';
 
-function StoryIndex({ index }) {
-	return (
-		<div key={id.generate()}>
-			<ul>
-                {
-                    index.map(story => (
-						<li key={id.generate()}>
-							<Link to={`/Korpus/story/${story['title from filename']}`}>{story['display_title']}</Link>
-						</li>
-                    ))
-                }
-			</ul>
-		</div>
-	);
-}
-
-class Story extends React.Component {
+export class Story extends React.Component {
     componentDidMount() {
         // If there is a footer, i.e., if audio exists:
         if ($('#footer').length !== 0) {
@@ -69,36 +47,3 @@ class Story extends React.Component {
         );
     }
 }
-
-function Stories({ stories }) {
-	return (
-		<div key={id.generate()}>
-			{
-				stories.map(story => (
-					<Route
-                        exact path={`/Korpus/story/${story['metadata']['title from filename']}`}
-                        render={props => <Story story={story} />}
-                    />
-                ))
-			}
-		</div>
-	);
-}
-
-function App({ data }) {
-	return (
-		<div key={id.generate()}>
-			<Route exact path="/Korpus/index" render={props => <StoryIndex index={data.index} />} />
-			<Route path="/Korpus/story" render={props => <Stories stories={data.stories} />} />
-		</div>
-	);
-}
-
-$.getJSON("data/fake_database.json", function(data) {
-	ReactDOM.render(
-		<Router>
-			<App data={data} />
-		</Router>,
-		document.getElementById("main")
-	);
-});
