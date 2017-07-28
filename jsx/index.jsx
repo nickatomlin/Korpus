@@ -12,12 +12,12 @@ function StoryIndex({ index }) {
 	return (
 		<div key={id.generate()}>
 			<h2>Imagine a list of stories.</h2>
-			<Link to="/story">story link</Link>
+			<Link to="/Korpus/story">story link</Link>
 			<ul>
                 {
                     index.map(story => (
 						<li key={id.generate()}>
-							<Link to={`/story/${story['title from filename']}`}>{story['display_title']}</Link>
+							<Link to={`/Korpus/story/${story['title from filename']}`}>{story['display_title']}</Link>
 						</li>
                     ))
                 }
@@ -80,7 +80,7 @@ function Stories({ stories }) {
 			{
 				stories.map(story => (
 					<Route
-                        exact path={`/story/${story['metadata']['title from filename']}`}
+                        exact path={`/Korpus/story/${story['metadata']['title from filename']}`}
                         render={props => <Story story={story} />}
                     />
                 ))
@@ -92,9 +92,9 @@ function Stories({ stories }) {
 function App({ data }) {
 	return (
 		<div key={id.generate()}>
-			<p>Start filepaths with ./ in hopes of making Router and GitHub both happy.</p>
-			<Route exact path="/index" render={props => <StoryIndex index={data.index} />} />
-			<Route path="/story" render={props => <Stories stories={data.stories} />} />
+			<p>Start routes with /Korpus in hopes of making Router on Github happy.</p>
+			<Route exact path="/Korpus/index" render={props => <StoryIndex index={data.index} />} />
+			<Route path="/Korpus/story" render={props => <Stories stories={data.stories} />} />
 		</div>
 	);
 }
