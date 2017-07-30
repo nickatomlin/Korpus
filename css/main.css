@@ -147,7 +147,6 @@ a.timeStamp {
 		Untimed */
 #untimedTextDisplay {
 	position: fixed;
-	margin-left: 240px;
 	width: calc(100% - 240px);
 	height: calc(100% - 48px);
 	overflow-y: scroll;
@@ -162,8 +161,8 @@ a.timeStamp {
 	padding-left: 9px;
 }
 
-table.gloss[data-isTimeAligned="false"] {
-	padding-left: 9px;
+table.gloss {
+	padding-left: 5px;
 }
 
 /*	MAIN.CSS
