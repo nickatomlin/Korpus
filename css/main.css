@@ -154,11 +154,10 @@ a.timeStamp {
 	background-color: rgb(255,239,220);
 }
 
-.UntimedBlock {
+.untimedBlock {
 	overflow-x: auto;
-	border-bottom: 2px solid rgb(151,151,151);
-	border-left: 2px solid rgb(151,151,151);
-	padding-left: 9px;
+	border: 2px solid rgb(151,151,151);
+	border-top: none;
 }
 
 table.gloss {
