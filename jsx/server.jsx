@@ -1,13 +1,18 @@
 import React from 'react';
 import { StaticRouter } from 'react-router';
+import ReactDOMServer from 'react-dom/server';
 import { App } from './App/App.jsx';
 
-export function Server() {
-    $.getJSON('./data/fake_database.json', function(data) {
+const data = {"index":[], "stories":[]};
+
+function Server() {
+    //$.getJSON('./data/fake_database.json', function(data) {
         return (
-            <StaticRouter location={req.url}>
+            <StaticRouter context={{}}>
                 <App data={data}/>
             </StaticRouter>
         );
-    });
+    //});
 }
+// StaticRouter location={req.url}
+export const serverRenderText = ReactDOMServer.renderToString(<Server />);
