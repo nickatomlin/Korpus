@@ -1,3 +1,4 @@
+import React from 'react';
 import { Sidebar } from './Sidebar/Sidebar.jsx';
 import { CenterPanel } from './Display/CenterPanel.jsx';
 

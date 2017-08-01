@@ -1,3 +1,5 @@
+import React from 'react';
+
 export class Video extends React.Component {
 	// I/P: path, the path to the video
 	// O/P: a video player

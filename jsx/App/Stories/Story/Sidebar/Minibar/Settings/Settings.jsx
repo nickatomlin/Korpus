@@ -1,3 +1,4 @@
+import React from 'react';
 import { TierCheckboxList } from './TierCheckboxList.jsx';
 import { Video } from './../../Video.jsx';
 

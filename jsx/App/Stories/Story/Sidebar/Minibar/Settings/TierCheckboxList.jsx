@@ -1,3 +1,5 @@
+import React from 'react';
+
 class TierCheckbox extends React.Component {
    // I/P: tier_id, a string like "T1" or "T15"
    //    tier_name, a string like "English Morphemes"
