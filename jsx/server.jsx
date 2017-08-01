@@ -1,32 +1,13 @@
-import isDev from 'isdev';
-import http from 'http';
-import express from 'express';
-import serveStatic from 'serve-static';
+import React from 'react';
+import { StaticRouter } from 'react-router';
+import { App } from './App/App.jsx';
 
-import { Config, Dir } from './config';
-import { logServerConfig } from './logger';
-
-import { hotMiddleware } from './middleware/hot';
-import { isoMiddleware } from './middleware/iso';
-
-const app = express();
-const server = http.createServer(app);
-
-// use ejs template engine on express
-app
-    .set('view engine', 'ejs')
-    .set('views', Dir.views);
-
-// loading the hot-middleware
-if (isDev) app.use(hotMiddleware);
-
-app
-    .use('/build', serveStatic(Dir.build))
-    .use('/static', serveStatic(Dir.static))
-    .use(isoMiddleware);
-
-server
-    .listen(
-        Config.port,
-        Config.host,
-        (err) => logServerConfig(err));
+export function Server() {
+    $.getJSON('./data/fake_database.json', function(data) {
+        return (
+            <StaticRouter location={req.url}>
+                <App data={data}/>
+            </StaticRouter>
+        );
+    });
+}
