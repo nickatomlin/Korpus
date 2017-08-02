@@ -8,7 +8,7 @@ const data = {"index":[], "stories":[]};
 function Server() {
     //$.getJSON('./data/fake_database.json', function(data) {
         return (
-            <StaticRouter context={{}}>
+            <StaticRouter location="/Korpus/index" context={{}}>
                 <App data={data}/>
             </StaticRouter>
         );

@@ -11253,7 +11253,7 @@ function Server() {
     //$.getJSON('./data/fake_database.json', function(data) {
     return _react2.default.createElement(
         _reactRouter.StaticRouter,
-        { context: {} },
+        { location: '/Korpus/index', context: {} },
         _react2.default.createElement(_App.App, { data: data })
     );
     //});
