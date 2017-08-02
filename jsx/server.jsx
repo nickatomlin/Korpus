@@ -15,4 +15,7 @@ function Server() {
     //});
 }
 // StaticRouter location={req.url}
-export const serverRenderText = ReactDOMServer.renderToString(<Server />);
+//export const serverRenderText = ReactDOMServer.renderToString(<Server />);
+export function serverRenderText() {
+    return ReactDOMServer.renderToString(<Server />);
+}

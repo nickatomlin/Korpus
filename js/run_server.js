@@ -1,17 +1,17 @@
-/*
-import { createServer } from 'http';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { serverRenderText } from './bundle.js';
-*/
 const http = require('http');
 const bundle = require('./bundle.js');
 const fs = require('fs');
-const indexhtml = grabIndexDotHTMLFromFileSystem;
-const serverRenderText = String(bundle.serverRenderText);
-const responseText = somehowInjectServerRenderTextIntoTheCorrectPartOfIndexDotHTML;
+const ReactDOMServer = require('react-dom/server');
+const serverRenderText = bundle.serverRenderText();
+
+const indexPt1 = fs.readFileSync('./Korpus/index_part1.html', 'utf8');
+const indexPt2 = fs.readFileSync('./Korpus/index_part2.html', 'utf8');
 
 http.createServer((req, res) => {
-    res.write(responseText);
+    res.write(indexPt1);
+    res.write(serverRenderText);
+    res.write(indexPt2);
     res.end();
 }).listen(8000);
+
+

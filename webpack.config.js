@@ -4,7 +4,8 @@ module.exports = {
   entry: './jsx/server.jsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'js')
+    path: path.resolve(__dirname, 'js'),
+    libraryTarget: 'umd'
   },
   module: {
     loaders: [{

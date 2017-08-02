@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -11221,7 +11231,7 @@ function Sentence(_ref2) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.serverRenderText = undefined;
+exports.serverRenderText = serverRenderText;
 
 var _react = __webpack_require__(5);
 
@@ -11249,7 +11259,10 @@ function Server() {
     //});
 }
 // StaticRouter location={req.url}
-var serverRenderText = exports.serverRenderText = _server2.default.renderToString(_react2.default.createElement(Server, null));
+//export const serverRenderText = ReactDOMServer.renderToString(<Server />);
+function serverRenderText() {
+    return _server2.default.renderToString(_react2.default.createElement(Server, null));
+}
 
 /***/ }),
 /* 100 */
@@ -26513,3 +26526,4 @@ function TimedTextDisplay(_ref4) {
 
 /***/ })
 /******/ ]);
+});
