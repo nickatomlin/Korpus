@@ -13,7 +13,7 @@ const data =
         "stories":
             [{
                 "metadata": {
-                    "title from filename": "Intro",
+                    "title from filename": "TruncatedIntro",
                     "tier IDs": {
                         "T1": "A'ingae",
                         "T2": "English",
@@ -46,17 +46,20 @@ const data =
             }]
     };
 
-function Server() {
+function Server({ url }) {
     //$.getJSON('./data/fake_database.json', function(data) {
         return (
-            <StaticRouter location="/Korpus/index" context={{}}>
-                <App data={data}/>
+            <StaticRouter location={url} context={{}}>
+                <div>
+                    <p>{url}</p>
+                    <App data={data}/>
+                </div>
             </StaticRouter>
         );
     //});
 }
 // StaticRouter location={req.url}
 //export const serverRenderText = ReactDOMServer.renderToString(<Server />);
-export function serverRenderText() {
-    return ReactDOMServer.renderToString(<Server />);
+export function serverRenderText(url) {
+    return ReactDOMServer.renderToString(<Server url={url} />);
 }

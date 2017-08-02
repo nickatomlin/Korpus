@@ -11254,7 +11254,7 @@ var data = {
     }],
     "stories": [{
         "metadata": {
-            "title from filename": "Intro",
+            "title from filename": "TruncatedIntro",
             "tier IDs": {
                 "T1": "A'ingae",
                 "T2": "English",
@@ -11286,19 +11286,30 @@ var data = {
     }]
 };
 
-function Server() {
+function Server(_ref) {
+    var url = _ref.url;
+
     //$.getJSON('./data/fake_database.json', function(data) {
     return _react2.default.createElement(
         _reactRouter.StaticRouter,
-        { location: '/Korpus/index', context: {} },
-        _react2.default.createElement(_App.App, { data: data })
+        { location: url, context: {} },
+        _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+                'p',
+                null,
+                url
+            ),
+            _react2.default.createElement(_App.App, { data: data })
+        )
     );
     //});
 }
 // StaticRouter location={req.url}
 //export const serverRenderText = ReactDOMServer.renderToString(<Server />);
-function serverRenderText() {
-    return _server2.default.renderToString(_react2.default.createElement(Server, null));
+function serverRenderText(url) {
+    return _server2.default.renderToString(_react2.default.createElement(Server, { url: url }));
 }
 
 /***/ }),
@@ -25770,6 +25781,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Sidebar = Sidebar;
 
+var _react = __webpack_require__(5);
+
 var _Title = __webpack_require__(235);
 
 var _Video = __webpack_require__(97);
@@ -25785,19 +25798,19 @@ function Sidebar(_ref) {
 	try {
 		var filename = metadata['media']['mp4'];
 		var path = '/Korpus/data/media_files/' + filename;
-		return React.createElement(
+		return _react.React.createElement(
 			'div',
 			{ id: 'leftPanel' },
-			React.createElement(_Video.Video, { path: path }),
-			React.createElement(_Title.Title, { title: metadata['title'] }),
-			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
+			_react.React.createElement(_Video.Video, { path: path }),
+			_react.React.createElement(_Title.Title, { title: metadata['title'] }),
+			_react.React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
 		);
 	} catch (err) {
-		return React.createElement(
+		return _react.React.createElement(
 			'div',
 			{ id: 'leftPanel' },
-			React.createElement(_Title.Title, { title: metadata['title'] }),
-			React.createElement(_Minibar.Minibar, { metadata: metadata })
+			_react.React.createElement(_Title.Title, { title: metadata['title'] }),
+			_react.React.createElement(_Minibar.Minibar, { metadata: metadata })
 		);
 	}
 }
