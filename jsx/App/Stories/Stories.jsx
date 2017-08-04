@@ -10,7 +10,7 @@ export function Stories({ stories }) {
                 stories.map(story => (
                     <div key={id.generate()}>
                         <Route
-                            exact path={`/Korpus/story/${story['metadata']['title from filename']}`}
+                            exact path={`/story/${story['metadata']['title from filename']}`}
                             render={props => <Story story={story} />}
                         />
                     </div>

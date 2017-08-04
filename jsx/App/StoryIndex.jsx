@@ -8,7 +8,7 @@ export function StoryIndex({ index }) {
             {
                 index.map(story => (
                     <li key={id.generate()}>
-                        <Link to={`/Korpus/story/${story['title from filename']}`}>{story['display_title']}</Link>
+                        <Link to={`/story/${story['title from filename']}`}>{story['display_title']}</Link>
                     </li>
                 ))
             }

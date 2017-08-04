@@ -4034,7 +4034,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 $.getJSON('./data/fake_database.json', function (data) {
     ReactDOM.render(_react2.default.createElement(
-        _reactRouterDom.BrowserRouter,
+        _reactRouterDom.HashRouter,
         null,
         _react2.default.createElement(_App.App, { data: data })
     ), document.getElementById("main"));
@@ -8506,10 +8506,10 @@ function App(_ref) {
     return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/Korpus/index', render: function render(props) {
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/index', render: function render(props) {
                 return _react2.default.createElement(_StoryIndex.StoryIndex, { index: data.index });
             } }),
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/Korpus/story', render: function render(props) {
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/story', render: function render(props) {
                 return _react2.default.createElement(_Stories.Stories, { stories: data.stories });
             } })
     );
@@ -8791,7 +8791,7 @@ function StoryIndex(_ref) {
                 { key: _shortid2.default.generate() },
                 _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/Korpus/story/' + story['title from filename'] },
+                    { to: '/story/' + story['title from filename'] },
                     story['display_title']
                 )
             );
@@ -8836,7 +8836,7 @@ function Stories(_ref) {
                 'div',
                 { key: _shortid2.default.generate() },
                 _react2.default.createElement(_reactRouterDom.Route, {
-                    exact: true, path: '/Korpus/story/' + story['metadata']['title from filename'],
+                    exact: true, path: '/story/' + story['metadata']['title from filename'],
                     render: function render(props) {
                         return _react2.default.createElement(_Story.Story, { story: story });
                     }

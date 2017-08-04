@@ -7,8 +7,8 @@ import { Stories } from './Stories/Stories.jsx';
 export function App({ data }) {
     return (
         <div>
-            <Route exact path="/Korpus/index" render={props => <StoryIndex index={data.index} />} />
-            <Route path="/Korpus/story" render={props => <Stories stories={data.stories} />} />
+            <Route exact path="/index" render={props => <StoryIndex index={data.index} />} />
+            <Route path="/story" render={props => <Stories stories={data.stories} />} />
         </div>
     );
 }
