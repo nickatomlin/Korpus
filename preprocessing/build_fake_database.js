@@ -11,7 +11,7 @@ const db = {
 
 const storyFileNames = fs.readdirSync(storyFilesDir);
 for (const storyFileName of storyFileNames) {
-    console.log("Processing " + storyFileName);
+    console.log("Reading " + storyFileName);
     db['stories'].push(JSON.parse(fs.readFileSync(storyFilesDir + storyFileName, 'utf8')));
 }
 
