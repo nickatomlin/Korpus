@@ -8885,7 +8885,7 @@ var Story = exports.Story = function (_React$Component) {
             // If there is a footer, i.e., if audio exists:
             if ($('#footer').length !== 0) {
                 $.ajax({
-                    url: '/js/txt_sync.js',
+                    url: 'js/txt_sync.js',
                     dataType: 'script'
                 });
 
@@ -8913,7 +8913,7 @@ var Story = exports.Story = function (_React$Component) {
                 } else {
                     audioFile = media['mp4'];
                 }
-                footer = React.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: '/data/media_files/' + audioFile });
+                footer = React.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: 'data/media_files/' + audioFile });
             }
             return React.createElement(
                 'div',
@@ -8962,7 +8962,7 @@ function Sidebar(_ref) {
 	// Status: untested
 	try {
 		var filename = metadata['media']['mp4'];
-		var path = '/data/media_files/' + filename;
+		var path = 'data/media_files/' + filename;
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
@@ -9065,7 +9065,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#info' },
-					React.createElement('img', { src: '/images/info.svg' })
+					React.createElement('img', { src: 'images/info.svg' })
 				)
 			),
 			React.createElement(
@@ -9074,7 +9074,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#search' },
-					React.createElement('img', { src: '/images/search.svg' })
+					React.createElement('img', { src: 'images/search.svg' })
 				)
 			),
 			React.createElement(
@@ -9083,7 +9083,7 @@ function Minibar(_ref) {
 				React.createElement(
 					'a',
 					{ className: 'minibarLink', href: '#settings' },
-					React.createElement('img', { src: '/images/settings.svg' })
+					React.createElement('img', { src: 'images/settings.svg' })
 				)
 			)
 		),
