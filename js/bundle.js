@@ -3900,7 +3900,7 @@ function Row(_ref) {
 	// and 5-7.
 	var finalSlot = numSlots;
 	var currentSlot = 0;
-	var output = [];
+	var output = []; // Regular annotations.
 
 	var _iteratorNormalCompletion = true;
 	var _didIteratorError = false;
@@ -3921,11 +3921,20 @@ function Row(_ref) {
 			}
 			// Create element with correct 'colSpan' width:
 			var size = String(endSlot - startSlot);
-			output.push(React.createElement(
-				'td',
-				{ key: _shortid2.default.generate(), colSpan: size },
-				text
-			));
+			if (size == numSlots) {
+				// Add quotes to full-width lines
+				output.push(React.createElement(
+					'td',
+					{ key: _shortid2.default.generate(), colSpan: size },
+					'"' + text + '"'
+				));
+			} else {
+				output.push(React.createElement(
+					'td',
+					{ key: _shortid2.default.generate(), colSpan: size },
+					text
+				));
+			}
 			currentSlot = endSlot;
 		}
 		// Fill blank space at end of table row:
@@ -3962,6 +3971,7 @@ function Sentence(_ref2) {
 	// O/P: table of glossed Row components
 	// Status: tested, working
 	var rowList = []; // to be output
+	var rowList2 = []; // full-length dependent tiers
 	var numSlots = sentence['num_slots'];
 	// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
 	// 'colSpan={numSlots}' ensures that this row spans the entire table.
@@ -3987,7 +3997,11 @@ function Sentence(_ref2) {
 			    tier = _step2$value.tier;
 
 			// Tier attribute will be used for hiding/showing tiers:
-			rowList.push(React.createElement(Row, { key: _shortid2.default.generate(), numSlots: numSlots, values: values, tier: tier }));
+			if (values.length > 1) {
+				rowList.push(React.createElement(Row, { key: _shortid2.default.generate(), numSlots: numSlots, values: values, tier: tier }));
+			} else {
+				rowList2.push(React.createElement(Row, { key: _shortid2.default.generate(), numSlots: numSlots, values: values, tier: tier }));
+			}
 		}
 	} catch (err) {
 		_didIteratorError2 = true;
@@ -4004,6 +4018,7 @@ function Sentence(_ref2) {
 		}
 	}
 
+	rowList = rowList.concat(rowList2);
 	return React.createElement(
 		'table',
 		{ className: 'gloss' },
