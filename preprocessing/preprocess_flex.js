@@ -103,9 +103,10 @@ class tierRegistry {
 
 }
 
-function preprocess(xmlFileName, jsonFileName) {
+function preprocess(xmlFileName, jsonFileName, shortFileName) {
     const jsonOut = {
         "metadata": {
+            "title from filename": shortFileName,
             "tier IDs": {},
             "title": "",
             "timed": "false"
@@ -305,7 +306,7 @@ for (const xmlFileName of xmlFileNames) {
     console.log("Processing " + xmlFileName);
     const xmlPath = xmlFilesDir + xmlFileName;
     const jsonPath = jsonFilesDir + xmlFileName.slice(0,-4) + ".json";
-    preprocess(xmlPath, jsonPath);
+    preprocess(xmlPath, jsonPath, xmlFileName.slice(0,-4));
 }
 
 const indexPrettyString = JSON.stringify(index, null, 2);
