@@ -42,7 +42,14 @@ class tierRegistry {
         }
     }
 
-    static decodeLang(lang) {
+    constructor(tierIDs, jsonTierIDs, isoDict) {
+        this.tierIDs = tierIDs;
+        this.jsonTierIDs = jsonTierIDs;
+        this.nextTierIDnum = 1;
+        this.isoDict = isoDict;
+    }
+
+    decodeLang(lang) {
 
         const desiredName = "Native name"; // or we might want to use "ISO language name"
         const lcLang = lang.toLowerCase(); // ignore capitalization when decoding
@@ -60,38 +67,32 @@ class tierRegistry {
         }
 
         // if lang is an iso code, decode it
-        if (isoDict.hasOwnProperty(lcLang)) {
-            return isoDict[lcLang][desiredName];
+        if (this.isoDict.hasOwnProperty(lcLang)) {
+            return this.isoDict[lcLang][desiredName];
         }
 
         // if lang starts with a (three-letter or two-letter) iso code, decode it
         const firstThreeLetters = lcLang.substr(0, 3);
-        if (isoDict.hasOwnProperty(firstThreeLetters)) {
-            return isoDict[firstThreeLetters][desiredName];
+        if (this.isoDict.hasOwnProperty(firstThreeLetters)) {
+            return this.isoDict[firstThreeLetters][desiredName];
         }
         const firstTwoLetters = lcLang.substr(0, 2);
-        if (isoDict.hasOwnProperty(firstTwoLetters)) {
-            return isoDict[firstTwoLetters][desiredName];
+        if (this.isoDict.hasOwnProperty(firstTwoLetters)) {
+            return this.isoDict[firstTwoLetters][desiredName];
         }
 
         // as a last resort, return without decoding
         return lang;
     }
 
-    static getTierName(lang, type) {
+    getTierName(lang, type) {
         /*
         // English UI text:
           return decodeLang(lang) + " " + decodeType(type);
         */
 
         // Spanish UI text:
-        return tierRegistry.decodeType(type) + " " + tierRegistry.decodeLang(lang).toLowerCase();
-    }
-
-    constructor(tierIDs, jsonTierIDs) {
-        this.tierIDs = tierIDs;
-        this.jsonTierIDs = jsonTierIDs;
-        this.nextTierIDnum = 1;
+        return tierRegistry.decodeType(type) + " " + this.decodeLang(lang).toLowerCase();
     }
 
     // if this is a new, non-ignored tier, register its ID and include it in metadata
@@ -107,14 +108,14 @@ class tierRegistry {
         if (!this.tierIDs[lang].hasOwnProperty(type)) {
             const tierID = "T" + (this.nextTierIDnum++).toString();
             this.tierIDs[lang][type] = tierID;
-            this.jsonTierIDs[tierID] = tierRegistry.getTierName(lang, type);
+            this.jsonTierIDs[tierID] = this.getTierName(lang, type);
         }
         return this.tierIDs[lang][type];
     }
 
 }
 
-function preprocess(xmlFileName, jsonFileName, shortFileName) {
+function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict) {
     const jsonOut = {
         "metadata": {
             "title from filename": shortFileName,
@@ -125,36 +126,17 @@ function preprocess(xmlFileName, jsonFileName, shortFileName) {
         },
         "sentences": []
     };
-    const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"]);
+    const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"], isoDict);
 
     parseXml(fs.readFileSync(xmlFileName), function(err, jsonIn){
         if (err) throw err;
 
-        // TITLE STUFF - NICK
-        let title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
-        title = title.slice(0,-4); // removes last four characters
-
-        let con_title = "";
-        let es_title = "";
-        let display_title = "";
         const titles = jsonIn["document"]["interlinear-text"][0]["item"];
         for (const current_title of titles) {
-            if (current_title["$"]["type"] === "title" && current_title["$"]["lang"] === "con-Latn-EC") {
-                // FIXME: This line causes Singo A'i to show up with title "a'i". Why is this even here?
-                con_title = current_title["_"].substr(current_title["_"].indexOf(" ") + 1);
-            }
-            else if (current_title["$"]["type"] === "title" && current_title["$"]["lang"] === "es") {
-                es_title = current_title["_"]
+            if (current_title['$']['type'] === 'title' && current_title["$"]["lang"] === "con-Latn-EC") {
+                jsonOut.metadata.title = current_title["_"].substr(current_title["_"].indexOf(" ") + 1);
             }
         }
-        if (es_title !== "") {
-            display_title = con_title + " (" + es_title + ")";
-        } else {
-            display_title = con_title;
-        }
-
-        jsonOut.metadata.title = con_title;
-        // END OF TITLE STUFF
 
         // set textLang to the language of the first word
         const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
@@ -294,36 +276,26 @@ function preprocess(xmlFileName, jsonFileName, shortFileName) {
             }
             console.log("The converted file " + jsonFileName + " was saved.");
         });
-
-        // TODO avoid duplicates
-        const indexMetadata = {"title from filename": title, "display_title": display_title};
-        index.push(indexMetadata);
     });
 }
 
-const xmlFilesDir = "data/flex_files/";
-const jsonFilesDir = "data/json_files/";
-const indexJsonFileName = "data/index.json"; // stores metadata for all documents
-const isoFileName = "preprocessing/iso_dict.json";
+function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName) {
+    let isoDict = {};
+    try {
+        isoDict = JSON.parse(fs.readFileSync(isoFileName));
+    } catch (err) {
+        console.log("Unable to read ISO codes file. Error was " + err + " Proceeding anyway...");
+    }
 
-let isoDict = {};
-try {
-    isoDict = JSON.parse(fs.readFileSync(isoFileName));
-} catch(err) {
-    console.log("Unable to read ISO codes file. Error was " + err + " Proceeding anyway...");
+    const xmlFileNames = fs.readdirSync(xmlFilesDir);
+    for (const xmlFileName of xmlFileNames) {
+        console.log("Processing " + xmlFileName);
+        const xmlPath = xmlFilesDir + xmlFileName;
+        const jsonPath = jsonFilesDir + xmlFileName.slice(0, -4) + ".json";
+        preprocess(xmlPath, jsonPath, xmlFileName.slice(0, -4), isoDict);
+    }
 }
 
-// TODO create indexfile if needed
-const index = JSON.parse(fs.readFileSync(indexJsonFileName));
-
-const xmlFileNames = fs.readdirSync(xmlFilesDir);
-for (const xmlFileName of xmlFileNames) {
-    console.log("Processing " + xmlFileName);
-    const xmlPath = xmlFilesDir + xmlFileName;
-    const jsonPath = jsonFilesDir + xmlFileName.slice(0,-4) + ".json";
-    preprocess(xmlPath, jsonPath, xmlFileName.slice(0,-4));
-}
-
-const indexPrettyString = JSON.stringify(index, null, 2);
-fs.writeFileSync(indexJsonFileName, indexPrettyString);
-console.log("The index was updated.");
+module.exports = {
+    preprocess_dir: preprocess_dir
+};
