@@ -33,7 +33,7 @@ export class Story extends React.Component {
             } else {
                 audioFile = media['mp4'];
             }
-            footer = <audio data-live="true" controls id="audio" src={'data/media_files/' + audioFile}/>;
+            footer = <div id="footer"><audio data-live="true" controls id="audio" src={'data/media_files/' + audioFile}/></div>;
         }
         return (
             <div>
@@ -41,7 +41,7 @@ export class Story extends React.Component {
                     <Sidebar metadata={story['metadata']}/>
                     <CenterPanel timed={timed} sentences={sentences}/>
                 </div>
-                <div id="footer">{footer}</div>
+                {footer}
             </div>
         );
     }

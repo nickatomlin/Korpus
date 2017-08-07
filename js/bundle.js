@@ -8913,7 +8913,11 @@ var Story = exports.Story = function (_React$Component) {
                 } else {
                     audioFile = media['mp4'];
                 }
-                footer = React.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: 'data/media_files/' + audioFile });
+                footer = React.createElement(
+                    'div',
+                    { id: 'footer' },
+                    React.createElement('audio', { 'data-live': 'true', controls: true, id: 'audio', src: 'data/media_files/' + audioFile })
+                );
             }
             return React.createElement(
                 'div',
@@ -8924,11 +8928,7 @@ var Story = exports.Story = function (_React$Component) {
                     React.createElement(_Sidebar.Sidebar, { metadata: story['metadata'] }),
                     React.createElement(_CenterPanel.CenterPanel, { timed: timed, sentences: sentences })
                 ),
-                React.createElement(
-                    'div',
-                    { id: 'footer' },
-                    footer
-                )
+                footer
             );
         }
     }]);
