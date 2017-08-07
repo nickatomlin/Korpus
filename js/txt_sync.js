@@ -32,6 +32,7 @@ try {
     media.setAttribute("ontimeupdate", "sync(this.currentTime)");
     media.setAttribute("onclick", "sync(this.currentTime)");
 } catch (err) {
+    console.log("there was an error oh noes")
     console.log(err);
 }
 
