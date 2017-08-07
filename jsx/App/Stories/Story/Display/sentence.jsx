@@ -35,11 +35,12 @@ function Row({ numSlots, values, tier }) {
 		}
 		// Create element with correct 'colSpan' width:
 		const size = String(endSlot - startSlot);
-		if (size == numSlots) { // Add quotes to full-width lines
-			output.push(<td key={id.generate()} colSpan={size}>{'"' + text + '"'}</td>);
-		} else {
-			output.push(<td key={id.generate()} colSpan={size}>{text}</td>);
-		}
+		// if (size == numSlots) { // Add quotes to full-width lines
+		// 	output.push(<td key={id.generate()} colSpan={size}>{'"' + text + '"'}</td>);
+		// } else {
+		// 	output.push(<td key={id.generate()} colSpan={size}>{text}</td>);
+		// }
+		output.push(<td key={id.generate()} colSpan={size}>{text}</td>);
 		currentSlot = endSlot;
 	}
 	// Fill blank space at end of table row:
@@ -55,7 +56,7 @@ export function Sentence({ sentence }) {
 	// O/P: table of glossed Row components
 	// Status: tested, working
 	let rowList = []; // to be output
-	let rowList2 = []; // full-length dependent tiers
+	// let rowList2 = []; // full-length dependent tiers
 	const numSlots = sentence['num_slots'];
 	// Add the indepentent tier, i.e., the top row, to the list of rows. Note that
 	// 'colSpan={numSlots}' ensures that this row spans the entire table.
@@ -68,12 +69,13 @@ export function Sentence({ sentence }) {
 	// Add each dependent tier to the row list:
 	for (const {values, tier} of dependents) {
 		// Tier attribute will be used for hiding/showing tiers:
-		if (values.length > 1) {
-			rowList.push(<Row key={id.generate()} numSlots={numSlots} values={values} tier={tier} />);
-		} else {
-			rowList2.push(<Row key={id.generate()} numSlots={numSlots} values={values} tier={tier} />);
-		}
+		// if (values.length > 1) {
+		// 	rowList.push(<Row key={id.generate()} numSlots={numSlots} values={values} tier={tier} />);
+		// } else {
+		// 	rowList2.push(<Row key={id.generate()} numSlots={numSlots} values={values} tier={tier} />);
+		// }
+		rowList.push(<Row key={id.generate()} numSlots={numSlots} values={values} tier={tier} />);
 	}
-	rowList = rowList.concat(rowList2);
+	// rowList = rowList.concat(rowList2);
 	return <table className="gloss"><tbody>{rowList}</tbody></table>;
 }

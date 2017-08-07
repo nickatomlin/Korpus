@@ -46,7 +46,7 @@ for (var i = 0; i < ts_tag_array.length; i++) {
 }
 // }
 
-// I/P: an integer number of milliseconds
+// I/P: t, an integer number of milliseconds
 // O/P: the player updates to the given time
 // Status: untested
 function jumpToTime(t) {
@@ -61,6 +61,6 @@ function jumpToTime(t) {
   }
 }
 
-$(".timeStamp").click(function(){
+$(".timeStamp").click(function() {
     jumpToTime($(this).data('start_time'));
 });
