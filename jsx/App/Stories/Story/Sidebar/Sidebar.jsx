@@ -8,7 +8,7 @@ export function Sidebar({ metadata }) {
 	// Status: untested
 	try {
 		const filename = metadata['media']['mp4'];
-		const path = '/Korpus/data/media_files/' + filename;
+		const path = '/data/media_files/' + filename;
 		return (
 			<div id="leftPanel">
 				<Video path={path} />
