@@ -1,15 +1,17 @@
-var fs = require('fs');
-var util = require('util');
-var parseXml = require('xml2js').parseString; // or we could use simple-xml
+/* Run this script from the main directory (Korpus) */
+
+const fs = require('fs');
+const util = require('util');
+const parseXml = require('xml2js').parseString; // or we could use simple-xml
 
 
 function isStartPunctuation(punct) {
-    return (punct == "¿") || (punct == "(");
+    return (punct === "¿") || (punct === "(");
 }
 
 function decodeLang(lang) {
 
-    var desiredName = "Native name"; // or we might want to use "ISO language name"
+    const desiredName = "Native name"; // or we might want to use "ISO language name"
     lcLang = lang.toLowerCase(); // ignore capitalization when decoding
 
     // Override the usual iso-based decoding for some language codes
@@ -30,11 +32,11 @@ function decodeLang(lang) {
     }
 
     // if lang starts with a (three-letter or two-letter) iso code, decode it
-    var firstThreeLetters = lcLang.substr(0, 3);
+    const firstThreeLetters = lcLang.substr(0, 3);
     if (isoDict.hasOwnProperty(firstThreeLetters)) {
         return isoDict[firstThreeLetters][desiredName];
     }
-    var firstTwoLetters = lcLang.substr(0, 2);
+    const firstTwoLetters = lcLang.substr(0, 2);
     if (isoDict.hasOwnProperty(firstTwoLetters)) {
         return isoDict[firstTwoLetters][desiredName];
     }
@@ -59,7 +61,7 @@ function decodeType(type) {
     switch(type) {
         case "txt": return "Morfema (texto)";
         case "cf": return "Morfema (forma típico)";
-        case "gls": return "Glosa de morfema"
+        case "gls": return "Glosa de morfema";
         case "msa": return "Parte del habla";
         case "words": return "Palabra";
         case "free": return "Frase";
@@ -92,7 +94,7 @@ class tierRegistry {
             this.tierIDs[lang] = {};
         }
         if (!this.tierIDs[lang].hasOwnProperty(type)) {
-            var tierID = "T" + (this.nextTierIDnum++).toString();
+            const tierID = "T" + (this.nextTierIDnum++).toString();
             this.tierIDs[lang][type] = tierID;
             this.jsonTierIDs[tierID] = getTierName(lang, type);
         }
@@ -102,7 +104,7 @@ class tierRegistry {
 }
 
 function preprocess(xmlFileName, jsonFileName) {
-    var jsonOut = {
+    const jsonOut = {
         "metadata": {
             "tier IDs": {},
             "title": "",
@@ -111,78 +113,77 @@ function preprocess(xmlFileName, jsonFileName) {
         },
         "sentences": []
     };
-    var tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"]);
+    const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"]);
 
     parseXml(fs.readFileSync(xmlFileName), function(err, jsonIn){
         if (err) throw err;
 
         // TITLE STUFF - NICK
-        var title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
+        let title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
         title = title.slice(0,-4); // removes last four characters
 
-        var con_title = "";
-        var es_title = "";
-        var titles = jsonIn["document"]["interlinear-text"][0]["item"];
-        for (var i=0; i<titles.length; i++) {
-            var current_title = titles[i];
-            if (current_title["$"]["type"] == "title" && current_title["$"]["lang"] == "con-Latn-EC") {
+        let con_title = "";
+        let es_title = "";
+        let display_title = "";
+        const titles = jsonIn["document"]["interlinear-text"][0]["item"];
+        for (const current_title of titles) {
+            if (current_title["$"]["type"] === "title" && current_title["$"]["lang"] === "con-Latn-EC") {
                 // FIXME: This line causes Singo A'i to show up with title "a'i". Why is this even here?
                 con_title = current_title["_"].substr(current_title["_"].indexOf(" ") + 1);
             }
-            else if (current_title["$"]["type"] == "title" && current_title["$"]["lang"] == "es") {
+            else if (current_title["$"]["type"] === "title" && current_title["$"]["lang"] === "es") {
                 es_title = current_title["_"]
             }
         }
-        if (es_title != "") {
-            var display_title = con_title + " (" + es_title + ")";
+        if (es_title !== "") {
+            display_title = con_title + " (" + es_title + ")";
         } else {
-            var display_title = con_title;
+            display_title = con_title;
         }
 
         jsonOut.metadata.title = con_title;
         // END OF TITLE STUFF
 
-        var textLang;
         // set textLang to the language of the first word
-        var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
-        var paragraph = paragraphs[0].phrases[0].word;
-        var sentence = paragraph[0].words[0].word;
-        var wordLang = sentence[0].item[0].$.lang;
-        textLang = wordLang;
-        if (textLang == null) {
+        const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
+        const paragraph = paragraphs[0].phrases[0].word;
+        const sentence = paragraph[0].words[0].word;
+        const wordLang = sentence[0].item[0].$.lang;
+        let textLang = wordLang;
+        if (textLang === null) {
             textLang = "defaultLang";
         }
 
-        var languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
-        var wordsTierID = tierReg.maybeRegisterTier(textLang, "words");
+        const languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
+        const wordsTierID = tierReg.maybeRegisterTier(textLang, "words");
 
-        // var paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph; // defined above
-        for (var wrappedParagraph of paragraphs) {
+        // const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph; // defined above
+        for (const wrappedParagraph of paragraphs) {
             if (wrappedParagraph.phrases == null) continue; // if this paragraph is empty, skip it instead of erroring
-            var paragraph = wrappedParagraph.phrases[0].word;
-            for (var wrappedSentence of paragraph) {
+            const paragraph = wrappedParagraph.phrases[0].word;
+            for (const wrappedSentence of paragraph) {
                 if (wrappedSentence.words == null) continue; // if this sentence is empty, skip it instead of erroring
-                var sentence = wrappedSentence.words[0].word;
+                const sentence = wrappedSentence.words[0].word;
 
-                var morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
+                const morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
                 morphsJson[wordsTierID] = {};
-                var slotNum = 0;
-                var sentenceTokens = []; // for building the free transcription sentenceText
+                let slotNum = 0;
+                const sentenceTokens = []; // for building the free transcription sentenceText
                 // FIXME words tier will show up even when the sentence is empty of words
 
-                for (var wordWithMorphs of sentence) {
-                    var wordValue = wordWithMorphs.item[0]._;
-                    var wordStartSlot = slotNum;
+                for (const wordWithMorphs of sentence) {
+                    const wordValue = wordWithMorphs.item[0]._;
+                    const wordStartSlot = slotNum;
                     // process.stdout.write("\n" + wordValue + " "); // for debugging
 
                     if (wordWithMorphs.morphemes != null) {
-                        var morphs = wordWithMorphs.morphemes[0].morph;
-                        for (var wrappedMorph of morphs) {
-                            var morphTiers = wrappedMorph.item;
-                            for (var tier of morphTiers) {
+                        const morphs = wordWithMorphs.morphemes[0].morph;
+                        for (const wrappedMorph of morphs) {
+                            const morphTiers = wrappedMorph.item;
+                            for (const tier of morphTiers) {
                                 // record the morph's value so it can be included in the output
-                                var tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type);
-                                var tierValue = tier._;
+                                const tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type);
+                                const tierValue = tier._;
                                 // process.stdout.write(tierValue + " "); // for debugging
                                 if (!morphsJson.hasOwnProperty(tierID)) {
                                     morphsJson[tierID] = {};
@@ -196,15 +197,14 @@ function preprocess(xmlFileName, jsonFileName) {
                         }
                     }
 
-                    if (wordWithMorphs.item[0].$.type != "punct") { // this word isn't punctuation
+                    if (wordWithMorphs.item[0].$.type !== "punct") { // this word isn't punctuation
 
                         sentenceTokens.push({"value": wordValue, "type": "txt"});
 
                         // count this as a separate word on the words tier
-                        var wordEndSlot = slotNum;
                         morphsJson[wordsTierID][wordStartSlot] = {
                             "value": wordValue,
-                            "end_slot": wordEndSlot
+                            "end_slot": slotNum
                         };
                     } else if (isStartPunctuation(wordValue)) {
                         sentenceTokens.push({"value": wordValue, "type": "start"});
@@ -213,14 +213,14 @@ function preprocess(xmlFileName, jsonFileName) {
                     }
                 }
 
-                var freeGlosses = wrappedSentence.item;
-                var glossStartSlot = 0;
-                for (var gloss of freeGlosses) {
-                    if (gloss.$.type == "gls") {
-                        var glossValue = gloss._;
+                const freeGlosses = wrappedSentence.item;
+                let glossStartSlot = 0;
+                for (const gloss of freeGlosses) {
+                    if (gloss.$.type === "gls") {
+                        const glossValue = gloss._;
                         if (glossValue != null) {
                             // console.log(glossValue); // for debugging
-                            var tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free");
+                            const tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free");
                             if (!morphsJson.hasOwnProperty(tierID)) {
                                 morphsJson[tierID] = {};
                             }
@@ -232,11 +232,11 @@ function preprocess(xmlFileName, jsonFileName) {
                     } // else it might be type "segnum" (sentence number) or similar; we'll ignore it
                 }
 
-                var dependentsJson = [];
-                for (var tierID in morphsJson) {
+                const dependentsJson = [];
+                for (const tierID in morphsJson) {
                     if (morphsJson.hasOwnProperty(tierID)) {
-                        var valuesJson = [];
-                        for (var start_slot in morphsJson[tierID]) {
+                        const valuesJson = [];
+                        for (const start_slot in morphsJson[tierID]) {
                             if (morphsJson[tierID].hasOwnProperty(start_slot)) {
                                 valuesJson.push({
                                     "start_slot": parseInt(start_slot, 10),
@@ -252,13 +252,13 @@ function preprocess(xmlFileName, jsonFileName) {
                     }
                 }
 
-                var sentenceText = "";
-                var maybeAddSpace = false; // no space before first word
+                let sentenceText = "";
+                let maybeAddSpace = false; // no space before first word
                 for (typedToken of sentenceTokens) {
-                    if (maybeAddSpace && (typedToken.type != "end")) {
+                    if (maybeAddSpace && (typedToken.type !== "end")) {
                         sentenceText += " ";
                     }
-                    maybeAddSpace = (typedToken.type != "start");
+                    maybeAddSpace = (typedToken.type !== "start");
                     sentenceText += typedToken.value;
                 }
 
@@ -271,7 +271,7 @@ function preprocess(xmlFileName, jsonFileName) {
             }
         }
 
-        var prettyString = JSON.stringify(jsonOut, null, 2);
+        const prettyString = JSON.stringify(jsonOut, null, 2);
         fs.writeFile(jsonFileName, prettyString, function(err) {
             if (err) {
                 return console.log(err);
@@ -280,19 +280,17 @@ function preprocess(xmlFileName, jsonFileName) {
         });
 
         // TODO avoid duplicates
-        var indexMetadata = {"title from filename": title, "display_title": display_title};
+        const indexMetadata = {"title from filename": title, "display_title": display_title};
         index.push(indexMetadata);
     });
 }
 
-// var basePath = "C:\\Users\\Kalinda\\Desktop\\Korpus\\";
-var basePath = "./";
-var xmlFilesDir = basePath + "data/flex_files/";
-var jsonFilesDir = basePath + "data/json_files/";
-indexJsonFileName = basePath + "data/index.json"; // stores metadata for all documents
-isoFileName = basePath + "preprocessing/iso_dict.json";
+const xmlFilesDir = "data/flex_files/";
+const jsonFilesDir = "data/json_files/";
+const indexJsonFileName = "data/index.json"; // stores metadata for all documents
+const isoFileName = "preprocessing/iso_dict.json";
 
-var isoDict = {};
+let isoDict = {};
 try {
     isoDict = JSON.parse(fs.readFileSync(isoFileName));
 } catch(err) {
@@ -300,16 +298,16 @@ try {
 }
 
 // TODO create indexfile if needed
-index = JSON.parse(fs.readFileSync(indexJsonFileName));
+const index = JSON.parse(fs.readFileSync(indexJsonFileName));
 
-var xmlFileNames = fs.readdirSync(xmlFilesDir);
-for (var xmlFileName of xmlFileNames) {
+const xmlFileNames = fs.readdirSync(xmlFilesDir);
+for (const xmlFileName of xmlFileNames) {
     console.log("Processing " + xmlFileName);
-    var xmlPath = xmlFilesDir + xmlFileName;
-    var jsonPath = jsonFilesDir + xmlFileName.slice(0,-4) + ".json";
+    const xmlPath = xmlFilesDir + xmlFileName;
+    const jsonPath = jsonFilesDir + xmlFileName.slice(0,-4) + ".json";
     preprocess(xmlPath, jsonPath);
 }
 
-var indexPrettyString = JSON.stringify(index, null, 2);
+const indexPrettyString = JSON.stringify(index, null, 2);
 fs.writeFileSync(indexJsonFileName, indexPrettyString);
 console.log("The index was updated.");

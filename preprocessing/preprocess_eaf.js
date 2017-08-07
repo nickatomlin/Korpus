@@ -1,16 +1,16 @@
-var fs = require('fs');
-var util = require('util');
-var parseString = require('xml2js').parseString; // or we could use simple-xml
+/* Run this script from the main directory (Korpus) */
 
-// var basePath = "C:\\Users\\Kalinda\\Desktop\\Korpus\\data\\";
-var basePath = "./data/";
-var xmlFileName = basePath + "elan_files/Intro.eaf";
-var jsonFileName = basePath + "json_files/Intro.json";
-var indexJsonFileName = basePath + "index.json";
+const fs = require('fs');
+const util = require('util');
+const parseString = require('xml2js').parseString; // or we could use simple-xml
+
+const xmlFileName = "data/elan_files/Intro.eaf";
+const jsonFileName = "data/json_files/Intro.json";
+const indexJsonFileName = "data/index.json";
 
 function swapJsonKeyValues(input) {
-    var output = {};
-    for (var value in input) {
+    const output = {};
+    for (const value in input) {
         if (input.hasOwnProperty(value)) {
             output[input[value]] = value;
         }
@@ -23,8 +23,8 @@ function getDescendants(ancestor, children) { // not including ancestor itself
     if (children[ancestor] == null) {
         return [];
     }
-    var descendants = children[ancestor];
-    for (var child of children[ancestor]) {
+    let descendants = children[ancestor];
+    for (const child of children[ancestor]) {
         descendants = descendants.concat(getDescendants(child, children));
     }
     return descendants;
@@ -35,18 +35,18 @@ function getTimeslotSet(tier) {
         // no timestamps in this tier; it's all `REF_ANNOTATION`s
         return new Set();
     }
-    annotations = tier.ANNOTATION.map((a) => a.ALIGNABLE_ANNOTATION[0]);
-    var startSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF1));
-    var endSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF2));
-    for (var slot of endSlots) {
+    const annotations = tier.ANNOTATION.map((a) => a.ALIGNABLE_ANNOTATION[0]);
+    const startSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF1));
+    const endSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF2));
+    for (const slot of endSlots) {
         startSlots.add(slot);
     }
     return startSlots;
 }
 
-var slotIdDiff = function(s1, s2) {
+const slotIdDiff = function(s1, s2) {
     return parseInt(s1.slice(2)) - parseInt(s2.slice(2));
-}
+};
 
 
 fs.readFile(xmlFileName, function (err, xml) {
@@ -54,13 +54,13 @@ fs.readFile(xmlFileName, function (err, xml) {
 
     parseString(xml, function (err, jsonIn) {
 
-        var timeslotsIn = jsonIn.ANNOTATION_DOCUMENT.TIME_ORDER[0].TIME_SLOT;
-        var timeslots = [];
-        for (var slot of timeslotsIn) {
+        const timeslotsIn = jsonIn.ANNOTATION_DOCUMENT.TIME_ORDER[0].TIME_SLOT;
+        const timeslots = [];
+        for (const slot of timeslotsIn) {
             timeslots[slot.$.TIME_SLOT_ID] = slot.$.TIME_VALUE;
         }
 
-        var jsonOut =
+        const jsonOut =
             {"metadata":
                 {"tier IDs": {},
                     "speaker IDs": {},
@@ -70,18 +70,18 @@ fs.readFile(xmlFileName, function (err, xml) {
                 "sentences": []
             };
 
-        var title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
+        let title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
         title = title.slice(0,-4); // removes last four characters
         jsonOut.metadata.title = title; // sets title
 
-        var tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER
+        const tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER;
         // discard tiers that have no annotations in them
-        var tiers = tiersIncludeEmpty.filter((tier) =>
+        const tiers = tiersIncludeEmpty.filter((tier) =>
             tier.ANNOTATION != null && tier.ANNOTATION.length > 0);
 
-        var tierChildren = {};
-        for (var tier of tiers) {
-            var parentName = tier.$.PARENT_REF
+        const tierChildren = {};
+        for (const tier of tiers) {
+            const parentName = tier.$.PARENT_REF;
             if (parentName != null) {
                 if (tierChildren[parentName] == null) {
                     tierChildren[parentName] = [];
@@ -90,71 +90,69 @@ fs.readFile(xmlFileName, function (err, xml) {
             }
         }
 
-        var tierNames = tiers.map((tier) => tier.$.TIER_ID);
-        for (var i = 0; i < tierNames.length; i++) {
-            var newID = "T" + (i + 1).toString();
+        const tierNames = tiers.map((tier) => tier.$.TIER_ID);
+        for (let i = 0; i < tierNames.length; i++) {
+            const newID = "T" + (i + 1).toString();
             jsonOut.metadata["tier IDs"][newID] = tierNames[i];
         }
-        var tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata["tier IDs"]);
-        var indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
+        const tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata["tier IDs"]);
+        const indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
 
         // tierDependents: indep tier name -> list of dep tier names
-        var tierDependents = {};
-        for (var indepTier of indepTiers) {
-            var indepTierName = indepTier.$.TIER_ID;
+        const tierDependents = {};
+        for (const indepTier of indepTiers) {
+            const indepTierName = indepTier.$.TIER_ID;
             tierDependents[indepTierName] = getDescendants(indepTierName, tierChildren);
         }
 
         /* tierTimeslots: independent_tier_id -> timeslot_id -> rank,
           where a timeslot's "rank" is what its index would be
           in a time-ordered array of the unique timeslots for this speaker */
-        var tierTimeslots = {};
-        for (indepTier of indepTiers) {
-            var indepTierName = indepTier.$.TIER_ID;
-            var indepTierID = tierIDsFromNames[indepTierName];
+        const tierTimeslots = {};
+        for (const indepTier of indepTiers) {
+            const indepTierName = indepTier.$.TIER_ID;
+            const indepTierID = tierIDsFromNames[indepTierName];
 
-            var slots = getTimeslotSet(indepTier);
-            var depTiers = tiers.filter((tier) =>
+            const slots = getTimeslotSet(indepTier);
+            const depTiers = tiers.filter((tier) =>
                 tierDependents[indepTierName].includes(tier.$.TIER_ID)
-        );
-            for (var depTier of depTiers) {
+            );
+            for (const depTier of depTiers) {
                 for (slot of getTimeslotSet(depTier)) {
                     slots.add(slot);
                 }
             }
 
-            var slotsArray = Array.from(slots);
+            const slotsArray = Array.from(slots);
             // sort by the numerical part of the timeslot ID
-            var sorted_slots = slotsArray.sort(slotIdDiff);
+            const sorted_slots = slotsArray.sort(slotIdDiff);
             // create a map from timeslot ID to its "rank" (its position in the sorted array)
-            var slot_indices = swapJsonKeyValues(sorted_slots);
-
-            tierTimeslots[indepTierID] = slot_indices;
+            tierTimeslots[indepTierID] = swapJsonKeyValues(sorted_slots);
         }
 
-        var bigAnnotationsFromIDs = {};
-        for (var tier of tiers) {
+        const bigAnnotationsFromIDs = {};
+        for (const tier of tiers) {
             if (tier.ANNOTATION[0].ALIGNABLE_ANNOTATION != null) {
-                for (var bigAnnotation of tier.ANNOTATION) {
-                    var annotationID = bigAnnotation.ALIGNABLE_ANNOTATION[0].$.ANNOTATION_ID;
+                for (const bigAnnotation of tier.ANNOTATION) {
+                    const annotationID = bigAnnotation.ALIGNABLE_ANNOTATION[0].$.ANNOTATION_ID;
                     bigAnnotationsFromIDs[annotationID] = bigAnnotation;
                 }
             } else {
                 // REF_ANNOTATIONs
-                for (var bigAnnotation of tier.ANNOTATION) {
-                    var annotationID = bigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_ID;
+                for (const bigAnnotation of tier.ANNOTATION) {
+                    const annotationID = bigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_ID;
                     bigAnnotationsFromIDs[annotationID] = bigAnnotation;
                 }
             }
         }
 
-        for (var i = 0; i < indepTiers.length; i++) {
+        for (let i = 0; i < indepTiers.length; i++) {
 
-            var spkrID = "S" + (i + 1).toString();
-            var tierName = indepTiers[i].$.TIER_ID;
-            var spkrName = indepTiers[i].$.PARTICIPANT;
-            var language = indepTiers[i].$.LANG_REF;
-            var tierID = tierIDsFromNames[tierName];
+            const spkrID = "S" + (i + 1).toString();
+            const indepTierName = indepTiers[i].$.TIER_ID;
+            const spkrName = indepTiers[i].$.PARTICIPANT;
+            const language = indepTiers[i].$.LANG_REF;
+            const tierID = tierIDsFromNames[indepTierName];
 
             jsonOut.metadata["speaker IDs"][spkrID] = {
                 "name": spkrName,
@@ -162,22 +160,22 @@ fs.readFile(xmlFileName, function (err, xml) {
                 "tier": tierID
             };
 
-            var depTiers = tiers.filter((tier) =>
+            const depTiers = tiers.filter((tier) =>
                 tierDependents[indepTierName].includes(tier.$.TIER_ID)
-        );
+            );
 
-            for (var bigAnnotation of indepTiers[i].ANNOTATION) {
-                var annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
+            for (const bigAnnotation of indepTiers[i].ANNOTATION) {
+                const annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
 
-                var i_start_timeslot = annotation.$.TIME_SLOT_REF1;
-                var i_end_timeslot = annotation.$.TIME_SLOT_REF2;
-                var i_start_time_ms = parseInt(timeslots[i_start_timeslot], 10);
-                var i_end_time_ms = parseInt(timeslots[i_end_timeslot], 10);
-                var i_start_slot = parseInt(tierTimeslots[tierID][i_start_timeslot], 10);
-                var i_end_slot = parseInt(tierTimeslots[tierID][i_end_timeslot], 10);
-                var num_slots = i_end_slot - i_start_slot;
+                const i_start_timeslot = annotation.$.TIME_SLOT_REF1;
+                const i_end_timeslot = annotation.$.TIME_SLOT_REF2;
+                const i_start_time_ms = parseInt(timeslots[i_start_timeslot], 10);
+                const i_end_time_ms = parseInt(timeslots[i_end_timeslot], 10);
+                const i_start_slot = parseInt(tierTimeslots[tierID][i_start_timeslot], 10);
+                const i_end_slot = parseInt(tierTimeslots[tierID][i_end_timeslot], 10);
+                const num_slots = i_end_slot - i_start_slot;
 
-                var indepTierJson = {
+                const indepTierJson = {
                     "speaker": spkrID,
                     "tier": tierID,
                     "start_time_ms": i_start_time_ms,
@@ -187,38 +185,38 @@ fs.readFile(xmlFileName, function (err, xml) {
                     "dependents": []
                 };
 
-                for (var depTier of depTiers) {
-                    var depTierID = tierIDsFromNames[depTier.$.TIER_ID];
-                    var depTierJson = {
+                for (const depTier of depTiers) {
+                    const depTierID = tierIDsFromNames[depTier.$.TIER_ID];
+                    const depTierJson = {
                         "tier": depTierID,
                         "values": []
                     };
 
-                    for (var bigAnnotation of depTier.ANNOTATION) {
-                        var value;
+                    for (const bigAnnotation of depTier.ANNOTATION) {
+                        let value;
                         if (bigAnnotation.ALIGNABLE_ANNOTATION != null) {
                             value = bigAnnotation.ALIGNABLE_ANNOTATION[0].ANNOTATION_VALUE[0];
                         } else {
                             value = bigAnnotation.REF_ANNOTATION[0].ANNOTATION_VALUE[0];
                         }
 
-                        var currentBigAnnotation = bigAnnotation;
+                        let currentBigAnnotation = bigAnnotation;
                         while (currentBigAnnotation.ALIGNABLE_ANNOTATION == null) {
-                            var parentAnnotationID = currentBigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_REF;
-                            var currentBigAnnotation = bigAnnotationsFromIDs[parentAnnotationID];
+                            const parentAnnotationID = currentBigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_REF;
+                            currentBigAnnotation = bigAnnotationsFromIDs[parentAnnotationID];
                         }
-                        var timeAnnotation = currentBigAnnotation.ALIGNABLE_ANNOTATION[0];
+                        const timeAnnotation = currentBigAnnotation.ALIGNABLE_ANNOTATION[0];
 
-                        var d_start_timeslot = timeAnnotation.$.TIME_SLOT_REF1;
-                        var d_end_timeslot =  timeAnnotation.$.TIME_SLOT_REF2;
+                        const d_start_timeslot = timeAnnotation.$.TIME_SLOT_REF1;
+                        const d_end_timeslot =  timeAnnotation.$.TIME_SLOT_REF2;
                         if (slotIdDiff(d_start_timeslot, i_start_timeslot) >= 0
                             && slotIdDiff(i_end_timeslot, d_end_timeslot) >= 0) {
                             // this dependent annotation goes with the current independent annotation
 
-                            var d_raw_start_slot = parseInt(tierTimeslots[tierID][d_start_timeslot], 10);
-                            var d_raw_end_slot = parseInt(tierTimeslots[tierID][d_end_timeslot], 10);
-                            var d_rel_start_slot = d_raw_start_slot - i_start_slot;
-                            var d_rel_end_slot = d_raw_end_slot - i_start_slot;
+                            const d_raw_start_slot = parseInt(tierTimeslots[tierID][d_start_timeslot], 10);
+                            const d_raw_end_slot = parseInt(tierTimeslots[tierID][d_end_timeslot], 10);
+                            const d_rel_start_slot = d_raw_start_slot - i_start_slot;
+                            const d_rel_end_slot = d_raw_end_slot - i_start_slot;
 
                             depTierJson.values.push({
                                 "start_slot": d_rel_start_slot,
@@ -235,7 +233,7 @@ fs.readFile(xmlFileName, function (err, xml) {
             }
         }
 
-        var prettyString = JSON.stringify(jsonOut, null, 2);
+        const prettyString = JSON.stringify(jsonOut, null, 2);
         fs.writeFile(jsonFileName, prettyString, function(err) {
             if(err) {
                 return console.log(err);
@@ -249,10 +247,10 @@ fs.readFile(xmlFileName, function (err, xml) {
             if (err) {
                 return console.log(err);
             }
-            var index = JSON.parse(rawText);
-            var indexMetadata = {"title from filename": title};
+            const index = JSON.parse(rawText);
+            const indexMetadata = {"title from filename": title};
             index.push(indexMetadata);
-            var prettyString2 = JSON.stringify(index, null, 2);
+            const prettyString2 = JSON.stringify(index, null, 2);
             fs.writeFile(indexJsonFileName, prettyString2, function(err) {
                 if (err) {
                     return console.log(err);
@@ -262,4 +260,3 @@ fs.readFile(xmlFileName, function (err, xml) {
         });
     });
 });
-
