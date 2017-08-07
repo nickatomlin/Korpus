@@ -7,6 +7,7 @@ const parseString = require('xml2js').parseString; // or we could use simple-xml
 const xmlFileName = "data/elan_files/Intro.eaf";
 const jsonFileName = "data/json_files/Intro.json";
 const indexJsonFileName = "data/index.json";
+const titleFromFileName = "Intro";
 
 function swapJsonKeyValues(input) {
     const output = {};
@@ -61,8 +62,11 @@ fs.readFile(xmlFileName, function (err, xml) {
         }
 
         const jsonOut =
-            {"metadata":
-                {"tier IDs": {},
+            {
+                "metadata":
+                {
+                    "title from filename": titleFromFileName,
+                    "tier IDs": {},
                     "speaker IDs": {},
                     "title": "",
                     "timed": "true" // TODO also "media": {"mp3": "mp3filenamehere", "mp4": "filenamehere"}

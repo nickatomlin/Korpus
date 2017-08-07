@@ -5,12 +5,10 @@
       "T1": "Palabra a'ingae",
       "T2": "Morfema (texto) a'ingae",
       "T3": "Morfema (forma típico) a'ingae",
-      "T4": "variantTypes inglés",
-      "T5": "Glosa de morfema inglés",
-      "T6": "Parte del habla inglés",
-      "T7": "hn inglés",
-      "T8": "Frase inglés",
-      "T9": "Frase español"
+      "T4": "Glosa de morfema inglés",
+      "T5": "Parte del habla inglés",
+      "T6": "Frase inglés",
+      "T7": "Frase español"
     },
     "title": "Jongaesuyi jin'choma conda'cho",
     "timed": "false"
@@ -311,21 +309,6 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "+rom. num. for"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 18,
-              "value": "+sp. var. of"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
               "value": "twelve"
             },
             {
@@ -431,7 +414,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -541,27 +524,7 @@
           ]
         },
         {
-          "tier": "T7",
-          "values": [
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "1"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 13,
-              "value": "1"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T8",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -702,7 +665,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -752,7 +715,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -802,22 +765,7 @@
           ]
         },
         {
-          "tier": "T7",
-          "values": [
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "2"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T8",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1048,7 +996,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -1133,7 +1081,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1219,36 +1167,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "1"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "1"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T4",
-          "values": [
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "+sp. var. of"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -1509,7 +1427,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -1604,7 +1522,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1700,26 +1618,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "2"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "1"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -1855,7 +1753,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -1900,7 +1798,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1946,16 +1844,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -2136,7 +2024,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -2201,7 +2089,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2267,21 +2155,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "1"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -2497,7 +2370,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -2577,7 +2450,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2658,21 +2531,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "1"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -2888,7 +2746,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -2968,7 +2826,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3048,27 +2906,7 @@
           ]
         },
         {
-          "tier": "T4",
-          "values": [
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "+fr. var. of"
-            }
-          ]
-        },
-        {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -3514,7 +3352,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -3694,7 +3532,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3875,31 +3713,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "1"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "1"
-            },
-            {
-              "start_slot": 21,
-              "end_slot": 22,
-              "value": "1"
-            },
-            {
-              "start_slot": 27,
-              "end_slot": 28,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -4085,7 +3898,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -4155,7 +3968,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -4226,21 +4039,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "1"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -4406,7 +4204,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -4461,7 +4259,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -4517,16 +4315,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -4697,7 +4485,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -4757,7 +4545,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -4818,21 +4606,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "1"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -5133,7 +4906,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -5248,7 +5021,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -5364,36 +5137,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "1"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "1"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "1"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 13,
-              "value": "1"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 19,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -5714,7 +5457,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -5834,7 +5577,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -5955,36 +5698,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "1"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "1"
-            },
-            {
-              "start_slot": 16,
-              "end_slot": 17,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T4",
-          "values": [
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "+sp. var. of"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -6130,7 +5843,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -6180,7 +5893,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -6230,7 +5943,7 @@
           ]
         },
         {
-          "tier": "T9",
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
@@ -6556,7 +6269,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -6671,7 +6384,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -6787,21 +6500,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "1"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -7072,7 +6770,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -7177,7 +6875,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -7283,31 +6981,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "1"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "1"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 13,
-              "value": "1"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 18,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -7568,7 +7241,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -7658,7 +7331,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -7749,16 +7422,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -8149,7 +7812,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -8299,7 +7962,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -8452,36 +8115,6 @@
           "tier": "T7",
           "values": [
             {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "1"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "1"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "1"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 18,
-              "value": "1"
-            },
-            {
-              "start_slot": 28,
-              "end_slot": 29,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
-          "values": [
-            {
               "start_slot": 0,
               "end_slot": 29,
               "value": "No son traducciones literales, sino según el sentido de la tradicción indígena, en la forma oral que ella misma los contó en a'ingae."
@@ -8610,7 +8243,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -8650,7 +8283,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -8691,21 +8324,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "2"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -9006,7 +8624,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -9121,7 +8739,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -9237,36 +8855,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "1"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "1"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "1"
-            },
-            {
-              "start_slot": 16,
-              "end_slot": 17,
-              "value": "1"
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 21,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -9622,7 +9210,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -9762,7 +9350,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -9903,36 +9491,6 @@
         },
         {
           "tier": "T7",
-          "values": [
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "1"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 13,
-              "value": "1"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 19,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T4",
-          "values": [
-            {
-              "start_slot": 24,
-              "end_slot": 25,
-              "value": "+sp. var. of"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
           "values": [
             {
               "start_slot": 0,
@@ -10153,7 +9711,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -10233,7 +9791,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -10316,26 +9874,6 @@
           "tier": "T7",
           "values": [
             {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "1"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 13,
-              "value": "1"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T9",
-          "values": [
-            {
               "start_slot": 0,
               "end_slot": 15,
               "value": "que encierran los bellos mitos del pueblo A'i."
@@ -10394,7 +9932,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -10409,7 +9947,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -10424,7 +9962,7 @@
           ]
         },
         {
-          "tier": "T9",
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
@@ -10470,7 +10008,7 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T4",
           "values": [
             {
               "start_slot": 0,
@@ -10480,7 +10018,7 @@
           ]
         },
         {
-          "tier": "T6",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -10490,7 +10028,7 @@
           ]
         },
         {
-          "tier": "T9",
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,

@@ -9,77 +9,84 @@ function isStartPunctuation(punct) {
     return (punct === "¿") || (punct === "(");
 }
 
-function decodeLang(lang) {
-
-    const desiredName = "Native name"; // or we might want to use "ISO language name"
-    lcLang = lang.toLowerCase(); // ignore capitalization when decoding
-
-    // Override the usual iso-based decoding for some language codes
-    switch(lang) {
-        // case "flex-language-name-here": return "desired-decoded-name-here";
-        case "con-Latn-EC": return "A'ingae";
-        case "defaultLang": return "defaultLang";
-
-        // for Spanish UI text:
-        case "en": return "Inglés";
-
-        default: // fall through
-    }
-
-    // if lang is an iso code, decode it
-    if (isoDict.hasOwnProperty(lcLang)) {
-        return isoDict[lcLang][desiredName];
-    }
-
-    // if lang starts with a (three-letter or two-letter) iso code, decode it
-    const firstThreeLetters = lcLang.substr(0, 3);
-    if (isoDict.hasOwnProperty(firstThreeLetters)) {
-        return isoDict[firstThreeLetters][desiredName];
-    }
-    const firstTwoLetters = lcLang.substr(0, 2);
-    if (isoDict.hasOwnProperty(firstTwoLetters)) {
-        return isoDict[firstTwoLetters][desiredName];
-    }
-
-    // as a last resort, return without decoding
-    return lang;
-}
-
-function decodeType(type) {
-    /*
-    // English UI text:
-      switch(type) {
-          case "txt": return "morpheme (text)";
-          case "cf": return "morpheme (citation form)";
-          case "gls": return "morpheme gloss"
-          case "msa": return "part of speech";
-      default: return type;
-      }
-    */
-
-    // Spanish UI text:
-    switch(type) {
-        case "txt": return "Morfema (texto)";
-        case "cf": return "Morfema (forma típico)";
-        case "gls": return "Glosa de morfema";
-        case "msa": return "Parte del habla";
-        case "words": return "Palabra";
-        case "free": return "Frase";
-        default: return type;
-    }
-}
-
-function getTierName(lang, type) {
-    /*
-    // English UI text:
-      return decodeLang(lang) + " " + decodeType(type);
-    */
-
-    // Spanish UI text:
-    return decodeType(type) + " " + decodeLang(lang).toLowerCase();
-}
-
 class tierRegistry {
+
+    static isIgnored(type) {
+        // Omit these tier types from the website, as they're ugly and mostly useless.
+        // variantTypes indicates when a morpheme is a spelling variant, free variant, etc.
+        // hn, "homophone number", indicates which of multiple look-alike morphemes it is.
+        return (type === "variantTypes" || type === "hn");
+    }
+
+    static decodeType(type) {
+        /*
+        // English UI text:
+          switch(type) {
+              case "txt": return "morpheme (text)";
+              case "cf": return "morpheme (citation form)";
+              case "gls": return "morpheme gloss"
+              case "msa": return "part of speech";
+          default: return type;
+          }
+        */
+
+        // Spanish UI text:
+        switch(type) {
+            case "txt": return "Morfema (texto)";
+            case "cf": return "Morfema (forma típico)";
+            case "gls": return "Glosa de morfema";
+            case "msa": return "Parte del habla";
+            case "words": return "Palabra";
+            case "free": return "Frase";
+            default: return type;
+        }
+    }
+
+    static decodeLang(lang) {
+
+        const desiredName = "Native name"; // or we might want to use "ISO language name"
+        const lcLang = lang.toLowerCase(); // ignore capitalization when decoding
+
+        // Override the usual iso-based decoding for some language codes
+        switch(lang) {
+            // case "flex-language-name-here": return "desired-decoded-name-here";
+            case "con-Latn-EC": return "A'ingae";
+            case "defaultLang": return "defaultLang";
+
+            // for Spanish UI text:
+            case "en": return "Inglés";
+
+            default: // fall through
+        }
+
+        // if lang is an iso code, decode it
+        if (isoDict.hasOwnProperty(lcLang)) {
+            return isoDict[lcLang][desiredName];
+        }
+
+        // if lang starts with a (three-letter or two-letter) iso code, decode it
+        const firstThreeLetters = lcLang.substr(0, 3);
+        if (isoDict.hasOwnProperty(firstThreeLetters)) {
+            return isoDict[firstThreeLetters][desiredName];
+        }
+        const firstTwoLetters = lcLang.substr(0, 2);
+        if (isoDict.hasOwnProperty(firstTwoLetters)) {
+            return isoDict[firstTwoLetters][desiredName];
+        }
+
+        // as a last resort, return without decoding
+        return lang;
+    }
+
+    static getTierName(lang, type) {
+        /*
+        // English UI text:
+          return decodeLang(lang) + " " + decodeType(type);
+        */
+
+        // Spanish UI text:
+        return tierRegistry.decodeType(type) + " " + tierRegistry.decodeLang(lang).toLowerCase();
+    }
 
     constructor(tierIDs, jsonTierIDs) {
         this.tierIDs = tierIDs;
@@ -87,16 +94,20 @@ class tierRegistry {
         this.nextTierIDnum = 1;
     }
 
-    // if this is a new tier, register its ID and include it in metadata
+    // if this is a new, non-ignored tier, register its ID and include it in metadata
+    // if the tier is ignored, return null; else return its ID
     // used global vars: tierIDs, jsonOut.metadata["tier IDs"], nextTierIDnum
     maybeRegisterTier(lang, type) {
+        if (tierRegistry.isIgnored(type)) {
+            return null;
+        }
         if (!this.tierIDs.hasOwnProperty(lang)) {
             this.tierIDs[lang] = {};
         }
         if (!this.tierIDs[lang].hasOwnProperty(type)) {
             const tierID = "T" + (this.nextTierIDnum++).toString();
             this.tierIDs[lang][type] = tierID;
-            this.jsonTierIDs[tierID] = getTierName(lang, type);
+            this.jsonTierIDs[tierID] = tierRegistry.getTierName(lang, type);
         }
         return this.tierIDs[lang][type];
     }
@@ -184,15 +195,17 @@ function preprocess(xmlFileName, jsonFileName, shortFileName) {
                             for (const tier of morphTiers) {
                                 // record the morph's value so it can be included in the output
                                 const tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type);
-                                const tierValue = tier._;
-                                // process.stdout.write(tierValue + " "); // for debugging
-                                if (!morphsJson.hasOwnProperty(tierID)) {
-                                    morphsJson[tierID] = {};
+                                if (tierID != null) {
+                                    const tierValue = tier._;
+                                    // process.stdout.write(tierValue + " "); // for debugging
+                                    if (!morphsJson.hasOwnProperty(tierID)) {
+                                        morphsJson[tierID] = {};
+                                    }
+                                    morphsJson[tierID][slotNum] = {
+                                        "value": tierValue,
+                                        "end_slot": slotNum + 1
+                                    };
                                 }
-                                morphsJson[tierID][slotNum] = {
-                                    "value": tierValue,
-                                    "end_slot": slotNum + 1
-                                };
                             }
                             slotNum++;
                         }
@@ -222,13 +235,15 @@ function preprocess(xmlFileName, jsonFileName, shortFileName) {
                         if (glossValue != null) {
                             // console.log(glossValue); // for debugging
                             const tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free");
-                            if (!morphsJson.hasOwnProperty(tierID)) {
-                                morphsJson[tierID] = {};
+                            if (tierID != null) {
+                                if (!morphsJson.hasOwnProperty(tierID)) {
+                                    morphsJson[tierID] = {};
+                                }
+                                morphsJson[tierID][glossStartSlot] = {
+                                    "value": glossValue,
+                                    "end_slot": slotNum
+                                };
                             }
-                            morphsJson[tierID][glossStartSlot] = {
-                                "value": glossValue,
-                                "end_slot": slotNum
-                            };
                         } // else there's not actually a gloss here, just the metadata/placeholder for one
                     } // else it might be type "segnum" (sentence number) or similar; we'll ignore it
                 }
