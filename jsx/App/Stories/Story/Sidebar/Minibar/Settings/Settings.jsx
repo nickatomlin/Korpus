@@ -4,7 +4,7 @@ import { Video } from './../../Video.jsx';
 class VideoButton extends React.Component {
   // I/P: --
   // O/P: a button that can show/hide video, reset "player" ID, etc.
-  // Status: unfinished
+  // Status: tested, working
   constructor(props) {
     super(props);
     this.state = {
@@ -32,11 +32,16 @@ export function Settings({ tiers, hasVideo }) {
 	// I/P: tiers, a hashmap from Tier IDs to their names
 	//      hasVideo, a boolean
 	// O/P: a search bar with concordance functionality
-	// Status: unfinished
+	// Status: untested
+  let videoButton = null;
+  if (hasVideo == "true") {
+    videoButton = <VideoButton />;
+  }
+
 	return (
 		<div id="settings" className="miniPage hide">
 			<TierCheckboxList tiers={tiers} />
-			<VideoButton />
+			{videoButton}
 		</div>
 	);
 }

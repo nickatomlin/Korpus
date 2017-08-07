@@ -8983,7 +8983,7 @@ function Sidebar(_ref) {
 			{ id: 'leftPanel' },
 			React.createElement(_Video.Video, { path: path }),
 			React.createElement(_Title.Title, { title: metadata['title'] }),
-			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
+			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: metadata["timed"] })
 		);
 	} catch (err) {
 		return React.createElement(
@@ -9244,7 +9244,7 @@ var VideoButton = function (_React$Component) {
 
   // I/P: --
   // O/P: a button that can show/hide video, reset "player" ID, etc.
-  // Status: unfinished
+  // Status: tested, working
   function VideoButton(props) {
     _classCallCheck(this, VideoButton);
 
@@ -9294,12 +9294,17 @@ function Settings(_ref) {
   // I/P: tiers, a hashmap from Tier IDs to their names
   //      hasVideo, a boolean
   // O/P: a search bar with concordance functionality
-  // Status: unfinished
+  // Status: untested
+  var videoButton = null;
+  if (hasVideo == "true") {
+    videoButton = React.createElement(VideoButton, null);
+  }
+
   return React.createElement(
     'div',
     { id: 'settings', className: 'miniPage hide' },
     React.createElement(_TierCheckboxList.TierCheckboxList, { tiers: tiers }),
-    React.createElement(VideoButton, null)
+    videoButton
   );
 }
 

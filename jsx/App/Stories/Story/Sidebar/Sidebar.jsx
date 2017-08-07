@@ -13,7 +13,7 @@ export function Sidebar({ metadata }) {
 			<div id="leftPanel">
 				<Video path={path} />
 				<Title title={metadata['title']} />
-				<Minibar metadata={metadata} hasVideo />
+				<Minibar metadata={metadata} hasVideo={metadata["timed"]} />
 			</div>
 		);
 	} catch (err) {
