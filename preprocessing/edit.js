@@ -180,7 +180,7 @@ function update() {
     	if(err) {
         	return console.log(err);
     	}
-    	console.log("📤" + "  " + "Metadata edit complete.");
     });
+    console.log("📤" + "  " + "Metadata edit complete.");
 }
 
