@@ -51,8 +51,7 @@ function main(callback) {
 					const media_files = fs.readdirSync("data/media_files");
 					if (media_files.indexOf(response) >= 0 || response == "") {
 						return true;
-					} else if (response == "blank") {
-						console.log("Leaving mp3 file blank...");
+					} else if (response == "blank") { // TODO: replace "blank" with "" in then()
 						return true;
 					} else {
 						return "That file doesn't exist in your media_files directory! Please be aware that filenames are case-sensitive and require an extension. Type 'blank' to leave the file blank.";
@@ -75,7 +74,6 @@ function main(callback) {
 					if (media_files.indexOf(response) >= 0 || response == "") {
 						return true;
 					} else if (response == "blank") {
-						console.log("Leaving mp4 file blank...");
 						return true;
 					} else {
 						return "That file doesn't exist in your media_files directory! Please be aware that filenames are case-sensitive and require an extension. Type 'blank' to leave the file blank.";
@@ -157,8 +155,16 @@ function main(callback) {
 		}
 	// 
 	]).then(function (answers) {
-		data["mp3"] = answers["mp3"];
-		data["mp4"] = answers["mp4"];
+		if (answers["mp3"] == "blank") {
+			data["mp3"] == "";
+		} else {
+			data["mp3"] = answers["mp3"];
+		}
+		if (answers["mp4"] == "blank") {
+			data["mp4"] == "";
+		} else {
+			data["mp4"] = answers["mp4"];
+		}
 		data["description"] = answers["description"];
 		data["genre"] = answers["genre"];
 		data["author"] = answers["author"];
