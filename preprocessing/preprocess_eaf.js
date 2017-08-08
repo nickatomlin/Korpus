@@ -235,29 +235,23 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
     });
 }
 
-function preprocess_dir(eafFilesDir, jsonFilesDir, isoFileName, callback) {
+function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
+    const eafFileNames = fs.readdirSync(eafFilesDir);
+
     // use this to wait for all preprocess calls to terminate before executing the callback
-    const completionGate = {
-        numJobs: 0,
-        whenDone: function() {
-            console.log("in whenDone:"); // FIXME: prints "undefined" on first call, "NaN" thereafter
-            console.log(this.numJobs);
-            this.numJobs--;
-            if (this.numJobs === 0) {
-                callback();
-            }
+    const status = {numJobs: eafFileNames.length};
+    const whenDone = function() {
+        status.numJobs--;
+        if (status.numJobs === 0) {
+            callback();
         }
     };
 
-    const eafFileNames = fs.readdirSync(eafFilesDir);
     for (const eafFileName of eafFileNames) {
         console.log("Processing " + eafFileName);
         const eafPath = eafFilesDir + eafFileName;
         const jsonPath = jsonFilesDir + eafFileName.slice(0, -4) + ".json";
-        console.log("init numJobs: " + completionGate.numJobs);
-        completionGate.numJobs++;
-        console.log("inc'd numJobs: " + completionGate.numJobs);
-        preprocess(eafPath, jsonPath, eafFileName.slice(0, -4), completionGate.whenDone);
+        preprocess(eafPath, jsonPath, eafFileName.slice(0, -4), whenDone);
     }
 }
 

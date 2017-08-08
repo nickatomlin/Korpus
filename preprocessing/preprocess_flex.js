@@ -187,13 +187,11 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
     const xmlFileNames = fs.readdirSync(xmlFilesDir);
 
     // use this to wait for all preprocess calls to terminate before executing the callback
-    const completionGate = {
-        numJobs: 0,
-        whenDone: function() {
-            this.numJobs--;
-            if (this.numJobs === 0) {
-                callback();
-            }
+    const status = {numJobs: xmlFileNames.length};
+    const whenDone = function() {
+        status.numJobs--;
+        if (status.numJobs === 0) {
+            callback();
         }
     };
 
@@ -201,9 +199,7 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
         console.log("Processing " + xmlFileName);
         const xmlPath = xmlFilesDir + xmlFileName;
         const jsonPath = jsonFilesDir + xmlFileName.slice(0, -4) + ".json";
-
-        completionGate.numJobs++;
-        preprocess(xmlPath, jsonPath, xmlFileName.slice(0, -4), isoDict, completionGate.whenDone);
+        preprocess(xmlPath, jsonPath, xmlFileName.slice(0, -4), isoDict, whenDone);
     }
 }
 
