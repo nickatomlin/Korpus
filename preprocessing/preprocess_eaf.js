@@ -2,12 +2,7 @@
 
 const fs = require('fs');
 const util = require('util');
-const parseString = require('xml2js').parseString; // or we could use simple-xml
-
-const xmlFileName = "data/elan_files/Intro.eaf";
-const jsonFileName = "data/json_files/Intro.json";
-const indexJsonFileName = "data/index.json";
-const titleFromFileName = "Intro";
+const parseXml = require('xml2js').parseString; // or we could use simple-xml
 
 function swapJsonKeyValues(input) {
     const output = {};
@@ -49,11 +44,8 @@ const slotIdDiff = function(s1, s2) {
     return parseInt(s1.slice(2)) - parseInt(s2.slice(2));
 };
 
-
-fs.readFile(xmlFileName, function (err, xml) {
-    if (err) throw err;
-
-    parseString(xml, function (err, jsonIn) {
+function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
+    parseXml(fs.readFileSync(xmlFileName), function (err, jsonIn) {
 
         const timeslotsIn = jsonIn.ANNOTATION_DOCUMENT.TIME_ORDER[0].TIME_SLOT;
         const timeslots = [];
@@ -61,9 +53,8 @@ fs.readFile(xmlFileName, function (err, xml) {
             timeslots[slot.$.TIME_SLOT_ID] = slot.$.TIME_VALUE;
         }
 
-        const jsonOut =
-            {
-                "metadata":
+        const jsonOut = {
+            "metadata":
                 {
                     "title from filename": titleFromFileName,
                     "tier IDs": {},
@@ -71,11 +62,11 @@ fs.readFile(xmlFileName, function (err, xml) {
                     "title": "",
                     "timed": "true" // TODO also "media": {"mp3": "mp3filenamehere", "mp4": "filenamehere"}
                 },
-                "sentences": []
-            };
+            "sentences": []
+        };
 
         let title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
-        title = title.slice(0,-4); // removes last four characters
+        title = title.slice(0, -4); // removes last four characters
         jsonOut.metadata.title = title; // sets title
 
         const tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER;
@@ -212,7 +203,7 @@ fs.readFile(xmlFileName, function (err, xml) {
                         const timeAnnotation = currentBigAnnotation.ALIGNABLE_ANNOTATION[0];
 
                         const d_start_timeslot = timeAnnotation.$.TIME_SLOT_REF1;
-                        const d_end_timeslot =  timeAnnotation.$.TIME_SLOT_REF2;
+                        const d_end_timeslot = timeAnnotation.$.TIME_SLOT_REF2;
                         if (slotIdDiff(d_start_timeslot, i_start_timeslot) >= 0
                             && slotIdDiff(i_end_timeslot, d_end_timeslot) >= 0) {
                             // this dependent annotation goes with the current independent annotation
@@ -238,29 +229,39 @@ fs.readFile(xmlFileName, function (err, xml) {
         }
 
         const prettyString = JSON.stringify(jsonOut, null, 2);
-        fs.writeFile(jsonFileName, prettyString, function(err) {
-            if(err) {
-                return console.log(err);
-            }
-            console.log("The converted file was saved. All done!");
-        });
-
-        // TODO create indexfile if needed
-        // TODO avoid duplicates
-        fs.readFile(indexJsonFileName, function (err, rawText) {
-            if (err) {
-                return console.log(err);
-            }
-            const index = JSON.parse(rawText);
-            const indexMetadata = {"title from filename": title};
-            index.push(indexMetadata);
-            const prettyString2 = JSON.stringify(index, null, 2);
-            fs.writeFile(indexJsonFileName, prettyString2, function(err) {
-                if (err) {
-                    return console.log(err);
-                }
-                console.log("The index was updated.");
-            });
-        });
+        fs.writeFileSync(jsonFileName, prettyString);
+        console.log("The converted file was saved. All done!");
+        callback();
     });
-});
+}
+
+function preprocess_dir(eafFilesDir, jsonFilesDir, isoFileName, callback) {
+    // use this to wait for all preprocess calls to terminate before executing the callback
+    const completionGate = {
+        numJobs: 0,
+        whenDone: function() {
+            console.log("in whenDone:"); // FIXME: prints "undefined" on first call, "NaN" thereafter
+            console.log(this.numJobs);
+            this.numJobs--;
+            if (this.numJobs === 0) {
+                callback();
+            }
+        }
+    };
+
+    const eafFileNames = fs.readdirSync(eafFilesDir);
+    for (const eafFileName of eafFileNames) {
+        console.log("Processing " + eafFileName);
+        const eafPath = eafFilesDir + eafFileName;
+        const jsonPath = jsonFilesDir + eafFileName.slice(0, -4) + ".json";
+        console.log("init numJobs: " + completionGate.numJobs);
+        completionGate.numJobs++;
+        console.log("inc'd numJobs: " + completionGate.numJobs);
+        preprocess(eafPath, jsonPath, eafFileName.slice(0, -4), completionGate.whenDone);
+    }
+}
+
+module.exports = {
+    preprocess_dir: preprocess_dir,
+    preprocess: preprocess
+};

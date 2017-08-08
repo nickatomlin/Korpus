@@ -10,7 +10,7 @@ function isStartPunctuation(punct) {
     return (punct === "¿") || (punct === "(");
 }
 
-function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict) {
+function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback) {
     const jsonOut = {
         "metadata": {
             "title from filename": shortFileName,
@@ -169,11 +169,14 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict) {
                 return console.log(err);
             }
             console.log("The converted file " + jsonFileName + " was saved.");
+            if (callback != null) {
+                callback();
+            }
         });
     });
 }
 
-function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName) {
+function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
     let isoDict = {};
     try {
         isoDict = JSON.parse(fs.readFileSync(isoFileName));
@@ -182,11 +185,25 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName) {
     }
 
     const xmlFileNames = fs.readdirSync(xmlFilesDir);
+
+    // use this to wait for all preprocess calls to terminate before executing the callback
+    const completionGate = {
+        numJobs: 0,
+        whenDone: function() {
+            this.numJobs--;
+            if (this.numJobs === 0) {
+                callback();
+            }
+        }
+    };
+
     for (const xmlFileName of xmlFileNames) {
         console.log("Processing " + xmlFileName);
         const xmlPath = xmlFilesDir + xmlFileName;
         const jsonPath = jsonFilesDir + xmlFileName.slice(0, -4) + ".json";
-        preprocess(xmlPath, jsonPath, xmlFileName.slice(0, -4), isoDict);
+
+        completionGate.numJobs++;
+        preprocess(xmlPath, jsonPath, xmlFileName.slice(0, -4), isoDict, completionGate.whenDone);
     }
 }
 
