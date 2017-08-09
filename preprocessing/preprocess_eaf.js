@@ -236,7 +236,7 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
 }
 
 function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
-    const eafFileNames = fs.readdirSync(eafFilesDir);
+    const eafFileNames = fs.readdirSync(eafFilesDir).filter(f => f[0] != ".");
 
     // use this to wait for all preprocess calls to terminate before executing the callback
     const status = {numJobs: eafFileNames.length};

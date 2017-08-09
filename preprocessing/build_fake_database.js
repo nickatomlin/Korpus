@@ -6,7 +6,7 @@ function build(storyFilesDir, indexFileName, dbFileName) {
         'stories': []
     };
 
-    const storyFileNames = fs.readdirSync(storyFilesDir);
+    const storyFileNames = fs.readdirSync(storyFilesDir).filter(f => f[0] != ".");
     for (const storyFileName of storyFileNames) {
         console.log("Reading " + storyFileName);
         db['stories'].push(JSON.parse(fs.readFileSync(storyFilesDir + storyFileName, 'utf8')));
