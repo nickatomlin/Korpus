@@ -4,7 +4,7 @@ class tierRegistry {
         // Omit these tier types from the website, as they're ugly and mostly useless.
         // variantTypes indicates when a morpheme is a spelling variant, free variant, etc.
         // hn, "homophone number", indicates which of multiple look-alike morphemes it is.
-        return (type === "variantTypes" || type === "hn");
+        return (type === "variantTypes" || type === "hn" || type === "glsAppend");
     }
 
     static decodeType(type) {
