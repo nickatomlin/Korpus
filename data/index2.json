@@ -1,30 +1,38 @@
 {
   "Intro.eaf": {
     "timed": true,
-    "mp3": "Intro.mp3",
-    "mp4": "Intro.mp4",
+    "media": {
+      "mp3": "Intro.mp3",
+      "mp4": "Intro.mp4"
+    },
+    "date_created": "01/17/2012",
+    "date_uploaded": "",
+    "speakers": [],
+
     "description": "A brief introduction to the Cofán people.",
     "genre": "Nonfiction",
     "author": "Martin Criollo",
     "glosser": "Scott Anderbois",
     "languages": [],
-    "date_created": "01/17/2012",
-    "source": "Ingi Cansecho Ande",
-    "date_uploaded": "",
-    "speakers": []
+    "source": {"default": ""}
   },
   "B103.xml": {
     "timed": false,
-    "mp3": "",
-    "mp4": "",
+    "media": {},
+    "languages": ["es", "en", "con-Latn-EC"],
+    "date_created": "",
+    "date_uploaded": "",
+    "source": {
+      "default": "Mitos del Pueblo Cofán",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\""
+    },
+
+
     "description": "",
     "genre": "Fiction",
-    "author": "",
+    "author": "Magdalena Blaser",
     "glosser": "UTRA 2017",
-    "languages": [],
-    "date_created": "",
-    "source": "Mitos del Pueblo Cofán",
-    "date_uploaded": "",
     "speakers": []
   }
 }

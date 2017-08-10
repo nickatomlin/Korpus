@@ -10,6 +10,39 @@ function isStartPunctuation(punct) {
     return (punct === "¿") || (punct === "(");
 }
 
+/*
+function updateMetadata(xmlFileContent, indexData) {
+    const thingy = {
+        "timed": false, //always
+        "media": {}, //always
+        "languages": ["es", "en", "con-Latn-EC"],
+        "date_created": "",
+        "date_uploaded": "",
+        "source": {
+            "default": "Mitos del Pueblo Cofán",
+            "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+            "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\""
+        }
+    };
+
+    const langsIn = jsonIn["document"]["interlinear-text"][0]["languages"];
+    const langs = [];
+    for (const lang of langsIn) {
+        langs.push(lang['$']['lang']);
+    }
+
+    const itemsIn = jsonIn["document"]["interlinear-text"][0]["item"];
+    const sources = {};
+    for (const datum of metadataIn) {
+        if (datum['$']['type'] === 'source') {
+            langsIn.push(datum['$'][''])
+        } else if (datum['$']['type'] === 'title' && current_title['$']['lang'] === 'con-Latn-EC') {
+            jsonOut.metadata.title = current_title['_'].substr(current_title['_'].indexOf(" ") + 1);
+        }
+    }
+
+}*/
+
 function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback) {
     const jsonOut = {
         "metadata": {
@@ -43,7 +76,6 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
             textLang = "defaultLang";
         }
 
-        const languages = jsonIn["document"]["interlinear-text"][0].languages[0].language;
         const wordsTierID = tierReg.maybeRegisterTier(textLang, "words");
 
         // const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph; // defined above
