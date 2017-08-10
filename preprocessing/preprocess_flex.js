@@ -218,7 +218,6 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
 
     const xmlFileNames = fs.readdirSync(xmlFilesDir).filter(f => f[0] != "."); // excludes hidden files
 
-
     // use this to wait for all preprocess calls to terminate before executing the callback
     const status = {numJobs: xmlFileNames.length};
     const whenDone = function() {
