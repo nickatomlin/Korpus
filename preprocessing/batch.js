@@ -12,10 +12,10 @@ const dbFileName = "data/fake_database.json";
 // use this to wait for things to terminate before executing the callback
 const status = {numJobs: 2};
 const whenDone = function() {
-    console.log("job done");
+    // console.log("job done");
     status.numJobs--;
     if (status.numJobs === 0) {
-        console.log("Building fake database...");
+        // console.log("Building fake database...");
         db.build(jsonFilesDir, indexFileName, dbFileName);
     }
 };

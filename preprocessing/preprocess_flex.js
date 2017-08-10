@@ -4,7 +4,7 @@ const fs = require('fs');
 const util = require('util');
 const parseXml = require('xml2js').parseString; // or we could use simple-xml
 const tierRegistry = require('./tier_registry').tierRegistry;
-
+const helper = require('./helper_functions');
 
 function isStartPunctuation(punct) {
     return (punct === "¿") || (punct === "(");
@@ -45,26 +45,32 @@ function updateMetadata(xmlFileContent, indexData) {
 
 function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback) {
     const jsonOut = {
-        "metadata": {
-            "title from filename": shortFileName,
-            "tier IDs": {},
-            "title": "",
-            "timed": "false"
-            // "speaker IDs" omitted (only used on elan files)
-        },
+        "metadata": {},
         "sentences": []
     };
-    const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"], isoDict);
 
     parseXml(fs.readFileSync(xmlFileName), function(err, jsonIn){
         if (err) throw err;
 
-        const titles = jsonIn["document"]["interlinear-text"][0]["item"];
-        for (const current_title of titles) {
-            if (current_title['$']['type'] === 'title' && current_title["$"]["lang"] === "con-Latn-EC") {
-                jsonOut.metadata.title = current_title["_"].substr(current_title["_"].indexOf(" ") + 1);
+        /////////////////////////////////////////
+        // Nick's index-updating code begins here
+        /////////////////////////////////////////
+        const metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
+        jsonOut.metadata = metadata;
+        jsonOut.metadata["tier IDs"] = {};
+        const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"], isoDict);
+
+        // update the index.json file
+        let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
+        index[helper.getFilenameFromPath(xmlFileName)] = metadata;
+        fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2), function(err) {
+            if(err) {
+                return console.log(err);
             }
-        }
+        });
+        ///////////////////////////////////////
+        // Nick's index-updating code ends here
+        ///////////////////////////////////////
 
         // set textLang to the language of the first word
         const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
@@ -76,7 +82,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
             textLang = "defaultLang";
         }
 
-        const wordsTierID = tierReg.maybeRegisterTier(textLang, "words");
+        const wordsTierID = tierReg.maybeRegisterTier(textLang, "words"); // writes to jsonOut.metadata (!)
 
         // const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph; // defined above
         for (const wrappedParagraph of paragraphs) {
@@ -200,7 +206,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
             if (err) {
                 return console.log(err);
             }
-            console.log("The converted file " + jsonFileName + " was saved.");
+            // console.log("The converted file " + jsonFileName + " was saved.");
             if (callback != null) {
                 callback();
             }
@@ -228,7 +234,7 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
     };
 
     for (const xmlFileName of xmlFileNames) {
-        console.log("Processing " + xmlFileName);
+        // console.log("Processing " + xmlFileName);
         const xmlPath = xmlFilesDir + xmlFileName;
         const jsonPath = jsonFilesDir + xmlFileName.slice(0, -4) + ".json";
         preprocess(xmlPath, jsonPath, xmlFileName.slice(0, -4), isoDict, whenDone);

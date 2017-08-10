@@ -8,7 +8,7 @@ function build(storyFilesDir, indexFileName, dbFileName) {
 
     const storyFileNames = fs.readdirSync(storyFilesDir).filter(f => f[0] != "."); // excludes hidden files
     for (const storyFileName of storyFileNames) {
-        console.log("Reading " + storyFileName);
+        // console.log("Reading " + storyFileName);
         db['stories'].push(JSON.parse(fs.readFileSync(storyFilesDir + storyFileName, 'utf8')));
     }
 
