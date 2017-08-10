@@ -216,7 +216,8 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
         console.log("Unable to read ISO codes file. Error was " + err + " Proceeding anyway...");
     }
 
-    const xmlFileNames = fs.readdirSync(xmlFilesDir);
+    const xmlFileNames = fs.readdirSync(xmlFilesDir).filter(f => f[0] != "."); // excludes hidden files
+
 
     // use this to wait for all preprocess calls to terminate before executing the callback
     const status = {numJobs: xmlFileNames.length};

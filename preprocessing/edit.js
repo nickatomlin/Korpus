@@ -1,7 +1,7 @@
 const fs = require("fs");
 const prompt = require("prompt");
 const inquirer = require("inquirer"); // Nick edited the node module for this
-let obj = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
+let obj = JSON.parse(fs.readFileSync("data/index.json", "utf8"));
 
 let filename;
 let data;
