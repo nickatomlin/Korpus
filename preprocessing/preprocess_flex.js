@@ -55,10 +55,10 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
         /////////////////////////////////////////
         // Nick's index-updating code begins here
         /////////////////////////////////////////
-        const metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
+        let metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
+        metadata["title from filename"] = shortFileName;
         jsonOut.metadata = metadata;
         jsonOut.metadata["tier IDs"] = {};
-        jsonOut.metadata["title from filename"] = shortFileName;
         const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"], isoDict);
 
         // update the index.json file
@@ -207,7 +207,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
             if (err) {
                 return console.log(err);
             }
-            // console.log("The converted file " + jsonFileName + " was saved.");
+            console.log("✅  Correctly processed " + shortFileName + ".xml");
             if (callback != null) {
                 callback();
             }

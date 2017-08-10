@@ -3,6 +3,7 @@
 const fs = require('fs');
 const util = require('util');
 const parseXml = require('xml2js').parseString; // or we could use simple-xml
+const helper = require('./helper_functions');
 
 function swapJsonKeyValues(input) {
     const output = {};

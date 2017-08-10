@@ -8974,13 +8974,18 @@ function Sidebar(_ref) {
 	// O/P: a sidebar complement to the TextDisplay
 	// Status: untested
 	try {
+		// Some KORPUS-specific code here:
+		var title = metadata['title']['con-Latn-EC'];
+		if (!metadata['timed']) {
+			title = title.substr(title.indexOf(" ") + 1);
+		}
 		var filename = metadata['media']['mp4'];
 		var path = 'data/media_files/' + filename;
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
 			React.createElement(_Video.Video, { path: path }),
-			React.createElement(_Title.Title, { title: metadata['title']['con-Latn-EC'] }),
+			React.createElement(_Title.Title, { title: title }),
 			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: metadata["timed"] })
 		);
 	} catch (err) {

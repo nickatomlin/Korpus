@@ -14,7 +14,7 @@ function build(storyFilesDir, indexFileName, dbFileName) {
 
     const dbPrettyString = JSON.stringify(db, null, 2);
     fs.writeFileSync(dbFileName, dbPrettyString);
-    console.log("The fake database was updated.");
+    console.log("📤  The fake database was updated.");
 }
 
 module.exports = {
