@@ -58,14 +58,15 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
         const metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
         jsonOut.metadata = metadata;
         jsonOut.metadata["tier IDs"] = {};
+        jsonOut.metadata["title from filename"] = shortFileName;
         const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"], isoDict);
 
         // update the index.json file
         let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
         index[helper.getFilenameFromPath(xmlFileName)] = metadata;
         fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2), function(err) {
-            if(err) {
-                return console.log(err);
+            if (err) {
+                console.log(err);
             }
         });
         ///////////////////////////////////////

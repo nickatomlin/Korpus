@@ -8914,13 +8914,14 @@ var Story = exports.Story = function (_React$Component) {
         key: 'render',
         value: function render() {
             var story = this.props.story;
+            console.log(story);
             var sentences = story['sentences'];
-            var timed = story['metadata']['timed'] === 'true';
+            var timed = story['metadata']['timed'];
             var footer = null;
             if (timed) {
                 var audioFile = void 0;
                 var media = story['metadata']['media'];
-                if ('mp3' in media) {
+                if (media.hasOwnProperty('mp3')) {
                     audioFile = media['mp3'];
                 } else {
                     audioFile = media['mp4'];
@@ -8979,7 +8980,7 @@ function Sidebar(_ref) {
 			'div',
 			{ id: 'leftPanel' },
 			React.createElement(_Video.Video, { path: path }),
-			React.createElement(_Title.Title, { title: metadata['title'] }),
+			React.createElement(_Title.Title, { title: metadata['title']['con-Latn-EC'] }),
 			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: metadata["timed"] })
 		);
 	} catch (err) {

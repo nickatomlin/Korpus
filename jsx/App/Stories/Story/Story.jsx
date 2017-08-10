@@ -22,13 +22,14 @@ export class Story extends React.Component {
 
     render() {
         const story = this.props.story;
+        console.log(story);
         const sentences = story['sentences'];
-        const timed = (story['metadata']['timed'] === 'true');
+        const timed = (story['metadata']['timed']);
         let footer = null;
         if (timed) {
             let audioFile;
             const media = story['metadata']['media'];
-            if ('mp3' in media) {
+            if (media.hasOwnProperty('mp3')) {
                 audioFile = media['mp3'];
             } else {
                 audioFile = media['mp4'];

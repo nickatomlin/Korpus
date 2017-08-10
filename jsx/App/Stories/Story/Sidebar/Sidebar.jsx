@@ -12,7 +12,7 @@ export function Sidebar({ metadata }) {
 		return (
 			<div id="leftPanel">
 				<Video path={path} />
-				<Title title={metadata['title']} />
+				<Title title={metadata['title']['con-Latn-EC']} />
 				<Minibar metadata={metadata} hasVideo={metadata["timed"]} />
 			</div>
 		);
