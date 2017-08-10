@@ -56,7 +56,6 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
         // Nick's index-updating code begins here
         /////////////////////////////////////////
         let metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
-        metadata["title from filename"] = shortFileName;
         jsonOut.metadata = metadata;
         jsonOut.metadata["tier IDs"] = {};
         const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"], isoDict);
@@ -64,11 +63,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
         // update the index.json file
         let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
         index[helper.getFilenameFromPath(xmlFileName)] = metadata;
-        fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2), function(err) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2));
         ///////////////////////////////////////
         // Nick's index-updating code ends here
         ///////////////////////////////////////
@@ -223,7 +218,7 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
         console.log("Unable to read ISO codes file. Error was " + err + " Proceeding anyway...");
     }
 
-    const xmlFileNames = fs.readdirSync(xmlFilesDir).filter(f => f[0] != "."); // excludes hidden files
+    const xmlFileNames = fs.readdirSync(xmlFilesDir).filter(f => f[0] !== '.'); // excludes hidden files
 
     // use this to wait for all preprocess calls to terminate before executing the callback
     const status = {numJobs: xmlFileNames.length};

@@ -35,6 +35,8 @@ function improveFLExIndexData(path, itext) {
 	// O/P: a JSON object, based on the index.json file and new metadata
 	// Status: untested
 	const filename = getFilenameFromPath(path);
+    const shortFilename = filename.substring(0, filename.lastIndexOf('.'));
+    console.log("shortFilename is " + shortFilename);
     let metadata = getMetadataFromIndex(filename);
 
     const date = new Date();
@@ -44,10 +46,14 @@ function improveFLExIndexData(path, itext) {
     	// below is the starter data:
         metadata = {
             "timed": false,
+            "title from filename": shortFilename,
             "title": {
                 "_default": ""
             },
-            "media": {},
+            "media": {
+                "audio": "",
+                "video": ""
+            },
             "languages": [],
             "date_created": "",
             "date_uploaded": prettyDate,
@@ -84,6 +90,81 @@ function improveFLExIndexData(path, itext) {
         languages.push(language["$"]["lang"])
     }
     metadata["languages"] = languages;
+    return metadata;
+}
+
+function improveElanIndexData(path, adoc) {
+    // I/P: path, a string
+    //      adoc, an annotation document
+    // O/P: a JSON object, based on the index.json file and new metadata
+    // Status: untested
+    const filename = getFilenameFromPath(path);
+    const shortFilename = filename.substring(0, filename.lastIndexOf('.'));
+    console.log("shortFilename is " + shortFilename);
+    let metadata = getMetadataFromIndex(filename);
+
+    const date = new Date();
+    const prettyDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+
+    if (metadata == null) { // file not in index previously
+        // below is the starter data:
+        metadata = {
+            "timed": true,
+            "title from filename": filename,
+            "title": {
+                "_default": ""
+            },
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "languages": [],
+            "date_created": "",
+            "date_uploaded": prettyDate,
+            "source": {
+                "_default": ""
+            },
+            "description": "",
+            "genre": "",
+            "author": "",
+            "glosser": "",
+            "speakers": []
+        }
+    }
+    // get title/source info
+    if (metadata['title']['_default'] === '') {
+        metadata['title']['_default'] = shortFilename
+    }
+
+    // get language info
+    let speakers = [];
+    const tiers = adoc['TIER']
+    for (const tier of tiers) {
+        speakers.push(tier['$']['PARTICIPANT']);
+    }
+    metadata['speakers'] = speakers;
+
+    const audioFile = metadata['media']['audio'];
+    const hasWorkingAudio = verifyMedia(audioFile);
+    const videoFile = metadata['media']['video'];
+    const hasWorkingVideo = verifyMedia(videoFile);
+    if (!hasWorkingAudio || !hasWorkingVideo) {
+        const mediaDescriptors = adoc['HEADER'][0]['MEDIA_DESCRIPTOR'];
+        for (const mediaDesc of mediaDescriptors) {
+            let mediaUrl = mediaDesc['$']['MEDIA_URL'];
+            mediaUrl = getFilenameFromPath(mediaUrl);
+            if (verifyMedia(mediaUrl)) {
+                const fileExtension = mediaUrl.substring(lastIndexOf('.'));
+                if (fileExtension === 'mp3') {
+                    metadata['media']['audio'] = mediaUrl;
+                } else if (fileExtension === 'mp4') {
+                    metadata['media']['video'] = mediaUrl;
+                }
+            }
+        }
+    }
+
+
     return metadata;
 }
 
