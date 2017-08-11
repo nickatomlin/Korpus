@@ -240,7 +240,7 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
 
         const prettyString = JSON.stringify(jsonOut, null, 2);
         fs.writeFileSync(jsonFileName, prettyString);
-        // console.log("The converted file was saved. All done!");
+        console.log("✅  Correctly processed " + titleFromFileName + ".eaf");
         callback();
     });
 }
