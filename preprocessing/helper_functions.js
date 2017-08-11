@@ -36,7 +36,6 @@ function improveFLExIndexData(path, itext) {
 	// Status: untested
 	const filename = getFilenameFromPath(path);
     const shortFilename = filename.substring(0, filename.lastIndexOf('.'));
-    console.log("shortFilename is " + shortFilename);
     let metadata = getMetadataFromIndex(filename);
 
     const date = new Date();
@@ -100,7 +99,6 @@ function improveElanIndexData(path, adoc) {
     // Status: untested
     const filename = getFilenameFromPath(path);
     const shortFilename = filename.substring(0, filename.lastIndexOf('.'));
-    console.log("shortFilename is " + shortFilename);
     let metadata = getMetadataFromIndex(filename);
 
     const date = new Date();
@@ -137,33 +135,107 @@ function improveElanIndexData(path, adoc) {
     }
 
     // get language info
-    let speakers = [];
+    let speakers = new Set(); // to avoid duplicates
     const tiers = adoc['TIER']
     for (const tier of tiers) {
-        speakers.push(tier['$']['PARTICIPANT']);
+        if (tier['$']['PARTICIPANT']) {
+            speakers.add(tier['$']['PARTICIPANT']);
+        }
     }
-    metadata['speakers'] = speakers;
+    metadata['speakers'] = Array.from(speakers);
 
     const audioFile = metadata['media']['audio'];
-    const hasWorkingAudio = verifyMedia(audioFile);
+    let hasWorkingAudio = verifyMedia(audioFile);
     const videoFile = metadata['media']['video'];
-    const hasWorkingVideo = verifyMedia(videoFile);
+    let hasWorkingVideo = verifyMedia(videoFile);
+
+    // If both audio/video work, then we're done. Otherwise, figure out what we need.
+    let needsAudio = false;
+    let needsVideo = false;
+    let audioFiles = [];
+    let videoFiles = [];
     if (!hasWorkingAudio || !hasWorkingVideo) {
         const mediaDescriptors = adoc['HEADER'][0]['MEDIA_DESCRIPTOR'];
         for (const mediaDesc of mediaDescriptors) {
-            let mediaUrl = mediaDesc['$']['MEDIA_URL'];
-            mediaUrl = getFilenameFromPath(mediaUrl);
-            if (verifyMedia(mediaUrl)) {
-                const fileExtension = mediaUrl.substring(lastIndexOf('.'));
-                if (fileExtension === 'mp3') {
-                    metadata['media']['audio'] = mediaUrl;
-                } else if (fileExtension === 'mp4') {
-                    metadata['media']['video'] = mediaUrl;
-                }
+            const mediaPath = mediaDesc['$']['MEDIA_URL'];
+            const mediaFilename = getFilenameFromPath(mediaPath);
+            const fileExtension = mediaFilename.substring(mediaFilename.lastIndexOf('.'));
+            if (fileExtension === '.mp3' || fileExtension === '.wav') {
+                audioFiles.push(mediaFilename);
+                needsAudio = true;
+            } else if (fileExtension === '.mp4') {
+                videoFiles.push(mediaFilename);
+                needsVideo = true;
+            }
+        }
+    }
+    ////////////////////
+    /// AUDIO SEARCH ///
+    ////////////////////
+    // Try to link audio files mentioned in the EAF file:
+    if (needsAudio && !hasWorkingAudio) {
+        console.log("🚨  WARN: " + filename + " is missing correctly linked audio. Attemping to find link...");
+        for (const mediaFilename of audioFiles) {
+            if (verifyMedia(mediaFilename)) {
+                console.log("🔍  SUCCESS: Found matching audio: " + mediaFilename);
+                hasWorkingAudio = true;
+                metadata['media']['audio'] = mediaFilename;
+                break;
             }
         }
     }
 
+    // Try to find an audio file matching the filename:
+    if (needsAudio && !hasWorkingAudio) {
+        const tryMp3 = shortFilename + ".mp3";
+        if (verifyMedia(tryMp3)) {
+            console.log("🔍  SUCCESS: Found matching audio: " + tryMp3);
+            hasWorkingAudio = true;
+            metadata['media']['audio'] = tryMp3;
+        }
+    }
+
+    // Show audio error:
+    if (needsAudio && !hasWorkingAudio) {
+        console.log("❌  ERROR: Cannot find matching audio for " + filename + ". ");
+    }
+
+    ////////////////////
+    /// VIDEO SEARCH ///
+    ////////////////////
+    // Try to link video files mentioned in the EAF file:
+    if (needsVideo && !hasWorkingVideo) {
+        console.log("🚨  WARN: " + filename + " is missing correctly linked video. Attemping to find link...");
+        for (const mediaFilename of videoFiles) {
+            if (verifyMedia(mediaFilename)) {
+                console.log("🔍  SUCCESS: Found matching video: " + mediaFilename);
+                hasWorkingVideo = true;
+                metadata['media']['video'] = mediaFilename;
+                break;
+            }
+        }
+    }
+
+    // Try to find an video file matching the filename:
+    if (needsVideo && !hasWorkingVideo) {
+        const tryMp4 = shortFilename + ".mp4";
+        if (verifyMedia(tryMp4)) {
+            console.log("🔍  SUCCESS: Found matching video: " + tryMp4);
+            hasWorkingVideo = true;
+            metadata['media']['video'] = tryMp4;
+        }
+    }
+
+    // Show audio error:
+    if (needsVideo && !hasWorkingVideo) {
+        console.log("❌  ERROR: Cannot find matching video for " + filename + ". ");
+    }
+
+    // WORST CASE SCENARIO: NO MEDIA
+    if (!hasWorkingAudio || !hasWorkingVideo) {
+        metadata['timed'] = false;
+        console.log("❌  ERROR: " + filename + " has no linked audio or video in the media_files directory. It will be processed as an untimed file and no audio or video will be displayed on the site, with no time alignment.")
+    }
 
     return metadata;
 }
@@ -172,5 +244,6 @@ module.exports = {
     verifyMedia: verifyMedia,
     getMetadataFromIndex: getMetadataFromIndex,
     getFilenameFromPath: getFilenameFromPath,
-    improveFLExIndexData: improveFLExIndexData
+    improveFLExIndexData: improveFLExIndexData,
+    improveElanIndexData: improveElanIndexData
 };

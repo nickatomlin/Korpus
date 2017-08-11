@@ -2,15 +2,18 @@
   "Intro.eaf": {
     "timed": true,
     "title": {
-      "_default": ""
+      "_default": "Intro"
     },
     "media": {
-      "mp3": "Intro.mp3",
-      "mp4": "Intro.mp4"
+      "audio": "Intro.mp3",
+      "video": "Intro.mp4"
     },
     "date_created": "01/17/2012",
     "date_uploaded": "",
-    "speakers": [],
+    "speakers": [
+      "Martin Criollo",
+      "Hugo Lucitante"
+    ],
     "description": "A brief introduction to the Cofán people.",
     "genre": "Nonfiction",
     "author": "Martin Criollo",
@@ -18,7 +21,9 @@
     "languages": [],
     "source": {
       "_default": ""
-    }
+    },
+    "tier IDs": {},
+    "speaker IDs": {}
   },
   "103.xml": {
     "timed": false,
@@ -667,5 +672,32 @@
     "speakers": [],
     "tier IDs": {},
     "title from filename": "145"
+  },
+  "test.eaf": {
+    "timed": true,
+    "title from filename": "test.eaf",
+    "title": {
+      "_default": "test"
+    },
+    "media": {
+      "audio": "example_audio.mp3",
+      "video": ""
+    },
+    "languages": [],
+    "date_created": "",
+    "date_uploaded": "8/11/2017",
+    "source": {
+      "_default": ""
+    },
+    "description": "",
+    "genre": "",
+    "author": "",
+    "glosser": "",
+    "speakers": [
+      "Lise Dobrin",
+      "Scola Sonin"
+    ],
+    "tier IDs": {},
+    "speaker IDs": {}
   }
 }

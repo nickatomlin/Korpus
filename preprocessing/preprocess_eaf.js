@@ -55,20 +55,29 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
         }
 
         const jsonOut = {
-            "metadata":
-                {
-                    "title from filename": titleFromFileName,
-                    "tier IDs": {},
-                    "speaker IDs": {},
-                    "title": "",
-                    "timed": "true" // TODO also "media": {"mp3": "mp3filenamehere", "mp4": "filenamehere"}
-                },
+            "metadata": {},
             "sentences": []
         };
 
-        let title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
-        title = title.slice(0, -4); // removes last four characters
-        jsonOut.metadata.title = title; // sets title
+        /////////////////////////////////////////
+        // Nick's index-updating code begins here
+        /////////////////////////////////////////
+        let metadata = helper.improveElanIndexData(xmlFileName, jsonIn.ANNOTATION_DOCUMENT);
+        jsonOut.metadata = metadata;
+        jsonOut.metadata["tier IDs"] = {};
+        jsonOut.metadata["speaker IDs"] = {};
+
+        // update the index.json file
+        let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
+        index[helper.getFilenameFromPath(xmlFileName)] = metadata;
+        fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2));
+        ///////////////////////////////////////
+        // Nick's index-updating code ends here
+        ///////////////////////////////////////
+
+        // let title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
+        // title = title.slice(0, -4); // removes last four characters
+        // jsonOut.metadata.title = title; // sets title
 
         const tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER;
         // discard tiers that have no annotations in them
