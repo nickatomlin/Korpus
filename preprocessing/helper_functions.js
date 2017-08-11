@@ -146,8 +146,14 @@ function improveElanIndexData(path, adoc) {
 
     const audioFile = metadata['media']['audio'];
     let hasWorkingAudio = verifyMedia(audioFile);
+    if (!hasWorkingAudio) {
+        metadata['media']['audio'] = "";
+    }
     const videoFile = metadata['media']['video'];
     let hasWorkingVideo = verifyMedia(videoFile);
+    if (!hasWorkingVideo) {
+        metadata['media']['video'] = "";
+    }
 
     // If both audio/video work, then we're done. Otherwise, figure out what we need.
     let needsAudio = false;
@@ -232,7 +238,7 @@ function improveElanIndexData(path, adoc) {
     }
 
     // WORST CASE SCENARIO: NO MEDIA
-    if (!hasWorkingAudio || !hasWorkingVideo) {
+    if (!hasWorkingAudio && !hasWorkingVideo) {
         metadata['timed'] = false;
         console.log("❌  ERROR: " + filename + " has no linked audio or video in the media_files directory. It will be processed as an untimed file and no audio or video will be displayed on the site, with no time alignment.")
     }
