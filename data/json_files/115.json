@@ -30,9 +30,8 @@
       "T2": "Morfema (texto) a'ingae",
       "T3": "Morfema (forma típico) a'ingae",
       "T4": "Glosa de morfema inglés",
-      "T5": "Parte del habla inglés",
-      "T6": "Frase inglés",
-      "T7": "Frase español"
+      "T5": "Frase inglés",
+      "T6": "Frase español"
     },
     "title from filename": "115"
   },
@@ -166,43 +165,13 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 2,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 5,
-              "value": "bndclphrasclclaus"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "n"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "v"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 10,
               "value": "In the head of the river lives the mother of a tiger."
             }
           ]
         },
         {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -322,38 +291,13 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "n"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 4,
-              "value": "bndclphrasclclaus"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "n"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "n"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 7,
               "value": "In the head of the river there is a tiger house."
             }
           ]
         },
         {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -493,43 +437,13 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclclaus"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "quant"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 10,
-              "value": "vclphrasclphrasclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 13,
-              "value": "vv:(Asp)clphras"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 14,
               "value": "There they send the shamans when they die"
             }
           ]
         },
         {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -669,43 +583,13 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 3,
-              "value": "vclphrasclclaus"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "vclphras"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
               "end_slot": 12,
               "value": "and then the shaman becomes a tiger."
             }
           ]
         },
         {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1001,77 +885,7 @@
           ]
         },
         {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "adv"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 3,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 13,
-              "value": "vclphrasclphrasclclaus"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 16,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 16,
-              "end_slot": 19,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 19,
-              "end_slot": 21,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 22,
-              "end_slot": 23,
-              "value": "conn"
-            },
-            {
-              "start_slot": 23,
-              "end_slot": 25,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 25,
-              "end_slot": 27,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 27,
-              "end_slot": 30,
-              "value": "vclphrasclphras"
-            }
-          ]
-        },
-        {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1227,42 +1041,7 @@
           ]
         },
         {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "quant"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 4,
-              "value": "nclphrasclclaus"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 10,
-              "value": "vclphrasclphrasclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 13,
-              "value": "nclphrasclphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 15,
-              "value": "vclphras"
-            }
-          ]
-        },
-        {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1458,52 +1237,7 @@
           ]
         },
         {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "n"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 10,
-              "value": "vclphrasclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 12,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 16,
-              "value": "nclphrasclphrasclphras"
-            },
-            {
-              "start_slot": 16,
-              "end_slot": 18,
-              "value": "vclphras"
-            }
-          ]
-        },
-        {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1719,57 +1453,7 @@
           ]
         },
         {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "nclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "clclaus"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "adv"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "quant"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 12,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 15,
-              "value": "vclphrasclphras"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 17,
-              "value": "vclphras"
-            }
-          ]
-        },
-        {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1985,57 +1669,7 @@
           ]
         },
         {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 6,
-              "value": "vclphrasclclaus"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 11,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 13,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 15,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 17,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 19,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 19,
-              "end_slot": 21,
-              "value": "vclphras"
-            }
-          ]
-        },
-        {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -2171,37 +1805,7 @@
           ]
         },
         {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "clclaus"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "vclphras"
-            }
-          ]
-        },
-        {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,

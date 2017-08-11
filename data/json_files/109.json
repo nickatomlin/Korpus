@@ -25,8 +25,7 @@
       "T1": "Palabra a'ingae",
       "T2": "Morfema (texto) a'ingae",
       "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés",
-      "T5": "Parte del habla inglés"
+      "T4": "Glosa de morfema inglés"
     },
     "title from filename": "109"
   },
@@ -152,31 +151,6 @@
               "start_slot": 6,
               "end_slot": 7,
               "value": "thus"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "adv"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "clphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "adv"
             }
           ]
         }
@@ -345,46 +319,6 @@
               "value": "be able=SBRD=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "nmyth"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 3,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "quantclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "v"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "pro"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 13,
-              "value": "vclphrasclphras"
-            }
-          ]
         }
       ]
     },
@@ -534,41 +468,6 @@
               "start_slot": 9,
               "end_slot": 13,
               "value": "sit=SS=SBRD=DAT"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "nmyth"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 6,
-              "value": "advclphrasclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "n"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "pro"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 13,
-              "value": "vclphrasclphrasclphras"
             }
           ]
         }
@@ -897,81 +796,6 @@
               "value": "become"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "v"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "pro"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 14,
-              "value": "vv>nclphras"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 17,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 19,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 19,
-              "end_slot": 20,
-              "value": "v"
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 21,
-              "value": "v"
-            },
-            {
-              "start_slot": 22,
-              "end_slot": 25,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 25,
-              "end_slot": 27,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 27,
-              "end_slot": 29,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 29,
-              "end_slot": 30,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -1168,51 +992,6 @@
               "value": "know"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "nmyth"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "v"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "proclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 15,
-              "value": "vv:(Val)"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -1382,46 +1161,6 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "Chiga"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "v"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "v"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "adv"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "v"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "nmyth"
             }
           ]
         }
@@ -1655,61 +1394,6 @@
               "value": "raise"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "proclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "v"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 13,
-              "value": "vv>nclphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 15,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 17,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 18,
-              "value": "v"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 19,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -1829,31 +1513,6 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "become"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "v"
             }
           ]
         }
@@ -2000,41 +1659,6 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "get angry"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 10,
-              "value": "vclphrasclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 13,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "v"
             }
           ]
         }
@@ -2191,41 +1815,6 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "go"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "proclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 13,
-              "value": "v__"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "v"
             }
           ]
         }
@@ -2464,56 +2053,6 @@
               "value": "go"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "v__"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 9,
-              "value": "vclphrasclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 12,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 16,
-              "value": "vclphrasclphras"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 20,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 23,
-              "value": "bndclphrasclphras"
-            },
-            {
-              "start_slot": 23,
-              "end_slot": 25,
-              "value": "bndclphras"
-            },
-            {
-              "start_slot": 25,
-              "end_slot": 26,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -2678,41 +2217,6 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "go"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "pro"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "n"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "v"
             }
           ]
         }
@@ -2916,51 +2420,6 @@
               "value": "1.SG=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 7,
-              "value": "vv:(Asp)clphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "quant"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "n"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 13,
-              "value": "vv:(Iter)clphrasclphras"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "v"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 19,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 19,
-              "end_slot": 21,
-              "value": "proclphras"
-            }
-          ]
         }
       ]
     },
@@ -3127,46 +2586,6 @@
               "value": "say"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 6,
-              "value": "bndclphrasclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "v"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "adv"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -3246,21 +2665,6 @@
               "start_slot": 5,
               "end_slot": 7,
               "value": "look=LOC"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
             }
           ]
         }
@@ -3377,31 +2781,6 @@
               "start_slot": 9,
               "end_slot": 11,
               "value": "goPROSP"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 6,
-              "value": "vclphrasclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "adv"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "vv:(Asp)"
             }
           ]
         }
@@ -3595,51 +2974,6 @@
               "value": "knock down"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "bndclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "adv"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "dem"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 14,
-              "value": "bndclphrasclphras"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -3749,31 +3083,6 @@
               "start_slot": 7,
               "end_slot": 8,
               "value": "travel"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 6,
-              "value": "vclphrasclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "adv"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "n"
             }
           ]
         }
@@ -3902,36 +3211,6 @@
               "value": "look"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 5,
-              "value": "quantclphrasclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "v"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -3981,16 +3260,6 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "ANA=FRT"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
             }
           ]
         }
@@ -4122,31 +3391,6 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "old"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "nmyth"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "clclaus"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "adj"
             }
           ]
         }
@@ -4295,41 +3539,6 @@
               "value": "goPROSP"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "pro"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 4,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 7,
-              "value": "vv:(Asp)clphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "bndclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 13,
-              "value": "vv:(Asp)"
-            }
-          ]
         }
       ]
     },
@@ -4419,26 +3628,6 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "see"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "v"
             }
           ]
         }
@@ -4587,41 +3776,6 @@
               "value": "take"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -4736,31 +3890,6 @@
               "start_slot": 6,
               "end_slot": 7,
               "value": "take out"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "pro"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "v"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "v"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vclphras"
             }
           ]
         }
@@ -4949,46 +4078,6 @@
               "value": "say"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 14,
-              "value": "bndclphrasclphras"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "stat"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "adv"
-            },
-            {
-              "start_slot": 16,
-              "end_slot": 17,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -5158,41 +4247,6 @@
               "start_slot": 14,
               "end_slot": 15,
               "value": "3"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "n"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 12,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 14,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 17,
-              "value": "vclphras"
             }
           ]
         }
@@ -5369,46 +4423,6 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "REFL"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "adv"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "pro"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "v"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "v"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "pro"
             }
           ]
         }
@@ -5697,71 +4711,6 @@
               "value": "throw"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "adj"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "nmyth"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 8,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 11,
-              "value": "vv:(Asp)clphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "adv"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 13,
-              "value": "v"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "v"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "pro"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 17,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 19,
-              "value": "statclphras"
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 21,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -5868,26 +4817,6 @@
               "value": "tree=SH.ANG=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 9,
-              "value": "bndclphrasclphras"
-            }
-          ]
         }
       ]
     },
@@ -5984,26 +4913,6 @@
               "value": "land=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "quantclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "nclphras"
-            }
-          ]
         }
       ]
     },
@@ -6073,21 +4982,6 @@
               "start_slot": 3,
               "end_slot": 6,
               "value": "ANA.LOC=LOC.NR=DAT"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "nv:(Val)clphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 6,
-              "value": "demclphrasclphras"
             }
           ]
         }
@@ -6179,26 +5073,6 @@
               "start_slot": 5,
               "end_slot": 7,
               "value": "die=INF"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "conn"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
             }
           ]
         }
@@ -6337,36 +5211,6 @@
               "value": "go downCAUS=SS"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "pro"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 11,
-              "value": "vv:(Val)clphras"
-            }
-          ]
         }
       ]
     },
@@ -6461,21 +5305,6 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "good=ADV.STAT"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "bndclphras"
             }
           ]
         }
@@ -6617,36 +5446,6 @@
               "start_slot": 9,
               "end_slot": 11,
               "value": "land=ACC"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "advclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "n"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "nclphras"
             }
           ]
         }
@@ -6855,46 +5654,6 @@
               "value": "squeeze"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 8,
-              "value": "vv:(Asp)clphrasclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 12,
-              "value": "vv:(Asp)clphras"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 17,
-              "end_slot": 18,
-              "value": "adv"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 20,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 21,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -6994,31 +5753,6 @@
               "start_slot": 2,
               "end_slot": 4,
               "value": "wait=SS"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 8,
-              "value": "clphrasclphrasclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 12,
-              "value": "vv:(Iter)clphrasclphras"
             }
           ]
         }
@@ -7150,36 +5884,6 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "1"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "adv"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "adv"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "clpers"
             }
           ]
         }
@@ -7343,41 +6047,6 @@
               "value": "say=SS"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "pro"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "quantclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "adv"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "vclphras"
-            }
-          ]
         }
       ]
     },
@@ -7437,16 +6106,6 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "rejoice=SS"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "vclphras"
             }
           ]
         }
@@ -7633,46 +6292,6 @@
               "start_slot": 15,
               "end_slot": 16,
               "value": "cook"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "n"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "v"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 14,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "v"
             }
           ]
         }
@@ -7926,61 +6545,6 @@
               "value": "want"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "n"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "n"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 14,
-              "value": "vv:(Asp)clphras"
-            },
-            {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "v"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 19,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 22,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 22,
-              "end_slot": 23,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -8070,26 +6634,6 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "say"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "adv"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "v"
             }
           ]
         }
@@ -8233,36 +6777,6 @@
               "value": "sit"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "n"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "quantclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -8392,36 +6906,6 @@
               "start_slot": 10,
               "end_slot": 13,
               "value": "eatIMPV=PL.SBJ"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 13,
-              "value": "vv:(Asp)clphras"
             }
           ]
         }
@@ -8575,41 +7059,6 @@
               "value": "doIMPV=LOC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "quant"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 8,
-              "value": "clphrasclphrasclphrasclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 13,
-              "value": "vv:(Asp)clphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 16,
-              "value": "vv:(Val)clphras"
-            }
-          ]
         }
       ]
     },
@@ -8741,36 +7190,6 @@
               "value": "comeCAUS"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 12,
-              "value": "vv:(Val)"
-            }
-          ]
         }
       ]
     },
@@ -8887,31 +7306,6 @@
               "value": "Chiga"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "nmyth"
-            }
-          ]
         }
       ]
     },
@@ -8976,16 +7370,6 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "comeCAUS"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vv:(Val)"
             }
           ]
         }
@@ -9152,41 +7536,6 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "come"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "v"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "v"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "nmyth"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "v"
             }
           ]
         }
@@ -9385,46 +7734,6 @@
               "value": "go=PL.SBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "n"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 15,
-              "value": "adv"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 20,
-              "value": "vclphras"
-            }
-          ]
         }
       ]
     },
@@ -9594,41 +7903,6 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "go"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "n"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "v"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "v"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "v"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "adv"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "v"
             }
           ]
         }
@@ -9827,51 +8101,6 @@
               "value": "leave=INF"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "n"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "pro"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "quant"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 13,
-              "value": "nclphrasclphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 15,
-              "value": "vclphras"
-            }
-          ]
         }
       ]
     },
@@ -10058,51 +8287,6 @@
               "value": "go"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 8,
-              "value": "demclphrasclphrasclphras"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "pro"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "proclphras"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 13,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 13,
-              "end_slot": 14,
-              "value": "adv"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 16,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 16,
-              "end_slot": 17,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -10257,41 +8441,6 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "Chiga"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "pro"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "clphrasclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "adv"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "nmyth"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 13,
-              "value": "vclphras"
             }
           ]
         }
@@ -10540,56 +8689,6 @@
               "value": "send"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "v"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 13,
-              "value": "pro"
-            },
-            {
-              "start_slot": 14,
-              "end_slot": 16,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 16,
-              "end_slot": 18,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 18,
-              "end_slot": 19,
-              "value": "pro"
-            },
-            {
-              "start_slot": 24,
-              "end_slot": 25,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -10746,41 +8845,6 @@
               "value": "go"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "v"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "adv"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 10,
-              "value": "nclphrasclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "v"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -10897,31 +8961,6 @@
               "value": "comeIMPV"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "nmythclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "vv:(Asp)"
-            }
-          ]
         }
       ]
     },
@@ -11016,26 +9055,6 @@
               "start_slot": 5,
               "end_slot": 7,
               "value": "comeIMPV"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "n"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vv:(Asp)"
             }
           ]
         }
@@ -11194,41 +9213,6 @@
               "value": "stay"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "demclphras"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "n"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 10,
-              "end_slot": 11,
-              "value": "v"
-            }
-          ]
         }
       ]
     },
@@ -11343,36 +9327,6 @@
               "start_slot": 7,
               "end_slot": 9,
               "value": "child=ACC2"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "clclaus"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 7,
-              "value": "clphrasclphrasclphras"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "nclphras"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 12,
-              "value": "vv:(Val)v:(Asp)"
             }
           ]
         }
@@ -11556,46 +9510,6 @@
               "value": "__=NEW"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 2,
-              "end_slot": 4,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 6,
-              "value": "clphrasclphras"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "n"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "n"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "clpers"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "v"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 13,
-              "value": "__clphras"
-            }
-          ]
         }
       ]
     },
@@ -11697,26 +9611,6 @@
               "value": "3"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "demclphrasclphras"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "vclphras"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "clpers"
-            }
-          ]
         }
       ]
     },
@@ -11786,21 +9680,6 @@
               "start_slot": 1,
               "end_slot": 2,
               "value": "mother"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "n"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "n"
             }
           ]
         }
