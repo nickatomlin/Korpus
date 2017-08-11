@@ -120,6 +120,8 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
                             }
                             slotNum++;
                         }
+                    } else { // if a word has no morphs, it still takes up a slot
+                        slotNum++;
                     }
 
                     if (wordWithMorphs.item[0].$.type !== "punct") { // this word isn't punctuation
