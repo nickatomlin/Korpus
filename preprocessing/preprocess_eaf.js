@@ -66,6 +66,7 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
         jsonOut.metadata = metadata;
         jsonOut.metadata["tier IDs"] = {};
         jsonOut.metadata["speaker IDs"] = {};
+        jsonOut.metadata["title from filename"] = titleFromFileName;
 
         // update the index.json file
         let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
