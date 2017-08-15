@@ -7,7 +7,7 @@ let filename;
 let data;
 
 process.argv.forEach(function (val, index, array) {
-	if (index === 2) {
+  if (index === 2) {
 		filename = val;
 	} else if (index === 3) {
 		console.log("Too many arguments. Continuing anyway...");
@@ -32,7 +32,7 @@ const editables = [
 	"glosser",
 	"date_created",
 	"source"
-]
+];
 
 function main(callback) {
 	inquirer.prompt([
@@ -49,9 +49,9 @@ function main(callback) {
 			"validate":	
 				function(response) {
 					const media_files = fs.readdirSync("data/media_files");
-					if (media_files.indexOf(response) >= 0 || response == "") {
+					if (media_files.indexOf(response) >= 0 || response === "") {
 						return true;
-					} else if (response == "blank") { // TODO: replace "blank" with "" in then()
+					} else if (response === "blank") { // TODO: replace "blank" with "" in then()
 						return true;
 					} else {
 						return "That file doesn't exist in your media_files directory! Please be aware that filenames are case-sensitive and require an extension. Type 'blank' to leave the file blank.";
@@ -71,9 +71,9 @@ function main(callback) {
 			"validate":	
 				function(response) {
 					const media_files = fs.readdirSync("data/media_files");
-					if (media_files.indexOf(response) >= 0 || response == "") {
+					if (media_files.indexOf(response) >= 0 || response === "") {
 						return true;
-					} else if (response == "blank") {
+					} else if (response === "blank") {
 						return true;
 					} else {
 						return "That file doesn't exist in your media_files directory! Please be aware that filenames are case-sensitive and require an extension. Type 'blank' to leave the file blank.";
@@ -114,7 +114,7 @@ function main(callback) {
 			"message": "Enter a description:",
 			"when": 
 				function(answers) {
-					return (data["description"] == "");
+					return (data["description"] === "");
 				}
 		},
 		// genre
@@ -155,13 +155,13 @@ function main(callback) {
 		}
 	// 
 	]).then(function (answers) {
-		if (answers["mp3"] == "blank") {
-			data["mp3"] == "";
+		if (answers["mp3"] === "blank") {
+			data["mp3"] === "";
 		} else {
 			data["mp3"] = answers["mp3"];
 		}
-		if (answers["mp4"] == "blank") {
-			data["mp4"] == "";
+		if (answers["mp4"] === "blank") {
+			data["mp4"] === "";
 		} else {
 			data["mp4"] = answers["mp4"];
 		}
