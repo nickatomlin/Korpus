@@ -8,7 +8,7 @@ let filename;
 let data;
 
 process.argv.forEach(function (val, index, array) {
-	if (index === 2) {
+  if (index === 2) {
 		filename = val;
 	} else if (index === 3) {
 		console.log("Too many arguments. Continuing anyway...");
@@ -23,6 +23,21 @@ try {
 	console.log("❌" + "  " + " File not found! Exiting...");
 }
 
+<<<<<<< HEAD
+=======
+// Information that can be changed via edit.js:
+const editables = [
+	"mp3",
+	"mp4",
+	"description",
+	"genre",
+	"author",
+	"glosser",
+	"date_created",
+	"source"
+];
+
+>>>>>>> ce4aa7b15a122ffa4736794045c2369b4a7349fb
 function main(callback) {
 	inquirer.prompt([
 		// mp3
@@ -38,9 +53,9 @@ function main(callback) {
 			"validate":	
 				function(response) {
 					const media_files = fs.readdirSync("data/media_files");
-					if (media_files.indexOf(response) >= 0 || response == "") {
+					if (media_files.indexOf(response) >= 0 || response === "") {
 						return true;
-					} else if (response == "blank") { // TODO: replace "blank" with "" in then()
+					} else if (response === "blank") { // TODO: replace "blank" with "" in then()
 						return true;
 					} else {
 						return "That file doesn't exist in your media_files directory! Please be aware that filenames are case-sensitive and require an extension. Type 'blank' to leave the file blank.";
@@ -60,9 +75,9 @@ function main(callback) {
 			"validate":	
 				function(response) {
 					const media_files = fs.readdirSync("data/media_files");
-					if (media_files.indexOf(response) >= 0 || response == "") {
+					if (media_files.indexOf(response) >= 0 || response === "") {
 						return true;
-					} else if (response == "blank") {
+					} else if (response === "blank") {
 						return true;
 					} else {
 						return "That file doesn't exist in your media_files directory! Please be aware that filenames are case-sensitive and require an extension. Type 'blank' to leave the file blank.";
@@ -103,7 +118,7 @@ function main(callback) {
 			"message": "Enter a description:",
 			"when": 
 				function(answers) {
-					return (data["description"] == "");
+					return (data["description"] === "");
 				}
 		},
 		// genre
@@ -154,6 +169,7 @@ function main(callback) {
 		} else {
 			data["media"]["video"] = answers["mp4"];
 		}
+		
 		if (answers["description"]) {
 			data["description"] = answers["description"];
 		}

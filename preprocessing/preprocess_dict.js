@@ -7,7 +7,7 @@ const xmlFileName = basePath + 'dict.xml';
 const jsonFileName = basePath + 'dict.json';
 
 fs.readFile(xmlFileName, function (err, xml) {
-	if (err) throw err;
+  if (err) throw err;
 
 	parseString(xml, function (err, jsonIn) {
 		const entries = jsonIn.html.body[0].div; // Gets the list of dictionary entries
