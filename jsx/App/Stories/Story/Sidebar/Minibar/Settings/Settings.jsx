@@ -34,7 +34,7 @@ export function Settings({ tiers, hasVideo }) {
 	// O/P: a search bar with concordance functionality
 	// Status: untested
   let videoButton = null;
-  if (hasVideo == "true") {
+  if (hasVideo) {
     videoButton = <VideoButton />;
   }
 

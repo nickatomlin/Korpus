@@ -8921,10 +8921,10 @@ var Story = exports.Story = function (_React$Component) {
             if (timed) {
                 var audioFile = void 0;
                 var media = story['metadata']['media'];
-                if (media.hasOwnProperty('mp3')) {
-                    audioFile = media['mp3'];
+                if (media.hasOwnProperty('audio')) {
+                    audioFile = media['audio'];
                 } else {
-                    audioFile = media['mp4'];
+                    audioFile = media['video'];
                 }
                 footer = React.createElement(
                     'div',
@@ -8973,27 +8973,32 @@ function Sidebar(_ref) {
 	// I/P: metadata, in JSON format
 	// O/P: a sidebar complement to the TextDisplay
 	// Status: untested
+
+	// Some KORPUS-specific code here (removing # from title):
+	var title = metadata['title']['con-Latn-EC'];
+	if (metadata['title']['_default'] != '') {
+		title = metadata['title']['_default'];
+	}
+	if (!metadata['timed']) {
+		title = title.substr(title.indexOf(" ") + 1);
+	}
+
 	try {
-		// Some KORPUS-specific code here:
-		var title = metadata['title']['con-Latn-EC'];
-		if (!metadata['timed']) {
-			title = title.substr(title.indexOf(" ") + 1);
-		}
-		var filename = metadata['media']['mp4'];
+		var filename = metadata['media']['video'];
 		var path = 'data/media_files/' + filename;
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
 			React.createElement(_Video.Video, { path: path }),
 			React.createElement(_Title.Title, { title: title }),
-			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: metadata["timed"] })
+			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
 		);
 	} catch (err) {
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
-			React.createElement(_Title.Title, { title: metadata['title'] }),
-			React.createElement(_Minibar.Minibar, { metadata: metadata })
+			React.createElement(_Title.Title, { title: title }),
+			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: false })
 		);
 	}
 }
@@ -9299,7 +9304,7 @@ function Settings(_ref) {
   // O/P: a search bar with concordance functionality
   // Status: untested
   var videoButton = null;
-  if (hasVideo == "true") {
+  if (hasVideo) {
     videoButton = React.createElement(VideoButton, null);
   }
 

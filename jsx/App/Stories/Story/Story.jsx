@@ -29,10 +29,10 @@ export class Story extends React.Component {
         if (timed) {
             let audioFile;
             const media = story['metadata']['media'];
-            if (media.hasOwnProperty('mp3')) {
-                audioFile = media['mp3'];
+            if (media.hasOwnProperty('audio')) {
+                audioFile = media['audio'];
             } else {
-                audioFile = media['mp4'];
+                audioFile = media['video'];
             }
             footer = <div id="footer"><audio data-live="true" controls id="audio" src={'data/media_files/' + audioFile}/></div>;
         }
