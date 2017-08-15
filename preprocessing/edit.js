@@ -1,7 +1,8 @@
 const fs = require("fs");
 const prompt = require("prompt");
 const inquirer = require("inquirer"); // Nick edited the node module for this
-let obj = JSON.parse(fs.readFileSync("data/index.json", "utf8"));
+let obj = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
+let fakeDB = JSON.parse(fs.readFileSync("data/fake_database.json", "utf8"));
 
 let filename;
 let data;
@@ -22,26 +23,14 @@ try {
 	console.log("❌" + "  " + " File not found! Exiting...");
 }
 
-// Information that can be changed via edit.js:
-const editables = [
-	"mp3",
-	"mp4",
-	"description",
-	"genre",
-	"author",
-	"glosser",
-	"date_created",
-	"source"
-]
-
 function main(callback) {
 	inquirer.prompt([
 		// mp3
 		{
 			"type": "input",
-			"name": "mp3",
+			"name": "audio",
 			"message": "Name of mp3 file:",
-			"default": data["mp3"],
+			"default": data["media"]["audio"],
 			"when":
 				function(answers) {
 					return (data["timed"]);
@@ -61,9 +50,9 @@ function main(callback) {
 		// mp4
 		{
 			"type": "input",
-			"name": "mp4",
+			"name": "video",
 			"message": "Name of mp4 file:",
-			"default": data["mp4"],
+			"default": data["media"]["video"],
 			"when":
 				function(answers) {
 					return (data["timed"]);
@@ -151,32 +140,40 @@ function main(callback) {
 			"type": "input", 
 			"name": "source",
 			"message": "Source:",
-			"default": data["source"]
+			"default": data["source"]["_default"]
 		}
 	// 
 	]).then(function (answers) {
 		if (answers["mp3"] == "blank") {
-			data["mp3"] == "";
+			data["media"]["audio"] == "";
 		} else {
-			data["mp3"] = answers["mp3"];
+			data["media"]["audio"] = answers["mp3"];
 		}
 		if (answers["mp4"] == "blank") {
-			data["mp4"] == "";
+			data["media"]["video"] == "";
 		} else {
-			data["mp4"] = answers["mp4"];
+			data["media"]["video"] = answers["mp4"];
 		}
-		data["description"] = answers["description"];
+		if (answers["description"]) {
+			data["description"] = answers["description"];
+		}
 		data["genre"] = answers["genre"];
 		data["author"] = answers["author"];
 		data["glosser"] = answers["glosser"];
 		data["date_created"] = answers["date_created"];
-		data["source"] = answers["source"];
+		data["source"]["_default"] = answers["source"];
 		callback();
 	});
 }
 
 function update() {
 	fs.writeFileSync("data/index2.json", JSON.stringify(obj, null, 2), function(err) {
+    	if(err) {
+        	return console.log(err);
+    	}
+    });
+    fakeDB["index"] = obj;
+    fs.writeFileSync("data/fake_database.json", JSON.stringify(fakeDB, null, 2), function(err) {
     	if(err) {
         	return console.log(err);
     	}
