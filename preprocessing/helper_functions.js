@@ -66,6 +66,7 @@ function improveFLExIndexData(path, itext) {
             "speakers": []
         }
     }
+
     // get title/source info
     const titlesAndSources = itext["item"];
     let titles = {};
@@ -129,6 +130,9 @@ function improveElanIndexData(path, adoc) {
             "speakers": []
         }
     }
+
+    metadata['timed'] = true;
+
     // get title/source info
     if (metadata['title']['_default'] === '') {
         metadata['title']['_default'] = shortFilename
