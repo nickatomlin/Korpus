@@ -8794,20 +8794,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function StoryIndex(_ref) {
     var index = _ref.index;
 
-    return _react2.default.createElement(
-        'ul',
-        null,
-        index.map(function (story) {
-            return _react2.default.createElement(
+    var storyList = [];
+    for (var story in index) {
+        if (index.hasOwnProperty(story)) {
+            storyList.push(_react2.default.createElement(
                 'li',
                 { key: _shortid2.default.generate() },
                 _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/story/' + story['title from filename'] },
-                    story['display_title']
+                    { to: '/story/' + index[story]['title from filename'] },
+                    story
                 )
-            );
-        })
+            ));
+        }
+    }
+    return _react2.default.createElement(
+        'ul',
+        null,
+        storyList
     );
 }
 
