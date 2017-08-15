@@ -244,7 +244,7 @@ function improveElanIndexData(path, adoc) {
     // WORST CASE SCENARIO: NO MEDIA
     if (!hasWorkingAudio && !hasWorkingVideo) {
         metadata['timed'] = false;
-        console.log("❌  ERROR: " + filename + " has no linked audio or video in the media_files directory. It will be processed as an untimed file and no audio or video will be displayed on the site, with no time alignment.")
+        console.log("❌  ERROR: " + filename + " has no linked audio or video in the media_files directory. It will be processed as an untimed file and no audio, video, or time alignment will be displayed on the site.")
     }
 
     return metadata;

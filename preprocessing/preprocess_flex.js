@@ -88,8 +88,8 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
                 if (wrappedSentence.words == null) continue; // if this sentence is empty, skip it instead of erroring
                 const sentence = wrappedSentence.words[0].word;
 
-                const morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
-                morphsJson[wordsTierID] = {};
+                const glommedMorphs = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
+                glommedMorphs[wordsTierID] = {};
                 let slotNum = 0;
                 const sentenceTokens = []; // for building the free transcription sentenceText
                 // FIXME words tier will show up even when the sentence is empty of words
@@ -101,6 +101,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
 
                     if (wordWithMorphs.morphemes != null) {
                         const morphs = wordWithMorphs.morphemes[0].morph;
+                        const morphsToGlom = {};
                         for (const wrappedMorph of morphs) {
                             const morphTiers = wrappedMorph.item;
                             for (const tier of morphTiers) {
@@ -109,24 +110,47 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
                                 if (tierID != null) {
                                     const tierValue = tier._;
                                     // process.stdout.write(tierValue + " "); // for debugging
-                                    if (!morphsJson.hasOwnProperty(tierID)) {
-                                        morphsJson[tierID] = {};
+                                    if (!morphsToGlom.hasOwnProperty(tierID)) {
+                                        morphsToGlom[tierID] = {};
                                     }
-                                    morphsJson[tierID][slotNum] = {
-                                        "value": tierValue,
-                                        "end_slot": slotNum + 1
+                                    morphsToGlom[tierID][slotNum] = {
+                                        "value": tierValue
                                     };
                                 }
                             }
                             slotNum++;
                         }
+
+                        for (const tierID in morphsToGlom) {
+                            // TODO: when glomming parts of speech, leave space between them for legibility
+                            if (morphsToGlom.hasOwnProperty(tierID)) {
+                                let glommedValue = '';
+                                for (let i = wordStartSlot; i < slotNum; i++) {
+                                    if (morphsToGlom[tierID][i] != null) {
+                                        glommedValue += morphsToGlom[tierID][i]["value"];
+                                    } else {
+                                        glommedValue += '__';
+                                    }
+                                }
+                                // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
+                                if (!glommedMorphs.hasOwnProperty(tierID)) {
+                                    glommedMorphs[tierID] = {};
+                                }
+                                glommedMorphs[tierID][wordStartSlot] = {
+                                    "value": glommedValue,
+                                    "end_slot": slotNum
+                                };
+                            }
+                        }
+                    } else { // if a word has no morphs, it still takes up a slot
+                        slotNum++;
                     }
 
                     if (wordWithMorphs.item[0].$.type !== "punct") { // this word isn't punctuation
                         sentenceTokens.push({"value": wordValue, "type": "txt"});
 
                         // count this as a separate word on the words tier
-                        morphsJson[wordsTierID][wordStartSlot] = {
+                        glommedMorphs[wordsTierID][wordStartSlot] = {
                             "value": wordValue,
                             "end_slot": slotNum
                         };
@@ -146,10 +170,10 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
                             // console.log(glossValue); // for debugging
                             const tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free");
                             if (tierID != null) {
-                                if (!morphsJson.hasOwnProperty(tierID)) {
-                                    morphsJson[tierID] = {};
+                                if (!glommedMorphs.hasOwnProperty(tierID)) {
+                                    glommedMorphs[tierID] = {};
                                 }
-                                morphsJson[tierID][glossStartSlot] = {
+                                glommedMorphs[tierID][glossStartSlot] = {
                                     "value": glossValue,
                                     "end_slot": slotNum
                                 };
@@ -159,15 +183,15 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
                 }
 
                 const dependentsJson = [];
-                for (const tierID in morphsJson) {
-                    if (morphsJson.hasOwnProperty(tierID)) {
+                for (const tierID in glommedMorphs) {
+                    if (glommedMorphs.hasOwnProperty(tierID)) {
                         const valuesJson = [];
-                        for (const start_slot in morphsJson[tierID]) {
-                            if (morphsJson[tierID].hasOwnProperty(start_slot)) {
+                        for (const start_slot in glommedMorphs[tierID]) {
+                            if (glommedMorphs[tierID].hasOwnProperty(start_slot)) {
                                 valuesJson.push({
                                     "start_slot": parseInt(start_slot, 10),
-                                    "end_slot": morphsJson[tierID][start_slot].end_slot,
-                                    "value": morphsJson[tierID][start_slot].value
+                                    "end_slot": glommedMorphs[tierID][start_slot]["end_slot"],
+                                    "value": glommedMorphs[tierID][start_slot]["value"]
                                 })
                             }
                         }
@@ -180,12 +204,12 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
 
                 let sentenceText = "";
                 let maybeAddSpace = false; // no space before first word
-                for (typedToken of sentenceTokens) {
+                for (const typedToken of sentenceTokens) {
                     if (maybeAddSpace && (typedToken.type !== "end")) {
                         sentenceText += " ";
                     }
                     maybeAddSpace = (typedToken.type !== "start");
-                    sentenceText += typedToken.value;
+                    sentenceText += typedToken["value"];
                 }
 
                 // "speaker, "start_time", and "end_time" omitted (they're only used on elan files)

@@ -240,7 +240,7 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
 
         const prettyString = JSON.stringify(jsonOut, null, 2);
         fs.writeFileSync(jsonFileName, prettyString);
-        // console.log("The converted file was saved. All done!");
+        console.log("✅  Processed " + titleFromFileName + ".eaf");
         callback();
     });
 }
@@ -258,7 +258,6 @@ function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
     };
 
     for (const eafFileName of eafFileNames) {
-        // console.log("Processing " + eafFileName);
         const eafPath = eafFilesDir + eafFileName;
         const jsonPath = jsonFilesDir + eafFileName.slice(0, -4) + ".json";
         preprocess(eafPath, jsonPath, eafFileName.slice(0, -4), whenDone);
