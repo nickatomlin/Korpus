@@ -1,6 +1,7 @@
 import React from 'react';
 import id from 'shortid';
 import { Link } from 'react-router-dom';
+import ReactDOMServer from 'react-dom/server';
 
 export class StoryIndex extends React.Component {
     componentDidMount() {
@@ -47,8 +48,8 @@ export class StoryIndex extends React.Component {
                     timed = '✘';
                 }
 
-                // const link = `<Link to={'/story/${index[story]['title from filename']}'}>${mainTitle}</Link>`;
-                const link = `<a href='/#/story/${index[story]['title from filename']}'>${mainTitle}</a>`;
+                // const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['title from filename']}'}>${mainTitle}</Link>`);
+                const link = `<a href='/Korpus/#/story/${index[story]['title from filename']}'>${mainTitle}</a>`;
 
                 storyList.push([link, translatedTitle, index[story]['author'], timed]);
                 // storyList.push(
