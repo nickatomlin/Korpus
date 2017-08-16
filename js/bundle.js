@@ -8777,7 +8777,9 @@ module.exports = 0;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.StoryIndex = StoryIndex;
+exports.StoryIndex = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(1);
 
@@ -8791,29 +8793,69 @@ var _reactRouterDom = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function StoryIndex(_ref) {
-    var index = _ref.index;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    var storyList = [];
-    for (var story in index) {
-        if (index.hasOwnProperty(story)) {
-            storyList.push(_react2.default.createElement(
-                'li',
-                { key: _shortid2.default.generate() },
-                _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: '/story/' + index[story]['title from filename'] },
-                    story
-                )
-            ));
-        }
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var StoryIndex = exports.StoryIndex = function (_React$Component) {
+    _inherits(StoryIndex, _React$Component);
+
+    function StoryIndex() {
+        _classCallCheck(this, StoryIndex);
+
+        return _possibleConstructorReturn(this, (StoryIndex.__proto__ || Object.getPrototypeOf(StoryIndex)).apply(this, arguments));
     }
-    return _react2.default.createElement(
-        'ul',
-        null,
-        storyList
-    );
-}
+
+    _createClass(StoryIndex, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var index = this.props.index;
+            var storyList = [];
+            for (var story in index) {
+                if (index.hasOwnProperty(story)) {
+                    var title = '';
+                    if (index[story]['title']['_default'] != '') {
+                        title = index[story]['title']['_default'];
+                    } else if (index[story]['title'].hasOwnProperty('con-Latn-EC') && index[story]['title']['con-Latn-EC'] != '') {
+                        title = index[story]['title']['con-Latn-EC'];
+                    }
+                    var timed = void 0;
+                    if (index[story]['timed']) {
+                        timed = "✓";
+                    } else {
+                        timed = "✗";
+                    }
+                    storyList.push([title, index[story]['author'], timed]);
+                    // storyList.push(
+                    //     <li key={id.generate()}>
+                    //         <Link to={`/story/${index[story]['title from filename']}`}>{story}</Link>
+                    //     </li>
+                    // )
+                }
+            }
+
+            $(document).ready(function () {
+                $('#indexTable').DataTable({
+                    data: storyList,
+                    columns: [{ title: "Name" }, { title: "Author" }, { title: "Media" }]
+                });
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { id: 'index' },
+                _react2.default.createElement('table', { id: 'indexTable' })
+            );
+        }
+    }]);
+
+    return StoryIndex;
+}(_react2.default.Component);
 
 /***/ }),
 /* 91 */
@@ -8878,7 +8920,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _Sidebar = __webpack_require__(93);
 
-var _CenterPanel = __webpack_require__(101);
+var _CenterPanel = __webpack_require__(102);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -8987,7 +9029,7 @@ function Sidebar(_ref) {
 		title = title.substr(title.indexOf(" ") + 1);
 	}
 
-	try {
+	if (metadata['timed'] && metadata['media']['video'] != '') {
 		var filename = metadata['media']['video'];
 		var path = 'data/media_files/' + filename;
 		return React.createElement(
@@ -8997,7 +9039,7 @@ function Sidebar(_ref) {
 			React.createElement(_Title.Title, { title: title }),
 			React.createElement(_Minibar.Minibar, { metadata: metadata, hasVideo: true })
 		);
-	} catch (err) {
+	} else {
 		return React.createElement(
 			'div',
 			{ id: 'leftPanel' },
@@ -9045,9 +9087,9 @@ exports.Minibar = Minibar;
 
 var _Info = __webpack_require__(96);
 
-var _Search = __webpack_require__(98);
+var _Search = __webpack_require__(99);
 
-var _Settings = __webpack_require__(99);
+var _Settings = __webpack_require__(100);
 
 function Minibar(_ref) {
 	var metadata = _ref.metadata,
@@ -9138,6 +9180,8 @@ exports.Info = Info;
 
 var _SpeakerInfo = __webpack_require__(97);
 
+var _Metadata = __webpack_require__(98);
+
 function Info(_ref) {
 	var metadata = _ref.metadata;
 
@@ -9145,8 +9189,9 @@ function Info(_ref) {
 	// O/P: a nice display of speaker names + other metadata
 	// Status: unfinished
 	return React.createElement(
-		"div",
-		{ id: "info", className: "miniPage active" },
+		'div',
+		{ id: 'info', className: 'miniPage active' },
+		React.createElement(_Metadata.Metadata, { metadata: metadata }),
 		React.createElement(_SpeakerInfo.SpeakerInfo, { speakers: metadata['speaker IDs'] })
 	);
 }
@@ -9214,6 +9259,101 @@ function SpeakerInfo(_ref) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.Metadata = Metadata;
+function Metadata(_ref) {
+	var metadata = _ref.metadata;
+
+	// I/P: metadata, in JSON format
+	// O/P: a nice display of speaker names + other metadata
+	// Status: unfinished
+	var description = null;
+	var author = null;
+	var glosser = null;
+	var source = null;
+	var genre = null;
+	var date_created = null;
+
+	if (metadata["description"] != "") {
+		description = React.createElement(
+			"p",
+			null,
+			"Description: ",
+			metadata["description"]
+		);
+	}
+
+	if (metadata["author"] != "") {
+		author = React.createElement(
+			"p",
+			null,
+			"Author: ",
+			metadata["author"]
+		);
+	}
+
+	if (metadata["glosser"] != "") {
+		glosser = React.createElement(
+			"p",
+			null,
+			"Glosser: ",
+			metadata["glosser"]
+		);
+	}
+
+	if (metadata["source"]["_default"] != "") {
+		source = React.createElement(
+			"p",
+			null,
+			"Source: ",
+			metadata["source"]["_default"]
+		);
+	} else if (metadata["source"].hasOwnProperty("con-Latn-EC") && metadata["source"]["con-Latn-EC"] != "") {
+		source = React.createElement(
+			"p",
+			null,
+			"Source: ",
+			metadata["source"]["con-Latn-EC"]
+		);
+	}
+
+	if (metadata["genre"] != "") {
+		genre = React.createElement(
+			"p",
+			null,
+			"Genre: ",
+			metadata["genre"]
+		);
+	}
+
+	if (metadata["date_created"] != "") {
+		date_created = React.createElement(
+			"p",
+			null,
+			"Date: ",
+			metadata["date_created"]
+		);
+	}
+
+	return React.createElement(
+		"div",
+		{ id: "metadata" },
+		description,
+		author,
+		glosser,
+		source
+	);
+}
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 exports.Search = Search;
 function Search() {
 	// I/P: ---
@@ -9227,7 +9367,7 @@ function Search() {
 }
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9241,7 +9381,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 exports.Settings = Settings;
 
-var _TierCheckboxList = __webpack_require__(100);
+var _TierCheckboxList = __webpack_require__(101);
 
 var _Video = __webpack_require__(36);
 
@@ -9321,7 +9461,7 @@ function Settings(_ref) {
 }
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9417,7 +9557,7 @@ function TierCheckboxList(_ref) {
 }
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9428,9 +9568,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CenterPanel = CenterPanel;
 
-var _Untimed = __webpack_require__(102);
+var _Untimed = __webpack_require__(103);
 
-var _Timed = __webpack_require__(103);
+var _Timed = __webpack_require__(104);
 
 function CenterPanel(_ref) {
 	var timed = _ref.timed,
@@ -9457,7 +9597,7 @@ function CenterPanel(_ref) {
 }
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9520,7 +9660,7 @@ function UntimedTextDisplay(_ref) {
 }
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

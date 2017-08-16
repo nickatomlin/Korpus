@@ -23,21 +23,6 @@ try {
 	console.log("❌" + "  " + " File not found! Exiting...");
 }
 
-<<<<<<< HEAD
-=======
-// Information that can be changed via edit.js:
-const editables = [
-	"mp3",
-	"mp4",
-	"description",
-	"genre",
-	"author",
-	"glosser",
-	"date_created",
-	"source"
-];
-
->>>>>>> ce4aa7b15a122ffa4736794045c2369b4a7349fb
 function main(callback) {
 	inquirer.prompt([
 		// mp3

@@ -1,4 +1,5 @@
 import { SpeakerInfo } from './SpeakerInfo.jsx';
+import { Metadata } from './Metadata.jsx';
 
 export function Info({ metadata }) {
 	// I/P: metadata, in JSON format
@@ -6,6 +7,7 @@ export function Info({ metadata }) {
 	// Status: unfinished
 	return (
 		<div id="info" className="miniPage active">
+			<Metadata metadata={metadata} />
 			<SpeakerInfo speakers={metadata['speaker IDs']} />
 		</div>
 	);

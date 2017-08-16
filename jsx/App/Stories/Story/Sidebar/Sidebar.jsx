@@ -16,7 +16,7 @@ export function Sidebar({ metadata }) {
 		title = title.substr(title.indexOf(" ") + 1);
 	}
 
-	try {
+	if (metadata['timed'] && metadata['media']['video'] != '') {
 		const filename = metadata['media']['video'];
 		const path = 'data/media_files/' + filename;
 		return (
@@ -26,7 +26,7 @@ export function Sidebar({ metadata }) {
 				<Minibar metadata={metadata} hasVideo />
 			</div>
 		);
-	} catch (err) {
+	} else {
 		return (
 			<div id="leftPanel">
 				<Title title={title} />
