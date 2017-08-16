@@ -8,19 +8,49 @@ export class StoryIndex extends React.Component {
         let storyList = [];
         for (const story in index) {
             if (index.hasOwnProperty(story)) {
-                let title = '';
+                /////////////////
+                // A'ingae Title
+                /////////////////
+                let mainTitle = '';
+                // get default title
                 if (index[story]['title']['_default'] != '') {
-                    title = index[story]['title']['_default'];
-                } else if (index[story]['title'].hasOwnProperty('con-Latn-EC') && index[story]['title']['con-Latn-EC'] != '') {
-                    title = index[story]['title']['con-Latn-EC'];
+                    mainTitle = index[story]['title']['_default'];
                 }
-                let timed;
+                // replace with cofan title if available
+                if (index[story]['title'].hasOwnProperty('con-Latn-EC') && index[story]['title']['con-Latn-EC'] != '') {
+                    mainTitle = index[story]['title']['con-Latn-EC'];
+                }
+                // remove first word?
+                if (!isNaN(mainTitle.split(' ')[0])) {
+                    mainTitle = mainTitle.substr(mainTitle.indexOf(" ") + 1);
+                }
+                /////////////////////
+                // Translated Title
+                /////////////////////
+                let translatedTitle = '';
+                if (index[story]['title'].hasOwnProperty('es') && index[story]['title']['es'] != '') {
+                    translatedTitle = index[story]['title']['es'];
+                }
+                if (index[story]['title'].hasOwnProperty('en') && index[story]['title']['en'] != '') {
+                    translatedTitle = index[story]['title']['en'];
+                }
+
+                let timed = '';
                 if (index[story]['timed']) {
-                    timed = "✓";
+                    if (index[story]['media']['audio'] != '') {
+                        timed += '🎧    '
+                    }
+                    if (index[story]['media']['video'] != '') {
+                        timed += '🎞'
+                    }
                 } else {
-                    timed = "✗";
+                    timed = '✘';
                 }
-                storyList.push([title, index[story]['author'], timed])
+
+                // const link = `<Link to={'/story/${index[story]['title from filename']}'}>${mainTitle}</Link>`;
+                const link = `<a href='/#/story/${index[story]['title from filename']}'>${mainTitle}</a>`;
+
+                storyList.push([link, translatedTitle, index[story]['author'], timed]);
                 // storyList.push(
                 //     <li key={id.generate()}>
                 //         <Link to={`/story/${index[story]['title from filename']}`}>{story}</Link>
@@ -33,12 +63,14 @@ export class StoryIndex extends React.Component {
             $('#indexTable').DataTable( {
                 data: storyList,
                 columns: [
-                    { title: "Name" },
+                    { title: "Title (A'ingae)" },
+                    { title: "Title (English)" },
                     { title: "Author" },
                     { title: "Media" }
                 ]
             });
         });
+        $('#indexTable').addClass("stripe");
     }
 
     render() {
