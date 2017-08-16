@@ -122,7 +122,6 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
             }
 
             for (const tierID in morphsToGlom) {
-              // TODO: when glomming parts of speech, leave space between them for legibility
               if (morphsToGlom.hasOwnProperty(tierID)) {
                 let glommedValue = '';
                 for (let i = wordStartSlot; i < slotNum; i++) {
