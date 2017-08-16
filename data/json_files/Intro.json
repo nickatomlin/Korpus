@@ -23,10 +23,22 @@
       "_default": ""
     },
     "tier IDs": {
-      "T1": "A'ingae",
-      "T2": "English",
-      "T3": "Morphemes",
-      "T4": "Glossed Morpheme"
+      "T1": {
+        "name": "A'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "English",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morphemes",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glossed Morpheme",
+        "subdivided": true
+      }
     },
     "speaker IDs": {
       "S1": {

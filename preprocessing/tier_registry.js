@@ -4,6 +4,7 @@ class tierRegistry {
     // Omit these tier types from the website, as they're ugly and mostly useless.
     // variantTypes indicates when a morpheme is a spelling variant, free variant, etc.
     // hn, "homophone number", indicates which of multiple look-alike morphemes it is.
+    // msa is the part of speech
     return (
         type === "variantTypes" ||
         type === "hn" ||
@@ -102,7 +103,7 @@ class tierRegistry {
   // if this is a new, non-ignored tier, register its ID and include it in metadata
   // if the tier is ignored, return null; else return its ID
   // used global vars: tierIDs, jsonOut.metadata["tier IDs"], nextTierIDnum
-  maybeRegisterTier(lang, type) {
+  maybeRegisterTier(lang, type, isSubdivided) {
     if (tierRegistry.isIgnored(type)) {
       return null;
     }
@@ -112,7 +113,10 @@ class tierRegistry {
     if (!this.tierIDs[lang].hasOwnProperty(type)) {
       const tierID = "T" + (this.nextTierIDnum++).toString();
       this.tierIDs[lang][type] = tierID;
-      this.jsonTierIDs[tierID] = this.getTierName(lang, type);
+      this.jsonTierIDs[tierID] = {
+        name: this.getTierName(lang, type),
+        subdivided: isSubdivided,
+      };
     }
     return this.tierIDs[lang][type];
   }

@@ -97,11 +97,17 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
     }
 
     const tierNames = tiers.map((tier) => tier.$.TIER_ID);
+    let tierIDsFromNames = {};
     for (let i = 0; i < tierNames.length; i++) {
       const newID = "T" + (i + 1).toString();
-      jsonOut.metadata["tier IDs"][newID] = tierNames[i];
+      const name = tierNames[i];
+      const isSubdivided = true; // TODO obtain correct value
+      jsonOut.metadata["tier IDs"][newID] = {
+        name: name,
+        subdivided: isSubdivided,
+      };
+      tierIDsFromNames[name] = newID;
     }
-    const tierIDsFromNames = swapJsonKeyValues(jsonOut.metadata["tier IDs"]);
     const indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
 
     // tierDependents: indep tier name -> list of dep tier names

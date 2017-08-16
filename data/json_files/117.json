@@ -26,11 +26,26 @@
     "glosser": "",
     "speakers": [],
     "tier IDs": {
-      "T1": "Palabra a'ingae",
-      "T2": "Morfema (texto) a'ingae",
-      "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés",
-      "T5": "Frase inglés"
+      "T1": {
+        "name": "Palabra a'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "Morfema (texto) a'ingae",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morfema (forma típico) a'ingae",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      },
+      "T5": {
+        "name": "Frase inglés",
+        "subdivided": false
+      }
     },
     "title from filename": "117"
   },
@@ -2653,7 +2668,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "ji__"
+              "value": "ji***"
             }
           ]
         },
@@ -2683,7 +2698,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "come__"
+              "value": "come***"
             }
           ]
         }
@@ -3247,7 +3262,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "__=nga"
+              "value": "***=nga"
             },
             {
               "start_slot": 4,
@@ -3272,7 +3287,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "__=DAT"
+              "value": "***=DAT"
             },
             {
               "start_slot": 4,
@@ -3796,7 +3811,7 @@
             {
               "start_slot": 5,
               "end_slot": 8,
-              "value": "__=ndeccu=ja"
+              "value": "***=ndeccu=ja"
             },
             {
               "start_slot": 8,
@@ -4158,7 +4173,7 @@
             {
               "start_slot": 3,
               "end_slot": 6,
-              "value": "__=ndeccu=ja"
+              "value": "***=ndeccu=ja"
             },
             {
               "start_slot": 6,
@@ -6955,7 +6970,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "__-'pa"
+              "value": "***-'pa"
             },
             {
               "start_slot": 9,
@@ -7166,7 +7181,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "__=i'ccu"
+              "value": "***=i'ccu"
             },
             {
               "start_slot": 5,
@@ -7216,7 +7231,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "__=INST"
+              "value": "***=INST"
             },
             {
               "start_slot": 5,
@@ -8873,7 +8888,7 @@
             {
               "start_slot": 12,
               "end_slot": 14,
-              "value": "__=nga"
+              "value": "***=nga"
             },
             {
               "start_slot": 14,
@@ -9039,7 +9054,7 @@
             {
               "start_slot": 3,
               "end_slot": 6,
-              "value": "ande__=pa"
+              "value": "ande***=pa"
             },
             {
               "start_slot": 6,
@@ -11354,7 +11369,7 @@
             {
               "start_slot": 7,
               "end_slot": 11,
-              "value": "asi'ttaen____=yi"
+              "value": "asi'ttaen******=yi"
             },
             {
               "start_slot": 11,
@@ -11409,7 +11424,7 @@
             {
               "start_slot": 7,
               "end_slot": 11,
-              "value": "think____=EXCL"
+              "value": "think******=EXCL"
             },
             {
               "start_slot": 11,
@@ -11650,7 +11665,7 @@
             {
               "start_slot": 23,
               "end_slot": 26,
-              "value": "vana__=ye"
+              "value": "vana***=ye"
             }
           ]
         },
@@ -11901,7 +11916,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "__=SS"
+              "value": "***=SS"
             },
             {
               "start_slot": 6,
@@ -12072,7 +12087,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "__=pa"
+              "value": "***=pa"
             },
             {
               "start_slot": 6,
@@ -13113,7 +13128,7 @@
             {
               "start_slot": 1,
               "end_slot": 4,
-              "value": "__=ni=ta"
+              "value": "***=ni=ta"
             },
             {
               "start_slot": 4,

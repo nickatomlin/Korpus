@@ -25,11 +25,26 @@
     "glosser": "",
     "speakers": [],
     "tier IDs": {
-      "T1": "Palabra a'ingae",
-      "T2": "Morfema (texto) a'ingae",
-      "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés",
-      "T5": "Frase español"
+      "T1": {
+        "name": "Palabra a'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "Morfema (texto) a'ingae",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morfema (forma típico) a'ingae",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      },
+      "T5": {
+        "name": "Frase español",
+        "subdivided": false
+      }
     },
     "title from filename": "114"
   },
@@ -3169,7 +3184,7 @@
             {
               "start_slot": 5,
               "end_slot": 9,
-              "value": "__='cco='cco=e"
+              "value": "***='cco='cco=e"
             },
             {
               "start_slot": 9,
@@ -3199,7 +3214,7 @@
             {
               "start_slot": 5,
               "end_slot": 9,
-              "value": "__=SH.ANG=SH.ANG=ADVR"
+              "value": "***=SH.ANG=SH.ANG=ADVR"
             },
             {
               "start_slot": 9,
@@ -3365,7 +3380,7 @@
             {
               "start_slot": 12,
               "end_slot": 17,
-              "value": "__='cco='cco=i'ccu=ja"
+              "value": "***='cco='cco=i'ccu=ja"
             },
             {
               "start_slot": 17,
@@ -3415,7 +3430,7 @@
             {
               "start_slot": 12,
               "end_slot": 17,
-              "value": "__=SH.ANG=SH.ANG=INST=CONTR"
+              "value": "***=SH.ANG=SH.ANG=INST=CONTR"
             },
             {
               "start_slot": 17,
@@ -5489,7 +5504,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "__=SS"
+              "value": "***=SS"
             },
             {
               "start_slot": 5,

@@ -9303,7 +9303,7 @@ function Settings(_ref) {
   var tiers = _ref.tiers,
       hasVideo = _ref.hasVideo;
 
-  // I/P: tiers, a hashmap from Tier IDs to their names
+  // I/P: tiers, a hashmap from Tier ID to {name, subdivided}
   //      hasVideo, a boolean
   // O/P: a search bar with concordance functionality
   // Status: untested
@@ -9401,7 +9401,7 @@ function TierCheckboxList(_ref) {
    var output = [];
    for (var tier_id in tiers) {
       if (tiers.hasOwnProperty(tier_id)) {
-         output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id] }));
+         output.push(React.createElement(TierCheckbox, { key: tier_id, tier_id: tier_id, tier_name: tiers[tier_id]['name'] }));
       }
    }
    return React.createElement(

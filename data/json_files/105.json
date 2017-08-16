@@ -22,10 +22,22 @@
     "glosser": "",
     "speakers": [],
     "tier IDs": {
-      "T1": "Palabra a'ingae",
-      "T2": "Morfema (texto) a'ingae",
-      "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés"
+      "T1": {
+        "name": "Palabra a'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "Morfema (texto) a'ingae",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morfema (forma típico) a'ingae",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      }
     },
     "title from filename": "105"
   },
@@ -674,7 +686,7 @@
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "__=pa"
+              "value": "***=pa"
             },
             {
               "start_slot": 13,
@@ -724,7 +736,7 @@
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "__=SS"
+              "value": "***=SS"
             },
             {
               "start_slot": 13,
@@ -2460,7 +2472,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "__='fa"
+              "value": "***='fa"
             },
             {
               "start_slot": 6,
@@ -2500,7 +2512,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "__=PL.SBJ"
+              "value": "***=PL.SBJ"
             },
             {
               "start_slot": 6,

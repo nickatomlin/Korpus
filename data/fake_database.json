@@ -732,12 +732,30 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés",
-          "T6": "Frase español"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          },
+          "T6": {
+            "name": "Frase español",
+            "subdivided": false
+          }
         },
         "title from filename": "000"
       },
@@ -5722,10 +5740,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "001"
       },
@@ -11446,10 +11476,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "002"
       },
@@ -12111,7 +12153,7 @@
                 {
                   "start_slot": 2,
                   "end_slot": 4,
-                  "value": "__=nga"
+                  "value": "***=nga"
                 },
                 {
                   "start_slot": 4,
@@ -23359,7 +23401,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "__=ye"
+                  "value": "***=ye"
                 },
                 {
                   "start_slot": 10,
@@ -24052,7 +24094,7 @@
                 {
                   "start_slot": 44,
                   "end_slot": 47,
-                  "value": "vana__=ye"
+                  "value": "vana***=ye"
                 }
               ]
             },
@@ -24884,10 +24926,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "003"
       },
@@ -25368,7 +25422,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__='ma"
+                  "value": "***='ma"
                 }
               ]
             },
@@ -25413,7 +25467,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__=FRT"
+                  "value": "***=FRT"
                 }
               ]
             }
@@ -25704,7 +25758,7 @@
                 {
                   "start_slot": 16,
                   "end_slot": 18,
-                  "value": "__=ja"
+                  "value": "***=ja"
                 },
                 {
                   "start_slot": 18,
@@ -25814,7 +25868,7 @@
                 {
                   "start_slot": 16,
                   "end_slot": 18,
-                  "value": "__=CONTR"
+                  "value": "***=CONTR"
                 },
                 {
                   "start_slot": 18,
@@ -26618,7 +26672,7 @@
                 {
                   "start_slot": 23,
                   "end_slot": 27,
-                  "value": "sambiri__=yi='qque"
+                  "value": "sambiri***=yi='qque"
                 }
               ]
             },
@@ -26673,7 +26727,7 @@
                 {
                   "start_slot": 23,
                   "end_slot": 27,
-                  "value": "small fish__=EXCL=ADD"
+                  "value": "small fish***=EXCL=ADD"
                 }
               ]
             }
@@ -27377,7 +27431,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 17,
-                  "value": "afe__*ma='can=e"
+                  "value": "afe****ma='can=e"
                 },
                 {
                   "start_slot": 17,
@@ -27422,7 +27476,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 17,
-                  "value": "give__which=CMP=ADVR"
+                  "value": "give***which=CMP=ADVR"
                 },
                 {
                   "start_slot": 17,
@@ -27849,7 +27903,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 7,
-                  "value": "__=ja"
+                  "value": "***=ja"
                 },
                 {
                   "start_slot": 7,
@@ -27919,7 +27973,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 7,
-                  "value": "__=CONTR"
+                  "value": "***=CONTR"
                 },
                 {
                   "start_slot": 7,
@@ -30216,7 +30270,7 @@
                 {
                   "start_slot": 18,
                   "end_slot": 20,
-                  "value": "__='fa"
+                  "value": "***='fa"
                 }
               ]
             },
@@ -30266,7 +30320,7 @@
                 {
                   "start_slot": 18,
                   "end_slot": 20,
-                  "value": "__=PL.SBJ"
+                  "value": "***=PL.SBJ"
                 }
               ]
             }
@@ -35077,7 +35131,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "__=ja"
+                  "value": "***=ja"
                 },
                 {
                   "start_slot": 10,
@@ -35132,7 +35186,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "__=CONTR"
+                  "value": "***=CONTR"
                 },
                 {
                   "start_slot": 10,
@@ -38263,7 +38317,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=nga"
+                  "value": "***=nga"
                 },
                 {
                   "start_slot": 6,
@@ -45282,7 +45336,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=ve"
+                  "value": "***=ve"
                 },
                 {
                   "start_slot": 5,
@@ -45302,7 +45356,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=ACC2"
+                  "value": "***=ACC2"
                 },
                 {
                   "start_slot": 5,
@@ -45595,10 +45649,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "004"
       },
@@ -51373,7 +51439,7 @@
                 {
                   "start_slot": 1,
                   "end_slot": 3,
-                  "value": "__=ta"
+                  "value": "***=ta"
                 },
                 {
                   "start_slot": 3,
@@ -51408,7 +51474,7 @@
                 {
                   "start_slot": 1,
                   "end_slot": 3,
-                  "value": "__=NEW"
+                  "value": "***=NEW"
                 },
                 {
                   "start_slot": 3,
@@ -56338,10 +56404,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "005"
       },
@@ -61828,12 +61906,30 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés",
-          "T6": "Frase español"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          },
+          "T6": {
+            "name": "Frase español",
+            "subdivided": false
+          }
         },
         "title from filename": "101"
       },
@@ -63502,11 +63598,26 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          }
         },
         "title from filename": "102"
       },
@@ -65801,7 +65912,7 @@
                 {
                   "start_slot": 4,
                   "end_slot": 6,
-                  "value": "__='cho"
+                  "value": "***='cho"
                 }
               ]
             },
@@ -65826,7 +65937,7 @@
                 {
                   "start_slot": 4,
                   "end_slot": 6,
-                  "value": "__=SBRD"
+                  "value": "***=SBRD"
                 }
               ]
             }
@@ -66289,7 +66400,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 9,
-                  "value": "can-'je=ni__"
+                  "value": "can-'je=ni***"
                 },
                 {
                   "start_slot": 10,
@@ -66746,7 +66857,7 @@
                 {
                   "start_slot": 17,
                   "end_slot": 22,
-                  "value": "__-ña=ya='cho=ve"
+                  "value": "***-ña=ya='cho=ve"
                 }
               ]
             },
@@ -66952,7 +67063,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 14,
@@ -67516,7 +67627,7 @@
                 {
                   "start_slot": 0,
                   "end_slot": 3,
-                  "value": "toya__=e"
+                  "value": "toya***=e"
                 },
                 {
                   "start_slot": 3,
@@ -68005,7 +68116,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 8,
-                  "value": "__-'pa=ne"
+                  "value": "***-'pa=ne"
                 }
               ]
             },
@@ -68106,7 +68217,7 @@
                 {
                   "start_slot": 0,
                   "end_slot": 4,
-                  "value": "tsa=ni=ta__"
+                  "value": "tsa=ni=ta***"
                 },
                 {
                   "start_slot": 4,
@@ -68257,7 +68368,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 7,
-                  "value": "sema-'je=ni__"
+                  "value": "sema-'je=ni***"
                 },
                 {
                   "start_slot": 7,
@@ -68393,7 +68504,7 @@
                 {
                   "start_slot": 0,
                   "end_slot": 3,
-                  "value": "__=ye__"
+                  "value": "***=ye***"
                 },
                 {
                   "start_slot": 3,
@@ -68544,7 +68655,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "__=ye"
+                  "value": "***=ye"
                 },
                 {
                   "start_slot": 10,
@@ -69324,7 +69435,7 @@
                 {
                   "start_slot": 4,
                   "end_slot": 6,
-                  "value": "Chiga__"
+                  "value": "Chiga***"
                 },
                 {
                   "start_slot": 6,
@@ -69641,6 +69752,7 @@
     {
       "metadata": {
         "timed": false,
+        "description": "A story about the first black people.",
         "title": {
           "con-Latn-EC": "103 Singo a'i",
           "en": "Black People",
@@ -69653,26 +69765,46 @@
           "en",
           "es"
         ],
-        "date_created": "",
+        "date_created": "2008",
         "date_uploaded": "",
         "source": {
           "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
           "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
           "_default": "Mitos del Pueblo Cofán"
         },
-        "description": "",
         "genre": "Fiction",
         "author": "Magdalena Blaser",
         "glosser": "UTRA 2017",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés",
-          "T6": "Frase español",
-          "T7": "Frase a'ingae"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          },
+          "T6": {
+            "name": "Frase español",
+            "subdivided": false
+          },
+          "T7": {
+            "name": "Frase a'ingae",
+            "subdivided": false
+          }
         },
         "title from filename": "103"
       },
@@ -71544,12 +71676,30 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés",
-          "T6": "Frase español"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          },
+          "T6": {
+            "name": "Frase español",
+            "subdivided": false
+          }
         },
         "title from filename": "104"
       },
@@ -73287,7 +73437,7 @@
                 {
                   "start_slot": 15,
                   "end_slot": 17,
-                  "value": "__=ve"
+                  "value": "***=ve"
                 },
                 {
                   "start_slot": 17,
@@ -73297,7 +73447,7 @@
                 {
                   "start_slot": 18,
                   "end_slot": 20,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 20,
@@ -73347,7 +73497,7 @@
                 {
                   "start_slot": 15,
                   "end_slot": 17,
-                  "value": "__=ACC2"
+                  "value": "***=ACC2"
                 },
                 {
                   "start_slot": 17,
@@ -73357,7 +73507,7 @@
                 {
                   "start_slot": 18,
                   "end_slot": 20,
-                  "value": "__=SS"
+                  "value": "***=SS"
                 },
                 {
                   "start_slot": 20,
@@ -73619,7 +73769,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "can'jen__"
+                  "value": "can'jen***"
                 },
                 {
                   "start_slot": 10,
@@ -73649,7 +73799,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "stay__"
+                  "value": "stay***"
                 },
                 {
                   "start_slot": 10,
@@ -74729,7 +74879,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 8,
-                  "value": "jen=ya__"
+                  "value": "jen=ya***"
                 },
                 {
                   "start_slot": 8,
@@ -74769,7 +74919,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 8,
-                  "value": "sound=IRR__"
+                  "value": "sound=IRR***"
                 },
                 {
                   "start_slot": 8,
@@ -74895,7 +75045,7 @@
                 {
                   "start_slot": 4,
                   "end_slot": 6,
-                  "value": "__=ta"
+                  "value": "***=ta"
                 },
                 {
                   "start_slot": 6,
@@ -74935,7 +75085,7 @@
                 {
                   "start_slot": 4,
                   "end_slot": 6,
-                  "value": "__=NEW"
+                  "value": "***=NEW"
                 },
                 {
                   "start_slot": 6,
@@ -75503,7 +75653,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 10,
@@ -75533,7 +75683,7 @@
                 {
                   "start_slot": 21,
                   "end_slot": 23,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 23,
@@ -75573,7 +75723,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 10,
-                  "value": "__=SS"
+                  "value": "***=SS"
                 },
                 {
                   "start_slot": 10,
@@ -75588,7 +75738,7 @@
                 {
                   "start_slot": 21,
                   "end_slot": 23,
-                  "value": "__=SS"
+                  "value": "***=SS"
                 },
                 {
                   "start_slot": 26,
@@ -76549,7 +76699,7 @@
                 {
                   "start_slot": 22,
                   "end_slot": 24,
-                  "value": "__='fa"
+                  "value": "***='fa"
                 }
               ]
             },
@@ -76584,7 +76734,7 @@
                 {
                   "start_slot": 22,
                   "end_slot": 24,
-                  "value": "__=PL.SBJ"
+                  "value": "***=PL.SBJ"
                 }
               ]
             }
@@ -78547,10 +78697,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "105"
       },
@@ -79199,7 +79361,7 @@
                 {
                   "start_slot": 11,
                   "end_slot": 13,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 13,
@@ -79249,7 +79411,7 @@
                 {
                   "start_slot": 11,
                   "end_slot": 13,
-                  "value": "__=SS"
+                  "value": "***=SS"
                 },
                 {
                   "start_slot": 13,
@@ -80985,7 +81147,7 @@
                 {
                   "start_slot": 4,
                   "end_slot": 6,
-                  "value": "__='fa"
+                  "value": "***='fa"
                 },
                 {
                   "start_slot": 6,
@@ -81025,7 +81187,7 @@
                 {
                   "start_slot": 4,
                   "end_slot": 6,
-                  "value": "__=PL.SBJ"
+                  "value": "***=PL.SBJ"
                 },
                 {
                   "start_slot": 6,
@@ -86012,10 +86174,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "106"
       },
@@ -86456,17 +86630,17 @@
                 {
                   "start_slot": 11,
                   "end_slot": 14,
-                  "value": "__=je=nga"
+                  "value": "***=je=nga"
                 },
                 {
                   "start_slot": 14,
                   "end_slot": 16,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 17,
                   "end_slot": 20,
-                  "value": "__='su=i'ccu"
+                  "value": "***='su=i'ccu"
                 },
                 {
                   "start_slot": 22,
@@ -86516,17 +86690,17 @@
                 {
                   "start_slot": 11,
                   "end_slot": 14,
-                  "value": "__=SH.FLT=DAT"
+                  "value": "***=SH.FLT=DAT"
                 },
                 {
                   "start_slot": 14,
                   "end_slot": 16,
-                  "value": "__=SS"
+                  "value": "***=SS"
                 },
                 {
                   "start_slot": 17,
                   "end_slot": 20,
-                  "value": "__=ATTR=INST"
+                  "value": "***=ATTR=INST"
                 },
                 {
                   "start_slot": 22,
@@ -86748,7 +86922,7 @@
                 {
                   "start_slot": 6,
                   "end_slot": 8,
-                  "value": "va'cha__"
+                  "value": "va'cha***"
                 },
                 {
                   "start_slot": 8,
@@ -86778,7 +86952,7 @@
                 {
                   "start_slot": 6,
                   "end_slot": 8,
-                  "value": "poor__"
+                  "value": "poor***"
                 },
                 {
                   "start_slot": 8,
@@ -86914,7 +87088,7 @@
                 {
                   "start_slot": 10,
                   "end_slot": 13,
-                  "value": "chitta=pa__"
+                  "value": "chitta=pa***"
                 },
                 {
                   "start_slot": 13,
@@ -86924,7 +87098,7 @@
                 {
                   "start_slot": 16,
                   "end_slot": 18,
-                  "value": "amunde'cco__"
+                  "value": "amunde'cco***"
                 }
               ]
             },
@@ -86959,7 +87133,7 @@
                 {
                   "start_slot": 10,
                   "end_slot": 13,
-                  "value": "break=SS__"
+                  "value": "break=SS***"
                 },
                 {
                   "start_slot": 13,
@@ -86969,7 +87143,7 @@
                 {
                   "start_slot": 16,
                   "end_slot": 18,
-                  "value": "dirty__"
+                  "value": "dirty***"
                 }
               ]
             }
@@ -87100,7 +87274,7 @@
                 {
                   "start_slot": 14,
                   "end_slot": 17,
-                  "value": "condase=e__"
+                  "value": "condase=e***"
                 },
                 {
                   "start_slot": 17,
@@ -87145,7 +87319,7 @@
                 {
                   "start_slot": 14,
                   "end_slot": 17,
-                  "value": "tell=ADVR__"
+                  "value": "tell=ADVR***"
                 },
                 {
                   "start_slot": 17,
@@ -88580,7 +88754,7 @@
                 {
                   "start_slot": 6,
                   "end_slot": 8,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 8,
@@ -90445,12 +90619,30 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés",
-          "T6": "Frase español"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          },
+          "T6": {
+            "name": "Frase español",
+            "subdivided": false
+          }
         },
         "title from filename": "107"
       },
@@ -92530,12 +92722,30 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés",
-          "T6": "Frase español"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          },
+          "T6": {
+            "name": "Frase español",
+            "subdivided": false
+          }
         },
         "title from filename": "108"
       },
@@ -93002,7 +93212,7 @@
                 {
                   "start_slot": 6,
                   "end_slot": 9,
-                  "value": "ñoña__=pa"
+                  "value": "ñoña***=pa"
                 },
                 {
                   "start_slot": 9,
@@ -93052,7 +93262,7 @@
                 {
                   "start_slot": 6,
                   "end_slot": 9,
-                  "value": "make__=SS"
+                  "value": "make***=SS"
                 },
                 {
                   "start_slot": 9,
@@ -94053,7 +94263,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 9,
-                  "value": "butto__"
+                  "value": "butto***"
                 },
                 {
                   "start_slot": 9,
@@ -94108,7 +94318,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 9,
-                  "value": "run__"
+                  "value": "run***"
                 },
                 {
                   "start_slot": 9,
@@ -94375,12 +94585,12 @@
                 {
                   "start_slot": 3,
                   "end_slot": 6,
-                  "value": "__='can=e"
+                  "value": "***='can=e"
                 },
                 {
                   "start_slot": 6,
                   "end_slot": 8,
-                  "value": "butto__"
+                  "value": "butto***"
                 },
                 {
                   "start_slot": 8,
@@ -94410,12 +94620,12 @@
                 {
                   "start_slot": 3,
                   "end_slot": 6,
-                  "value": "__=CMP=ADVR"
+                  "value": "***=CMP=ADVR"
                 },
                 {
                   "start_slot": 6,
                   "end_slot": 8,
-                  "value": "run__"
+                  "value": "run***"
                 },
                 {
                   "start_slot": 8,
@@ -94943,7 +95153,7 @@
                 {
                   "start_slot": 16,
                   "end_slot": 20,
-                  "value": "*ta'e=tssi=a__"
+                  "value": "*ta'e=tssi=a***"
                 },
                 {
                   "start_slot": 20,
@@ -95003,7 +95213,7 @@
                 {
                   "start_slot": 16,
                   "end_slot": 20,
-                  "value": "hard=STAT=ADJR__"
+                  "value": "hard=STAT=ADJR***"
                 },
                 {
                   "start_slot": 20,
@@ -95874,10 +96084,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "109"
       },
@@ -97626,7 +97848,7 @@
                 {
                   "start_slot": 11,
                   "end_slot": 13,
-                  "value": "butto__"
+                  "value": "butto***"
                 },
                 {
                   "start_slot": 13,
@@ -97661,7 +97883,7 @@
                 {
                   "start_slot": 11,
                   "end_slot": 13,
-                  "value": "run__"
+                  "value": "run***"
                 },
                 {
                   "start_slot": 13,
@@ -97812,7 +98034,7 @@
                 {
                   "start_slot": 0,
                   "end_slot": 2,
-                  "value": "butto__"
+                  "value": "butto***"
                 },
                 {
                   "start_slot": 2,
@@ -97862,7 +98084,7 @@
                 {
                   "start_slot": 0,
                   "end_slot": 2,
-                  "value": "run__"
+                  "value": "run***"
                 },
                 {
                   "start_slot": 2,
@@ -101030,7 +101252,7 @@
                 {
                   "start_slot": 8,
                   "end_slot": 11,
-                  "value": "ande__=pa"
+                  "value": "ande***=pa"
                 }
               ]
             },
@@ -105319,7 +105541,7 @@
                 {
                   "start_slot": 11,
                   "end_slot": 13,
-                  "value": "__=ta"
+                  "value": "***=ta"
                 }
               ]
             },
@@ -105359,7 +105581,7 @@
                 {
                   "start_slot": 11,
                   "end_slot": 13,
-                  "value": "__=NEW"
+                  "value": "***=NEW"
                 }
               ]
             }
@@ -105567,11 +105789,26 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          }
         },
         "title from filename": "112"
       },
@@ -106511,11 +106748,26 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase español"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase español",
+            "subdivided": false
+          }
         },
         "title from filename": "114"
       },
@@ -109655,7 +109907,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 9,
-                  "value": "__='cco='cco=e"
+                  "value": "***='cco='cco=e"
                 },
                 {
                   "start_slot": 9,
@@ -109685,7 +109937,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 9,
-                  "value": "__=SH.ANG=SH.ANG=ADVR"
+                  "value": "***=SH.ANG=SH.ANG=ADVR"
                 },
                 {
                   "start_slot": 9,
@@ -109851,7 +110103,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 17,
-                  "value": "__='cco='cco=i'ccu=ja"
+                  "value": "***='cco='cco=i'ccu=ja"
                 },
                 {
                   "start_slot": 17,
@@ -109901,7 +110153,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 17,
-                  "value": "__=SH.ANG=SH.ANG=INST=CONTR"
+                  "value": "***=SH.ANG=SH.ANG=INST=CONTR"
                 },
                 {
                   "start_slot": 17,
@@ -111975,7 +112227,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=SS"
+                  "value": "***=SS"
                 },
                 {
                   "start_slot": 5,
@@ -112378,12 +112630,30 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés",
-          "T6": "Frase español"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          },
+          "T6": {
+            "name": "Frase español",
+            "subdivided": false
+          }
         },
         "title from filename": "115"
       },
@@ -114198,11 +114468,26 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          }
         },
         "title from filename": "117"
       },
@@ -116825,7 +117110,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 9,
-                  "value": "ji__"
+                  "value": "ji***"
                 }
               ]
             },
@@ -116855,7 +117140,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 9,
-                  "value": "come__"
+                  "value": "come***"
                 }
               ]
             }
@@ -117419,7 +117704,7 @@
                 {
                   "start_slot": 2,
                   "end_slot": 4,
-                  "value": "__=nga"
+                  "value": "***=nga"
                 },
                 {
                   "start_slot": 4,
@@ -117444,7 +117729,7 @@
                 {
                   "start_slot": 2,
                   "end_slot": 4,
-                  "value": "__=DAT"
+                  "value": "***=DAT"
                 },
                 {
                   "start_slot": 4,
@@ -117968,7 +118253,7 @@
                 {
                   "start_slot": 5,
                   "end_slot": 8,
-                  "value": "__=ndeccu=ja"
+                  "value": "***=ndeccu=ja"
                 },
                 {
                   "start_slot": 8,
@@ -118330,7 +118615,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 6,
-                  "value": "__=ndeccu=ja"
+                  "value": "***=ndeccu=ja"
                 },
                 {
                   "start_slot": 6,
@@ -121127,7 +121412,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 9,
-                  "value": "__-'pa"
+                  "value": "***-'pa"
                 },
                 {
                   "start_slot": 9,
@@ -121338,7 +121623,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=i'ccu"
+                  "value": "***=i'ccu"
                 },
                 {
                   "start_slot": 5,
@@ -121388,7 +121673,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=INST"
+                  "value": "***=INST"
                 },
                 {
                   "start_slot": 5,
@@ -123045,7 +123330,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__=nga"
+                  "value": "***=nga"
                 },
                 {
                   "start_slot": 14,
@@ -123211,7 +123496,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 6,
-                  "value": "ande__=pa"
+                  "value": "ande***=pa"
                 },
                 {
                   "start_slot": 6,
@@ -125526,7 +125811,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 11,
-                  "value": "asi'ttaen____=yi"
+                  "value": "asi'ttaen******=yi"
                 },
                 {
                   "start_slot": 11,
@@ -125581,7 +125866,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 11,
-                  "value": "think____=EXCL"
+                  "value": "think******=EXCL"
                 },
                 {
                   "start_slot": 11,
@@ -125822,7 +126107,7 @@
                 {
                   "start_slot": 23,
                   "end_slot": 26,
-                  "value": "vana__=ye"
+                  "value": "vana***=ye"
                 }
               ]
             },
@@ -126073,7 +126358,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=SS"
+                  "value": "***=SS"
                 },
                 {
                   "start_slot": 6,
@@ -126244,7 +126529,7 @@
                 {
                   "start_slot": 3,
                   "end_slot": 5,
-                  "value": "__=pa"
+                  "value": "***=pa"
                 },
                 {
                   "start_slot": 6,
@@ -127285,7 +127570,7 @@
                 {
                   "start_slot": 1,
                   "end_slot": 4,
-                  "value": "__=ni=ta"
+                  "value": "***=ni=ta"
                 },
                 {
                   "start_slot": 4,
@@ -128430,11 +128715,26 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          }
         },
         "title from filename": "124"
       },
@@ -129137,7 +129437,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__=ngae"
+                  "value": "***=ngae"
                 },
                 {
                   "start_slot": 14,
@@ -129202,7 +129502,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__=MANN"
+                  "value": "***=MANN"
                 },
                 {
                   "start_slot": 14,
@@ -133113,10 +133413,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "132"
       },
@@ -134166,7 +134478,7 @@
                 {
                   "start_slot": 15,
                   "end_slot": 17,
-                  "value": "__=ma"
+                  "value": "***=ma"
                 },
                 {
                   "start_slot": 17,
@@ -134216,7 +134528,7 @@
                 {
                   "start_slot": 15,
                   "end_slot": 17,
-                  "value": "__=ACC"
+                  "value": "***=ACC"
                 }
               ]
             }
@@ -136526,7 +136838,7 @@
                 {
                   "start_slot": 10,
                   "end_slot": 12,
-                  "value": "butto__"
+                  "value": "butto***"
                 },
                 {
                   "start_slot": 12,
@@ -136556,7 +136868,7 @@
                 {
                   "start_slot": 10,
                   "end_slot": 12,
-                  "value": "run__"
+                  "value": "run***"
                 },
                 {
                   "start_slot": 12,
@@ -137505,11 +137817,26 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés",
-          "T5": "Frase inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          },
+          "T5": {
+            "name": "Frase inglés",
+            "subdivided": false
+          }
         },
         "title from filename": "138"
       },
@@ -140756,7 +141083,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 15,
-                  "value": "__=fo'cho=ve"
+                  "value": "***=fo'cho=ve"
                 },
                 {
                   "start_slot": 15,
@@ -140806,7 +141133,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 15,
-                  "value": "__=SH.FRC=ACC2"
+                  "value": "***=SH.FRC=ACC2"
                 },
                 {
                   "start_slot": 15,
@@ -142038,7 +142365,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 9,
-                  "value": "__-'je"
+                  "value": "***-'je"
                 }
               ]
             },
@@ -142068,7 +142395,7 @@
                 {
                   "start_slot": 7,
                   "end_slot": 9,
-                  "value": "__IMPV"
+                  "value": "***IMPV"
                 }
               ]
             }
@@ -144065,10 +144392,22 @@
         "glosser": "",
         "speakers": [],
         "tier IDs": {
-          "T1": "Palabra a'ingae",
-          "T2": "Morfema (texto) a'ingae",
-          "T3": "Morfema (forma típico) a'ingae",
-          "T4": "Glosa de morfema inglés"
+          "T1": {
+            "name": "Palabra a'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Morfema (texto) a'ingae",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morfema (forma típico) a'ingae",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glosa de morfema inglés",
+            "subdivided": true
+          }
         },
         "title from filename": "145"
       },
@@ -144415,7 +144754,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__=ma"
+                  "value": "***=ma"
                 }
               ]
             },
@@ -144455,7 +144794,7 @@
                 {
                   "start_slot": 12,
                   "end_slot": 14,
-                  "value": "__=ACC"
+                  "value": "***=ACC"
                 }
               ]
             }
@@ -145981,10 +146320,22 @@
           "_default": ""
         },
         "tier IDs": {
-          "T1": "A'ingae",
-          "T2": "English",
-          "T3": "Morphemes",
-          "T4": "Glossed Morpheme"
+          "T1": {
+            "name": "A'ingae",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "English",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Morphemes",
+            "subdivided": true
+          },
+          "T4": {
+            "name": "Glossed Morpheme",
+            "subdivided": true
+          }
         },
         "speaker IDs": {
           "S1": {
@@ -149176,9 +149527,18 @@
           "Scola Sonin"
         ],
         "tier IDs": {
-          "T1": "Lise Dobrin",
-          "T2": "Scola Sonin",
-          "T3": "Scola Sonin TP Gloss"
+          "T1": {
+            "name": "Lise Dobrin",
+            "subdivided": true
+          },
+          "T2": {
+            "name": "Scola Sonin",
+            "subdivided": true
+          },
+          "T3": {
+            "name": "Scola Sonin TP Gloss",
+            "subdivided": true
+          }
         },
         "speaker IDs": {
           "S1": {

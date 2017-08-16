@@ -1,6 +1,7 @@
 {
   "metadata": {
     "timed": false,
+    "description": "A story about the first black people.",
     "title": {
       "con-Latn-EC": "103 Singo a'i",
       "en": "Black People",
@@ -13,26 +14,46 @@
       "en",
       "es"
     ],
-    "date_created": "",
+    "date_created": "2008",
     "date_uploaded": "",
     "source": {
       "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
       "_default": "Mitos del Pueblo Cofán"
     },
-    "description": "",
     "genre": "Fiction",
     "author": "Magdalena Blaser",
     "glosser": "UTRA 2017",
     "speakers": [],
     "tier IDs": {
-      "T1": "Palabra a'ingae",
-      "T2": "Morfema (texto) a'ingae",
-      "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés",
-      "T5": "Frase inglés",
-      "T6": "Frase español",
-      "T7": "Frase a'ingae"
+      "T1": {
+        "name": "Palabra a'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "Morfema (texto) a'ingae",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morfema (forma típico) a'ingae",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      },
+      "T5": {
+        "name": "Frase inglés",
+        "subdivided": false
+      },
+      "T6": {
+        "name": "Frase español",
+        "subdivided": false
+      },
+      "T7": {
+        "name": "Frase a'ingae",
+        "subdivided": false
+      }
     },
     "title from filename": "103"
   },
