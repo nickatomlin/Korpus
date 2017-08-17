@@ -49,7 +49,7 @@ export class StoryIndex extends React.Component {
                 }
 
                 // const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['title from filename']}'}>${mainTitle}</Link>`);
-                const link = `<a href='/Korpus/#/story/${index[story]['title from filename']}'>${mainTitle}</a>`;
+                const link = `<a href='/#/story/${index[story]['title from filename']}'>${mainTitle}</a>`;
 
                 storyList.push([link, translatedTitle, index[story]['author'], timed]);
                 // storyList.push(

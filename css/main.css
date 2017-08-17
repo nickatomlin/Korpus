@@ -26,7 +26,7 @@ body {
 
 #navbar a {
     display: block;
-    padding: 12px 20px;
+    padding: 12.5px 20px;
     /*border: 1px solid rgb(151,151,151);*/
     color: white;
     font-size: 1.2em;
@@ -271,4 +271,27 @@ video {
 
 #index { 
 	margin: 20px;
+}
+
+#navLinks {
+	float: right;
+	margin-right: 20px;
+}
+
+#navTitle {
+	float: left;
+	margin: 7px 0px;
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: 700;
+	font-size: 1.7em;
+}
+
+#navbar a:hover {
+	background-color: rgb(194,24,81);
+}
+
+#navbar a:active {
+	background-color: rgb(172,21,72);
 }
