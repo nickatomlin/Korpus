@@ -3,6 +3,7 @@
 const fs = require('fs');
 const util = require('util');
 const parseXml = require('xml2js').parseString; // or we could use simple-xml
+const eafUtils = require('./eaf_utils');
 const helper = require('./helper_functions');
 
 function swapJsonKeyValues(input) {
@@ -28,18 +29,19 @@ function getDescendants(ancestor, children) { // not including ancestor itself
 }
 
 function getTimeslotSet(tier) {
-  if (tier.ANNOTATION[0].ALIGNABLE_ANNOTATION == null) {
+  if (!eafUtils.tierIsAlignable(tier)) {
     // no timestamps in this tier; it's all `REF_ANNOTATION`s
     return new Set();
   }
-  const annotations = tier.ANNOTATION.map((a) => a.ALIGNABLE_ANNOTATION[0]);
-  const startSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF1));
-  const endSlots = new Set(annotations.map((a) => a.$.TIME_SLOT_REF2));
+  const annotations = eafUtils.getInnerAnnotations(tier);
+  const startSlots = new Set(annotations.map((a) => eafUtils.getInnerAnnotationStartSlot(a)));
+  const endSlots = new Set(annotations.map((a) => eafUtils.getInnerAnnotationEndSlot(a)));
   for (const slot of endSlots) {
     startSlots.add(slot);
   }
   return startSlots;
 }
+
 
 const slotIdDiff = function (s1, s2) {
   return parseInt(s1.slice(2)) - parseInt(s2.slice(2));
@@ -48,86 +50,60 @@ const slotIdDiff = function (s1, s2) {
 function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
   parseXml(fs.readFileSync(xmlFileName), function (err, jsonIn) {
 
-    const timeslotsIn = jsonIn.ANNOTATION_DOCUMENT.TIME_ORDER[0].TIME_SLOT;
-    const timeslots = [];
-    for (const slot of timeslotsIn) {
-      timeslots[slot.$.TIME_SLOT_ID] = slot.$.TIME_VALUE;
-    }
+    const indexMetadata = helper.improveElanIndexData(xmlFileName, jsonIn.ANNOTATION_DOCUMENT);
+
+    // update the index.json file
+    let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
+    index[helper.getFilenameFromPath(xmlFileName)] = indexMetadata;
+    fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2));
 
     const jsonOut = {
-      "metadata": {},
+      "metadata": indexMetadata,
       "sentences": []
     };
-
-    /////////////////////////////////////////
-    // Nick's index-updating code begins here
-    /////////////////////////////////////////
-    let metadata = helper.improveElanIndexData(xmlFileName, jsonIn.ANNOTATION_DOCUMENT);
-    jsonOut.metadata = metadata;
     jsonOut.metadata["tier IDs"] = {};
     jsonOut.metadata["speaker IDs"] = {};
     jsonOut.metadata["title from filename"] = titleFromFileName;
 
-    // update the index.json file
-    let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
-    index[helper.getFilenameFromPath(xmlFileName)] = metadata;
-    fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2));
-    ///////////////////////////////////////
-    // Nick's index-updating code ends here
-    ///////////////////////////////////////
+    const timeslots = eafUtils.getDocTimeslotsMap(jsonIn);
 
-    // let title = xmlFileName.substr(xmlFileName.lastIndexOf('/') + 1); // hides path to file name
-    // title = title.slice(0, -4); // removes last four characters
-    // jsonOut.metadata.title = title; // sets title
+    const tiers = eafUtils.getNonemptyTiers(jsonIn);
+    const tierChildren = eafUtils.getTierChildrenMap(tiers);
 
-    const tiersIncludeEmpty = jsonIn.ANNOTATION_DOCUMENT.TIER;
-    // discard tiers that have no annotations in them
-    const tiers = tiersIncludeEmpty.filter((tier) =>
-        tier.ANNOTATION != null && tier.ANNOTATION.length > 0);
+    const bigAnnotationsFromIDs = eafUtils.getOuterAnnotationIDMap(tiers);
 
-    const tierChildren = {};
-    for (const tier of tiers) {
-      const parentName = tier.$.PARENT_REF;
-      if (parentName != null) {
-        if (tierChildren[parentName] == null) {
-          tierChildren[parentName] = [];
-        }
-        tierChildren[parentName].push(tier.$.TIER_ID);
-      }
-    }
-
-    const tierNames = tiers.map((tier) => tier.$.TIER_ID);
     let tierIDsFromNames = {};
-    for (let i = 0; i < tierNames.length; i++) {
+    for (let i = 0; i < tiers.length; i++) {
       const newID = "T" + (i + 1).toString();
-      const name = tierNames[i];
-      const isSubdivided = true; // TODO obtain correct value
+      const tier = tiers[i];
+      const tierName = eafUtils.getTierName(tier);
       jsonOut.metadata["tier IDs"][newID] = {
-        name: name,
-        subdivided: isSubdivided,
+        name: tierName,
+        subdivided: eafUtils.tierIsAlignable(tier),
       };
-      tierIDsFromNames[name] = newID;
+      tierIDsFromNames[tierName] = newID;
     }
-    const indepTiers = tiers.filter((tier) => tier.$.PARENT_REF == null);
+    const indepTiers = tiers.filter((tier) => eafUtils.getParentTierName(tier) == null);
 
     // tierDependents: indep tier name -> list of dep tier names
     const tierDependents = {};
     for (const indepTier of indepTiers) {
-      const indepTierName = indepTier.$.TIER_ID;
+      const indepTierName = eafUtils.getTierName(indepTier);
       tierDependents[indepTierName] = getDescendants(indepTierName, tierChildren);
     }
+
 
     /* tierTimeslots: independent_tier_id -> timeslot_id -> rank,
       where a timeslot's "rank" is what its index would be
       in a time-ordered array of the unique timeslots for this speaker */
     const tierTimeslots = {};
     for (const indepTier of indepTiers) {
-      const indepTierName = indepTier.$.TIER_ID;
+      const indepTierName = eafUtils.getTierName(indepTier);
       const indepTierID = tierIDsFromNames[indepTierName];
 
       const slots = getTimeslotSet(indepTier);
       const depTiers = tiers.filter((tier) =>
-          tierDependents[indepTierName].includes(tier.$.TIER_ID)
+          tierDependents[indepTierName].includes(eafUtils.getTierName(tier))
       );
       for (const depTier of depTiers) {
         for (slot of getTimeslotSet(depTier)) {
@@ -142,28 +118,12 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
       tierTimeslots[indepTierID] = swapJsonKeyValues(sorted_slots);
     }
 
-    const bigAnnotationsFromIDs = {};
-    for (const tier of tiers) {
-      if (tier.ANNOTATION[0].ALIGNABLE_ANNOTATION != null) {
-        for (const bigAnnotation of tier.ANNOTATION) {
-          const annotationID = bigAnnotation.ALIGNABLE_ANNOTATION[0].$.ANNOTATION_ID;
-          bigAnnotationsFromIDs[annotationID] = bigAnnotation;
-        }
-      } else {
-        // REF_ANNOTATIONs
-        for (const bigAnnotation of tier.ANNOTATION) {
-          const annotationID = bigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_ID;
-          bigAnnotationsFromIDs[annotationID] = bigAnnotation;
-        }
-      }
-    }
-
     for (let i = 0; i < indepTiers.length; i++) {
 
       const spkrID = "S" + (i + 1).toString();
-      const indepTierName = indepTiers[i].$.TIER_ID;
-      const spkrName = indepTiers[i].$.PARTICIPANT;
-      const language = indepTiers[i].$.LANG_REF;
+      const indepTierName = eafUtils.getTierName(indepTiers[i]);
+      const spkrName = eafUtils.getTierSpeakerName(indepTiers[i]);
+      const language = eafUtils.getTierLanguage(indepTiers[i]);
       const tierID = tierIDsFromNames[indepTierName];
 
       jsonOut.metadata["speaker IDs"][spkrID] = {
@@ -173,11 +133,10 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
       };
 
       const depTiers = tiers.filter((tier) =>
-          tierDependents[indepTierName].includes(tier.$.TIER_ID)
+          tierDependents[indepTierName].includes(eafUtils.getTierName(tier))
       );
 
-      for (const bigAnnotation of indepTiers[i].ANNOTATION) {
-        const annotation = bigAnnotation.ALIGNABLE_ANNOTATION[0];
+      for (const annotation of eafUtils.getInnerAnnotations(indepTiers[i])) {
 
         const i_start_timeslot = annotation.$.TIME_SLOT_REF1;
         const i_end_timeslot = annotation.$.TIME_SLOT_REF2;
@@ -198,29 +157,18 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
         };
 
         for (const depTier of depTiers) {
-          const depTierID = tierIDsFromNames[depTier.$.TIER_ID];
+          const depTierID = tierIDsFromNames[eafUtils.getTierName(depTier)];
           const depTierJson = {
             "tier": depTierID,
             "values": []
           };
 
           for (const bigAnnotation of depTier.ANNOTATION) {
-            let value;
-            if (bigAnnotation.ALIGNABLE_ANNOTATION != null) {
-              value = bigAnnotation.ALIGNABLE_ANNOTATION[0].ANNOTATION_VALUE[0];
-            } else {
-              value = bigAnnotation.REF_ANNOTATION[0].ANNOTATION_VALUE[0];
-            }
+            const value = eafUtils.getOuterAnnotationValue(bigAnnotation);
 
-            let currentBigAnnotation = bigAnnotation;
-            while (currentBigAnnotation.ALIGNABLE_ANNOTATION == null) {
-              const parentAnnotationID = currentBigAnnotation.REF_ANNOTATION[0].$.ANNOTATION_REF;
-              currentBigAnnotation = bigAnnotationsFromIDs[parentAnnotationID];
-            }
-            const timeAnnotation = currentBigAnnotation.ALIGNABLE_ANNOTATION[0];
-
-            const d_start_timeslot = timeAnnotation.$.TIME_SLOT_REF1;
-            const d_end_timeslot = timeAnnotation.$.TIME_SLOT_REF2;
+            const timeAnnotation = eafUtils.getNearestTimedAncestor(bigAnnotation, bigAnnotationsFromIDs);
+            const d_start_timeslot = eafUtils.getInnerAnnotationStartSlot(timeAnnotation);
+            const d_end_timeslot = eafUtils.getInnerAnnotationEndSlot(timeAnnotation);
             if (slotIdDiff(d_start_timeslot, i_start_timeslot) >= 0
                 && slotIdDiff(i_end_timeslot, d_end_timeslot) >= 0) {
               // this dependent annotation goes with the current independent annotation
