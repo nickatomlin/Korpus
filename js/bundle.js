@@ -15881,7 +15881,7 @@ var StoryIndex = exports.StoryIndex = function (_React$Component) {
                     }
 
                     // const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['title from filename']}'}>${mainTitle}</Link>`);
-                    var link = '<a href=\'/#/story/' + index[story]['title from filename'] + '\'>' + mainTitle + '</a>';
+                    var link = '<a href=\'#/story/' + index[story]['title from filename'] + '\'>' + mainTitle + '</a>';
 
                     storyList.push([link, translatedTitle, index[story]['author'], timed]);
                     // storyList.push(
