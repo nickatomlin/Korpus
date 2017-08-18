@@ -108,7 +108,24 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
                 // record the morph's value so it can be included in the output
                 const tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type, true);
                 if (tierID != null) {
-                  const tierValue = tier._;
+                  let tierValue = tier._;
+
+                  // insert missing '-' if needed (FLEX seems to omit them in glosses of affixes)
+                  if (tier.$.type === 'gls') { // part of speech
+                    if (wrappedMorph.$ == null) {
+                      // TODO I have no idea why this happens sometimes but it does
+                      // console.log(wrappedMorph); // for debugging
+                    } else {
+                      const partOfSpeech = wrappedMorph.$.type;
+                      if (partOfSpeech === 'prefix') {
+                        tierValue = tierValue + '-';
+                      } else if (partOfSpeech === 'suffix') {
+                        tierValue = '-' + tierValue;
+                      }
+                    }
+
+                  }
+
                   // process.stdout.write(tierValue + " "); // for debugging
                   if (!morphsToGlom.hasOwnProperty(tierID)) {
                     morphsToGlom[tierID] = {};
