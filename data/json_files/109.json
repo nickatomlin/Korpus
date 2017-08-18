@@ -22,10 +22,22 @@
     "glosser": "",
     "speakers": [],
     "tier IDs": {
-      "T1": "Palabra a'ingae",
-      "T2": "Morfema (texto) a'ingae",
-      "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés"
+      "T1": {
+        "name": "Palabra a'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "Morfema (texto) a'ingae",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morfema (forma típico) a'ingae",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      }
     },
     "title from filename": "109"
   },
@@ -1774,7 +1786,7 @@
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "butto__"
+              "value": "butto***"
             },
             {
               "start_slot": 13,
@@ -1809,7 +1821,7 @@
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "run__"
+              "value": "run***"
             },
             {
               "start_slot": 13,
@@ -1960,7 +1972,7 @@
             {
               "start_slot": 0,
               "end_slot": 2,
-              "value": "butto__"
+              "value": "butto***"
             },
             {
               "start_slot": 2,
@@ -2010,7 +2022,7 @@
             {
               "start_slot": 0,
               "end_slot": 2,
-              "value": "run__"
+              "value": "run***"
             },
             {
               "start_slot": 2,
@@ -5178,7 +5190,7 @@
             {
               "start_slot": 8,
               "end_slot": 11,
-              "value": "ande__=pa"
+              "value": "ande***=pa"
             }
           ]
         },
@@ -9467,7 +9479,7 @@
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "__=ta"
+              "value": "***=ta"
             }
           ]
         },
@@ -9507,7 +9519,7 @@
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "__=NEW"
+              "value": "***=NEW"
             }
           ]
         }

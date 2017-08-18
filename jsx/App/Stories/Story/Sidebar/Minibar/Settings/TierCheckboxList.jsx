@@ -40,7 +40,7 @@ export function TierCheckboxList({ tiers }) {
    let output = [];
    for (const tier_id in tiers) {
       if (tiers.hasOwnProperty(tier_id)) {
-         output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]} />);
+         output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]['name']} />);
       }
    }
    return <div id="tierList">Show/hide tiers: <ul>{output}</ul></div>;

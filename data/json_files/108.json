@@ -25,12 +25,30 @@
     "glosser": "",
     "speakers": [],
     "tier IDs": {
-      "T1": "Palabra a'ingae",
-      "T2": "Morfema (texto) a'ingae",
-      "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés",
-      "T5": "Frase inglés",
-      "T6": "Frase español"
+      "T1": {
+        "name": "Palabra a'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "Morfema (texto) a'ingae",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morfema (forma típico) a'ingae",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      },
+      "T5": {
+        "name": "Frase inglés",
+        "subdivided": false
+      },
+      "T6": {
+        "name": "Frase español",
+        "subdivided": false
+      }
     },
     "title from filename": "108"
   },
@@ -497,7 +515,7 @@
             {
               "start_slot": 6,
               "end_slot": 9,
-              "value": "ñoña__=pa"
+              "value": "ñoña***=pa"
             },
             {
               "start_slot": 9,
@@ -547,7 +565,7 @@
             {
               "start_slot": 6,
               "end_slot": 9,
-              "value": "make__=SS"
+              "value": "make***=SS"
             },
             {
               "start_slot": 9,
@@ -1548,7 +1566,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "butto__"
+              "value": "butto***"
             },
             {
               "start_slot": 9,
@@ -1603,7 +1621,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "run__"
+              "value": "run***"
             },
             {
               "start_slot": 9,
@@ -1870,12 +1888,12 @@
             {
               "start_slot": 3,
               "end_slot": 6,
-              "value": "__='can=e"
+              "value": "***='can=e"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "butto__"
+              "value": "butto***"
             },
             {
               "start_slot": 8,
@@ -1905,12 +1923,12 @@
             {
               "start_slot": 3,
               "end_slot": 6,
-              "value": "__=CMP=ADVR"
+              "value": "***=CMP=ADVR"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "run__"
+              "value": "run***"
             },
             {
               "start_slot": 8,
@@ -2438,7 +2456,7 @@
             {
               "start_slot": 16,
               "end_slot": 20,
-              "value": "*ta'e=tssi=a__"
+              "value": "*ta'e=tssi=a***"
             },
             {
               "start_slot": 20,
@@ -2498,7 +2516,7 @@
             {
               "start_slot": 16,
               "end_slot": 20,
-              "value": "hard=STAT=ADJR__"
+              "value": "hard=STAT=ADJR***"
             },
             {
               "start_slot": 20,

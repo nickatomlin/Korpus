@@ -78,7 +78,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
       textLang = "defaultLang";
     }
 
-    const wordsTierID = tierReg.maybeRegisterTier(textLang, "words"); // writes to jsonOut.metadata (!)
+    const wordsTierID = tierReg.maybeRegisterTier(textLang, "words", true); // writes to jsonOut.metadata (!)
 
     // const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph; // defined above
     for (const wrappedParagraph of paragraphs) {
@@ -106,7 +106,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
               const morphTiers = wrappedMorph.item;
               for (const tier of morphTiers) {
                 // record the morph's value so it can be included in the output
-                const tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type);
+                const tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type, true);
                 if (tierID != null) {
                   const tierValue = tier._;
                   // process.stdout.write(tierValue + " "); // for debugging
@@ -168,7 +168,7 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
             const glossValue = gloss._;
             if (glossValue != null) {
               // console.log(glossValue); // for debugging
-              const tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free");
+              const tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free", false);
               if (tierID != null) {
                 if (!glommedMorphs.hasOwnProperty(tierID)) {
                   glommedMorphs[tierID] = {};

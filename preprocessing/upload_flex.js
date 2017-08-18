@@ -10,7 +10,7 @@ let display_title = "";
 const titles = jsonIn["document"]["interlinear-text"][0]["item"];
 for (const current_title of titles) {
   if (current_title["$"]["type"] === "title" && current_title["$"]["lang"] === "con-Latn-EC") {
-    // FIXME: This line causes Singo A'i to show up with title "a'i". Why is this even here?
+    // ignore the code part of the title (e.g. ignore 'B103' in 'B103 Singo A'i')
     con_title = current_title["_"].substr(current_title["_"].indexOf(" ") + 1);
   }
   else if (current_title["$"]["type"] === "title" && current_title["$"]["lang"] === "es") {

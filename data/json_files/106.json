@@ -23,10 +23,22 @@
     "glosser": "",
     "speakers": [],
     "tier IDs": {
-      "T1": "Palabra a'ingae",
-      "T2": "Morfema (texto) a'ingae",
-      "T3": "Morfema (forma típico) a'ingae",
-      "T4": "Glosa de morfema inglés"
+      "T1": {
+        "name": "Palabra a'ingae",
+        "subdivided": true
+      },
+      "T2": {
+        "name": "Morfema (texto) a'ingae",
+        "subdivided": true
+      },
+      "T3": {
+        "name": "Morfema (forma típico) a'ingae",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      }
     },
     "title from filename": "106"
   },
@@ -467,17 +479,17 @@
             {
               "start_slot": 11,
               "end_slot": 14,
-              "value": "__=je=nga"
+              "value": "***=je=nga"
             },
             {
               "start_slot": 14,
               "end_slot": 16,
-              "value": "__=pa"
+              "value": "***=pa"
             },
             {
               "start_slot": 17,
               "end_slot": 20,
-              "value": "__='su=i'ccu"
+              "value": "***='su=i'ccu"
             },
             {
               "start_slot": 22,
@@ -527,17 +539,17 @@
             {
               "start_slot": 11,
               "end_slot": 14,
-              "value": "__=SH.FLT=DAT"
+              "value": "***=SH.FLT=DAT"
             },
             {
               "start_slot": 14,
               "end_slot": 16,
-              "value": "__=SS"
+              "value": "***=SS"
             },
             {
               "start_slot": 17,
               "end_slot": 20,
-              "value": "__=ATTR=INST"
+              "value": "***=ATTR=INST"
             },
             {
               "start_slot": 22,
@@ -759,7 +771,7 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "va'cha__"
+              "value": "va'cha***"
             },
             {
               "start_slot": 8,
@@ -789,7 +801,7 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "poor__"
+              "value": "poor***"
             },
             {
               "start_slot": 8,
@@ -925,7 +937,7 @@
             {
               "start_slot": 10,
               "end_slot": 13,
-              "value": "chitta=pa__"
+              "value": "chitta=pa***"
             },
             {
               "start_slot": 13,
@@ -935,7 +947,7 @@
             {
               "start_slot": 16,
               "end_slot": 18,
-              "value": "amunde'cco__"
+              "value": "amunde'cco***"
             }
           ]
         },
@@ -970,7 +982,7 @@
             {
               "start_slot": 10,
               "end_slot": 13,
-              "value": "break=SS__"
+              "value": "break=SS***"
             },
             {
               "start_slot": 13,
@@ -980,7 +992,7 @@
             {
               "start_slot": 16,
               "end_slot": 18,
-              "value": "dirty__"
+              "value": "dirty***"
             }
           ]
         }
@@ -1111,7 +1123,7 @@
             {
               "start_slot": 14,
               "end_slot": 17,
-              "value": "condase=e__"
+              "value": "condase=e***"
             },
             {
               "start_slot": 17,
@@ -1156,7 +1168,7 @@
             {
               "start_slot": 14,
               "end_slot": 17,
-              "value": "tell=ADVR__"
+              "value": "tell=ADVR***"
             },
             {
               "start_slot": 17,
@@ -2591,7 +2603,7 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "__=pa"
+              "value": "***=pa"
             },
             {
               "start_slot": 8,
