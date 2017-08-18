@@ -111,7 +111,19 @@ function getTierTimeslotsMap(tiers) {
 
 // return true if tier has alignable annotations, false if it has ref annotations
 function isTierAlignable(tier) {
-  return tier.ANNOTATION[0].ALIGNABLE_ANNOTATION != null;
+  return getAnnotations(tier)[0].ALIGNABLE_ANNOTATION != null;
+}
+
+function isTierSubdivided(tierName, tiers) { // true iff tierName has a dependent, aligned ancestor tier
+  return getParentTierName(getTierAlignedAncestor(tierName, tiers)) != null;
+}
+
+function getTierAlignedAncestor(tierName, tiers) {
+  let currentTier = tiers.find(tier => getTierName(tier) === tierName);
+  while (!isTierAlignable(currentTier)) {
+    currentTier = tiers.find(tier => getTierName(tier) === getParentTierName(currentTier));
+  }
+  return currentTier;
 }
 
 // returns the ELAN-user-specified tier name (string)
@@ -175,7 +187,7 @@ function getAnnotationValue(annotation) {
 }
 
 // returns an annotation with the same start and end timeslots as this annotation
-function getTimedAncestor(annotation, annotationsFromIDs) {
+function getAnnotationTimedAncestor(annotation, annotationsFromIDs) {
   let currentannotation = annotation;
   while (currentannotation.ALIGNABLE_ANNOTATION == null) {
     const parentAnnotationID = currentannotation.REF_ANNOTATION[0].$.ANNOTATION_REF;
@@ -185,11 +197,11 @@ function getTimedAncestor(annotation, annotationsFromIDs) {
 }
 
 function getAnnotationStartSlot(annotation, annotationsFromIDs) {
-  return getInnerAnnotationStartSlot(unwrapAnnotation(getTimedAncestor(annotation, annotationsFromIDs)));
+  return getInnerAnnotationStartSlot(unwrapAnnotation(getAnnotationTimedAncestor(annotation, annotationsFromIDs)));
 }
 
 function getAnnotationEndSlot(annotation, annotationsFromIDs) {
-  return getInnerAnnotationEndSlot(unwrapAnnotation(getTimedAncestor(annotation, annotationsFromIDs)));
+  return getInnerAnnotationEndSlot(unwrapAnnotation(getAnnotationTimedAncestor(annotation, annotationsFromIDs)));
 }
 
 function getAlignableAnnotationStartSlot(annotation) {
@@ -223,9 +235,12 @@ module.exports = {
   getTierDependentsMap: getTierDependentsMap,
   getAnnotationIDMap: getAnnotationIDMap,
   slotIDDiff: slotIDDiff,
+  // getTierNamesMap: getTierNamesMap,
   getTierTimeslotsMap: getTierTimeslotsMap,
 
-  isTierAlignable: isTierAlignable,
+  // isTierAlignable: isTierAlignable,
+  isTierSubdivided: isTierSubdivided,
+  // getTierAlignedAncestor: getTierAlignedAncestor,
   getTierName: getTierName,
   getParentTierName: getParentTierName,
   getTierSpeakerName: getTierSpeakerName,
@@ -237,7 +252,7 @@ module.exports = {
   // unwrapAnnotation: unwrapAnnotation,
   getAnnotationID: getAnnotationID,
   getAnnotationValue: getAnnotationValue,
-  getTimedAncestor: getTimedAncestor,
+  // getAnnotationTimedAncestor: getAnnotationTimedAncestor,
   getAnnotationStartSlot: getAnnotationStartSlot,
   getAnnotationEndSlot: getAnnotationEndSlot,
   getAlignableAnnotationStartSlot: getAlignableAnnotationStartSlot,

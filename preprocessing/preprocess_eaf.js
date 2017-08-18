@@ -40,7 +40,7 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
       const tierName = eafUtils.getTierName(tier);
       jsonOut.metadata["tier IDs"][newID] = {
         name: tierName,
-        subdivided: eafUtils.isTierAlignable(tier),
+        subdivided: eafUtils.isTierSubdivided(tierName, tiers),
       };
       tierIDsFromNames[tierName] = newID;
     }
