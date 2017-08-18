@@ -1,5 +1,4 @@
 /* functions for accessing data within FLEx's format (except parsed to JSON): */
-const noteUtils = require('./eaf_annotation_utils');
 
 // returns a map from each timeslotID to its time value in ms
 function getDocTimeslotsMap(doc) {
@@ -62,7 +61,7 @@ function getAnnotationIDMap(tiers) {
   const annotationsFromIDs = {};
   for (const tier of tiers) {
     for (const annotation of getAnnotations(tier)) {
-      const annotationID = noteUtils.getInnerAnnotationID(noteUtils.unwrapAnnotation(annotation));
+      const annotationID = getInnerAnnotationID(unwrapAnnotation(annotation));
       annotationsFromIDs[annotationID] = annotation;
     }
   }
@@ -112,7 +111,7 @@ function getTierTimeslotsMap(tiers) {
 
 // return true if tier has alignable annotations, false if it has ref annotations
 function isTierAlignable(tier) {
-  return noteUtils.isAnnotationAlignable(getAnnotations(tier)[0]);
+  return tier.ANNOTATION[0].ALIGNABLE_ANNOTATION != null;
 }
 
 // returns the ELAN-user-specified tier name (string)
@@ -146,8 +145,8 @@ function getTimeslotSet(tier) {
     return new Set();
   }
   const annotations = getAnnotations(tier);
-  const startSlots = new Set(annotations.map((a) => noteUtils.getAlignableAnnotationStartSlot(a)));
-  const endSlots = new Set(annotations.map((a) => noteUtils.getAlignableAnnotationEndSlot(a)));
+  const startSlots = new Set(annotations.map((a) => getAlignableAnnotationStartSlot(a)));
+  const endSlots = new Set(annotations.map((a) => getAlignableAnnotationEndSlot(a)));
   let allSlots = startSlots;
   for (const slot of endSlots) {
     allSlots.add(slot);
@@ -155,8 +154,76 @@ function getTimeslotSet(tier) {
   return allSlots;
 }
 
+function isAnnotationAlignable(annotation) {
+  return annotation.ALIGNABLE_ANNOTATION != null;
+}
+
+function unwrapAnnotation(annotation) {
+  if (isAnnotationAlignable(annotation)) {
+    return annotation.ALIGNABLE_ANNOTATION[0];
+  } else {
+    return annotation.REF_ANNOTATION[0];
+  }
+}
+
+function getAnnotationID(annotation) {
+  return getInnerAnnotationID(unwrapAnnotation(annotation));
+}
+
+function getAnnotationValue(annotation) {
+  return getInnerAnnotationValue(unwrapAnnotation(annotation));
+}
+
+// returns an annotation with the same start and end timeslots as this annotation
+function getTimedAncestor(annotation, annotationsFromIDs) {
+  let currentannotation = annotation;
+  while (currentannotation.ALIGNABLE_ANNOTATION == null) {
+    const parentAnnotationID = currentannotation.REF_ANNOTATION[0].$.ANNOTATION_REF;
+    currentannotation = annotationsFromIDs[parentAnnotationID];
+  }
+  return currentannotation;
+}
+
+function getAnnotationStartSlot(annotation, annotationsFromIDs) {
+  return getInnerAnnotationStartSlot(unwrapAnnotation(getTimedAncestor(annotation, annotationsFromIDs)));
+}
+
+function getAnnotationEndSlot(annotation, annotationsFromIDs) {
+  return getInnerAnnotationEndSlot(unwrapAnnotation(getTimedAncestor(annotation, annotationsFromIDs)));
+}
+
+function getAlignableAnnotationStartSlot(annotation) {
+  return getInnerAnnotationStartSlot(unwrapAnnotation(annotation));
+}
+
+function getAlignableAnnotationEndSlot(annotation) {
+  return getInnerAnnotationEndSlot(unwrapAnnotation(annotation));
+}
+
+function getInnerAnnotationID(innerAnnotation) {
+  return innerAnnotation.$.ANNOTATION_ID;
+}
+
+function getInnerAnnotationValue(innerAnnotation) {
+  return innerAnnotation.ANNOTATION_VALUE[0];
+}
+
+function getInnerAnnotationStartSlot(innerAnnotation) {
+  return innerAnnotation.$.TIME_SLOT_REF1;
+}
+
+function getInnerAnnotationEndSlot(innerAnnotation) {
+  return innerAnnotation.$.TIME_SLOT_REF2;
+}
 
 module.exports = {
+  getDocTimeslotsMap: getDocTimeslotsMap,
+  getNonemptyTiers: getNonemptyTiers,
+  // getTierChildrenMap: getTierChildrenMap,
+  getTierDependentsMap: getTierDependentsMap,
+  getAnnotationIDMap: getAnnotationIDMap,
+  slotIDDiff: slotIDDiff,
+  getTierTimeslotsMap: getTierTimeslotsMap,
 
   isTierAlignable: isTierAlignable,
   getTierName: getTierName,
@@ -166,11 +233,17 @@ module.exports = {
   getAnnotations: getAnnotations,
   // getTimeslotSet: getTimeslotSet,
 
-  getDocTimeslotsMap: getDocTimeslotsMap,
-  getNonemptyTiers: getNonemptyTiers,
-  // getTierChildrenMap: getTierChildrenMap,
-  getTierDependentsMap: getTierDependentsMap,
-  getAnnotationIDMap: getAnnotationIDMap,
-  slotIDDiff: slotIDDiff,
-  getTierTimeslotsMap: getTierTimeslotsMap,
+  isAnnotationAlignable: isAnnotationAlignable,
+  // unwrapAnnotation: unwrapAnnotation,
+  getAnnotationID: getAnnotationID,
+  getAnnotationValue: getAnnotationValue,
+  getTimedAncestor: getTimedAncestor,
+  getAnnotationStartSlot: getAnnotationStartSlot,
+  getAnnotationEndSlot: getAnnotationEndSlot,
+  getAlignableAnnotationStartSlot: getAlignableAnnotationStartSlot,
+  getAlignableAnnotationEndSlot: getAlignableAnnotationEndSlot,
+
+  // getInnerAnnotationValue: getInnerAnnotationValue,
+  // getInnerAnnotationStartSlot: getInnerAnnotationStartSlot,
+  // getInnerAnnotationEndSlot: getInnerAnnotationEndSlot,
 };
