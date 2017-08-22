@@ -10,6 +10,10 @@ function isStartPunctuation(punct) {
   return (punct === "¿") || (punct === "(");
 }
 
+function isSeparator(char) {
+  return (char === "-") || (char === "=") || (char === "~");
+}
+
 /*
 function updateMetadata(xmlFileContent, indexData) {
     const thingy = {
@@ -141,12 +145,22 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
             for (const tierID in morphsToGlom) {
               if (morphsToGlom.hasOwnProperty(tierID)) {
                 let glommedValue = '';
+                let maybeAddSeparator = false; // never add a separator before first word
                 for (let i = wordStartSlot; i < slotNum; i++) {
+                  let nextValue = '***';
                   if (morphsToGlom[tierID][i] != null) {
-                    glommedValue += morphsToGlom[tierID][i]["value"];
-                  } else {
-                    glommedValue += '***';
+                    nextValue = morphsToGlom[tierID][i]["value"];
                   }
+
+                  // insert compound separator if needed
+                  if (maybeAddSeparator && !isSeparator(nextValue.substring(0, 1))) {
+                    glommedValue += '+';
+                  }
+                  if (!isSeparator(nextValue.substring(-1))) {
+                    maybeAddSeparator = true;
+                  }
+
+                  glommedValue += nextValue;
                 }
                 // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
                 if (!glommedMorphs.hasOwnProperty(tierID)) {
