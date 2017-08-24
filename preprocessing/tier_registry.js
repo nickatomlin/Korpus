@@ -2,14 +2,11 @@ class tierRegistry {
 
   static isIgnored(type) {
     // Omit these tier types from the website, as they're ugly and mostly useless.
-    // variantTypes indicates when a morpheme is a spelling variant, free variant, etc.
-    // hn, "homophone number", indicates which of multiple look-alike morphemes it is.
-    // msa is the part of speech
     return (
-        type === "variantTypes" ||
-        type === "hn" ||
+        type === "variantTypes" || // variantTypes indicates when a morpheme is a spelling variant, free variant, etc.
+        type === "hn" || // hn, "homophone number", indicates which of multiple look-alike morphemes it is.
         type === "glsAppend" ||
-        type === "msa"
+        type === "msa" // msa is the part of speech
     );
   }
 
@@ -44,9 +41,9 @@ class tierRegistry {
     }
   }
 
-  constructor(tierIDs, jsonTierIDs, isoDict) {
-    this.tierIDs = tierIDs;
-    this.jsonTierIDs = jsonTierIDs;
+  constructor(isoDict) {
+    this.tierIDs = {}; // for internal bookkeeping
+    this.jsonTierIDs = {}; // format that should be written to file
     this.nextTierIDnum = 1;
     this.isoDict = isoDict;
   }
@@ -98,6 +95,10 @@ class tierRegistry {
 
     // Spanish UI text:
     return tierRegistry.decodeType(type) + " " + this.decodeLang(lang).toLowerCase();
+  }
+
+  getTiersJson() {
+    return this.jsonTierIDs;
   }
 
   // if this is a new, non-ignored tier, register its ID and include it in metadata

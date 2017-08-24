@@ -5,6 +5,7 @@ const util = require('util');
 const parseXml = require('xml2js').parseString; // or we could use simple-xml
 const tierRegistry = require('./tier_registry').tierRegistry;
 const helper = require('./helper_functions');
+const flexUtils = require('./flex_utils');
 
 function isStartPunctuation(punct) {
   return (punct === "¿") || (punct === "(");
@@ -14,252 +15,255 @@ function isSeparator(char) {
   return (char === "-") || (char === "=") || (char === "~");
 }
 
-/*
-function updateMetadata(xmlFileContent, indexData) {
-    const thingy = {
-        "timed": false, //always
-        "media": {}, //always
-        "languages": ["es", "en", "con-Latn-EC"],
-        "date_created": "",
-        "date_uploaded": "",
-        "source": {
-            "default": "Mitos del Pueblo Cofán",
-            "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
-            "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\""
-        }
-    };
+function isPunctuation(word) {
+  return word.item[0].$.type === "punct";
+}
 
-    const langsIn = jsonIn["document"]["interlinear-text"][0]["languages"];
-    const langs = [];
-    for (const lang of langsIn) {
-        langs.push(lang['$']['lang']);
+function updateIndex(metadata, indexFileName, xmlFileName) {
+  let index = JSON.parse(fs.readFileSync(indexFileName, "utf8"));
+  index[helper.getFilenameFromPath(xmlFileName)] = metadata;
+  fs.writeFileSync(indexFileName, JSON.stringify(index, null, 2));
+}
+
+function getGlommedValue(morphsThisTier, wordStartSlot, wordEndSlot) {
+  let glommedValue = '';
+  let maybeAddCompoundSeparator = false; // never add a separator before the first word
+  for (let i = wordStartSlot; i < wordEndSlot; i++) {
+    let nextValue = '***';
+    if (morphsThisTier[i] != null) {
+      nextValue = morphsThisTier[i]["value"];
+
+      // insert missing '-' if needed (FLEX seems to omit them in glosses of affixes)
+      if (morphsThisTier[i]["tier type"] === 'gls') {
+        if (morphsThisTier[i]["part of speech"] === 'prefix') {
+          nextValue = nextValue + '-';
+        } else if (morphsThisTier[i]["part of speech"] === 'suffix') {
+          nextValue = '-' + nextValue;
+        }
+      }
     }
 
-    const itemsIn = jsonIn["document"]["interlinear-text"][0]["item"];
-    const sources = {};
-    for (const datum of metadataIn) {
-        if (datum['$']['type'] === 'source') {
-            langsIn.push(datum['$'][''])
-        } else if (datum['$']['type'] === 'title' && current_title['$']['lang'] === 'con-Latn-EC') {
-            jsonOut.metadata.title = current_title['_'].substr(current_title['_'].indexOf(" ") + 1);
-        }
+    // insert compound-word separator if needed
+    if (maybeAddCompoundSeparator && !isSeparator(nextValue.substring(0, 1))) {
+      glommedValue += '+';
+    }
+    if (!isSeparator(nextValue.substring(-1))) {
+      maybeAddCompoundSeparator = true;
     }
 
-}*/
+    glommedValue += nextValue;
+  }
+
+  return glommedValue;
+}
+
+function getSentenceToken(word) {
+  const wordValue = flexUtils.getWordValue(word);
+
+  let type = 'txt';
+  if (isPunctuation(word)) {
+    if (isStartPunctuation(wordValue)) {
+      type = 'start';
+    } else {
+      type = 'end';
+    }
+  }
+
+  return {'value': wordValue, 'type': type};
+}
+
+function getSentenceText(sentenceTokens) {
+  let sentenceText = "";
+  let maybeAddSpace = false; // no space before first word
+  for (const typedToken of sentenceTokens) {
+    if (maybeAddSpace && (typedToken.type !== "end")) {
+      sentenceText += " ";
+    }
+    maybeAddSpace = (typedToken.type !== "start");
+    sentenceText += typedToken["value"];
+  }
+  return sentenceText;
+}
+
+function getDependentsJson(morphsJson) {
+  const dependentsJson = [];
+  for (const tierID in morphsJson) {
+    if (morphsJson.hasOwnProperty(tierID)) {
+      const valuesJson = [];
+      for (const start_slot in morphsJson[tierID]) {
+        if (morphsJson[tierID].hasOwnProperty(start_slot)) {
+          valuesJson.push({
+            "start_slot": parseInt(start_slot, 10),
+            "end_slot": morphsJson[tierID][start_slot]["end_slot"],
+            "value": morphsJson[tierID][start_slot]["value"]
+          })
+        }
+      }
+      dependentsJson.push({
+        "tier": tierID,
+        "values": valuesJson
+      });
+    }
+  }
+  return dependentsJson;
+}
+
+function repackageMorphs(morphs, tierReg, startSlot) {
+  // FLEx packages morph items by morpheme, not by type.
+  // We handle this by first re-packaging all the morphs by type(a.k.a. tier),
+  // then concatenating(a.k.a. glomming) all the morphs of the same type.
+
+  // Repackaging step:
+  const morphTokens = {};
+  let slotNum = startSlot;
+  for (const morph of morphs) {
+    for (const tier of flexUtils.getMorphTiers(morph)) {
+      const tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type, true);
+      if (tierID != null) {
+        if (!morphTokens.hasOwnProperty(tierID)) {
+          morphTokens[tierID] = {};
+        }
+        morphTokens[tierID][slotNum] = {
+          "value": flexUtils.getMorphTierValue(tier),
+          "tier type": tier.$.type,
+          "part of speech": flexUtils.getMorphPartOfSpeech(morph),
+        };
+      }
+    }
+    slotNum++;
+  }
+
+  // Concatenating step:
+  let morphsJson = {};
+  for (const tierID in morphTokens) {
+    if (morphTokens.hasOwnProperty(tierID)) {
+      if (!morphsJson.hasOwnProperty(tierID)) {
+        morphsJson[tierID] = {};
+      }
+      morphsJson[tierID][startSlot] = {
+        "value": getGlommedValue(morphTokens[tierID], startSlot, slotNum),
+        "end_slot": slotNum
+      };
+    }
+  }
+
+  return morphsJson;
+}
+
+// dest - an object with all its values nested two layers deep
+// src - an object with all its values nested two layers deep
+// inserts all values of src into dest, preserving their inner and outer keys,
+// while retaining all values of dest except those that directly conflict with src
+function mergeTwoLayerDict(dest, src) {
+  for (const outerProp in src) {
+    if (src.hasOwnProperty(outerProp)) {
+      if (!dest.hasOwnProperty(outerProp)) {
+        dest[outerProp] = {};
+      }
+      for (const innerProp in src[outerProp]) {
+        if (src[outerProp].hasOwnProperty(innerProp)) {
+          dest[outerProp][innerProp] = src[outerProp][innerProp]; // overwrites dest[outerProp][innerProp]
+        }
+      }
+    }
+  }
+}
+
+function repackageFreeGlosses(freeGlosses, tierReg, endSlot) {
+  const glossStartSlot = 0;
+  const morphsJson = {};
+  for (const gloss of freeGlosses) {
+    const tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free", false);
+    if (tierID != null) {
+      if (!morphsJson.hasOwnProperty(tierID)) {
+        morphsJson[tierID] = {};
+      }
+      morphsJson[tierID][glossStartSlot] = {
+        "value": flexUtils.getFreeGlossValue(gloss),
+        "end_slot": endSlot
+      };
+    }
+  }
+  return morphsJson;
+}
+
+function getSentenceJson(sentence, tierReg, wordsTierID) {
+  const morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
+  morphsJson[wordsTierID] = {}; // FIXME words tier will show up even when the sentence is empty of words
+
+  let slotNum = 0;
+  const sentenceTokens = []; // for building the free transcription
+  for (const word of flexUtils.getSentenceWords(sentence)) {
+    const wordStartSlot = slotNum;
+
+    // deal with the morphs that subdivide this word
+    const morphs = flexUtils.getWordMorphs(word);
+    const newMorphsJson = repackageMorphs(morphs, tierReg, slotNum);
+    mergeTwoLayerDict(morphsJson, newMorphsJson);
+    slotNum += morphs.length;
+    if (morphs.length === 0 && !isPunctuation(word)) {
+      slotNum++; // if a non-punctuation word has no morphs, it still takes up a slot
+    }
+
+    // deal with the word itself
+    if (!isPunctuation(word)) {
+      // count this as a separate word on the words tier
+      morphsJson[wordsTierID][wordStartSlot] = {
+        "value": flexUtils.getWordValue(word),
+        "end_slot": slotNum
+      };
+    }
+
+    // deal with sentence-level transcription
+    sentenceTokens.push(getSentenceToken(word));
+  }
+
+  // deal with free glosses
+  const freeGlosses = flexUtils.getSentenceFreeGlosses(sentence);
+  const freeGlossesJson = repackageFreeGlosses(freeGlosses, tierReg, slotNum);
+  mergeTwoLayerDict(morphsJson, freeGlossesJson);
+
+  // "speaker, "start_time", and "end_time" omitted (they're only used on elan files)
+  return ({
+    "num_slots": slotNum,
+    "text": getSentenceText(sentenceTokens),
+    "dependents": getDependentsJson(morphsJson),
+  });
+}
 
 function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback) {
-  const jsonOut = {
-    "metadata": {},
-    "sentences": []
-  };
-
   parseXml(fs.readFileSync(xmlFileName), function (err, jsonIn) {
     if (err) throw err;
 
-    /////////////////////////////////////////
-    // Nick's index-updating code begins here
-    /////////////////////////////////////////
     let metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
-    jsonOut.metadata = metadata;
-    jsonOut.metadata["tier IDs"] = {};
-    const tierReg = new tierRegistry({}, jsonOut.metadata["tier IDs"], isoDict);
+    updateIndex(metadata, "data/index2.json", xmlFileName);
 
-    // update the index.json file
-    let index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
-    index[helper.getFilenameFromPath(xmlFileName)] = metadata;
-    fs.writeFileSync("data/index2.json", JSON.stringify(index, null, 2));
-    ///////////////////////////////////////
-    // Nick's index-updating code ends here
-    ///////////////////////////////////////
+    const jsonOut = {
+      "metadata": metadata,
+      "sentences": []
+    };
 
-    // set textLang to the language of the first word
-    const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph;
-    const paragraph = paragraphs[0].phrases[0].word;
-    const sentence = paragraph[0].words[0].word;
-    const wordLang = sentence[0].item[0].$.lang;
-    let textLang = wordLang;
-    if (textLang === null) {
-      textLang = "defaultLang";
-    }
+    let textLang = flexUtils.getWordLang(flexUtils.getDocumentFirstWord(jsonIn));
+    const tierReg = new tierRegistry(isoDict);
+    const wordsTierID = tierReg.maybeRegisterTier(textLang, "words", true);
 
-    const wordsTierID = tierReg.maybeRegisterTier(textLang, "words", true); // writes to jsonOut.metadata (!)
-
-    // const paragraphs = jsonIn["document"]["interlinear-text"][0].paragraphs[0].paragraph; // defined above
-    for (const wrappedParagraph of paragraphs) {
-      if (wrappedParagraph.phrases == null) continue; // if this paragraph is empty, skip it instead of erroring
-      const paragraph = wrappedParagraph.phrases[0].word;
-      for (const wrappedSentence of paragraph) {
-        if (wrappedSentence.words == null) continue; // if this sentence is empty, skip it instead of erroring
-        const sentence = wrappedSentence.words[0].word;
-
-        const glommedMorphs = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
-        glommedMorphs[wordsTierID] = {};
-        let slotNum = 0;
-        const sentenceTokens = []; // for building the free transcription sentenceText
-        // FIXME words tier will show up even when the sentence is empty of words
-
-        for (const wordWithMorphs of sentence) {
-          const wordValue = wordWithMorphs.item[0]._;
-          const wordStartSlot = slotNum;
-          // process.stdout.write("\n" + wordValue + " "); // for debugging
-
-          if (wordWithMorphs.morphemes != null) {
-            const morphs = wordWithMorphs.morphemes[0].morph;
-            const morphsToGlom = {};
-            for (const wrappedMorph of morphs) {
-              const morphTiers = wrappedMorph.item;
-              for (const tier of morphTiers) {
-                // record the morph's value so it can be included in the output
-                const tierID = tierReg.maybeRegisterTier(tier.$.lang, tier.$.type, true);
-                if (tierID != null) {
-                  let tierValue = tier._;
-
-                  // insert missing '-' if needed (FLEX seems to omit them in glosses of affixes)
-                  if (tier.$.type === 'gls') { // part of speech
-                    if (wrappedMorph.$ == null) {
-                      // TODO I have no idea why this happens sometimes but it does
-                      // console.log(wrappedMorph); // for debugging
-                    } else {
-                      const partOfSpeech = wrappedMorph.$.type;
-                      if (partOfSpeech === 'prefix') {
-                        tierValue = tierValue + '-';
-                      } else if (partOfSpeech === 'suffix') {
-                        tierValue = '-' + tierValue;
-                      }
-                    }
-
-                  }
-
-                  // process.stdout.write(tierValue + " "); // for debugging
-                  if (!morphsToGlom.hasOwnProperty(tierID)) {
-                    morphsToGlom[tierID] = {};
-                  }
-                  morphsToGlom[tierID][slotNum] = {
-                    "value": tierValue
-                  };
-                }
-              }
-              slotNum++;
-            }
-
-            for (const tierID in morphsToGlom) {
-              if (morphsToGlom.hasOwnProperty(tierID)) {
-                let glommedValue = '';
-                let maybeAddSeparator = false; // never add a separator before first word
-                for (let i = wordStartSlot; i < slotNum; i++) {
-                  let nextValue = '***';
-                  if (morphsToGlom[tierID][i] != null) {
-                    nextValue = morphsToGlom[tierID][i]["value"];
-                  }
-
-                  // insert compound separator if needed
-                  if (maybeAddSeparator && !isSeparator(nextValue.substring(0, 1))) {
-                    glommedValue += '+';
-                  }
-                  if (!isSeparator(nextValue.substring(-1))) {
-                    maybeAddSeparator = true;
-                  }
-
-                  glommedValue += nextValue;
-                }
-                // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
-                if (!glommedMorphs.hasOwnProperty(tierID)) {
-                  glommedMorphs[tierID] = {};
-                }
-                glommedMorphs[tierID][wordStartSlot] = {
-                  "value": glommedValue,
-                  "end_slot": slotNum
-                };
-              }
-            }
-          } else if (wordWithMorphs.item[0].$.type !== "punct") {
-            // if a non-punctuation word has no morphs, it still takes up a slot
-            slotNum++;
-          }
-
-          if (wordWithMorphs.item[0].$.type !== "punct") { // this word isn't punctuation
-            sentenceTokens.push({"value": wordValue, "type": "txt"});
-
-            // count this as a separate word on the words tier
-            glommedMorphs[wordsTierID][wordStartSlot] = {
-              "value": wordValue,
-              "end_slot": slotNum
-            };
-          } else if (isStartPunctuation(wordValue)) {
-            sentenceTokens.push({"value": wordValue, "type": "start"});
-          } else { // end punctuation
-            sentenceTokens.push({"value": wordValue, "type": "end"});
-          }
-        }
-
-        const freeGlosses = wrappedSentence.item;
-        let glossStartSlot = 0;
-        for (const gloss of freeGlosses) {
-          if (gloss.$.type === "gls") {
-            const glossValue = gloss._;
-            if (glossValue != null) {
-              // console.log(glossValue); // for debugging
-              const tierID = tierReg.maybeRegisterTier(gloss.$.lang, "free", false);
-              if (tierID != null) {
-                if (!glommedMorphs.hasOwnProperty(tierID)) {
-                  glommedMorphs[tierID] = {};
-                }
-                glommedMorphs[tierID][glossStartSlot] = {
-                  "value": glossValue,
-                  "end_slot": slotNum
-                };
-              }
-            } // else there's not actually a gloss here, just the metadata/placeholder for one
-          } // else it might be type "segnum" (sentence number) or similar; we'll ignore it
-        }
-
-        const dependentsJson = [];
-        for (const tierID in glommedMorphs) {
-          if (glommedMorphs.hasOwnProperty(tierID)) {
-            const valuesJson = [];
-            for (const start_slot in glommedMorphs[tierID]) {
-              if (glommedMorphs[tierID].hasOwnProperty(start_slot)) {
-                valuesJson.push({
-                  "start_slot": parseInt(start_slot, 10),
-                  "end_slot": glommedMorphs[tierID][start_slot]["end_slot"],
-                  "value": glommedMorphs[tierID][start_slot]["value"]
-                })
-              }
-            }
-            dependentsJson.push({
-              "tier": tierID,
-              "values": valuesJson
-            });
-          }
-        }
-
-        let sentenceText = "";
-        let maybeAddSpace = false; // no space before first word
-        for (const typedToken of sentenceTokens) {
-          if (maybeAddSpace && (typedToken.type !== "end")) {
-            sentenceText += " ";
-          }
-          maybeAddSpace = (typedToken.type !== "start");
-          sentenceText += typedToken["value"];
-        }
-
-        // "speaker, "start_time", and "end_time" omitted (they're only used on elan files)
-        jsonOut.sentences.push({
-          "num_slots": slotNum,
-          "text": sentenceText,
-          "dependents": dependentsJson
-        });
+    for (const paragraph of flexUtils.getDocumentParagraphs(jsonIn)) {
+      for (const sentence of flexUtils.getParagraphSentences(paragraph)) {
+        jsonOut.sentences.push(getSentenceJson(sentence, tierReg, wordsTierID));
       }
     }
+
+    jsonOut.metadata['tier IDs'] = tierReg.getTiersJson();
 
     const prettyString = JSON.stringify(jsonOut, null, 2);
     fs.writeFile(jsonFileName, prettyString, function (err) {
       if (err) {
-        return console.log(err);
-      }
-      console.log("✅  Correctly processed " + shortFileName + ".xml");
-      if (callback != null) {
-        callback();
+        console.log(err);
+      } else {
+        console.log("✅  Correctly processed " + shortFileName + ".xml");
+        if (callback != null) {
+          callback();
+        }
       }
     });
   });
