@@ -29,14 +29,12 @@ function getFilenameFromPath(path) {
   return path.substring(begin, path.length);
 }
 
-function improveFLExIndexData(path, itext) {
+function improveFLExIndexData(storyID, itext) {
   // I/P: path, a string
   //      itext, an interlinear text, e.g., jsonIn["document"]["interlinear-text"][0]
   // O/P: a JSON object, based on the index.json file and new metadata
   // Status: untested
-  const filename = getFilenameFromPath(path);
-  const shortFilename = filename.substring(0, filename.lastIndexOf('.'));
-  let metadata = getMetadataFromIndex(filename);
+  let metadata = getMetadataFromIndex(storyID);
 
   const date = new Date();
   const prettyDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
@@ -45,7 +43,7 @@ function improveFLExIndexData(path, itext) {
     // below is the starter data:
     metadata = {
       "timed": false,
-      "title from filename": shortFilename,
+      "title from filename": storyID,
       "title": {
         "_default": ""
       },

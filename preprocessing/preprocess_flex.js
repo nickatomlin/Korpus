@@ -19,9 +19,9 @@ function isPunctuation(word) {
   return word.item[0].$.type === "punct";
 }
 
-function updateIndex(metadata, indexFileName, xmlFileName) {
+function updateIndex(metadata, indexFileName, storyID) {
   let index = JSON.parse(fs.readFileSync(indexFileName, "utf8"));
-  index[helper.getFilenameFromPath(xmlFileName)] = metadata;
+  index[storyID] = metadata;
   fs.writeFileSync(indexFileName, JSON.stringify(index, null, 2));
 }
 
@@ -235,8 +235,10 @@ function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback)
   parseXml(fs.readFileSync(xmlFileName), function (err, jsonIn) {
     if (err) throw err;
 
-    let metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
-    updateIndex(metadata, "data/index2.json", xmlFileName);
+    let storyID = jsonIn["document"]["interlinear-text"][0].$.guid;
+
+    let metadata = helper.improveFLExIndexData(storyID, jsonIn["document"]["interlinear-text"][0]);
+    updateIndex(metadata, "data/index2.json", storyID);
 
     const jsonOut = {
       "metadata": metadata,
