@@ -43,7 +43,7 @@ function improveFLExIndexData(storyID, itext) {
     // below is the starter data:
     metadata = {
       "timed": false,
-      "title from filename": storyID,
+      "story ID": storyID,
       "title": {
         "_default": ""
       },
@@ -107,7 +107,7 @@ function improveElanIndexData(path, adoc) {
     // below is the starter data:
     metadata = {
       "timed": true,
-      "title from filename": filename,
+      "story ID": filename,
       "title": {
         "_default": ""
       },

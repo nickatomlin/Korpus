@@ -22,7 +22,7 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
     };
     jsonOut.metadata["tier IDs"] = {};
     jsonOut.metadata["speaker IDs"] = {};
-    jsonOut.metadata["title from filename"] = titleFromFileName;
+    jsonOut.metadata["story ID"] = titleFromFileName;
 
     const timeslots = eafUtils.getDocTimeslotsMap(jsonIn);
     const tiers = eafUtils.getNonemptyTiers(jsonIn);
