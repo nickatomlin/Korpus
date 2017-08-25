@@ -1,21 +1,22 @@
 import React from 'react';
 import id from 'shortid';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { Story } from './Story/Story.jsx';
+import { NotFound } from './NotFound.jsx';
 
 export function Stories({ stories }) {
   return (
-      <div>
+      <Switch>
         {
           stories.map(story => (
-              <div key={id.generate()}>
-                <Route
-                    exact path={`/story/${story['metadata']['story ID']}`}
-                    render={props => <Story story={story} />}
-                />
-              </div>
+              <Route
+									key={id.generate()}
+									exact path={`/story/${story['metadata']['story ID']}`}
+									render={props => <Story story={story} />}
+							/>
           ))
         }
-      </div>
+				<Route component={NotFound} />
+      </Switch>
   );
 }

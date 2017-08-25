@@ -25663,26 +25663,26 @@ var _reactRouterDom = __webpack_require__(31);
 
 var _Story = __webpack_require__(233);
 
+var _NotFound = __webpack_require__(246);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Stories(_ref) {
   var stories = _ref.stories;
 
   return _react2.default.createElement(
-    'div',
+    _reactRouterDom.Switch,
     null,
     stories.map(function (story) {
-      return _react2.default.createElement(
-        'div',
-        { key: _shortid2.default.generate() },
-        _react2.default.createElement(_reactRouterDom.Route, {
-          exact: true, path: '/story/' + story['metadata']['story ID'],
-          render: function render(props) {
-            return _react2.default.createElement(_Story.Story, { story: story });
-          }
-        })
-      );
-    })
+      return _react2.default.createElement(_reactRouterDom.Route, {
+        key: _shortid2.default.generate(),
+        exact: true, path: '/story/' + story['metadata']['story ID'],
+        render: function render(props) {
+          return _react2.default.createElement(_Story.Story, { story: story });
+        }
+      });
+    }),
+    _react2.default.createElement(_reactRouterDom.Route, { component: _NotFound.NotFound })
   );
 }
 
@@ -26675,6 +26675,32 @@ function TimedTextDisplay(_ref4) {
 		{ id: 'timedTextDisplay' },
 		output
 	);
+}
+
+/***/ }),
+/* 246 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.NotFound = NotFound;
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function NotFound() {
+  return _react2.default.createElement(
+    'p',
+    null,
+    'Story not found. Perhaps you mistyped the URL? '
+  );
 }
 
 /***/ })
