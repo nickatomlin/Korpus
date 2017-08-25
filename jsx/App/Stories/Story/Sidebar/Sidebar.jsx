@@ -7,15 +7,11 @@ export function Sidebar({ metadata }) {
 	// O/P: a sidebar complement to the TextDisplay
 	// Status: untested
 
-	// Some KORPUS-specific code here (removing # from title):
 	let title = metadata['title']['con-Latn-EC'];
 	if (metadata['title']['_default'] != '') {
 		title = metadata['title']['_default'];
 	}
-	if (!metadata['timed']) {
-		title = title.substr(title.indexOf(" ") + 1);
-	}
-
+	
 	if (metadata['timed'] && metadata['media']['video'] != '') {
 		const filename = metadata['media']['video'];
 		const path = 'data/media_files/' + filename;

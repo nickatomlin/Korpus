@@ -10,7 +10,7 @@ export function Stories({ stories }) {
           stories.map(story => (
               <div key={id.generate()}>
                 <Route
-                    exact path={`/story/${story['metadata']['title from filename']}`}
+                    exact path={`/story/${story['metadata']['story ID']}`}
                     render={props => <Story story={story} />}
                 />
               </div>

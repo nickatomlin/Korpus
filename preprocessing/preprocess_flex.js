@@ -19,9 +19,9 @@ function isPunctuation(word) {
   return word.item[0].$.type === "punct";
 }
 
-function updateIndex(metadata, indexFileName, xmlFileName) {
+function updateIndex(metadata, indexFileName, storyID) {
   let index = JSON.parse(fs.readFileSync(indexFileName, "utf8"));
-  index[helper.getFilenameFromPath(xmlFileName)] = metadata;
+  index[storyID] = metadata;
   fs.writeFileSync(indexFileName, JSON.stringify(index, null, 2));
 }
 
@@ -30,7 +30,7 @@ function getGlommedValue(morphsThisTier, wordStartSlot, wordEndSlot) {
   let maybeAddCompoundSeparator = false; // never add a separator before the first word
   for (let i = wordStartSlot; i < wordEndSlot; i++) {
     let nextValue = '***';
-    if (morphsThisTier[i] != null) {
+    if (morphsThisTier[i] != null && morphsThisTier[i]['value'] != null) {
       nextValue = morphsThisTier[i]["value"];
 
       // insert missing '-' if needed (FLEX seems to omit them in glosses of affixes)
@@ -231,41 +231,40 @@ function getSentenceJson(sentence, tierReg, wordsTierID) {
   });
 }
 
-function preprocess(xmlFileName, jsonFileName, shortFileName, isoDict, callback) {
-  parseXml(fs.readFileSync(xmlFileName), function (err, jsonIn) {
-    if (err) throw err;
+function preprocessText(jsonIn, jsonFilesDir, shortFileName, isoDict, callback) {
+  let storyID = jsonIn.$.guid;
 
-    let metadata = helper.improveFLExIndexData(xmlFileName, jsonIn["document"]["interlinear-text"][0]);
-    updateIndex(metadata, "data/index2.json", xmlFileName);
+  let metadata = helper.improveFLExIndexData(storyID, jsonIn);
+  updateIndex(metadata, "data/index2.json", storyID);
 
-    const jsonOut = {
-      "metadata": metadata,
-      "sentences": []
-    };
+  const jsonOut = {
+    "metadata": metadata,
+    "sentences": []
+  };
 
-    let textLang = flexUtils.getWordLang(flexUtils.getDocumentFirstWord(jsonIn));
-    const tierReg = new tierRegistry(isoDict);
-    const wordsTierID = tierReg.maybeRegisterTier(textLang, "words", true);
+  let textLang = flexUtils.getWordLang(flexUtils.getDocumentFirstWord(jsonIn));
+  const tierReg = new tierRegistry(isoDict);
+  const wordsTierID = tierReg.maybeRegisterTier(textLang, "words", true);
 
-    for (const paragraph of flexUtils.getDocumentParagraphs(jsonIn)) {
-      for (const sentence of flexUtils.getParagraphSentences(paragraph)) {
-        jsonOut.sentences.push(getSentenceJson(sentence, tierReg, wordsTierID));
+  for (const paragraph of flexUtils.getDocumentParagraphs(jsonIn)) {
+    for (const sentence of flexUtils.getParagraphSentences(paragraph)) {
+      jsonOut.sentences.push(getSentenceJson(sentence, tierReg, wordsTierID));
+    }
+  }
+
+  jsonOut.metadata['tier IDs'] = tierReg.getTiersJson();
+
+  const prettyString = JSON.stringify(jsonOut, null, 2);
+  const jsonPath = jsonFilesDir + storyID + ".json";
+  fs.writeFile(jsonPath, prettyString, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      // console.log("✅  Correctly wrote " + storyID + ".json");
+      if (callback != null) {
+        callback();
       }
     }
-
-    jsonOut.metadata['tier IDs'] = tierReg.getTiersJson();
-
-    const prettyString = JSON.stringify(jsonOut, null, 2);
-    fs.writeFile(jsonFileName, prettyString, function (err) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("✅  Correctly processed " + shortFileName + ".xml");
-        if (callback != null) {
-          callback();
-        }
-      }
-    });
   });
 }
 
@@ -289,10 +288,19 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
   };
 
   for (const xmlFileName of xmlFileNames) {
-    // console.log("Processing " + xmlFileName);
+    console.log("Processing " + xmlFileName);
     const xmlPath = xmlFilesDir + xmlFileName;
-    const jsonPath = jsonFilesDir + xmlFileName.slice(0, -4) + ".json";
-    preprocess(xmlPath, jsonPath, xmlFileName.slice(0, -4), isoDict, whenDone);
+    fs.readFile(xmlPath, function (err1, xmlData) {
+      if (err1) throw err1;
+      parseXml(xmlData, function (err2, jsonData) {
+        if (err2) throw err2;
+        const texts = jsonData['document']['interlinear-text'];
+        for (const text of texts) {
+          preprocessText(text, jsonFilesDir, xmlFileName.slice(0, -4), isoDict, whenDone);
+        }
+      });
+    });
+
   }
 }
 

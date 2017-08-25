@@ -1,14 +1,12 @@
 function getDocumentFirstWord(doc) {
-  const paragraphs = doc["document"]["interlinear-text"][0].paragraphs[0].paragraph;
-  const firstParagraph = paragraphs[0].phrases[0].word;
-  const firstSentence = firstParagraph[0].words[0].word;
-  const firstWord = firstSentence[0].item[0];
-  return firstWord;
+  const firstParagraph = getDocumentParagraphs(doc)[0];
+  const firstSentence = getParagraphSentences(firstParagraph)[0];
+  return getSentenceWords(firstSentence)[0];
 }
 
 function getDocumentParagraphs(doc) {
   let paragraphs = [];
-  const wrappedParagraphs = doc["document"]["interlinear-text"][0].paragraphs[0].paragraph;
+  const wrappedParagraphs = doc.paragraphs[0].paragraph;
   for (const wrappedParagraph of wrappedParagraphs) {
     if (wrappedParagraph.phrases == null) continue; // if this paragraph is empty, skip it instead of erroring
     paragraphs.push(wrappedParagraph.phrases[0].word);
@@ -55,10 +53,7 @@ function getWordValue(word) {
 }
 
 function getWordLang(word) {
-  if (word.$.lang == null) {
-    return 'defaultLang';
-  }
-  return word.$.lang;
+  return word.item[0].$.lang;
 }
 
 function getMorphTiers(morph) {

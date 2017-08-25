@@ -2,7 +2,7 @@ const flex = require('./preprocess_flex');
 const elan = require('./preprocess_eaf');
 const db = require('./build_fake_database');
 
-const flexFilesDir = "data/flex_files/";
+const flexFilesDir = "data/flex_files2/";
 const elanFilesDir = "data/elan_files/";
 const jsonFilesDir = "data/json_files/";
 const isoFileName = "preprocessing/iso_dict.json";
