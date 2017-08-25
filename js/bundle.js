@@ -25802,13 +25802,9 @@ function Sidebar(_ref) {
 	// O/P: a sidebar complement to the TextDisplay
 	// Status: untested
 
-	// Some KORPUS-specific code here (removing # from title):
 	var title = metadata['title']['con-Latn-EC'];
 	if (metadata['title']['_default'] != '') {
 		title = metadata['title']['_default'];
-	}
-	if (!metadata['timed']) {
-		title = title.substr(title.indexOf(" ") + 1);
 	}
 
 	if (metadata['timed'] && metadata['media']['video'] != '') {
