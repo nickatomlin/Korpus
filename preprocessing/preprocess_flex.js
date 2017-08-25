@@ -30,7 +30,7 @@ function getGlommedValue(morphsThisTier, wordStartSlot, wordEndSlot) {
   let maybeAddCompoundSeparator = false; // never add a separator before the first word
   for (let i = wordStartSlot; i < wordEndSlot; i++) {
     let nextValue = '***';
-    if (morphsThisTier[i] != null) {
+    if (morphsThisTier[i] != null && morphsThisTier[i]['value'] != null) {
       nextValue = morphsThisTier[i]["value"];
 
       // insert missing '-' if needed (FLEX seems to omit them in glosses of affixes)
