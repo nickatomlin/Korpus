@@ -31,23 +31,35 @@
     "speakers": [],
     "tier IDs": {
       "T1": {
-        "name": "Palabra a'ingae",
+        "name": "Palabra a'ingae (borman)",
         "subdivided": true
       },
       "T2": {
-        "name": "Morfema (texto) a'ingae",
+        "name": "Morfema (texto) a'ingae (borman)",
         "subdivided": true
       },
       "T3": {
-        "name": "Morfema (forma típico) a'ingae",
+        "name": "Morfema (texto) a'ingae (dureno)",
         "subdivided": true
       },
       "T4": {
-        "name": "Glosa de morfema inglés",
+        "name": "Morfema (forma típico) a'ingae (borman)",
         "subdivided": true
       },
       "T5": {
+        "name": "Glosa de morfema inglés",
+        "subdivided": true
+      },
+      "T6": {
+        "name": "Glosa de morfema español",
+        "subdivided": true
+      },
+      "T7": {
         "name": "Frase inglés",
+        "subdivided": false
+      },
+      "T8": {
+        "name": "Frase español",
         "subdivided": false
       }
     }
@@ -123,6 +135,36 @@
             {
               "start_slot": 0,
               "end_slot": 2,
+              "value": "na'e=mbe"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 5,
+              "value": "*tsûtu=ni=nde"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "thesi"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "chan=jan"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "kanse"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
               "value": "na'en=mbe"
             },
             {
@@ -148,7 +190,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -178,12 +220,52 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "río=BEN"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 5,
+              "value": "río arriba=LOC=REP"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "jaguar"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "madre=CONTR"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "vivir"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 9,
               "value": "In the head of the river lives the mother of a tiger."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 9,
+              "value": "En la cabecera del río vive la mamá del tigre."
             }
           ]
         }
@@ -254,6 +336,31 @@
             {
               "start_slot": 1,
               "end_slot": 4,
+              "value": "*tsûtu=ta=te"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "thesi"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "tsa'u"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "na'en"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 4,
               "value": "*tsuto=ta+te"
             },
             {
@@ -269,7 +376,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -294,12 +401,47 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "río"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 4,
+              "value": "río arriba=NEW=REP"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "jaguar"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "casa"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 6,
               "value": "In the head of the river there is a tiger house."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "En la cabecera del río hay una casa de tigre."
             }
           ]
         }
@@ -375,6 +517,36 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tse=ni=nde"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "pûi"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "kuraga=ndekhû"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 10,
+              "value": "pa='fa='ni=jan"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 13,
+              "value": "muen-'je='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tse=ni+te"
             },
             {
@@ -400,7 +572,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -430,12 +602,52 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA.LOC=LOC=REP"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "ambos"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "brujo=PL.HUM"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 10,
+              "value": "morir=PL.SBJ=LOC=CONTR"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 13,
+              "value": "enviar-IMPV=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 13,
               "value": "There they send the shamans when they die"
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 13,
+              "value": "Allá lo mandan cuando una persona curaca muere"
             }
           ]
         }
@@ -511,6 +723,36 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsun=si=te"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "tse=ni"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "thesi=ve"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "da=pa"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "kanse='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tson=si+te"
             },
             {
@@ -536,7 +778,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -566,12 +808,52 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "hacer=DS=REP"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "ANA.LOC=LOC"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "jaguar=ACC2"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "hacerse=SS"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "vivir=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 11,
               "value": "and then the shaman becomes a tiger."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 11,
+              "value": "y entonces se convierte en tigre."
             }
           ]
         }
@@ -732,6 +1014,76 @@
             {
               "start_slot": 1,
               "end_slot": 3,
+              "value": "kuraga=ndekhû"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "thesi=ve"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "da=si"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "fi'thi=ye"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 13,
+              "value": "'in'ja=mbi='pa=te"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 16,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 19,
+              "value": "tse=ni=jan"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "muen='fa"
+            },
+            {
+              "start_slot": 21,
+              "end_slot": 22,
+              "value": "kûintsû"
+            },
+            {
+              "start_slot": 22,
+              "end_slot": 24,
+              "value": "tse=ni"
+            },
+            {
+              "start_slot": 24,
+              "end_slot": 26,
+              "value": "tsa=ngae"
+            },
+            {
+              "start_slot": 26,
+              "end_slot": 29,
+              "value": "kanse='fa=ye"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "nane"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
               "value": "coraga=ndeccu"
             },
             {
@@ -792,7 +1144,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -862,12 +1214,92 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "cierto"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "brujo=PL.HUM"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "jaguar=ACC2"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "hacerse=SH.SPN"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "matar=INF"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 13,
+              "value": "querer=NEG=SS=REP"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 16,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 19,
+              "value": "ANA.LOC=LOC=CONTR"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "enviar=PL.SBJ"
+            },
+            {
+              "start_slot": 21,
+              "end_slot": 22,
+              "value": "para que"
+            },
+            {
+              "start_slot": 22,
+              "end_slot": 24,
+              "value": "ANA.LOC=LOC"
+            },
+            {
+              "start_slot": 24,
+              "end_slot": 26,
+              "value": "ANA=MANN"
+            },
+            {
+              "start_slot": 26,
+              "end_slot": 29,
+              "value": "vivir=PL.SBJ=INF"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 29,
               "value": "When they don't want to kill him there they send him to live."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 29,
+              "value": "Cuando no le quieren matar allá lo mandan para que viva."
             }
           ]
         }
@@ -953,6 +1385,41 @@
             {
               "start_slot": 0,
               "end_slot": 1,
+              "value": "pûi"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 4,
+              "value": "kuraga=ndekhû=te"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 7,
+              "value": "undikhû='je=ma"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 11,
+              "value": "undikhû=chu=khia'ka=en"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 14,
+              "value": "thesi=mbe=ma"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "a'mbian='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
               "value": "poi"
             },
             {
@@ -983,7 +1450,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1018,12 +1485,57 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ambos"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 4,
+              "value": "brujo=PL.HUM=REP"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 7,
+              "value": "ponerse=SH.FLT=ACC"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 11,
+              "value": "ponerse=SBRD=SIM=ADVR"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 14,
+              "value": "jaguar=BEN=ACC"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "tener=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 16,
               "value": "Becoming a tiger is like putting on a cushma."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 16,
+              "value": "El volverse tigre es como ponerse una cushma."
             }
           ]
         }
@@ -1129,6 +1641,51 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=mba"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "tsû"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "pa='ta"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "thesi"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 10,
+              "value": "undikhû='je=ma"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "undikhû=pa"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 16,
+              "value": "thesi=a='ka=en"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
+              "value": "kanse='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=pa"
             },
             {
@@ -1169,7 +1726,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1214,12 +1771,67 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=SS"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "3"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "morir=NEW"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "jaguar"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 10,
+              "value": "ponerse=SH.FLT=ACC"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "ponerse=SS"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 16,
+              "value": "jaguar=ADJR=CMP=ADVR"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
+              "value": "vivir=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 18,
               "value": "If a shaman dies, he turns into a tiger."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 18,
+              "value": "Si una persona curaca se muere se vuelve tigre."
             }
           ]
         }
@@ -1335,6 +1947,56 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "kuraga=ndekhû=ta"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "te"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "yaje=ma"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "injan'tshe"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "kû'i=pa"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "usha'chu"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "tsampi=ni"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 15,
+              "value": "kanse=khe'sû=ve"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 17,
+              "value": "di'sha=fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "coraga=ndeccu=ta"
             },
             {
@@ -1380,7 +2042,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1430,12 +2092,72 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "brujo=PL.HUM=NEW"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "REP"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "ayahuasca=ACC"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "mucho"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "beber=SS"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "todo"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "tsampi=LOC"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 15,
+              "value": "vivir=HAB=ACC2"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 17,
+              "value": "convertirse en=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 17,
               "value": "Shamans take ayahuasca and convert into a tiger or another animal."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 17,
+              "value": "Los shamanes toman yajé y se convierten en tigre u otro animal."
             }
           ]
         }
@@ -1551,6 +2273,56 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "di'sha=pa=te"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "pa='ta"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 11,
+              "value": "tsesû=ve=yi"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "di'sha=pa"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "tsa=ngae"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 17,
+              "value": "tsampi=ni"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 19,
+              "value": "kanse=ye"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "ja='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -1596,7 +2368,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1646,12 +2418,72 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "convertirse en=SS=REP"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "morir=NEW"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 11,
+              "value": "DIST2=ACC2=EXCL"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "convertirse en=SS"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "ANA=MANN"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 17,
+              "value": "tsampi=LOC"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 19,
+              "value": "vivir=INF"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "ir=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 21,
               "value": "When they die, they convert into a tiger and leave to live in the forest. "
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 21,
+              "value": "Aquella persona cuando muere se convierte en tigre y se va a vivir a la selva."
             }
           ]
         }
@@ -1727,6 +2559,36 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "ja=pa"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "te"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "tsa=ngae"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "kanse='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -1752,7 +2614,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1782,12 +2644,52 @@
           ]
         },
         {
-          "tier": "T5",
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "ir=SS"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "REP"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "ANA=MANN"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "vivir=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 10,
               "value": "There in the forest they live forever."
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 10,
+              "value": "Así en la selva vive para siempre."
             }
           ]
         }

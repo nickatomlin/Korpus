@@ -57,7 +57,9 @@ class tierRegistry {
     switch (lang) {
         // case "flex-language-name-here": return "desired-decoded-name-here";
       case "con-Latn-EC":
-        return "A'ingae";
+        return "A'ingae (Borman)";
+      case "con-Latn-EC-x-dureno":
+        return "A'ingae (Dureno)";
       case "defaultLang":
         return "defaultLang";
 

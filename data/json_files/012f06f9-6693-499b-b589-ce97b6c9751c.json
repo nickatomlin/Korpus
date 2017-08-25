@@ -35,20 +35,32 @@
     "speakers": [],
     "tier IDs": {
       "T1": {
-        "name": "Palabra a'ingae",
+        "name": "Palabra a'ingae (borman)",
         "subdivided": true
       },
       "T2": {
-        "name": "Morfema (texto) a'ingae",
+        "name": "Morfema (texto) a'ingae (borman)",
         "subdivided": true
       },
       "T3": {
-        "name": "Morfema (forma típico) a'ingae",
+        "name": "Morfema (texto) a'ingae (dureno)",
         "subdivided": true
       },
       "T4": {
+        "name": "Morfema (forma típico) a'ingae (borman)",
+        "subdivided": true
+      },
+      "T5": {
         "name": "Glosa de morfema inglés",
         "subdivided": true
+      },
+      "T6": {
+        "name": "Glosa de morfema español",
+        "subdivided": true
+      },
+      "T7": {
+        "name": "Frase español",
+        "subdivided": false
       }
     }
   },
@@ -183,6 +195,61 @@
             {
               "start_slot": 2,
               "end_slot": 3,
+              "value": "dû'shû"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "tuya"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "kinku"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "kankhefa=ve"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "an'bia=ni"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "ûfakhu'khu=i'khû"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "panza=ye"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
+              "value": "atesû"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "fae"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "tsandie"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
               "value": "du'shu"
             },
             {
@@ -223,7 +290,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -274,6 +341,71 @@
               "start_slot": 13,
               "end_slot": 14,
               "value": "know"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "uno"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "hombre"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "niño"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "todavía"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "cinco"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "año=ACC2"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "tener=LOC"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "cerbatana=INST"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "cazar=INF"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
+              "value": "conocer"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 14,
+              "value": "Desde los cinco años, un niño aprendió a cazar con bodoquera."
             }
           ]
         }
@@ -409,6 +541,66 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "tuya"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "dû'shû=yi"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "atesû='chu-pa"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "pûi"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "a'ta"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "tsampi=ni"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "jaka=mba"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 17,
+              "value": "*tsai'mbi='u"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 19,
+              "value": "chhiriria=ve"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 22,
+              "value": "fithi'=thi-'je"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -464,7 +656,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -520,6 +712,76 @@
               "start_slot": 19,
               "end_slot": 22,
               "value": "kill=LOC.NR-IMPV"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "todavía"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "niño=EXCL"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "conocer=SBRD-NR"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "ambos"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "día"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "tsampi=LOC"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "caminar=SS"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 17,
+              "value": "muchos=ADJR2"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 19,
+              "value": "pájaro=ACC2"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 22,
+              "value": "matar=LOC.NR-IMPV"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 22,
+              "value": "El chico cazaba muchos pajaritos casi todos los días."
             }
           ]
         }
@@ -655,6 +917,66 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "fithi='thi=pa"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "tise"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "mama=ni"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "***=si"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "tise"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 12,
+              "value": "yaya=ndekhû=ja"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "sa'sa=pa"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "tshaña=mba"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
+              "value": "shu'khae=mba"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 19,
+              "value": "an"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "kan'jen='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "fi'tti-[C^1][V^1]=pa"
             },
             {
@@ -710,7 +1032,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -766,6 +1088,66 @@
               "start_slot": 19,
               "end_slot": 21,
               "value": "stay=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "matar=ITER=SS"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "mamá=LOC"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "***=DS"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 12,
+              "value": "papá=PL.HUM=CONTR"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "arrancar=SS"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "destripar=SS"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
+              "value": "cocinar=SS"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 19,
+              "value": "comer"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "quedarse=PL.SBJ"
             }
           ]
         }
@@ -871,6 +1253,46 @@
             {
               "start_slot": 2,
               "end_slot": 4,
+              "value": "dû'shû=ja"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 8,
+              "value": "kha'i=a='ka=en"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "tsau=ni"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "ku'fe"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "kan'jen='ma'sia"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "tsa"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "tsandie"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
               "value": "du'shu=ja"
             },
             {
@@ -896,7 +1318,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -932,6 +1354,56 @@
               "start_slot": 11,
               "end_slot": 13,
               "value": "stay=NEG.HAB"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ANA"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "hombre"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
+              "value": "niño=CONTR"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 8,
+              "value": "otro=ADJR=CMP=ADVR"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "casa=LOC"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "jugar"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "quedarse=NEG.HAB"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 13,
+              "value": "El no sabía jugar, como otros niños en casa"
             }
           ]
         }
@@ -1027,6 +1499,46 @@
             {
               "start_slot": 0,
               "end_slot": 1,
+              "value": "pûi"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "a'ta"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
+              "value": "tsampi=ni"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "jaka=mba"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "chhiriria=ma"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 11,
+              "value": "fithi-[C^1][V^1]=ye"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "atesû"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
               "value": "poi"
             },
             {
@@ -1062,7 +1574,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1098,6 +1610,56 @@
               "start_slot": 11,
               "end_slot": 12,
               "value": "know"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ambos"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "día"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
+              "value": "tsampi=LOC"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "caminar=SS"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "pájaro=ACC"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 11,
+              "value": "matar-ITER=INF"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "conocer"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "sino que andaba en busca de los pajaritos que se asomaban."
             }
           ]
         }
@@ -1173,6 +1735,36 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "jakan"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "ti'tshe"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "kuenza=ve"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 8,
+              "value": "da"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -1198,7 +1790,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1224,6 +1816,36 @@
               "start_slot": 7,
               "end_slot": 8,
               "value": "become"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "caminar"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "más"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "viejo=ACC2"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 8,
+              "value": "hacerse"
             }
           ]
         }
@@ -1339,6 +1961,56 @@
             {
               "start_slot": 0,
               "end_slot": 6,
+              "value": "***+ti+tive+*pa='khu='ye"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "kathûfayi"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 10,
+              "value": "kankhefa=khia'ka=en"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "an'bia=mba"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "tsampi=ni"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 17,
+              "value": "ja-yi=pa"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
+              "value": "chhiriria"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 20,
+              "value": "***=nga"
+            },
+            {
+              "start_slot": 20,
+              "end_slot": 21,
+              "value": "napi"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
               "value": "***+ti+tive+*pa='cco=ye"
             },
             {
@@ -1384,7 +2056,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1430,6 +2102,66 @@
               "start_slot": 20,
               "end_slot": 21,
               "value": "arrive"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "***+INT+mano+todos=SH.ANG=ELAT"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "cuatro"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 10,
+              "value": "año=SIM=ADVR"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "tener=SS"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "tsampi=LOC"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 17,
+              "value": "ir-PROST=SS"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
+              "value": "pájaro"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 20,
+              "value": "***=DAT"
+            },
+            {
+              "start_slot": 20,
+              "end_slot": 21,
+              "value": "llegar"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 21,
+              "value": "Así andaba solo hasta cumplir los catorce años, más o menos."
             }
           ]
         }
@@ -1545,6 +2277,56 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "napi=pa"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "*vasi=a='ve"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "kan"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 12,
+              "value": "ja-yi=pa"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 13,
+              "value": "athe"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
+              "value": "fae"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 15,
+              "value": "pûshesû"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 18,
+              "value": "me'nde'vi=a'=ma"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -1590,7 +2372,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1636,6 +2418,66 @@
               "start_slot": 15,
               "end_slot": 18,
               "value": "beautiful=ADJR=ACC"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "llegar=SS"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "lento=ADJR=ACC2"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "mirar"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 12,
+              "value": "ir-PROST=SS"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 13,
+              "value": "ver"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
+              "value": "uno"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 15,
+              "value": "mujer"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 18,
+              "value": "bello=ADJR=ACC"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 18,
+              "value": "Un día, cuando iba por el camino, vio a una mujercita muy bella. "
             }
           ]
         }
@@ -1731,6 +2573,46 @@
             {
               "start_slot": 0,
               "end_slot": 2,
+              "value": "athe=pa"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "pûi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "a'ta"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "tsampi=ni"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "ja='ta"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 11,
+              "value": "kachûi=ve=yi"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "ja-'je"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
               "value": "atte=pa"
             },
             {
@@ -1766,7 +2648,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1802,6 +2684,46 @@
               "start_slot": 11,
               "end_slot": 13,
               "value": "go-IMPV"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "ver=SS"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "ambos"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "día"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "tsampi=LOC"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "ir=NEW"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 11,
+              "value": "encontrar=ACC2=EXCL"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "ir-IMPV"
             }
           ]
         }
@@ -1872,6 +2794,31 @@
             {
               "start_slot": 3,
               "end_slot": 5,
+              "value": "kachûi='ta"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "tise'=nga"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "katse=mbi"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "va=e=yi"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
               "value": "cachai=ta"
             },
             {
@@ -1887,7 +2834,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -1908,6 +2855,31 @@
               "start_slot": 7,
               "end_slot": 9,
               "value": "approach=NEG"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "PROX=ADVR=EXCL"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "encontrar=NEW"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "3.SG=DAT"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "acercarse=NEG"
             }
           ]
         }
@@ -2038,6 +3010,61 @@
             {
               "start_slot": 2,
               "end_slot": 3,
+              "value": "khase"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "khase"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "pûi"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "ja=ta"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 10,
+              "value": "kachûi-'je=pa"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "tsa"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "pûshesû=nga"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "katse=pa"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 16,
+              "value": "afa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "tsa='ma"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
               "value": "ccase"
             },
             {
@@ -2083,7 +3110,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2134,6 +3161,61 @@
               "start_slot": 15,
               "end_slot": 16,
               "value": "speak"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "ANA=FRT"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "de nuevo"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "de nuevo"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "ambos"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "ir=NEW"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 10,
+              "value": "encontrar-IMPV=SS"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "ANA"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "mujer=DAT"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "acercarse=SS"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 16,
+              "value": "hablar"
             }
           ]
         }
@@ -2199,6 +3281,31 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "kachûi-'je"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "*ñu=a'=me"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "injenge"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -2219,7 +3326,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2240,6 +3347,31 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "be necessary"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "encontrar-IMPV"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "bueno=ADJR=ACC2"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "ser necesario"
             }
           ]
         }
@@ -2385,6 +3517,71 @@
             {
               "start_slot": 0,
               "end_slot": 4,
+              "value": "*me'nde=tshi=a='ve"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "athe=pa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "tise'=ma"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "tisû"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "mama=ni"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "anga=ye"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
+              "value": "in'jan"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 15,
+              "value": "kûintsû"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 16,
+              "value": "tise"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 17,
+              "value": "mama"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 19,
+              "value": "athe=pa"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "in'ja=ñe"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
               "value": "*me'nde=tssi=a=ve"
             },
             {
@@ -2445,7 +3642,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2508,6 +3705,71 @@
               "value": "want=INF"
             }
           ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "belleza=STAT=ADJR=ACC2"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "ver=SS"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "3.SG=ACC"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "REFL"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "mamá=LOC"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "llevar=INF"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
+              "value": "querer"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 15,
+              "value": "para que"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 16,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 17,
+              "value": "mamá"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 19,
+              "value": "ver=SS"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "querer=INF"
+            }
+          ]
         }
       ]
     },
@@ -2566,6 +3828,26 @@
             {
               "start_slot": 1,
               "end_slot": 3,
+              "value": "pûshesû=ja"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "***='tshi"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "tsa"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
               "value": "pushesu=ja"
             },
             {
@@ -2576,7 +3858,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2587,6 +3869,26 @@
               "start_slot": 1,
               "end_slot": 3,
               "value": "woman=CONTR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "***=STAT"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ANA"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "mujer=CONTR"
             },
             {
               "start_slot": 3,
@@ -2672,6 +3974,36 @@
             {
               "start_slot": 2,
               "end_slot": 4,
+              "value": "tsau=ni"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "anga=si"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "pûi=yi='khu"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "athe='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "tsa=ma"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
               "value": "tsa'o=ni"
             },
             {
@@ -2692,7 +4024,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2718,6 +4050,46 @@
               "start_slot": 9,
               "end_slot": 11,
               "value": "see=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "ANA=ACC"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
+              "value": "casa=LOC"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "llevar=DS"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "ambos=EXCL=SH.ANG"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "ver=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 11,
+              "value": "Entonces, en seguida la llevó a su casa"
             }
           ]
         }
@@ -2813,6 +4185,46 @@
             {
               "start_slot": 0,
               "end_slot": 2,
+              "value": "tsu=mba"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
+              "value": "anthe='fa"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "kûintsû"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "tise'pa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "dûtshi'ye=i'khû"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "fae='ngae"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "kan'je-ñe"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
               "value": "tson=pa"
             },
             {
@@ -2848,7 +4260,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -2884,6 +4296,46 @@
               "start_slot": 10,
               "end_slot": 12,
               "value": "stay-PASS"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "hacer=SS"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 4,
+              "value": "dejar=PL.SBJ"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "para que"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "3.PL"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "hijo=INST"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "uno=MANN"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "quedarse-PASS"
             }
           ]
         }
@@ -2974,6 +4426,41 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "anga=si"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "pûshesû=ja"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "tise'pa=i'khû"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "fae'nga=e"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 13,
+              "value": "kan'jen"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -3004,7 +4491,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3035,6 +4522,41 @@
               "start_slot": 12,
               "end_slot": 13,
               "value": "stay"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "llevar=DS"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "mujer=CONTR"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "3.PL=INST"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "juntos=ADVR"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 13,
+              "value": "quedarse"
             }
           ]
         }
@@ -3110,6 +4632,36 @@
             {
               "start_slot": 0,
               "end_slot": 2,
+              "value": "kan'je=mba"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "fae"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "sinte"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "ûta"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "jangi=mbi"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
               "value": "can'jen=pa"
             },
             {
@@ -3135,7 +4687,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3161,6 +4713,46 @@
               "start_slot": 5,
               "end_slot": 7,
               "value": "get up=NEG"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "quedarse=SS"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "uno"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "por la mañana"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "pronto"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 7,
+              "value": "levantarse=NEG"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "un día se quedaron dormidos por la mañana, sin darse cuenta que ya había amanecido."
             }
           ]
         }
@@ -3316,6 +4908,76 @@
             {
               "start_slot": 0,
               "end_slot": 1,
+              "value": "kuse"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "khendya=pa"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "ata=ni=ngae"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "ana=mba"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "sinte"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "jangi=mbe"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "tuya"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 15,
+              "value": "ana-'jen='ni"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 16,
+              "value": "tise"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
+              "value": "chankhashe=ja"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 19,
+              "value": "tayu"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "jangi=pa"
+            },
+            {
+              "start_slot": 21,
+              "end_slot": 23,
+              "value": "vase-'je"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
               "value": "cose"
             },
             {
@@ -3381,7 +5043,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3447,6 +5109,76 @@
               "start_slot": 21,
               "end_slot": 23,
               "value": "touch with hands-IMPV"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "noche"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "respirar=SS"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "día=LOC=MANN"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "dormir=SS"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "por la mañana"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "levantarse=BEN"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "todavía"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 15,
+              "value": "dormir-IMPV=LOC"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 16,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
+              "value": "suegra=CONTR"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 19,
+              "value": "ya"
+            },
+            {
+              "start_slot": 19,
+              "end_slot": 21,
+              "value": "levantarse=SS"
+            },
+            {
+              "start_slot": 21,
+              "end_slot": 23,
+              "value": "tocar con las manos-IMPV"
             }
           ]
         }
@@ -3532,6 +5264,41 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "vase-'je=pa"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "tise"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "dûtshi'ye=ma"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "ka=mba"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "athe"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -3562,7 +5329,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3593,6 +5360,41 @@
               "start_slot": 11,
               "end_slot": 12,
               "value": "see"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "tocar con las manos-IMPV=SS"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "hijo=ACC"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "mirar=SS"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "ver"
             }
           ]
         }
@@ -3703,6 +5505,51 @@
             {
               "start_slot": 1,
               "end_slot": 3,
+              "value": "dûtshi'ye=ja"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "ana"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "khûi"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "tise"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "thenangu=khû=nga"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "chhiriria=ma"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "ejia-mba"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "tise"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
               "value": "dutssi'ye=ja"
             },
             {
@@ -3738,7 +5585,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3779,6 +5626,61 @@
               "start_slot": 11,
               "end_slot": 13,
               "value": "insert-NR"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "hijo=CONTR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "dormir"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "acostarse"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "pierna=SH.DLM=DAT"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "pájaro=ACC"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 13,
+              "value": "meter-NR"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 13,
+              "value": "su hijo tenía metida una pajarita entre las rodillas."
             }
           ]
         }
@@ -3834,6 +5736,26 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=e"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "athe=pa"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "sû"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -3849,7 +5771,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3865,6 +5787,36 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "say"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "ver=SS"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "decir"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Ella le dijo:"
             }
           ]
         }
@@ -3930,6 +5882,31 @@
             {
               "start_slot": 0,
               "end_slot": 1,
+              "value": "jarichu"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "jangi=ja"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "tayu"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "a'ta"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
               "value": "jaricho"
             },
             {
@@ -3950,7 +5927,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -3971,6 +5948,41 @@
               "start_slot": 4,
               "end_slot": 5,
               "value": "day"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "hijo"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "levantarse=CONTR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "ya"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "día"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 5,
+              "value": "\"¡Despiértate, hijo!"
             }
           ]
         }
@@ -4066,6 +6078,46 @@
             {
               "start_slot": 0,
               "end_slot": 1,
+              "value": "junguesie"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "ki"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 6,
+              "value": "chhiriria=khu='an=jan"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "thenangu=khû=nga"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "ejian"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "khûi=pa"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "ana-'jen"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
               "value": "jongoesie"
             },
             {
@@ -4101,7 +6153,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -4137,6 +6189,56 @@
               "start_slot": 12,
               "end_slot": 14,
               "value": "sleep-IMPV"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "para qué"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "2"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 6,
+              "value": "pájaro=SH.ANG=ACC3=CONTR"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "pierna=SH.DLM=DAT"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "meter"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "acostarse=SS"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "dormir-IMPV"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 14,
+              "value": "¿Por qué duermes así con una pajarita? Y ¿por qué la metiste entre tus rodillas?\"."
             }
           ]
         }
@@ -4302,6 +6404,81 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "sû-'je=si"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "tsa"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "chhiriria=ja"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "paña=mba"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "tise"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 13,
+              "value": "tsa'ndû"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "thena'ngu=ma"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 18,
+              "value": "chundia=nga=si"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 20,
+              "value": "jangi=pa"
+            },
+            {
+              "start_slot": 20,
+              "end_slot": 24,
+              "value": "tse='fa=i'khû=yi"
+            },
+            {
+              "start_slot": 24,
+              "end_slot": 25,
+              "value": "***"
+            },
+            {
+              "start_slot": 25,
+              "end_slot": 26,
+              "value": "ja"
+            },
+            {
+              "start_slot": 26,
+              "end_slot": 28,
+              "value": "tsampi=ni"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -4367,7 +6544,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -4438,6 +6615,91 @@
               "start_slot": 26,
               "end_slot": 28,
               "value": "forest=LOC"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 6,
+              "value": "decir-IMPV=DS"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "ANA"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "pájaro=CONTR"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "oír=SS"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 12,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 13,
+              "value": "casarse"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 15,
+              "value": "pierna=ACC"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 18,
+              "value": "escapar=DAT=DS"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 20,
+              "value": "levantarse=SS"
+            },
+            {
+              "start_slot": 20,
+              "end_slot": 24,
+              "value": "ANA.LOC=SH.LAT=INST=EXCL"
+            },
+            {
+              "start_slot": 24,
+              "end_slot": 25,
+              "value": "volar"
+            },
+            {
+              "start_slot": 25,
+              "end_slot": 26,
+              "value": "ir"
+            },
+            {
+              "start_slot": 26,
+              "end_slot": 28,
+              "value": "tsampi=LOC"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 28,
+              "value": "Mientras la suegra estaba hablando a su hijo, la pajarita voló alejándose del chico."
             }
           ]
         }
@@ -4583,6 +6845,71 @@
             {
               "start_slot": 0,
               "end_slot": 3,
+              "value": "tsa='ka=en"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "ja-yi"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "tise"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "tsa'ndû=ja"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "pûi"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "a'ta"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "tise"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 14,
+              "value": "athe-'je=ni"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "ja=pa"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 17,
+              "value": "tha'tha"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
+              "value": "i'na"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 19,
+              "value": "jakan"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
               "value": "tsa='can=e"
             },
             {
@@ -4643,7 +6970,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -4704,6 +7031,81 @@
               "start_slot": 18,
               "end_slot": 19,
               "value": "walk"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "ANA=CMP=ADVR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "ir-PROST"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 8,
+              "value": "esposo=CONTR"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "ambos"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "día"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 11,
+              "end_slot": 14,
+              "value": "ver-IMPV=LOC"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "ir=SS"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 17,
+              "value": "buscar"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
+              "value": "llorar"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 19,
+              "value": "caminar"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 19,
+              "value": "El chico se sentía muy triste y se fue a buscar la pajarita donde anteriormente la había encontrado."
             }
           ]
         }
@@ -4789,6 +7191,36 @@
             {
               "start_slot": 3,
               "end_slot": 5,
+              "value": "pûshesû=ja"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "tsa=nga=e"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "nepi"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "tsa='ma"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "tsa"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
               "value": "pushesu=ja"
             },
             {
@@ -4804,7 +7236,7 @@
           ]
         },
         {
-          "tier": "T4",
+          "tier": "T5",
           "values": [
             {
               "start_slot": 0,
@@ -4830,6 +7262,46 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "arrive"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "ANA=FRT"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "ANA"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
+              "value": "mujer=CONTR"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "ANA=DAT=ADVR"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "llegar"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 9,
+              "value": "Allí esperó muchas horas, pero la mujercita no se asomó jamás."
             }
           ]
         }
