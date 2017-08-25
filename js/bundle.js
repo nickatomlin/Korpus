@@ -15880,13 +15880,13 @@ var StoryIndex = exports.StoryIndex = function (_React$Component) {
                         timed = '✘';
                     }
 
-                    // const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['title from filename']}'}>${mainTitle}</Link>`);
-                    var link = '<a href=\'#/story/' + index[story]['title from filename'] + '\'>' + mainTitle + '</a>';
+                    // const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['story ID']}'}>${mainTitle}</Link>`);
+                    var link = '<a href=\'#/story/' + index[story]['story ID'] + '\'>' + mainTitle + '</a>';
 
                     storyList.push([link, translatedTitle, index[story]['author'], timed]);
                     // storyList.push(
                     //     <li key={id.generate()}>
-                    //         <Link to={`/story/${index[story]['title from filename']}`}>{story}</Link>
+                    //         <Link to={`/story/${index[story]['story ID']}`}>{story}</Link>
                     //     </li>
                     // )
                 }
@@ -25647,7 +25647,7 @@ module.exports = '15.6.1';
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.Stories = Stories;
 
@@ -25666,24 +25666,24 @@ var _Story = __webpack_require__(233);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Stories(_ref) {
-    var stories = _ref.stories;
+  var stories = _ref.stories;
 
-    return _react2.default.createElement(
+  return _react2.default.createElement(
+    'div',
+    null,
+    stories.map(function (story) {
+      return _react2.default.createElement(
         'div',
-        null,
-        stories.map(function (story) {
-            return _react2.default.createElement(
-                'div',
-                { key: _shortid2.default.generate() },
-                _react2.default.createElement(_reactRouterDom.Route, {
-                    exact: true, path: '/story/' + story['metadata']['title from filename'],
-                    render: function render(props) {
-                        return _react2.default.createElement(_Story.Story, { story: story });
-                    }
-                })
-            );
+        { key: _shortid2.default.generate() },
+        _react2.default.createElement(_reactRouterDom.Route, {
+          exact: true, path: '/story/' + story['metadata']['story ID'],
+          render: function render(props) {
+            return _react2.default.createElement(_Story.Story, { story: story });
+          }
         })
-    );
+      );
+    })
+  );
 }
 
 /***/ }),
