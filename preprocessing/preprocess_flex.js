@@ -260,7 +260,7 @@ function preprocessText(jsonIn, jsonFilesDir, shortFileName, isoDict, callback) 
     if (err) {
       console.log(err);
     } else {
-      console.log("✅  Correctly wrote " + storyID + ".json");
+      // console.log("✅  Correctly wrote " + storyID + ".json");
       if (callback != null) {
         callback();
       }
@@ -288,7 +288,7 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
   };
 
   for (const xmlFileName of xmlFileNames) {
-    // console.log("Processing " + xmlFileName);
+    console.log("Processing " + xmlFileName);
     const xmlPath = xmlFilesDir + xmlFileName;
     fs.readFile(xmlPath, function (err1, xmlData) {
       if (err1) throw err1;
