@@ -3,21 +3,26 @@
     "timed": false,
     "story ID": "e1c4c5a0-7c93-4ac4-9ddb-f1c84ec04859",
     "title": {
-      "con-Latn-EC": "145 Tetetendeccune afa'cho",
+      "con-Latn-EC": "Tetetendeccune afa'cho",
+      "con-Latn-EC-x-dureno": "Tetetendekhûne afa'chu",
       "en": "About the Tetetes",
+      "es": "Sobre los tetetes",
       "_default": ""
     },
     "media": {},
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -41,6 +46,10 @@
       "T4": {
         "name": "Glosa de morfema inglés",
         "subdivided": true
+      },
+      "T5": {
+        "name": "Frase inglés",
+        "subdivided": false
       }
     }
   },
@@ -146,6 +155,16 @@
               "start_slot": 8,
               "end_slot": 11,
               "value": "San José=PL.HUM=INST"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 11,
+              "value": "The Tetetes are Sionas que fought with a group of the San Josés."
             }
           ]
         }
@@ -680,7 +699,7 @@
       ]
     },
     {
-      "num_slots": 8,
+      "num_slots": 11,
       "text": "Tsesuve di'shayetate yocoma injan'tsse cu'i'fa.",
       "dependents": [
         {
@@ -693,22 +712,22 @@
             },
             {
               "start_slot": 2,
-              "end_slot": 3,
-              "value": "di'shayetate"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "yocoma"
-            },
-            {
-              "start_slot": 5,
               "end_slot": 6,
-              "value": "injan'tsse"
+              "value": "di'shayetate"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "yocoma"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "injan'tsse"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "cu'i'fa"
             }
           ]
@@ -723,22 +742,22 @@
             },
             {
               "start_slot": 2,
-              "end_slot": 3,
-              "value": "di'shayetate"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "yoco=ma"
-            },
-            {
-              "start_slot": 5,
               "end_slot": 6,
-              "value": "injan'tsse"
+              "value": "di'sha=ye=ta=te"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "yoco=ma"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "injan'tsse"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "cu'i='fa"
             }
           ]
@@ -752,18 +771,23 @@
               "value": "tse'su=ve"
             },
             {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "yoco=ma"
-            },
-            {
-              "start_slot": 5,
+              "start_slot": 2,
               "end_slot": 6,
-              "value": "injan'tsse"
+              "value": "di'sha=ye=ta+te"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "yoco=ma"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "injan'tsse"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "cu'i=fa"
             }
           ]
@@ -777,18 +801,23 @@
               "value": "DIST2=ACC2"
             },
             {
-              "start_slot": 3,
-              "end_slot": 5,
-              "value": "yoco=ACC"
-            },
-            {
-              "start_slot": 5,
+              "start_slot": 2,
               "end_slot": 6,
-              "value": "much"
+              "value": "brood=INF=NEW=REP"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "yoco=ACC"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "much"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "drink=SH.LAT"
             }
           ]
@@ -1307,6 +1336,11 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "Quinttie"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 9,
+              "value": "end-NR=LOC.NR"
             }
           ]
         }
@@ -1880,7 +1914,7 @@
             {
               "start_slot": 12,
               "end_slot": 14,
-              "value": "Putumayo=ni"
+              "value": "***=ni"
             },
             {
               "start_slot": 14,
@@ -1915,7 +1949,7 @@
             {
               "start_slot": 12,
               "end_slot": 14,
-              "value": "Putumayo=LOC"
+              "value": "***=LOC"
             },
             {
               "start_slot": 14,

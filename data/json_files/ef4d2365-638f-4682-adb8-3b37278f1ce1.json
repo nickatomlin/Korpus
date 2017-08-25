@@ -2,8 +2,9 @@
   "metadata": {
     "timed": false,
     "title": {
-      "con-Latn-EC": "102 Chigaja a'ive agattoen'cho",
-      "en": "Godly Creation of Mankind",
+      "con-Latn-EC": "Chigaja a'ive agattoen'cho",
+      "con-Latn-EC-x-dureno": "Chigaja a'ive agathuen'chu",
+      "en": "How God Created Humans",
       "es": "Chiga creó a la gente",
       "_default": ""
     },
@@ -11,13 +12,16 @@
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -43,10 +47,6 @@
         "subdivided": true
       },
       "T5": {
-        "name": "Frase español",
-        "subdivided": false
-      },
-      "T6": {
         "name": "Frase inglés",
         "subdivided": false
       }
@@ -237,16 +237,6 @@
               "value": "make"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 18,
-              "value": "Chiga hizo una pequeña masa de tierra y con ella modeló a las personas."
-            }
-          ]
         }
       ]
     },
@@ -391,16 +381,6 @@
               "start_slot": 10,
               "end_slot": 11,
               "value": "blow"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 11,
-              "value": "Sopló sobre ellas en la nariz y se convirtieron en personas."
             }
           ]
         }
@@ -609,16 +589,6 @@
               "value": "move=PL.SBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 18,
-              "value": "Chiga nos hizo a las personas como un muñeco, y luego sopló en nuestra nariz y nos convertimos en gente;"
-            }
-          ]
         }
       ]
     },
@@ -703,16 +673,6 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "create"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "primero hizo solamente a los hombres."
             }
           ]
         }
@@ -921,16 +881,6 @@
               "value": "create=INF"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 16,
-              "value": "Últimamente Chiga sacó una costilla de los hombres para crear a las mujeres."
-            }
-          ]
         }
       ]
     },
@@ -1135,16 +1085,6 @@
               "start_slot": 15,
               "end_slot": 17,
               "value": "rib=PL.SBJ"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 17,
-              "value": "Mis padres me contaron: ustedes son costillas de los hombres."
             }
           ]
         }
@@ -1393,16 +1333,6 @@
               "value": "create=PL.SBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 20,
-              "value": "También los demonios querían crear personas e hicieron como Chiga, pero aquello se convirtió en una serpiente \"matiguaja\"."
-            }
-          ]
         }
       ]
     },
@@ -1507,16 +1437,6 @@
               "start_slot": 5,
               "end_slot": 7,
               "value": "create=ATTR"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 7,
-              "value": "Sólo Chiga creó a las personas;"
             }
           ]
         }
@@ -1627,22 +1547,12 @@
           ]
         },
         {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "That's how the story goes."
-            }
-          ]
-        },
-        {
           "tier": "T5",
           "values": [
             {
               "start_slot": 0,
               "end_slot": 6,
-              "value": "Así es nuestra historia."
+              "value": "That's how the story goes."
             }
           ]
         }
@@ -1811,16 +1721,6 @@
               "value": "cure-IMPV=NEW"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 17,
-              "value": "Por eso los cu racas cuando curan dicen"
-            }
-          ]
         }
       ]
     },
@@ -1925,16 +1825,6 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "cure=ATTR"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "'yo solo soy el que cura'"
             }
           ]
         }
@@ -2061,16 +1951,6 @@
               "start_slot": 6,
               "end_slot": 9,
               "value": "heal-CAUS=ATTR"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "'pero si Chiga ayuda te sanarás'."
             }
           ]
         }
@@ -2239,16 +2119,6 @@
               "value": "moon=ACC=CONTR"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 15,
-              "value": "Antiguamente los Cofanes decíamos al Dios de la noche Dios Luna;"
-            }
-          ]
         }
       ]
     },
@@ -2313,16 +2183,6 @@
               "start_slot": 3,
               "end_slot": 4,
               "value": "chiga"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "y a Chiga Dios Sol."
             }
           ]
         }
@@ -2451,16 +2311,6 @@
               "value": "old"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Chiga es un hombre, un hombre viejo,"
-            }
-          ]
         }
       ]
     },
@@ -2565,16 +2415,6 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "have=SBRD"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "y la Luna es su enamorada."
             }
           ]
         }
@@ -2763,21 +2603,11 @@
               "value": "house=ATTR=PL.HUM=CONTR"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 16,
-              "value": "En el tiempo de Chiga vivían él y la Luna entre familias,"
-            }
-          ]
         }
       ]
     },
     {
-      "num_slots": 8,
+      "num_slots": 9,
       "text": "Tsanijan me'in'on tsu faesu a'ive.",
       "dependents": [
         {
@@ -2790,22 +2620,22 @@
             },
             {
               "start_slot": 3,
-              "end_slot": 4,
-              "value": "me'in'on"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 5,
-              "value": "tsu"
+              "value": "me'in'on"
             },
             {
               "start_slot": 5,
               "end_slot": 6,
-              "value": "faesu"
+              "value": "tsu"
             },
             {
               "start_slot": 6,
-              "end_slot": 8,
+              "end_slot": 7,
+              "value": "faesu"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
               "value": "a'ive"
             }
           ]
@@ -2820,22 +2650,22 @@
             },
             {
               "start_slot": 3,
-              "end_slot": 4,
-              "value": "me'in'on"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 5,
-              "value": "tsu"
+              "value": "*me'in='on"
             },
             {
               "start_slot": 5,
               "end_slot": 6,
-              "value": "faesu"
+              "value": "tsu"
             },
             {
               "start_slot": 6,
-              "end_slot": 8,
+              "end_slot": 7,
+              "value": "faesu"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
               "value": "a'i=ve"
             }
           ]
@@ -2850,22 +2680,22 @@
             },
             {
               "start_slot": 3,
-              "end_slot": 4,
-              "value": "me'in'on"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 5,
-              "value": "tsu"
+              "value": "*me'in='o"
             },
             {
               "start_slot": 5,
               "end_slot": 6,
-              "value": "faesu"
+              "value": "tsu"
             },
             {
               "start_slot": 6,
-              "end_slot": 8,
+              "end_slot": 7,
+              "value": "faesu"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 9,
               "value": "a'i=ve"
             }
           ]
@@ -2880,33 +2710,23 @@
             },
             {
               "start_slot": 3,
-              "end_slot": 4,
-              "value": "not exist"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 5,
-              "value": "3"
+              "value": "not exists=ADJR2"
             },
             {
               "start_slot": 5,
               "end_slot": 6,
-              "value": "other"
+              "value": "3"
             },
             {
               "start_slot": 6,
-              "end_slot": 8,
-              "value": "person=ACC2"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
+              "end_slot": 7,
+              "value": "other"
+            },
             {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "pero no había otro hombre."
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "person=ACC2"
             }
           ]
         }
@@ -3175,16 +2995,6 @@
               "value": "lie down=INF"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 23,
-              "value": "Todas las noches iba donde la luna."
-            }
-          ]
         }
       ]
     },
@@ -3369,16 +3179,6 @@
               "start_slot": 15,
               "end_slot": 17,
               "value": "know=INF"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 17,
-              "value": "La mujer quería saber quién era."
             }
           ]
         }
@@ -3607,16 +3407,6 @@
               "value": "black-CAUS=IRR=SBRD=ACC2"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 23,
-              "value": "Una noche ella preparó huito para mancharle la cara."
-            }
-          ]
         }
       ]
     },
@@ -3823,16 +3613,6 @@
               "value": "day"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 16,
-              "value": "Otra noche llegó el hombre, y la mujer para saber quien era, echó agua en el huito para que manche y le pintó la cara."
-            }
-          ]
         }
       ]
     },
@@ -3926,7 +3706,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "other=TEMP"
+              "value": "other=DRN"
             },
             {
               "start_slot": 4,
@@ -3937,16 +3717,6 @@
               "start_slot": 6,
               "end_slot": 8,
               "value": "wait-IMPV"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "Al siguiente día la mujer estaba esperando para ver quién era."
             }
           ]
         }
@@ -4115,16 +3885,6 @@
               "value": "come"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 12,
-              "value": "Y fue el hermano el que apareció con la cara pintada de negro."
-            }
-          ]
         }
       ]
     },
@@ -4291,16 +4051,6 @@
               "value": "woman"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 12,
-              "value": "No sabemos si Chiga era hombre o mujer,"
-            }
-          ]
         }
       ]
     },
@@ -4427,16 +4177,6 @@
               "value": "INT"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 10,
-              "value": "ni sabemos si tiene mujer o tiene esposo."
-            }
-          ]
         }
       ]
     },
@@ -4543,16 +4283,6 @@
               "value": "speak-IMPV=PL.SBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "Los Cofanes hablamos"
-            }
-          ]
         }
       ]
     },
@@ -4617,16 +4347,6 @@
               "start_slot": 1,
               "end_slot": 3,
               "value": "chiga=ACC2"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "de tres dioses o tres Chigas:"
             }
           ]
         }
@@ -4815,16 +4535,6 @@
               "value": "shine-IMPV=SBRD=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 13,
-              "value": "Chiga, Cosesu Chiga y Coeje Chiga (Dios, Luna y Sol); el tercero es el Sol que ilumina durante el día."
-            }
-          ]
         }
       ]
     },
@@ -4929,16 +4639,6 @@
               "start_slot": 5,
               "end_slot": 8,
               "value": "sow-NR=SRC"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "Se hablaba con Chiga sobre los sembríos."
             }
           ]
         }
@@ -5065,16 +4765,6 @@
               "start_slot": 10,
               "end_slot": 12,
               "value": "live=PL.SBJ"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 12,
-              "value": "Antiguamente los A'indeccu sabían hacer bastantes trabajos."
             }
           ]
         }
@@ -5243,16 +4933,6 @@
               "value": "ask"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 15,
-              "value": "Pero un día llegó gente extraña que preguntaba:"
-            }
-          ]
         }
       ]
     },
@@ -5337,16 +5017,6 @@
               "start_slot": 4,
               "end_slot": 7,
               "value": "clear-IMPV=PL.SBJ"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 7,
-              "value": "\"¿Está trabajando para sembrar?\"."
             }
           ]
         }
@@ -5555,16 +5225,6 @@
               "value": "work-IMPV=PL.SBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 16,
-              "value": "Y la gente respondía: \"Para sembrar plátano, yuca, maíz\"."
-            }
-          ]
         }
       ]
     },
@@ -5669,16 +5329,6 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "Chiga"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Pero el que preguntaba era Chiga que iba preguntando a la gente."
             }
           ]
         }
@@ -5847,16 +5497,6 @@
               "value": "sleep=PL.SBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 17,
-              "value": "Ellos trabajaron hasta la noche."
-            }
-          ]
         }
       ]
     },
@@ -5985,7 +5625,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "other=TEMP"
+              "value": "other=DRN"
             },
             {
               "start_slot": 6,
@@ -6001,16 +5641,6 @@
               "start_slot": 9,
               "end_slot": 11,
               "value": "work=INF"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 11,
-              "value": "Al día siguiente el dueño del trabajo regresó a trabajar, "
             }
           ]
         }
@@ -6219,16 +5849,6 @@
               "value": "stand=SBRD=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 15,
-              "value": "pero ya estaba hecho, halló maduro lo que había sembrado."
-            }
-          ]
         }
       ]
     },
@@ -6393,16 +6013,6 @@
               "start_slot": 10,
               "end_slot": 12,
               "value": "think=PL.SBJ"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 12,
-              "value": "El dueño admirado dijo que se debía al paso de Chiga."
             }
           ]
         }
@@ -6649,16 +6259,6 @@
               "start_slot": 19,
               "end_slot": 22,
               "value": "say=SBRD=PL.SBJ"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 22,
-              "value": "Por eso, cuando nos preguntan de dónde venimos los Cofanes, nosotros decimos que de Chiga."
             }
           ]
         }

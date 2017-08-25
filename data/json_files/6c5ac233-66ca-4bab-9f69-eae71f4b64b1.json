@@ -3,20 +3,25 @@
     "timed": false,
     "story ID": "6c5ac233-66ca-4bab-9f69-eae71f4b64b1",
     "title": {
-      "con-Latn-EC": "138 Tumba'ccuve ttattasundeccumbe",
+      "con-Latn-EC": "Tumba'ccuve ttattasundeccumbe",
+      "con-Latn-EC-x-dureno": "Tûmba'khuve ttattasûndekhûmbe",
+      "es": "El demonio de los caucheros",
       "_default": ""
     },
     "media": {},
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -193,7 +198,7 @@
             {
               "start_slot": 0,
               "end_slot": 2,
-              "value": "much=ADJR2"
+              "value": "many=ADJR2"
             },
             {
               "start_slot": 2,
@@ -1885,7 +1890,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "other=TEMP"
+              "value": "other=DRN"
             },
             {
               "start_slot": 4,
@@ -1895,7 +1900,7 @@
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "same=TEMP"
+              "value": "same=DRN"
             },
             {
               "start_slot": 7,
@@ -2686,7 +2691,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "ji-ña"
+              "value": "ji-yi"
             },
             {
               "start_slot": 9,
@@ -2726,7 +2731,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "come-CAUS"
+              "value": "come-PROSP"
             },
             {
               "start_slot": 9,
@@ -2869,7 +2874,7 @@
       ]
     },
     {
-      "num_slots": 10,
+      "num_slots": 11,
       "text": "Tsa'ma fundo'suja ccase fundopa su:¡ Angija!",
       "dependents": [
         {
@@ -2902,7 +2907,7 @@
             },
             {
               "start_slot": 9,
-              "end_slot": 10,
+              "end_slot": 11,
               "value": "Angija"
             }
           ]
@@ -2934,6 +2939,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "su"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "angi=ja"
             }
           ]
         },
@@ -2964,6 +2974,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "su"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "***=ja"
             }
           ]
         },
@@ -2994,6 +3009,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "say"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "***=CONTR"
             }
           ]
         }
@@ -3970,7 +3990,7 @@
       ]
     },
     {
-      "num_slots": 10,
+      "num_slots": 13,
       "text": "Anamba qquendyapa paña ta, ta, ta, qquen sundu'je'chuma.",
       "dependents": [
         {
@@ -4013,7 +4033,7 @@
             },
             {
               "start_slot": 9,
-              "end_slot": 10,
+              "end_slot": 13,
               "value": "sundu'je'chuma"
             }
           ]
@@ -4055,6 +4075,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "qquen"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 13,
+              "value": "sundu-'je='chu=ma"
             }
           ]
         },
@@ -4095,6 +4120,11 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "qquen"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 13,
+              "value": "su'ndu-'je='cho=ma"
             }
           ]
         },
@@ -4203,6 +4233,11 @@
               "value": "pporoe=mba"
             },
             {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "shonchhan"
+            },
+            {
               "start_slot": 7,
               "end_slot": 10,
               "value": "can='ni=jan"
@@ -4233,6 +4268,11 @@
               "value": "pporaen=pa"
             },
             {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "shonchhan"
+            },
+            {
               "start_slot": 7,
               "end_slot": 10,
               "value": "can=ni=ja"
@@ -4261,6 +4301,11 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "touch=SS"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "inhale"
             },
             {
               "start_slot": 7,
@@ -4572,7 +4617,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "***-'je"
+              "value": "su'ndu-'je"
             }
           ]
         },
@@ -4602,7 +4647,7 @@
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "***-IMPV"
+              "value": "drip-IMPV"
             }
           ]
         }
@@ -5840,7 +5885,7 @@
             {
               "start_slot": 0,
               "end_slot": 2,
-              "value": "other=TEMP"
+              "value": "other=DRN"
             },
             {
               "start_slot": 2,

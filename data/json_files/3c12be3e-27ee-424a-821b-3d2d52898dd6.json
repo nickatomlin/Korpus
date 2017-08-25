@@ -3,7 +3,8 @@
     "timed": false,
     "story ID": "3c12be3e-27ee-424a-821b-3d2d52898dd6",
     "title": {
-      "con-Latn-EC": "117 Coancoan",
+      "con-Latn-EC": "Coancoan",
+      "con-Latn-EC-x-dureno": "Kuankuan",
       "en": "The Trickster",
       "es": "El Trampista",
       "_default": ""
@@ -12,13 +13,16 @@
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -320,7 +324,7 @@
             {
               "start_slot": 1,
               "end_slot": 3,
-              "value": "much=ADJR2"
+              "value": "many=ADJR2"
             },
             {
               "start_slot": 3,
@@ -541,7 +545,7 @@
             {
               "start_slot": 4,
               "end_slot": 5,
-              "value": "goddaughter"
+              "value": "daughter"
             },
             {
               "start_slot": 5,
@@ -913,7 +917,7 @@
             {
               "start_slot": 10,
               "end_slot": 12,
-              "value": "together=ADV.STAT"
+              "value": "unsuspecting=ADV.STAT"
             },
             {
               "start_slot": 12,
@@ -1144,7 +1148,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "together=ADV.STAT"
+              "value": "unsuspecting=ADV.STAT"
             },
             {
               "start_slot": 5,
@@ -1899,7 +1903,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "*tsai'mbi'=tssi"
+              "value": "tsai'mbi'=tssi"
             },
             {
               "start_slot": 6,
@@ -1934,7 +1938,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "*tsai'mbi=tssi"
+              "value": "***=tssi"
             },
             {
               "start_slot": 6,
@@ -1969,7 +1973,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "much=STAT"
+              "value": "many=STAT"
             },
             {
               "start_slot": 6,
@@ -2705,7 +2709,7 @@
       ]
     },
     {
-      "num_slots": 19,
+      "num_slots": 18,
       "text": "Tise'ja cose'ninda ande tso'siye jipa atambi'mbinga napipa tse'ttie somboya.",
       "dependents": [
         {
@@ -2738,22 +2742,22 @@
             },
             {
               "start_slot": 10,
-              "end_slot": 12,
+              "end_slot": 11,
               "value": "atambi'mbinga"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 11,
+              "end_slot": 13,
               "value": "napipa"
             },
             {
-              "start_slot": 14,
-              "end_slot": 17,
+              "start_slot": 13,
+              "end_slot": 16,
               "value": "tse'ttie"
             },
             {
-              "start_slot": 17,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "somboya"
             }
           ]
@@ -2788,22 +2792,22 @@
             },
             {
               "start_slot": 10,
-              "end_slot": 12,
-              "value": "atambi'mbi-nga"
+              "end_slot": 11,
+              "value": "atambi'mbinga"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 11,
+              "end_slot": 13,
               "value": "napi=pa"
             },
             {
-              "start_slot": 14,
-              "end_slot": 17,
+              "start_slot": 13,
+              "end_slot": 16,
               "value": "tse='tti=e"
             },
             {
-              "start_slot": 17,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "sombo=ya"
             }
           ]
@@ -2837,23 +2841,18 @@
               "value": "ji=pa"
             },
             {
-              "start_slot": 10,
-              "end_slot": 12,
-              "value": "atambi'mbi-nga"
-            },
-            {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 11,
+              "end_slot": 13,
               "value": "napi=pa"
             },
             {
-              "start_slot": 14,
-              "end_slot": 17,
+              "start_slot": 13,
+              "end_slot": 16,
               "value": "tse='tti=e"
             },
             {
-              "start_slot": 17,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "sombo=ya"
             }
           ]
@@ -2887,18 +2886,18 @@
               "value": "come=SS"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 11,
+              "end_slot": 13,
               "value": "arrive=SS"
             },
             {
-              "start_slot": 14,
-              "end_slot": 17,
-              "value": "ANA.LOC=LOC.NR=ADVR"
+              "start_slot": 13,
+              "end_slot": 16,
+              "value": "ANA.LOC=LOC.NR=PLC"
             },
             {
-              "start_slot": 17,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "go out=IRR"
             }
           ]
@@ -3198,7 +3197,7 @@
       ]
     },
     {
-      "num_slots": 8,
+      "num_slots": 10,
       "text": "Ansundepa anamba'cconga fae'ngae cuiya.",
       "dependents": [
         {
@@ -3211,17 +3210,17 @@
             },
             {
               "start_slot": 2,
-              "end_slot": 4,
-              "value": "anamba'cconga"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 6,
-              "value": "fae'ngae"
+              "value": "anamba'cconga"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "fae'ngae"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "cuiya"
             }
           ]
@@ -3236,17 +3235,17 @@
             },
             {
               "start_slot": 2,
-              "end_slot": 4,
-              "value": "anamba'cco=nga"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 6,
-              "value": "fae='ngae"
+              "value": "ana-mba='cco=nga"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "fae='ngae"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "cui=ya"
             }
           ]
@@ -3261,17 +3260,17 @@
             },
             {
               "start_slot": 2,
-              "end_slot": 4,
-              "value": "***=nga"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 6,
-              "value": "fae=ngae"
+              "value": "ana-'pa='cco=nga"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "fae=ngae"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "ccui=ya"
             }
           ]
@@ -3286,17 +3285,17 @@
             },
             {
               "start_slot": 2,
-              "end_slot": 4,
-              "value": "***=DAT"
-            },
-            {
-              "start_slot": 4,
               "end_slot": 6,
-              "value": "one=MANN"
+              "value": "sleep-NR=SH.ANG=DAT"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
+              "value": "one=MANN"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "lie down=IRR"
             }
           ]
@@ -3811,7 +3810,7 @@
             {
               "start_slot": 5,
               "end_slot": 8,
-              "value": "***=ndeccu=ja"
+              "value": "antian=ndeccu=ja"
             },
             {
               "start_slot": 8,
@@ -3871,7 +3870,7 @@
             {
               "start_slot": 12,
               "end_slot": 13,
-              "value": "in the morning"
+              "value": "morning"
             },
             {
               "start_slot": 13,
@@ -4173,7 +4172,7 @@
             {
               "start_slot": 3,
               "end_slot": 6,
-              "value": "***=ndeccu=ja"
+              "value": "antian=ndeccu=ja"
             },
             {
               "start_slot": 6,
@@ -4658,7 +4657,7 @@
       ]
     },
     {
-      "num_slots": 32,
+      "num_slots": 30,
       "text": "Qquen tsu da'ño'fa tsa tsandie anambaccu'ye jangipa jayipa atambi'mbinga ne pipa andema jeñamba iyofa'caen ja'jesi.",
       "dependents": [
         {
@@ -4691,52 +4690,52 @@
             },
             {
               "start_slot": 6,
-              "end_slot": 11,
+              "end_slot": 10,
               "value": "anambaccu'ye"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "jangipa"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "jayipa"
             },
             {
-              "start_slot": 16,
-              "end_slot": 18,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "atambi'mbinga"
             },
             {
-              "start_slot": 18,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 17,
               "value": "ne"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 19,
+              "value": "pipa"
             },
             {
               "start_slot": 19,
               "end_slot": 21,
-              "value": "pipa"
-            },
-            {
-              "start_slot": 21,
-              "end_slot": 23,
               "value": "andema"
             },
             {
-              "start_slot": 23,
-              "end_slot": 26,
+              "start_slot": 21,
+              "end_slot": 24,
               "value": "jeñamba"
             },
             {
-              "start_slot": 26,
-              "end_slot": 29,
+              "start_slot": 24,
+              "end_slot": 27,
               "value": "iyofa'caen"
             },
             {
-              "start_slot": 29,
-              "end_slot": 32,
+              "start_slot": 27,
+              "end_slot": 30,
               "value": "ja'jesi"
             }
           ]
@@ -4771,52 +4770,52 @@
             },
             {
               "start_slot": 6,
-              "end_slot": 11,
-              "value": "an=a=mba=ccu='ye"
+              "end_slot": 10,
+              "value": "ana-mba=ccu='ye"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "jangi=pa"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "ja-yi=pa"
             },
             {
-              "start_slot": 16,
-              "end_slot": 18,
-              "value": "atambi'mbi-nga"
+              "start_slot": 15,
+              "end_slot": 16,
+              "value": "atambi'mbinga"
             },
             {
-              "start_slot": 18,
+              "start_slot": 16,
+              "end_slot": 17,
+              "value": "ne"
+            },
+            {
+              "start_slot": 17,
               "end_slot": 19,
-              "value": "=ne"
+              "value": "pi=pa"
             },
             {
               "start_slot": 19,
               "end_slot": 21,
-              "value": "=pi=pa"
-            },
-            {
-              "start_slot": 21,
-              "end_slot": 23,
               "value": "ande=ma"
             },
             {
-              "start_slot": 23,
-              "end_slot": 26,
-              "value": "je=ña=mba"
+              "start_slot": 21,
+              "end_slot": 24,
+              "value": "je-ña=mba"
             },
             {
-              "start_slot": 26,
-              "end_slot": 29,
+              "start_slot": 24,
+              "end_slot": 27,
               "value": "iyofa='ca=en"
             },
             {
-              "start_slot": 29,
-              "end_slot": 32,
+              "start_slot": 27,
+              "end_slot": 30,
               "value": "ja-'je=si"
             }
           ]
@@ -4851,52 +4850,42 @@
             },
             {
               "start_slot": 6,
-              "end_slot": 11,
-              "value": "an=a=pa=ccu=ye"
+              "end_slot": 10,
+              "value": "ana-'pa=ccu=ye"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "jangi=pa"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "ja-yi=pa"
             },
             {
-              "start_slot": 16,
-              "end_slot": 18,
-              "value": "atambi'mbi-nga"
-            },
-            {
-              "start_slot": 18,
+              "start_slot": 17,
               "end_slot": 19,
-              "value": "=ne"
+              "value": "pi=pa"
             },
             {
               "start_slot": 19,
               "end_slot": 21,
-              "value": "=pi=pa"
-            },
-            {
-              "start_slot": 21,
-              "end_slot": 23,
               "value": "ande=ma"
             },
             {
-              "start_slot": 23,
-              "end_slot": 26,
-              "value": "jen=ya=pa"
+              "start_slot": 21,
+              "end_slot": 24,
+              "value": "jen-ña=pa"
             },
             {
-              "start_slot": 26,
-              "end_slot": 29,
+              "start_slot": 24,
+              "end_slot": 27,
               "value": "iyofa='can=e"
             },
             {
-              "start_slot": 29,
-              "end_slot": 32,
+              "start_slot": 27,
+              "end_slot": 30,
               "value": "ja-'je=si"
             }
           ]
@@ -4930,33 +4919,43 @@
               "value": "man"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 6,
+              "end_slot": 10,
+              "value": "sleep-NR=SH.DLM=ELAT"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "get up=SS"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "go-PROSP=SS"
             },
             {
-              "start_slot": 18,
+              "start_slot": 17,
               "end_slot": 19,
-              "value": "=SRC"
+              "value": "join=SS"
             },
             {
-              "start_slot": 21,
-              "end_slot": 23,
+              "start_slot": 19,
+              "end_slot": 21,
               "value": "land=ACC"
             },
             {
-              "start_slot": 26,
-              "end_slot": 29,
+              "start_slot": 21,
+              "end_slot": 24,
+              "value": "sound-CAUS=SS"
+            },
+            {
+              "start_slot": 24,
+              "end_slot": 27,
               "value": "worm=CMP=ADVR"
             },
             {
-              "start_slot": 29,
-              "end_slot": 32,
+              "start_slot": 27,
+              "end_slot": 30,
               "value": "go-IMPV=DS"
             }
           ]
@@ -6402,7 +6401,7 @@
             {
               "start_slot": 1,
               "end_slot": 3,
-              "value": "infant=SEAS"
+              "value": "infant=PRD"
             },
             {
               "start_slot": 3,
@@ -6816,7 +6815,7 @@
       ]
     },
     {
-      "num_slots": 22,
+      "num_slots": 23,
       "text": "Faequi tayo shagattupa can'jemba tise ton'tomba seña'su oshaiquini seña'su jayi'fasi fae'ngae ja.",
       "dependents": [
         {
@@ -6824,62 +6823,62 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
+              "end_slot": 2,
               "value": "Faequi"
             },
             {
-              "start_slot": 1,
-              "end_slot": 2,
+              "start_slot": 2,
+              "end_slot": 3,
               "value": "tayo"
             },
             {
-              "start_slot": 2,
-              "end_slot": 4,
+              "start_slot": 3,
+              "end_slot": 5,
               "value": "shagattupa"
             },
             {
-              "start_slot": 4,
-              "end_slot": 6,
+              "start_slot": 5,
+              "end_slot": 7,
               "value": "can'jemba"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
+              "start_slot": 7,
+              "end_slot": 8,
               "value": "tise"
             },
             {
-              "start_slot": 7,
-              "end_slot": 9,
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "ton'tomba"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "seña'su"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 12,
+              "end_slot": 14,
               "value": "oshaiquini"
             },
             {
-              "start_slot": 13,
-              "end_slot": 15,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "seña'su"
             },
             {
-              "start_slot": 15,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 20,
               "value": "jayi'fasi"
             },
             {
-              "start_slot": 19,
-              "end_slot": 21,
+              "start_slot": 20,
+              "end_slot": 22,
               "value": "fae'ngae"
             },
             {
-              "start_slot": 21,
-              "end_slot": 22,
+              "start_slot": 22,
+              "end_slot": 23,
               "value": "ja"
             }
           ]
@@ -6888,58 +6887,63 @@
           "tier": "T2",
           "values": [
             {
-              "start_slot": 1,
+              "start_slot": 0,
               "end_slot": 2,
-              "value": "tayo"
+              "value": "fae=qui"
             },
             {
               "start_slot": 2,
-              "end_slot": 4,
+              "end_slot": 3,
+              "value": "tayo"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
               "value": "shagattu=pa"
             },
             {
-              "start_slot": 4,
-              "end_slot": 6,
+              "start_slot": 5,
+              "end_slot": 7,
               "value": "can'je=mba"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
+              "start_slot": 7,
+              "end_slot": 8,
               "value": "tise"
             },
             {
-              "start_slot": 7,
-              "end_slot": 9,
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "ton'to-mba"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "seña='su"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 12,
+              "end_slot": 14,
               "value": "oshaiqui=ni"
             },
             {
-              "start_slot": 13,
-              "end_slot": 15,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "seña='su"
             },
             {
-              "start_slot": 15,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 20,
               "value": "ja-yi='fa=si"
             },
             {
-              "start_slot": 19,
-              "end_slot": 21,
+              "start_slot": 20,
+              "end_slot": 22,
               "value": "fae='ngae"
             },
             {
-              "start_slot": 21,
-              "end_slot": 22,
+              "start_slot": 22,
+              "end_slot": 23,
               "value": "ja"
             }
           ]
@@ -6948,58 +6952,63 @@
           "tier": "T3",
           "values": [
             {
-              "start_slot": 1,
+              "start_slot": 0,
               "end_slot": 2,
-              "value": "tayo"
+              "value": "fae=qui"
             },
             {
               "start_slot": 2,
-              "end_slot": 4,
+              "end_slot": 3,
+              "value": "tayo"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
               "value": "shagattu=pa"
             },
             {
-              "start_slot": 4,
-              "end_slot": 6,
+              "start_slot": 5,
+              "end_slot": 7,
               "value": "can'jen=pa"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
+              "start_slot": 7,
+              "end_slot": 8,
               "value": "tise"
             },
             {
-              "start_slot": 7,
-              "end_slot": 9,
-              "value": "***-'pa"
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "ton'ton-'pa"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "seña='su"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 12,
+              "end_slot": 14,
               "value": "oshaequi=ni"
             },
             {
-              "start_slot": 13,
-              "end_slot": 15,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "seña='su"
             },
             {
-              "start_slot": 15,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 20,
               "value": "ja-yi='fa=si"
             },
             {
-              "start_slot": 19,
-              "end_slot": 21,
+              "start_slot": 20,
+              "end_slot": 22,
               "value": "fae=ngae"
             },
             {
-              "start_slot": 21,
-              "end_slot": 22,
+              "start_slot": 22,
+              "end_slot": 23,
               "value": "ja"
             }
           ]
@@ -7008,58 +7017,63 @@
           "tier": "T4",
           "values": [
             {
-              "start_slot": 1,
+              "start_slot": 0,
               "end_slot": 2,
-              "value": "already"
+              "value": "one=DRN"
             },
             {
               "start_slot": 2,
-              "end_slot": 4,
+              "end_slot": 3,
+              "value": "already"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 5,
               "value": "go through puberty=SS"
             },
             {
-              "start_slot": 4,
-              "end_slot": 6,
+              "start_slot": 5,
+              "end_slot": 7,
               "value": "stay=SS"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
+              "start_slot": 7,
+              "end_slot": 8,
               "value": "3.SG"
             },
             {
-              "start_slot": 7,
-              "end_slot": 9,
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "uncle-NR"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "poison fish=ATTR"
             },
             {
-              "start_slot": 11,
-              "end_slot": 13,
+              "start_slot": 12,
+              "end_slot": 14,
               "value": "river arm=LOC"
             },
             {
-              "start_slot": 13,
-              "end_slot": 15,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "poison fish=ATTR"
             },
             {
-              "start_slot": 15,
-              "end_slot": 19,
+              "start_slot": 16,
+              "end_slot": 20,
               "value": "go-PROSP=PL.SBJ=DS"
             },
             {
-              "start_slot": 19,
-              "end_slot": 21,
+              "start_slot": 20,
+              "end_slot": 22,
               "value": "one=MANN"
             },
             {
-              "start_slot": 21,
-              "end_slot": 22,
+              "start_slot": 22,
+              "end_slot": 23,
               "value": "go"
             }
           ]
@@ -7181,7 +7195,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "***=i'ccu"
+              "value": "tise'pa=i'ccu"
             },
             {
               "start_slot": 5,
@@ -7231,7 +7245,7 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "***=INST"
+              "value": "3.PL=INST"
             },
             {
               "start_slot": 5,
@@ -7317,7 +7331,7 @@
             {
               "start_slot": 1,
               "end_slot": 4,
-              "value": "ton'to-mba=ja"
+              "value": "ton'to=mba=ja"
             },
             {
               "start_slot": 4,
@@ -7347,7 +7361,7 @@
             {
               "start_slot": 1,
               "end_slot": 4,
-              "value": "ton'ton-'pa=ja"
+              "value": "ton'ton=pa=ja"
             },
             {
               "start_slot": 4,
@@ -7377,7 +7391,7 @@
             {
               "start_slot": 1,
               "end_slot": 4,
-              "value": "uncle-NR=CONTR"
+              "value": "uncle=ASSOC=CONTR"
             },
             {
               "start_slot": 4,
@@ -8027,7 +8041,7 @@
             {
               "start_slot": 1,
               "end_slot": 4,
-              "value": "ton'to-mba=ja"
+              "value": "ton'to=mba=ja"
             },
             {
               "start_slot": 4,
@@ -8077,7 +8091,7 @@
             {
               "start_slot": 1,
               "end_slot": 4,
-              "value": "ton'ton-'pa=ja"
+              "value": "ton'ton=pa=ja"
             },
             {
               "start_slot": 4,
@@ -8127,7 +8141,7 @@
             {
               "start_slot": 1,
               "end_slot": 4,
-              "value": "uncle-NR=CONTR"
+              "value": "uncle=ASSOC=CONTR"
             },
             {
               "start_slot": 4,
@@ -9494,7 +9508,7 @@
       ]
     },
     {
-      "num_slots": 17,
+      "num_slots": 18,
       "text": "Tsonsi pañamba asi'ttaen ccutsupa chi'ga'ma re'ri'ccoe tai'nga'fa tise'pa o'vanga.",
       "dependents": [
         {
@@ -9522,27 +9536,27 @@
             },
             {
               "start_slot": 7,
-              "end_slot": 8,
+              "end_slot": 9,
               "value": "chi'ga'ma"
             },
             {
-              "start_slot": 8,
-              "end_slot": 11,
+              "start_slot": 9,
+              "end_slot": 12,
               "value": "re'ri'ccoe"
             },
             {
-              "start_slot": 11,
-              "end_slot": 14,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "tai'nga'fa"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "tise'pa"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "o'vanga"
             }
           ]
@@ -9572,27 +9586,27 @@
             },
             {
               "start_slot": 7,
-              "end_slot": 8,
-              "value": "chi'ga'ma"
+              "end_slot": 9,
+              "value": "chi'ga='ma"
             },
             {
-              "start_slot": 8,
-              "end_slot": 11,
+              "start_slot": 9,
+              "end_slot": 12,
               "value": "*re'ri='cco=e"
             },
             {
-              "start_slot": 11,
-              "end_slot": 14,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "tai-'nga='fa"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "tise'pa"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "o'va=nga"
             }
           ]
@@ -9621,23 +9635,28 @@
               "value": "ccutsu=pa"
             },
             {
-              "start_slot": 8,
-              "end_slot": 11,
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "chi'ga='ma"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 12,
               "value": "*re'ri='cco=e"
             },
             {
-              "start_slot": 11,
-              "end_slot": 14,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "tai-nga='fa"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "tise'pa"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "o'va=nga"
             }
           ]
@@ -9666,23 +9685,28 @@
               "value": "stand=SS"
             },
             {
-              "start_slot": 8,
-              "end_slot": 11,
+              "start_slot": 7,
+              "end_slot": 9,
+              "value": "not want=FRT"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 12,
               "value": "little=SH.ANG=ADVR"
             },
             {
-              "start_slot": 11,
-              "end_slot": 14,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "pick up-TRANS=PL.SBJ"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "3.PL"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "shigra=DAT"
             }
           ]
@@ -10282,7 +10306,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "=chu='ja"
+              "value": "*chu='ja"
             },
             {
               "start_slot": 6,
@@ -10312,7 +10336,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "='cho=ja"
+              "value": "*chu=ja"
             },
             {
               "start_slot": 6,
@@ -10340,6 +10364,11 @@
               "value": "uncle"
             },
             {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "infant=CONTR"
+            },
+            {
               "start_slot": 6,
               "end_slot": 7,
               "value": "say"
@@ -10349,7 +10378,7 @@
       ]
     },
     {
-      "num_slots": 22,
+      "num_slots": 20,
       "text": "Giyatsse qui cashiyate sambiri tssipopoccumajan, tise cundyi'je'fai'ccu tsu sambirimajan fi'ttipa'e i'ya.",
       "dependents": [
         {
@@ -10402,12 +10431,12 @@
             },
             {
               "start_slot": 17,
-              "end_slot": 20,
+              "end_slot": 18,
               "value": "fi'ttipa'e"
             },
             {
-              "start_slot": 20,
-              "end_slot": 22,
+              "start_slot": 18,
+              "end_slot": 20,
               "value": "i'ya"
             }
           ]
@@ -10457,13 +10486,13 @@
             },
             {
               "start_slot": 17,
-              "end_slot": 20,
-              "value": "fi'tti=pa='e"
+              "end_slot": 18,
+              "value": "fi'ttipa'e"
             },
             {
-              "start_slot": 20,
-              "end_slot": 22,
-              "value": "i-'[C^1][V^1]"
+              "start_slot": 18,
+              "end_slot": 20,
+              "value": "i='ya"
             }
           ]
         },
@@ -10511,14 +10540,9 @@
               "value": "sambiri=ma=ja"
             },
             {
-              "start_slot": 17,
+              "start_slot": 18,
               "end_slot": 20,
-              "value": "fi'tti=pa=e"
-            },
-            {
-              "start_slot": 20,
-              "end_slot": 22,
-              "value": "i-[C^1][V^1]"
+              "value": "i='ya"
             }
           ]
         },
@@ -10564,6 +10588,11 @@
               "start_slot": 14,
               "end_slot": 17,
               "value": "small fish=ACC=CONTR"
+            },
+            {
+              "start_slot": 18,
+              "end_slot": 20,
+              "value": "bring=ASS"
             }
           ]
         }
@@ -10887,7 +10916,7 @@
       ]
     },
     {
-      "num_slots": 5,
+      "num_slots": 8,
       "text": "Tise'ma amunde'fa'o qquen susi.",
       "dependents": [
         {
@@ -10895,22 +10924,22 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
+              "end_slot": 2,
               "value": "Tise'ma"
             },
             {
-              "start_slot": 1,
-              "end_slot": 2,
+              "start_slot": 2,
+              "end_slot": 5,
               "value": "amunde'fa'o"
             },
             {
-              "start_slot": 2,
-              "end_slot": 3,
+              "start_slot": 5,
+              "end_slot": 6,
               "value": "qquen"
             },
             {
-              "start_slot": 3,
-              "end_slot": 5,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "susi"
             }
           ]
@@ -10920,17 +10949,22 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "tise'ma"
+              "end_slot": 2,
+              "value": "tise'=ma"
             },
             {
               "start_slot": 2,
-              "end_slot": 3,
+              "end_slot": 5,
+              "value": "*amunde='fa='o"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
               "value": "qquen"
             },
             {
-              "start_slot": 3,
-              "end_slot": 5,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "su=si"
             }
           ]
@@ -10939,13 +10973,23 @@
           "tier": "T3",
           "values": [
             {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "tise=ma"
+            },
+            {
               "start_slot": 2,
-              "end_slot": 3,
+              "end_slot": 5,
+              "value": "*amu'nde='fa='o"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
               "value": "qquen"
             },
             {
-              "start_slot": 3,
-              "end_slot": 5,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "su=si"
             }
           ]
@@ -10954,13 +10998,23 @@
           "tier": "T4",
           "values": [
             {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "3.SG=ACC"
+            },
+            {
               "start_slot": 2,
-              "end_slot": 3,
+              "end_slot": 5,
+              "value": "dirt=PL.SBJ=ADJR2"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
               "value": "thus"
             },
             {
-              "start_slot": 3,
-              "end_slot": 5,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "say=DS"
             }
           ]
@@ -11114,7 +11168,7 @@
       ]
     },
     {
-      "num_slots": 8,
+      "num_slots": 11,
       "text": "Ttu'sesi amba iyiccae'sui'ccuyi japa ana.",
       "dependents": [
         {
@@ -11132,17 +11186,17 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 5,
+              "end_slot": 8,
               "value": "iyiccae'sui'ccuyi"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "japa"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "ana"
             }
           ]
@@ -11162,17 +11216,17 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 5,
-              "value": "iyiccae'sui'ccuyi"
+              "end_slot": 8,
+              "value": "iyiccae='su=i'ccu=yi"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "ja=pa"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "ana"
             }
           ]
@@ -11191,13 +11245,18 @@
               "value": "an=pa"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 4,
+              "end_slot": 8,
+              "value": "iyicca'ye='su=i'ccu=yi"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "ja=pa"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "ana"
             }
           ]
@@ -11216,13 +11275,18 @@
               "value": "eat=SS"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 4,
+              "end_slot": 8,
+              "value": "get angry=ATTR=INST=EXCL"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
               "value": "go=SS"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "sleep"
             }
           ]
@@ -11595,7 +11659,7 @@
             {
               "start_slot": 23,
               "end_slot": 26,
-              "value": "vana+e=ñe"
+              "value": "vana-e=ñe"
             }
           ]
         },
@@ -11665,7 +11729,7 @@
             {
               "start_slot": 23,
               "end_slot": 26,
-              "value": "vana+***=ye"
+              "value": "vana-ña=ye"
             }
           ]
         },
@@ -11735,14 +11799,14 @@
             {
               "start_slot": 23,
               "end_slot": 26,
-              "value": "suffer+CAUS=INF"
+              "value": "suffer-CAUS=INF"
             }
           ]
         }
       ]
     },
     {
-      "num_slots": 19,
+      "num_slots": 22,
       "text": "Tsa'caen in'jamba iyiccae'sui'ccuyi a'tapa sinte'yi tise ufacco'ccoma isupa tsampiningae ja.",
       "dependents": [
         {
@@ -11760,42 +11824,42 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 6,
+              "end_slot": 9,
               "value": "iyiccae'sui'ccuyi"
             },
             {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "a'tapa"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "sinte'yi"
-            },
-            {
-              "start_slot": 10,
+              "start_slot": 9,
               "end_slot": 11,
-              "value": "tise"
+              "value": "a'tapa"
             },
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "ufacco'ccoma"
+              "value": "sinte'yi"
             },
             {
               "start_slot": 13,
-              "end_slot": 15,
+              "end_slot": 14,
+              "value": "tise"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "ufacco'ccoma"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "isupa"
             },
             {
-              "start_slot": 15,
-              "end_slot": 18,
+              "start_slot": 18,
+              "end_slot": 21,
               "value": "tsampiningae"
             },
             {
-              "start_slot": 18,
-              "end_slot": 19,
+              "start_slot": 21,
+              "end_slot": 22,
               "value": "ja"
             }
           ]
@@ -11815,42 +11879,42 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 6,
-              "value": "iyiccae'sui'ccuyi"
+              "end_slot": 9,
+              "value": "iyiccae='su=i'ccu=yi"
             },
             {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "a'ta=pa"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "sinte='yi"
-            },
-            {
-              "start_slot": 10,
+              "start_slot": 9,
               "end_slot": 11,
-              "value": "tise"
+              "value": "a'ta=pa"
             },
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "ufacco'cco=ma"
+              "value": "sinte='yi"
             },
             {
               "start_slot": 13,
-              "end_slot": 15,
+              "end_slot": 14,
+              "value": "tise"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "ufacco'cco=ma"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "isu=pa"
             },
             {
-              "start_slot": 15,
-              "end_slot": 18,
+              "start_slot": 18,
+              "end_slot": 21,
               "value": "tsampi=ni=ngae"
             },
             {
-              "start_slot": 18,
-              "end_slot": 19,
+              "start_slot": 21,
+              "end_slot": 22,
               "value": "ja"
             }
           ]
@@ -11869,38 +11933,43 @@
               "value": "in'jan=pa"
             },
             {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "a'ta=pa"
+              "start_slot": 5,
+              "end_slot": 9,
+              "value": "iyicca'ye='su=i'ccu=yi"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "sinte=yi"
-            },
-            {
-              "start_slot": 10,
+              "start_slot": 9,
               "end_slot": 11,
-              "value": "tise"
+              "value": "a'ta=pa"
             },
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "ufacco'cco=ma"
+              "value": "sinte=yi"
             },
             {
               "start_slot": 13,
-              "end_slot": 15,
+              "end_slot": 14,
+              "value": "tise"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "ufacco'cco=ma"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "isu=pa"
             },
             {
-              "start_slot": 15,
-              "end_slot": 18,
+              "start_slot": 18,
+              "end_slot": 21,
               "value": "tsampi=ni=ngae"
             },
             {
-              "start_slot": 18,
-              "end_slot": 19,
+              "start_slot": 21,
+              "end_slot": 22,
               "value": "ja"
             }
           ]
@@ -11919,38 +11988,43 @@
               "value": "***=SS"
             },
             {
-              "start_slot": 6,
-              "end_slot": 8,
-              "value": "day=SS"
+              "start_slot": 5,
+              "end_slot": 9,
+              "value": "get angry=ATTR=INST=EXCL"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
-              "value": "in the morning=EXCL"
-            },
-            {
-              "start_slot": 10,
+              "start_slot": 9,
               "end_slot": 11,
-              "value": "3.SG"
+              "value": "day=SS"
             },
             {
               "start_slot": 11,
               "end_slot": 13,
-              "value": "blowgun=ACC"
+              "value": "in the morning=EXCL"
             },
             {
               "start_slot": 13,
-              "end_slot": 15,
+              "end_slot": 14,
+              "value": "3.SG"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "blowgun=ACC"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "take=SS"
             },
             {
-              "start_slot": 15,
-              "end_slot": 18,
+              "start_slot": 18,
+              "end_slot": 21,
               "value": "forest=LOC=MANN"
             },
             {
-              "start_slot": 18,
-              "end_slot": 19,
+              "start_slot": 21,
+              "end_slot": 22,
               "value": "go"
             }
           ]
@@ -11958,7 +12032,7 @@
       ]
     },
     {
-      "num_slots": 15,
+      "num_slots": 17,
       "text": "Japa tise asi'ttaemba in'janqquia'caen shinccapa te'tama isupa oma'ndo du'shuve ñoña.",
       "dependents": [
         {
@@ -11981,37 +12055,37 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 6,
+              "end_slot": 8,
               "value": "in'janqquia'caen"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "shinccapa"
-            },
-            {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "te'tama"
+              "value": "shinccapa"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "isupa"
+              "value": "te'tama"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "isupa"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "oma'ndo"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "du'shuve"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 16,
+              "end_slot": 17,
               "value": "ñoña"
             }
           ]
@@ -12036,37 +12110,37 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 6,
-              "value": "in'janqquia'caen"
+              "end_slot": 8,
+              "value": "in'jan=qquia'ca=en"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "shinccapa"
-            },
-            {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "te'ta=ma"
+              "value": "shinccapa"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "isu=pa"
+              "value": "te'ta=ma"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "isu=pa"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "oma'ndo"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "du'shu=ve"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 16,
+              "end_slot": 17,
               "value": "ñoña"
             }
           ]
@@ -12087,36 +12161,41 @@
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "***=pa"
+              "value": "asi'ttaen=pa"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "shinccapa"
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "in'jan=qquia'can=e"
             },
             {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "te'ta=ma"
+              "value": "shinccapa"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "isu=pa"
+              "value": "te'ta=ma"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "isu=pa"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "oma'ndo"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "du'shu=ve"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 16,
+              "end_slot": 17,
               "value": "ñoña"
             }
           ]
@@ -12140,33 +12219,38 @@
               "value": "think=SS"
             },
             {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "coriander"
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "want=SIM=ADVR"
             },
             {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "flower=ACC"
+              "value": "coriander"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "take=SS"
+              "value": "flower=ACC"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "take=SS"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "macaw"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "child=ACC2"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 16,
+              "end_slot": 17,
               "value": "make"
             }
           ]
@@ -12174,7 +12258,7 @@
       ]
     },
     {
-      "num_slots": 28,
+      "num_slots": 31,
       "text": "Tsa'caen ñoñamba fae'ccoma quini'jin chandonga ppiñamba faesumajan tise ufacco'cco tsutopanga dyaiñamba sime tsaoni tsui jiña.",
       "dependents": [
         {
@@ -12197,62 +12281,62 @@
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
-              "value": "quini'jin"
-            },
-            {
-              "start_slot": 9,
               "end_slot": 10,
-              "value": "chandonga"
+              "value": "quini'jin"
             },
             {
               "start_slot": 10,
               "end_slot": 11,
-              "value": "ppiñamba"
+              "value": "chandonga"
             },
             {
               "start_slot": 11,
               "end_slot": 14,
-              "value": "faesumajan"
+              "value": "ppiñamba"
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
+              "end_slot": 17,
+              "value": "faesumajan"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "tise"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "ufacco'cco"
-            },
-            {
-              "start_slot": 16,
+              "start_slot": 18,
               "end_slot": 19,
-              "value": "tsutopanga"
+              "value": "ufacco'cco"
             },
             {
               "start_slot": 19,
               "end_slot": 22,
-              "value": "dyaiñamba"
+              "value": "tsutopanga"
             },
             {
               "start_slot": 22,
-              "end_slot": 23,
-              "value": "sime"
-            },
-            {
-              "start_slot": 23,
               "end_slot": 25,
-              "value": "tsaoni"
+              "value": "dyaiñamba"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "tsui"
+              "value": "sime"
             },
             {
               "start_slot": 26,
               "end_slot": 28,
+              "value": "tsaoni"
+            },
+            {
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "tsui"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 31,
               "value": "jiña"
             }
           ]
@@ -12277,52 +12361,57 @@
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
-              "value": "quini'jin"
+              "end_slot": 10,
+              "value": "*quini='jin"
             },
             {
               "start_slot": 11,
               "end_slot": 14,
-              "value": "faesu=ma=jan"
+              "value": "ppi-ña=mba"
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
+              "end_slot": 17,
+              "value": "faesu=ma=jan"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "tise"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "ufacco'cco"
-            },
-            {
-              "start_slot": 16,
+              "start_slot": 18,
               "end_slot": 19,
-              "value": "*tsuto=pa=nga"
+              "value": "ufacco'cco"
             },
             {
               "start_slot": 19,
               "end_slot": 22,
-              "value": "dyai=ña=mba"
+              "value": "*tsuto-pa=nga"
             },
             {
               "start_slot": 22,
-              "end_slot": 23,
-              "value": "sime"
-            },
-            {
-              "start_slot": 23,
               "end_slot": 25,
-              "value": "tsao=ni"
+              "value": "dyai=ña=mba"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "tsui"
+              "value": "sime"
             },
             {
               "start_slot": 26,
               "end_slot": 28,
+              "value": "tsao=ni"
+            },
+            {
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "tsui"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 31,
               "value": "ji-ña"
             }
           ]
@@ -12347,53 +12436,58 @@
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
-              "value": "quini'jin"
+              "end_slot": 10,
+              "value": "*quini=jin"
             },
             {
               "start_slot": 11,
               "end_slot": 14,
-              "value": "faesu=ma=ja"
+              "value": "ppi-ña=pa"
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
+              "end_slot": 17,
+              "value": "faesu=ma=ja"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "tise"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
-              "value": "ufacco'cco"
-            },
-            {
-              "start_slot": 16,
+              "start_slot": 18,
               "end_slot": 19,
-              "value": "*tsuto=pa=nga"
+              "value": "ufacco'cco"
             },
             {
               "start_slot": 19,
               "end_slot": 22,
-              "value": "dyai=ya=pa"
+              "value": "*tsuto-'pa=nga"
             },
             {
               "start_slot": 22,
-              "end_slot": 23,
-              "value": "sime"
-            },
-            {
-              "start_slot": 23,
               "end_slot": 25,
-              "value": "tsa'o=ni"
+              "value": "dyai=ya=pa"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "tsui"
+              "value": "sime"
             },
             {
               "start_slot": 26,
               "end_slot": 28,
-              "value": "ji-ña"
+              "value": "tsa'o=ni"
+            },
+            {
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "tsui"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 31,
+              "value": "ji-yi"
             }
           ]
         },
@@ -12417,48 +12511,58 @@
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
-              "value": "tree"
+              "end_slot": 10,
+              "value": "tree=SH.LRG"
             },
             {
               "start_slot": 11,
               "end_slot": 14,
-              "value": "other=ACC=CONTR"
+              "value": "sit-CAUS=SS"
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
+              "end_slot": 17,
+              "value": "other=ACC=CONTR"
+            },
+            {
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "3.SG"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
+              "start_slot": 18,
+              "end_slot": 19,
               "value": "blowgun"
             },
             {
               "start_slot": 19,
               "end_slot": 22,
-              "value": "sit=IRR=SS"
+              "value": "up-NR=DAT"
             },
             {
               "start_slot": 22,
-              "end_slot": 23,
-              "value": "in the evening"
-            },
-            {
-              "start_slot": 23,
               "end_slot": 25,
-              "value": "house=LOC"
+              "value": "sit=IRR=SS"
             },
             {
               "start_slot": 25,
               "end_slot": 26,
-              "value": "walk"
+              "value": "in the evening"
             },
             {
               "start_slot": 26,
               "end_slot": 28,
-              "value": "come-CAUS"
+              "value": "house=LOC"
+            },
+            {
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "walk"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 31,
+              "value": "come-PROSP"
             }
           ]
         }
@@ -12539,7 +12643,7 @@
             {
               "start_slot": 5,
               "end_slot": 8,
-              "value": "ji=ña=si"
+              "value": "ji-ña=si"
             },
             {
               "start_slot": 8,
@@ -12594,7 +12698,7 @@
             {
               "start_slot": 5,
               "end_slot": 8,
-              "value": "ji=ya=si"
+              "value": "ji-yi=si"
             },
             {
               "start_slot": 8,
@@ -12645,6 +12749,11 @@
               "start_slot": 3,
               "end_slot": 5,
               "value": "do=SS"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 8,
+              "value": "come-PROSP=DS"
             },
             {
               "start_slot": 8,
@@ -13439,7 +13548,7 @@
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "other=TEMP"
+              "value": "other=DRN"
             },
             {
               "start_slot": 7,

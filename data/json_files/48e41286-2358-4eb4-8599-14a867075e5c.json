@@ -3,7 +3,8 @@
     "timed": false,
     "story ID": "48e41286-2358-4eb4-8599-14a867075e5c",
     "title": {
-      "con-Latn-EC": "112 Monami atesu'cho",
+      "con-Latn-EC": "Monami atesu'cho",
+      "con-Latn-EC-x-dureno": "Munami atesû'chu",
       "en": "The Wise Plum-throated Cotinga",
       "es": "El canto del azulejo",
       "_default": ""
@@ -12,13 +13,16 @@
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -45,10 +49,6 @@
       },
       "T5": {
         "name": "Frase inglés",
-        "subdivided": false
-      },
-      "T6": {
-        "name": "Frase español",
         "subdivided": false
       }
     }
@@ -174,7 +174,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "plum-throated cotinga=DAT"
+              "value": "cotinga=DAT"
             },
             {
               "start_slot": 4,
@@ -205,16 +205,6 @@
               "start_slot": 0,
               "end_slot": 11,
               "value": "They say that God wanted to teach all of the languages and songs to the plum-throated cotinga."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 11,
-              "value": "Se dice que Dios quiso enseñar todos los idiomas y todos los cantos al azulejo."
             }
           ]
         }
@@ -393,16 +383,6 @@
               "value": "He locked up an oriole and a mockingbird; he placed them apaer because he didn't want them to understand the languages and songs."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 15,
-              "value": "Había encerrado a un cacique y un sinsonte en una canasta. Los colocó aparte porque no quiso que ellos aprendan los idiomas y los cantos. "
-            }
-          ]
         }
       ]
     },
@@ -466,7 +446,7 @@
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "atesian=ya"
+              "value": "atesian='ya"
             }
           ]
         },
@@ -481,12 +461,12 @@
             {
               "start_slot": 2,
               "end_slot": 5,
-              "value": "plum-throated cotinga=DAT=EXCL"
+              "value": "cotinga=DAT=EXCL"
             },
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "teach=IRR"
+              "value": "teach=ASS"
             }
           ]
         },
@@ -497,16 +477,6 @@
               "start_slot": 0,
               "end_slot": 7,
               "value": "Then, he taught the plum-throated cotinga."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 7,
-              "value": "Entonces le dijo al azulejo que hablara todos los idiomas de los pájaros."
             }
           ]
         }
@@ -692,7 +662,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "plum-throated cotinga=CONTR"
+              "value": "cotinga=CONTR"
             },
             {
               "start_slot": 4,

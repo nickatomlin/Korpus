@@ -2,7 +2,8 @@
   "metadata": {
     "timed": false,
     "title": {
-      "con-Latn-EC": "101 Andema coirasundeccu",
+      "con-Latn-EC": "Andema coirasundeccu",
+      "con-Latn-EC-x-dureno": "Andema cuirasûndekhû",
       "en": "The Protectors of the Earth",
       "es": "Los sostenedores del mundo",
       "_default": ""
@@ -11,13 +12,16 @@
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -44,10 +48,6 @@
       },
       "T5": {
         "name": "Frase inglés",
-        "subdivided": false
-      },
-      "T6": {
-        "name": "Frase español",
         "subdivided": false
       }
     },
@@ -104,7 +104,7 @@
             {
               "start_slot": 3,
               "end_slot": 6,
-              "value": "yaya+ccasheye=ndeccu"
+              "value": "yaya+ccashe'ye=ndeccu"
             },
             {
               "start_slot": 6,
@@ -134,7 +134,7 @@
             {
               "start_slot": 3,
               "end_slot": 6,
-              "value": "yaya+ccasheye=ndeccu"
+              "value": "yaya+ccashe'ye=ndeccu"
             },
             {
               "start_slot": 6,
@@ -185,16 +185,6 @@
               "start_slot": 0,
               "end_slot": 9,
               "value": "Our elders say ..."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "Los abuelos dicen que ..."
             }
           ]
         }
@@ -353,16 +343,6 @@
               "value": "Lizards are supporters of the land and they take care of it."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 12,
-              "value": "Las lagartijas son las que sostienen la tierra y son las dueñas de ella."
-            }
-          ]
         }
       ]
     },
@@ -477,16 +457,6 @@
               "start_slot": 0,
               "end_slot": 8,
               "value": "They have news about the land."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "Tienen noticias de la tierra."
             }
           ]
         }
@@ -685,16 +655,6 @@
               "value": "The colonists carelessly harm the land and make holes"
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 22,
-              "value": "Los colonos acaban con la tierra y abren tramos."
-            }
-          ]
         }
       ]
     },
@@ -851,16 +811,6 @@
               "value": "Thus, they kill the lizards and God sees."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 14,
-              "value": "Cuando se mata a esas lagartijas, Chiga está viéndolo. "
-            }
-          ]
         }
       ]
     },
@@ -1015,16 +965,6 @@
               "start_slot": 0,
               "end_slot": 12,
               "value": "People without thinking and without reason kill lizards."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 12,
-              "value": "Como no quiere la gente de aca que sigan viviendo las lagartijas, las matan."
             }
           ]
         }
@@ -1201,16 +1141,6 @@
               "start_slot": 0,
               "end_slot": 19,
               "value": "And the Spaniards lit fires in the holes they made in the land."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 19,
-              "value": "Cuando los colonos abren la tierra, la dejan ardiendo por tramos."
             }
           ]
         }
@@ -1469,16 +1399,6 @@
               "value": "When the lizards are killed, Chiga gets angry and is going to end this world."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 24,
-              "value": "La gente matan las lagartijas; entonces Chiga se pone bravo y va a terminar con todo el mundo."
-            }
-          ]
         }
       ]
     },
@@ -1627,7 +1547,7 @@
             {
               "start_slot": 0,
               "end_slot": 2,
-              "value": "which=TEMP"
+              "value": "which=DRN"
             },
             {
               "start_slot": 2,
@@ -1673,16 +1593,6 @@
               "start_slot": 0,
               "end_slot": 13,
               "value": "One some day, God will leave the world to burn."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 13,
-              "value": "Nadia sabe cuándo Dios va a destruir el mundo."
             }
           ]
         }

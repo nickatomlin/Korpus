@@ -3,7 +3,7 @@
     "timed": false,
     "story ID": "bff94e5f-8621-427e-a1ba-c48ba8fa2c40",
     "title": {
-      "con-Latn-EC": "115 Ttesi chan",
+      "con-Latn-EC": "Ttesi chan",
       "en": "Jaguar Mother",
       "es": "El madre del tigre",
       "_default": ""
@@ -12,13 +12,16 @@
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -45,10 +48,6 @@
       },
       "T5": {
         "name": "Frase inglés",
-        "subdivided": false
-      },
-      "T6": {
-        "name": "Frase español",
         "subdivided": false
       }
     }
@@ -187,16 +186,6 @@
               "value": "In the head of the river lives the mother of a tiger."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "En la cabecera del río vive la mamá del tigre."
-            }
-          ]
         }
       ]
     },
@@ -311,16 +300,6 @@
               "start_slot": 0,
               "end_slot": 6,
               "value": "In the head of the river there is a tiger house."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "En la cabecera del río hay una casa de tigre."
             }
           ]
         }
@@ -459,16 +438,6 @@
               "value": "There they send the shamans when they die"
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 13,
-              "value": "Allá lo mandan cuando una persona curaca muere"
-            }
-          ]
         }
       ]
     },
@@ -603,16 +572,6 @@
               "start_slot": 0,
               "end_slot": 11,
               "value": "and then the shaman becomes a tiger."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 11,
-              "value": "y entonces se convierte en tigre."
             }
           ]
         }
@@ -911,16 +870,6 @@
               "value": "When they don't want to kill him there they send him to live."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 29,
-              "value": "Cuando no le quieren matar allá lo mandan para que viva."
-            }
-          ]
         }
       ]
     },
@@ -1074,17 +1023,7 @@
             {
               "start_slot": 0,
               "end_slot": 16,
-              "value": "The becoming a tiger is like putting on a cushma."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 16,
-              "value": "El volverse tigre es como ponerse una cushma."
+              "value": "Becoming a tiger is like putting on a cushma."
             }
           ]
         }
@@ -1281,16 +1220,6 @@
               "start_slot": 0,
               "end_slot": 18,
               "value": "If a shaman dies, he turns into a tiger."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 18,
-              "value": "Si una persona curaca se muere se vuelve tigre."
             }
           ]
         }
@@ -1509,16 +1438,6 @@
               "value": "Shamans take ayahuasca and convert into a tiger or another animal."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 17,
-              "value": "Los shamanes toman yajé y se convierten en tigre u otro animal."
-            }
-          ]
         }
       ]
     },
@@ -1732,17 +1651,7 @@
             {
               "start_slot": 0,
               "end_slot": 21,
-              "value": "When they die. they convert into a tiger and leave to live in the forest. "
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 21,
-              "value": "Aquella persona cuando muere se convierte en tigre y se va a vivir a la selva."
+              "value": "When they die, they convert into a tiger and leave to live in the forest. "
             }
           ]
         }
@@ -1879,16 +1788,6 @@
               "start_slot": 0,
               "end_slot": 10,
               "value": "There in the forest they live forever."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 10,
-              "value": "Así en la selva vive para siempre."
             }
           ]
         }

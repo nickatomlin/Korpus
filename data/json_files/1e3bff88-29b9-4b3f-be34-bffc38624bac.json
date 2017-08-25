@@ -3,7 +3,7 @@
     "timed": false,
     "description": "A story about the first black people.",
     "title": {
-      "con-Latn-EC": "103 Singo a'i",
+      "con-Latn-EC": "Singo a'i",
       "en": "Black People",
       "es": "El negro",
       "_default": ""
@@ -12,13 +12,16 @@
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "2008",
     "date_uploaded": "",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": "Mitos del Pueblo Cofán"
     },
     "genre": "Fiction",
@@ -44,10 +47,6 @@
       },
       "T5": {
         "name": "Frase inglés",
-        "subdivided": false
-      },
-      "T6": {
-        "name": "Frase español",
         "subdivided": false
       }
     },
@@ -247,16 +246,6 @@
               "value": "How black people came to live in this land."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 13,
-              "value": "Cuando los negros vinieron a esta tierra."
-            }
-          ]
         }
       ]
     },
@@ -431,16 +420,6 @@
               "start_slot": 0,
               "end_slot": 8,
               "value": "Long ago, a man had a boy."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "Hace muchos años vivía un padre que tenía un niño."
             }
           ]
         }
@@ -659,16 +638,6 @@
               "value": "The child's dad went to urinate, and he saw him urinate."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 14,
-              "value": "El padre del niño salió a orinar y el hijo estaba cerca donde su padre se fue a orinar."
-            }
-          ]
         }
       ]
     },
@@ -803,16 +772,6 @@
               "start_slot": 0,
               "end_slot": 8,
               "value": "His dad's penis was black."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "El pene del papá era de color negro."
             }
           ]
         }
@@ -1331,16 +1290,6 @@
               "value": "Since the son saw his dad's penis was black, the dad thought the son would convert into a black person."
             }
           ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 40,
-              "value": "Como el hijo vio que el pene de padre era negro, el padre pensó que el hijo se convirtiera en una persona de color negro."
-            }
-          ]
         }
       ]
     },
@@ -1495,16 +1444,6 @@
               "start_slot": 0,
               "end_slot": 11,
               "value": "Thus, he knew the child became a black person."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 11,
-              "value": "Entonces sabió que el hijo se convirtió en una persona de color negro."
             }
           ]
         }
@@ -1681,16 +1620,6 @@
               "start_slot": 0,
               "end_slot": 14,
               "value": "After the child became black, he got a wife and had black children."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 14,
-              "value": "Después del hijo se convirtió en una persona de color negro, se casó con una chica y tuvo hijos negros."
             }
           ]
         }
@@ -1887,16 +1816,6 @@
               "start_slot": 0,
               "end_slot": 13,
               "value": "And that is how black people came to live in this land."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 13,
-              "value": "Así es como se crearon las personas de color negro. "
             }
           ]
         }

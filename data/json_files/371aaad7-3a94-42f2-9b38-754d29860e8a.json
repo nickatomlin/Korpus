@@ -3,7 +3,8 @@
     "timed": false,
     "story ID": "371aaad7-3a94-42f2-9b38-754d29860e8a",
     "title": {
-      "con-Latn-EC": "114 Tsandie pa'cho",
+      "con-Latn-EC": "Tsandie pa'cho",
+      "con-Latn-EC-x-dureno": "Tsandie pa'chu",
       "es": "Un hombre finado",
       "_default": ""
     },
@@ -11,13 +12,16 @@
     "languages": [
       "con-Latn-EC",
       "en",
-      "es"
+      "es",
+      "con-Latn-EC-x-dureno"
     ],
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
-      "con-Latn-EC": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
+      "con-Latn-EC-x-dureno": "Blaser, Magdalena \"A'indekhû kankhe'sûne kundase'chu\"",
       "en": "Blaser, Magdalena \"Myths of the Cofán people\"",
+      "es": "Blaser, Magdalena \"Mitos del pueblo Cofán\"",
       "_default": ""
     },
     "description": "",
@@ -41,10 +45,6 @@
       "T4": {
         "name": "Glosa de morfema inglés",
         "subdivided": true
-      },
-      "T5": {
-        "name": "Frase español",
-        "subdivided": false
       }
     }
   },
@@ -147,6 +147,11 @@
           "tier": "T3",
           "values": [
             {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "fae"
+            },
+            {
               "start_slot": 1,
               "end_slot": 2,
               "value": "pushesu"
@@ -187,6 +192,11 @@
           "tier": "T4",
           "values": [
             {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "one"
+            },
+            {
               "start_slot": 1,
               "end_slot": 2,
               "value": "woman"
@@ -220,16 +230,6 @@
               "start_slot": 11,
               "end_slot": 12,
               "value": "live"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 12,
-              "value": "La mujer cuando un brujo le mató a su marido, andaba llorando por él."
             }
           ]
         }
@@ -350,22 +350,12 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "sick=ACC2"
+              "value": "be sick=ACC2"
             },
             {
               "start_slot": 8,
               "end_slot": 9,
               "value": "become"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "Sólo por estar llorando por su marido día y noche se enfermó,"
             }
           ]
         }
@@ -674,16 +664,6 @@
               "value": "look=SS"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 25,
-              "value": "y también iba a la chacra y seguía llorando por su marido viendo la chacra."
-            }
-          ]
         }
       ]
     },
@@ -870,16 +850,6 @@
               "value": "see-CAUS"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 15,
-              "value": "Cuando estaba llorando la mujer en la chacra apareció su marido delante de ella."
-            }
-          ]
         }
       ]
     },
@@ -986,16 +956,6 @@
               "value": "cry"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 5,
-              "value": "Le dijo el hombre a su mujer: \"¿Por qué lloras tanto mujer,"
-            }
-          ]
         }
       ]
     },
@@ -1060,16 +1020,6 @@
               "start_slot": 4,
               "end_slot": 5,
               "value": "=CONTR"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 5,
-              "value": "como si hubiese muerto?\"."
             }
           ]
         }
@@ -1316,16 +1266,6 @@
               "start_slot": 17,
               "end_slot": 19,
               "value": "be able=NEG"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 19,
-              "value": "Y añadió: \"Porque es que me da un comezón en la cabeza. Búsqueme piojos\"."
             }
           ]
         }
@@ -1592,16 +1532,6 @@
               "start_slot": 20,
               "end_slot": 23,
               "value": "be scattered=SBRD=ACC"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 23,
-              "value": "La mujer le dijo: \"Voy a buscarte piojos\". Se acercó la mujer a su marido y vio la cabeza . El hombre tenía puro gusano en la cabeza."
             }
           ]
         }
@@ -2050,16 +1980,6 @@
               "value": "leave-PASS=ADM"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 39,
-              "value": "Después de haberle buscar piojos le dijo a su mujer: \"Ya me voy este rato\". Al rato que se iba, la mujer le abrazó duro para que no se fuera dejándola sola."
-            }
-          ]
         }
       ]
     },
@@ -2164,16 +2084,6 @@
               "start_slot": 8,
               "end_slot": 9,
               "value": "say"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "El hombre le dijo:"
             }
           ]
         }
@@ -2322,16 +2232,6 @@
               "value": "close eyes=IRR=REP"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 11,
-              "value": "\"Monta a mi espalda y cierra los ojos\"."
-            }
-          ]
         }
       ]
     },
@@ -2436,16 +2336,6 @@
               "start_slot": 7,
               "end_slot": 8,
               "value": "carry"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "La mujer montó a la espalda del hombre, cerró los ojos y el hombre la llevó al cielo."
             }
           ]
         }
@@ -2694,21 +2584,11 @@
               "value": "say"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 20,
-              "value": "Después que la llevó al cielo le dijo el hombre a su mujer: \"Espere aquí, voy hacia el Padre a saber qué es lo que dice\"."
-            }
-          ]
         }
       ]
     },
     {
-      "num_slots": 10,
+      "num_slots": 11,
       "text": "Supa japa iñajampañasi su: Pporotsse i'se.",
       "dependents": [
         {
@@ -2726,22 +2606,22 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 6,
-              "value": "iñajampañasi"
-            },
-            {
-              "start_slot": 6,
               "end_slot": 7,
-              "value": "su"
+              "value": "iñajampañasi"
             },
             {
               "start_slot": 7,
               "end_slot": 8,
-              "value": "Pporotsse"
+              "value": "su"
             },
             {
               "start_slot": 8,
-              "end_slot": 10,
+              "end_slot": 9,
+              "value": "Pporotsse"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "i'se"
             }
           ]
@@ -2761,22 +2641,22 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 6,
-              "value": "iñajampaña=si"
-            },
-            {
-              "start_slot": 6,
               "end_slot": 7,
-              "value": "su"
+              "value": "iñajam+paña=si"
             },
             {
               "start_slot": 7,
               "end_slot": 8,
-              "value": "pporotsse"
+              "value": "su"
             },
             {
               "start_slot": 8,
-              "end_slot": 10,
+              "end_slot": 9,
+              "value": "pporotsse"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "i='se"
             }
           ]
@@ -2796,22 +2676,22 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 6,
-              "value": "iñajampaña=si"
-            },
-            {
-              "start_slot": 6,
               "end_slot": 7,
-              "value": "su"
+              "value": "iñajan+paña=si"
             },
             {
               "start_slot": 7,
               "end_slot": 8,
-              "value": "pporotsse"
+              "value": "su"
             },
             {
               "start_slot": 8,
-              "end_slot": 10,
+              "end_slot": 9,
+              "value": "pporotsse"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "i='se"
             }
           ]
@@ -2831,33 +2711,23 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 6,
-              "value": "ask=DS"
-            },
-            {
-              "start_slot": 6,
               "end_slot": 7,
-              "value": "say"
+              "value": "ask+hear=DS"
             },
             {
               "start_slot": 7,
               "end_slot": 8,
-              "value": "nearby"
+              "value": "say"
             },
             {
               "start_slot": 8,
-              "end_slot": 10,
-              "value": "bring=PERM"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
+              "end_slot": 9,
+              "value": "nearby"
+            },
             {
-              "start_slot": 0,
-              "end_slot": 10,
-              "value": "El Padre le dijo que la lleve a una parte cercana."
+              "start_slot": 9,
+              "end_slot": 11,
+              "value": "bring=PERM"
             }
           ]
         }
@@ -3086,16 +2956,6 @@
               "value": "bring-TRANS=INF"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 19,
-              "value": "El hombre la dijo: \"Espere aquí, voy a volver trayendo maíz para que prepare algo para beber\"."
-            }
-          ]
         }
       ]
     },
@@ -3184,7 +3044,7 @@
             {
               "start_slot": 5,
               "end_slot": 9,
-              "value": "***='cco='cco=e"
+              "value": "fae='cco='cco=e"
             },
             {
               "start_slot": 9,
@@ -3214,22 +3074,12 @@
             {
               "start_slot": 5,
               "end_slot": 9,
-              "value": "***=SH.ANG=SH.ANG=ADVR"
+              "value": "one=SH.ANG=SH.ANG=ADVR"
             },
             {
               "start_slot": 9,
               "end_slot": 10,
               "value": "bring"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 10,
-              "value": "El hombre le trajo una mazorca de maíz;"
             }
           ]
         }
@@ -3380,7 +3230,7 @@
             {
               "start_slot": 12,
               "end_slot": 17,
-              "value": "***='cco='cco=i'ccu=ja"
+              "value": "fae='cco='cco=i'ccu=ja"
             },
             {
               "start_slot": 17,
@@ -3430,22 +3280,12 @@
             {
               "start_slot": 12,
               "end_slot": 17,
-              "value": "***=SH.ANG=SH.ANG=INST=CONTR"
+              "value": "one=SH.ANG=SH.ANG=INST=CONTR"
             },
             {
               "start_slot": 17,
               "end_slot": 19,
               "value": "fill up=IRR"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 19,
-              "value": "la mujer dijo: \"Solamente una mazorca de maíz no alcanza para beber\"."
             }
           ]
         }
@@ -3594,16 +3434,6 @@
               "value": "give"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "Y el hombre fue a ver otra mazorca más."
-            }
-          ]
         }
       ]
     },
@@ -3750,16 +3580,6 @@
               "value": "drink=SH.LAT"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 16,
-              "value": "Y la mujer preparó el maíz y bebieron las personas que se mueren en la tierra."
-            }
-          ]
         }
       ]
     },
@@ -3846,16 +3666,6 @@
               "value": "be scattered=SH.LAT"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Cuando suban al cielo es una sola cara."
-            }
-          ]
         }
       ]
     },
@@ -3940,16 +3750,6 @@
               "start_slot": 5,
               "end_slot": 8,
               "value": "rejoice=STAT=PL.SBJ"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "Estas personas esos días lo pasan como estar en fiesta."
             }
           ]
         }
@@ -4156,16 +3956,6 @@
               "start_slot": 14,
               "end_slot": 16,
               "value": "be scattered=SH.LAT"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 16,
-              "value": "En el cielo uno a otro se dicen: \"Yo no bailo y usted baila\"."
             }
           ]
         }
@@ -4462,7 +4252,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "hmm"
+              "value": "mhmm"
             },
             {
               "start_slot": 1,
@@ -5546,7 +5336,7 @@
       ]
     },
     {
-      "num_slots": 15,
+      "num_slots": 16,
       "text": "Tsa a'i tsu condase ma'caen sefacconijan sinttia've me'in'on.",
       "dependents": [
         {
@@ -5589,7 +5379,7 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
+              "end_slot": 16,
               "value": "me'in'on"
             }
           ]
@@ -5634,8 +5424,8 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
-              "value": "me'in'on"
+              "end_slot": 16,
+              "value": "*me'in='on"
             }
           ]
         },
@@ -5679,8 +5469,8 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
-              "value": "me'in'on"
+              "end_slot": 16,
+              "value": "*me'in='o"
             }
           ]
         },
@@ -5724,8 +5514,8 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
-              "value": "not exist"
+              "end_slot": 16,
+              "value": "not exists=ADJR2"
             }
           ]
         }
