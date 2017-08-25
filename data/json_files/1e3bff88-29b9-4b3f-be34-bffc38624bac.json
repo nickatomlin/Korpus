@@ -49,10 +49,6 @@
       "T6": {
         "name": "Frase español",
         "subdivided": false
-      },
-      "T7": {
-        "name": "Frase a'ingae",
-        "subdivided": false
       }
     },
     "story ID": "103"
@@ -823,7 +819,7 @@
       ]
     },
     {
-      "num_slots": 38,
+      "num_slots": 40,
       "text": "Tsonsi tsama attepa yaya que cundyi'fa tsu sin'an qquen susi tise yaya in'jan, cuintsu tsa'caen injengembe camba tisu yaya cundyi'je'fama atte'ta singo a'ive daye.",
       "dependents": [
         {
@@ -901,52 +897,52 @@
             },
             {
               "start_slot": 20,
-              "end_slot": 21,
-              "value": "tsa'caen"
-            },
-            {
-              "start_slot": 21,
               "end_slot": 23,
-              "value": "injengembe"
+              "value": "tsa'caen"
             },
             {
               "start_slot": 23,
               "end_slot": 25,
-              "value": "camba"
+              "value": "injengembe"
             },
             {
               "start_slot": 25,
-              "end_slot": 26,
-              "value": "tisu"
-            },
-            {
-              "start_slot": 26,
               "end_slot": 27,
-              "value": "yaya"
+              "value": "camba"
             },
             {
               "start_slot": 27,
-              "end_slot": 31,
+              "end_slot": 28,
+              "value": "tisu"
+            },
+            {
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "yaya"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 33,
               "value": "cundyi'je'fama"
             },
             {
-              "start_slot": 31,
-              "end_slot": 33,
+              "start_slot": 33,
+              "end_slot": 35,
               "value": "atte'ta"
             },
             {
-              "start_slot": 33,
-              "end_slot": 34,
-              "value": "singo"
-            },
-            {
-              "start_slot": 34,
+              "start_slot": 35,
               "end_slot": 36,
-              "value": "a'ive"
+              "value": "singo"
             },
             {
               "start_slot": 36,
               "end_slot": 38,
+              "value": "a'ive"
+            },
+            {
+              "start_slot": 38,
+              "end_slot": 40,
               "value": "daye"
             }
           ]
@@ -1026,52 +1022,52 @@
             },
             {
               "start_slot": 20,
-              "end_slot": 21,
-              "value": "tsa'caen"
-            },
-            {
-              "start_slot": 21,
               "end_slot": 23,
-              "value": "injenge=mbe"
+              "value": "tsa='ca=en"
             },
             {
               "start_slot": 23,
               "end_slot": 25,
-              "value": "ca=mba"
+              "value": "injenge=mbe"
             },
             {
               "start_slot": 25,
-              "end_slot": 26,
-              "value": "tisu"
-            },
-            {
-              "start_slot": 26,
               "end_slot": 27,
-              "value": "yaya"
+              "value": "ca=mba"
             },
             {
               "start_slot": 27,
-              "end_slot": 31,
+              "end_slot": 28,
+              "value": "tisu"
+            },
+            {
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "yaya"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 33,
               "value": "cundyi-'je='fa=ma"
             },
             {
-              "start_slot": 31,
-              "end_slot": 33,
+              "start_slot": 33,
+              "end_slot": 35,
               "value": "atte='ta"
             },
             {
-              "start_slot": 33,
-              "end_slot": 34,
-              "value": "singo"
-            },
-            {
-              "start_slot": 34,
+              "start_slot": 35,
               "end_slot": 36,
-              "value": "a'i=ve"
+              "value": "singo"
             },
             {
               "start_slot": 36,
               "end_slot": 38,
+              "value": "a'i=ve"
+            },
+            {
+              "start_slot": 38,
+              "end_slot": 40,
               "value": "da=ye"
             }
           ]
@@ -1151,52 +1147,52 @@
             },
             {
               "start_slot": 20,
-              "end_slot": 21,
-              "value": "tsa'caen"
-            },
-            {
-              "start_slot": 21,
               "end_slot": 23,
-              "value": "injenge=mbe"
+              "value": "tsa='can=e"
             },
             {
               "start_slot": 23,
               "end_slot": 25,
-              "value": "can=pa"
+              "value": "injenge=mbe"
             },
             {
               "start_slot": 25,
-              "end_slot": 26,
-              "value": "tisu"
-            },
-            {
-              "start_slot": 26,
               "end_slot": 27,
-              "value": "yaya"
+              "value": "can=pa"
             },
             {
               "start_slot": 27,
-              "end_slot": 31,
-              "value": "cundyi-'je='fa=ma"
+              "end_slot": 28,
+              "value": "tisu"
             },
             {
-              "start_slot": 31,
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "yaya"
+            },
+            {
+              "start_slot": 29,
               "end_slot": 33,
-              "value": "atte=ta"
+              "value": "cundyi-'je=fa=ma"
             },
             {
               "start_slot": 33,
-              "end_slot": 34,
-              "value": "singo"
+              "end_slot": 35,
+              "value": "atte=ta"
             },
             {
-              "start_slot": 34,
+              "start_slot": 35,
               "end_slot": 36,
-              "value": "a'i=ve"
+              "value": "singo"
             },
             {
               "start_slot": 36,
               "end_slot": 38,
+              "value": "a'i=ve"
+            },
+            {
+              "start_slot": 38,
+              "end_slot": 40,
               "value": "da=ye"
             }
           ]
@@ -1265,53 +1261,63 @@
               "value": "dad"
             },
             {
+              "start_slot": 18,
+              "end_slot": 19,
+              "value": "want"
+            },
+            {
               "start_slot": 19,
               "end_slot": 20,
               "value": "so that"
             },
             {
               "start_slot": 20,
-              "end_slot": 21,
-              "value": "thus"
-            },
-            {
-              "start_slot": 21,
               "end_slot": 23,
-              "value": "be necessary=ADV.NEG"
+              "value": "ANA=CMP=ADVR"
             },
             {
               "start_slot": 23,
               "end_slot": 25,
-              "value": "look=SS"
+              "value": "understand=ADV.NEG"
             },
             {
               "start_slot": 25,
-              "end_slot": 26,
-              "value": "REFL"
-            },
-            {
-              "start_slot": 26,
               "end_slot": 27,
-              "value": "dad"
+              "value": "look=SS"
             },
             {
               "start_slot": 27,
-              "end_slot": 31,
-              "value": "urinate-IMPV=PL.SBJ=ACC"
+              "end_slot": 28,
+              "value": "REFL"
+            },
+            {
+              "start_slot": 28,
+              "end_slot": 29,
+              "value": "dad"
+            },
+            {
+              "start_slot": 29,
+              "end_slot": 33,
+              "value": "urinate-IMPV=SH.LAT=ACC"
             },
             {
               "start_slot": 33,
-              "end_slot": 34,
-              "value": "black person"
+              "end_slot": 35,
+              "value": "see=NEW"
             },
             {
-              "start_slot": 34,
+              "start_slot": 35,
               "end_slot": 36,
-              "value": "person=ACC2"
+              "value": "black person"
             },
             {
               "start_slot": 36,
               "end_slot": 38,
+              "value": "person=ACC2"
+            },
+            {
+              "start_slot": 38,
+              "end_slot": 40,
               "value": "become=INF"
             }
           ]
@@ -1321,7 +1327,7 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 38,
+              "end_slot": 40,
               "value": "Since the son saw his dad's penis was black, the dad thought the son would convert into a black person."
             }
           ]
@@ -1331,7 +1337,7 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 38,
+              "end_slot": 40,
               "value": "Como el hijo vio que el pene de padre era negro, el padre pensó que el hijo se convirtiera en una persona de color negro."
             }
           ]
@@ -1339,7 +1345,7 @@
       ]
     },
     {
-      "num_slots": 9,
+      "num_slots": 11,
       "text": "Tsa'caen in'jansi tsa du'shuja singove da.",
       "dependents": [
         {
@@ -1347,32 +1353,32 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
+              "end_slot": 3,
               "value": "Tsa'caen"
             },
             {
-              "start_slot": 1,
-              "end_slot": 3,
+              "start_slot": 3,
+              "end_slot": 5,
               "value": "in'jansi"
             },
             {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "tsa"
-            },
-            {
-              "start_slot": 4,
+              "start_slot": 5,
               "end_slot": 6,
-              "value": "du'shuja"
+              "value": "tsa"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "singove"
+              "value": "du'shuja"
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
+              "end_slot": 10,
+              "value": "singove"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "da"
             }
           ]
@@ -1382,32 +1388,32 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "tsa'caen"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 3,
-              "value": "in'jan=si"
+              "value": "tsa='ca=en"
             },
             {
               "start_slot": 3,
-              "end_slot": 4,
-              "value": "tsa"
+              "end_slot": 5,
+              "value": "in'jan=si"
             },
             {
-              "start_slot": 4,
+              "start_slot": 5,
               "end_slot": 6,
-              "value": "du'shu=ja"
+              "value": "tsa"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "singo=ve"
+              "value": "du'shu=ja"
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
+              "end_slot": 10,
+              "value": "singo=ve"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "da"
             }
           ]
@@ -1417,32 +1423,32 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "tsa'caen"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 3,
-              "value": "in'jan=si"
+              "value": "tsa='can=e"
             },
             {
               "start_slot": 3,
-              "end_slot": 4,
-              "value": "tsa"
+              "end_slot": 5,
+              "value": "in'jan=si"
             },
             {
-              "start_slot": 4,
+              "start_slot": 5,
               "end_slot": 6,
-              "value": "du'shu=ja"
+              "value": "tsa"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "singo=ve"
+              "value": "du'shu=ja"
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
+              "end_slot": 10,
+              "value": "singo=ve"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "da"
             }
           ]
@@ -1452,32 +1458,32 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "thus"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 3,
-              "value": "know=DS"
+              "value": "ANA=CMP=ADVR"
             },
             {
               "start_slot": 3,
-              "end_slot": 4,
-              "value": "ANA"
+              "end_slot": 5,
+              "value": "know=DS"
             },
             {
-              "start_slot": 4,
+              "start_slot": 5,
               "end_slot": 6,
-              "value": "child=CONTR"
+              "value": "ANA"
             },
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "black person=ACC2"
+              "value": "child=CONTR"
             },
             {
               "start_slot": 8,
-              "end_slot": 9,
+              "end_slot": 10,
+              "value": "black person=ACC2"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
               "value": "become"
             }
           ]
@@ -1487,7 +1493,7 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 9,
+              "end_slot": 11,
               "value": "Thus, he knew the child became a black person."
             }
           ]
@@ -1497,7 +1503,7 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 9,
+              "end_slot": 11,
               "value": "Entonces sabió que el hijo se convirtió en una persona de color negro."
             }
           ]
@@ -1505,7 +1511,7 @@
       ]
     },
     {
-      "num_slots": 12,
+      "num_slots": 14,
       "text": "Tsa'caen singove dapa jai'ngae pushepa singove atapa.",
       "dependents": [
         {
@@ -1513,37 +1519,37 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "Tsa'caen"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 3,
-              "value": "singove"
+              "value": "Tsa'caen"
             },
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "dapa"
+              "value": "singove"
             },
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "jai'ngae"
+              "value": "dapa"
             },
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "pushepa"
+              "value": "jai'ngae"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "singove"
+              "value": "pushepa"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "singove"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "atapa"
             }
           ]
@@ -1553,37 +1559,37 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "tsa'caen"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 3,
-              "value": "singo=ve"
+              "value": "tsa='ca=en"
             },
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "da=pa"
+              "value": "singo=ve"
             },
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "jai'=ngae"
+              "value": "da=pa"
             },
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "pushe=pa"
+              "value": "jai'=ngae"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "singo=ve"
+              "value": "pushe=pa"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "singo=ve"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "atapa"
             }
           ]
@@ -1593,37 +1599,37 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "tsa'caen"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 3,
-              "value": "singo=ve"
+              "value": "tsa='can=e"
             },
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "da=pa"
+              "value": "singo=ve"
             },
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "ja'i=ngae"
+              "value": "da=pa"
             },
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "pushe=pa"
+              "value": "ja'i=ngae"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "singo=ve"
+              "value": "pushe=pa"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "singo=ve"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "atapa"
             }
           ]
@@ -1633,37 +1639,37 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
-              "value": "thus"
-            },
-            {
-              "start_slot": 1,
               "end_slot": 3,
-              "value": "black person=ACC2"
+              "value": "ANA=CMP=ADVR"
             },
             {
               "start_slot": 3,
               "end_slot": 5,
-              "value": "become=SS"
+              "value": "black person=ACC2"
             },
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "then=MANN"
+              "value": "become=SS"
             },
             {
               "start_slot": 7,
               "end_slot": 9,
-              "value": "wife=ASSOC"
+              "value": "then=MANN"
             },
             {
               "start_slot": 9,
               "end_slot": 11,
-              "value": "black person=ACC2"
+              "value": "wife=ASSOC"
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
+              "value": "black person=ACC2"
+            },
+            {
+              "start_slot": 13,
+              "end_slot": 14,
               "value": "reproduce"
             }
           ]
@@ -1673,7 +1679,7 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 12,
+              "end_slot": 14,
               "value": "After the child became black, he got a wife and had black children."
             }
           ]
@@ -1683,7 +1689,7 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 12,
+              "end_slot": 14,
               "value": "Después del hijo se convirtió en una persona de color negro, se casó con una chica y tuvo hijos negros."
             }
           ]
@@ -1885,7 +1891,7 @@
           ]
         },
         {
-          "tier": "T7",
+          "tier": "T6",
           "values": [
             {
               "start_slot": 0,

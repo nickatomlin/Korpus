@@ -2,7 +2,7 @@
   "metadata": {
     "timed": false,
     "title": {
-      "con-Latn-EC": "102 Chiagaja a'ive agattoen'cho",
+      "con-Latn-EC": "102 Chigaja a'ive agattoen'cho",
       "en": "Godly Creation of Mankind",
       "es": "Chiga creó a la gente",
       "_default": ""
@@ -43,6 +43,10 @@
         "subdivided": true
       },
       "T5": {
+        "name": "Frase español",
+        "subdivided": false
+      },
+      "T6": {
         "name": "Frase inglés",
         "subdivided": false
       }
@@ -51,7 +55,7 @@
   },
   "sentences": [
     {
-      "num_slots": 16,
+      "num_slots": 18,
       "text": "Chigaja a'ive agattoeñe andema pafupa tisia'can'me mandyiccoen ñoña.",
       "dependents": [
         {
@@ -89,12 +93,12 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
+              "end_slot": 17,
               "value": "mandyiccoen"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "ñoña"
             }
           ]
@@ -134,12 +138,12 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
-              "value": "mandyiccoen"
+              "end_slot": 17,
+              "value": "mandyi=cco-en"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "ñoña"
             }
           ]
@@ -179,12 +183,12 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
-              "value": "mandyiccoen"
+              "end_slot": 17,
+              "value": "mandyi='cco-ña"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "ñoña"
             }
           ]
@@ -224,13 +228,23 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
-              "value": "squeeze by hand"
+              "end_slot": 17,
+              "value": "squeeze=SH.ANG-CAUS"
             },
             {
-              "start_slot": 15,
-              "end_slot": 16,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "make"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 18,
+              "value": "Chiga hizo una pequeña masa de tierra y con ella modeló a las personas."
             }
           ]
         }
@@ -356,7 +370,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "ANA=ADV.NEG"
+              "value": "ANA=BEN"
             },
             {
               "start_slot": 4,
@@ -377,6 +391,16 @@
               "start_slot": 10,
               "end_slot": 11,
               "value": "blow"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 11,
+              "value": "Sopló sobre ellas en la nariz y se convirtieron en personas."
             }
           ]
         }
@@ -585,44 +609,39 @@
               "value": "move=PL.SBJ"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 18,
+              "value": "Chiga nos hizo a las personas como un muñeco, y luego sopló en nuestra nariz y nos convertimos en gente;"
+            }
+          ]
         }
       ]
     },
     {
-      "num_slots": 12,
-      "text": "Tsaeyija tsandiendeccuveyi tsandie'mbe utuccuma somboen agattoen.",
+      "num_slots": 9,
+      "text": "Tsaeyija tsandiendeccuveyi agattoen.",
       "dependents": [
         {
           "tier": "T1",
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
+              "end_slot": 4,
               "value": "Tsaeyija"
             },
             {
-              "start_slot": 1,
-              "end_slot": 5,
+              "start_slot": 4,
+              "end_slot": 8,
               "value": "tsandiendeccuveyi"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "tsandie'mbe"
-            },
-            {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "utuccuma"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "somboen"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
               "value": "agattoen"
             }
           ]
@@ -631,28 +650,18 @@
           "tier": "T2",
           "values": [
             {
-              "start_slot": 1,
-              "end_slot": 5,
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "tsa=e=yi=ja"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 8,
               "value": "tsandie=ndeccu=ve=yi"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "tsandie='mbe"
-            },
-            {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "utuccu=ma"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "sombo-en"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
               "value": "agattoen"
             }
           ]
@@ -661,28 +670,18 @@
           "tier": "T3",
           "values": [
             {
-              "start_slot": 1,
-              "end_slot": 5,
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "tsa=e=yi=ja"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 8,
               "value": "tsandie=ndeccu=ve=yi"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "tsandie=mbe"
-            },
-            {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "utuccu=ma"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "sombo-ña"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
               "value": "agattoen"
             }
           ]
@@ -691,37 +690,37 @@
           "tier": "T4",
           "values": [
             {
-              "start_slot": 1,
-              "end_slot": 5,
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "ANA=ADVR=EXCL=CONTR"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 8,
               "value": "man=PL.HUM=ACC2=EXCL"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
-              "value": "man=BEN"
-            },
-            {
-              "start_slot": 7,
+              "start_slot": 8,
               "end_slot": 9,
-              "value": "rib=ACC"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 11,
-              "value": "go out-CAUS"
-            },
-            {
-              "start_slot": 11,
-              "end_slot": 12,
               "value": "create"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 9,
+              "value": "primero hizo solamente a los hombres."
             }
           ]
         }
       ]
     },
     {
-      "num_slots": 10,
-      "text": "Tsomba tse'i Chigaja tsa pushesuve agattoeñe.",
+      "num_slots": 16,
+      "text": "Tsomba tse'i Chigaja tsa tsandie'mbe utuccuma somboen pushesuve agattoeñe.",
       "dependents": [
         {
           "tier": "T1",
@@ -749,11 +748,26 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "pushesuve"
+              "value": "tsandie'mbe"
             },
             {
               "start_slot": 8,
               "end_slot": 10,
+              "value": "utuccuma"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "somboen"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "pushesuve"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "agattoeñe"
             }
           ]
@@ -784,11 +798,26 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "pushesu=ve"
+              "value": "tsandie='mbe"
             },
             {
               "start_slot": 8,
               "end_slot": 10,
+              "value": "utuccu=ma"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "sombo-en"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "pushesu=ve"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "agattoe=ñe"
             }
           ]
@@ -819,11 +848,26 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "pushesu=ve"
+              "value": "tsandie=mbe"
             },
             {
               "start_slot": 8,
               "end_slot": 10,
+              "value": "utuccu=ma"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "sombo-ña"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "pushesu=ve"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "agattoen=ye"
             }
           ]
@@ -854,20 +898,45 @@
             {
               "start_slot": 6,
               "end_slot": 8,
-              "value": "woman=ACC2"
+              "value": "man=BEN"
             },
             {
               "start_slot": 8,
               "end_slot": 10,
+              "value": "rib=ACC"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 12,
+              "value": "go out-CAUS"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 14,
+              "value": "woman=ACC2"
+            },
+            {
+              "start_slot": 14,
+              "end_slot": 16,
               "value": "create=INF"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 16,
+              "value": "Últimamente Chiga sacó una costilla de los hombres para crear a las mujeres."
             }
           ]
         }
       ]
     },
     {
-      "num_slots": 18,
-      "text": "Tsa'cansi tsu ña quitsandeccuja su'fa: Que'ita qui tsandiendeccumbe utuccu'fa.",
+      "num_slots": 17,
+      "text": "Tsa'cansi tsu ña quitsandeccu su'fa: Que'ita qui tsandiendeccumbe utuccu'fa.",
       "dependents": [
         {
           "tier": "T1",
@@ -889,32 +958,32 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 8,
-              "value": "quitsandeccuja"
+              "end_slot": 7,
+              "value": "quitsandeccu"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 7,
+              "end_slot": 9,
               "value": "su'fa"
             },
             {
-              "start_slot": 10,
-              "end_slot": 12,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "Que'ita"
             },
             {
-              "start_slot": 12,
-              "end_slot": 13,
+              "start_slot": 11,
+              "end_slot": 12,
               "value": "qui"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "tsandiendeccumbe"
             },
             {
-              "start_slot": 16,
-              "end_slot": 18,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "utuccu'fa"
             }
           ]
@@ -939,32 +1008,32 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 8,
-              "value": "quitsa=ndeccu=ja"
+              "end_slot": 7,
+              "value": "quitsa=ndeccu"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 7,
+              "end_slot": 9,
               "value": "su='fa"
             },
             {
-              "start_slot": 10,
-              "end_slot": 12,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "que'i=ta"
             },
             {
-              "start_slot": 12,
-              "end_slot": 13,
+              "start_slot": 11,
+              "end_slot": 12,
               "value": "qui"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "tsandie=ndeccu=mbe"
             },
             {
-              "start_slot": 16,
-              "end_slot": 18,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "utuccu='fa"
             }
           ]
@@ -989,32 +1058,32 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 8,
-              "value": "quitsa=ndeccu=ja"
+              "end_slot": 7,
+              "value": "quitsa=ndeccu"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 7,
+              "end_slot": 9,
               "value": "su='fa"
             },
             {
-              "start_slot": 10,
-              "end_slot": 12,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "que'i=ta"
             },
             {
-              "start_slot": 12,
-              "end_slot": 13,
+              "start_slot": 11,
+              "end_slot": 12,
               "value": "qui"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "tsandie=ndeccu=mbe"
             },
             {
-              "start_slot": 16,
-              "end_slot": 18,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "utuccu='fa"
             }
           ]
@@ -1039,33 +1108,43 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 8,
-              "value": "father=PL.HUM=CONTR"
+              "end_slot": 7,
+              "value": "father=PL.HUM"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 7,
+              "end_slot": 9,
               "value": "say=PL.SBJ"
             },
             {
-              "start_slot": 10,
-              "end_slot": 12,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "2.PL=NEW"
             },
             {
-              "start_slot": 12,
-              "end_slot": 13,
+              "start_slot": 11,
+              "end_slot": 12,
               "value": "2"
             },
             {
-              "start_slot": 13,
-              "end_slot": 16,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "man=PL.HUM=BEN"
             },
             {
-              "start_slot": 16,
-              "end_slot": 18,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "rib=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 17,
+              "value": "Mis padres me contaron: ustedes son costillas de los hombres."
             }
           ]
         }
@@ -1141,7 +1220,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "chiga"
+              "value": "Chiga"
             },
             {
               "start_slot": 1,
@@ -1201,7 +1280,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "chiga"
+              "value": "Chiga"
             },
             {
               "start_slot": 1,
@@ -1261,7 +1340,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "sun"
+              "value": "Chiga"
             },
             {
               "start_slot": 1,
@@ -1321,7 +1400,7 @@
             {
               "start_slot": 0,
               "end_slot": 20,
-              "value": "."
+              "value": "También los demonios querían crear personas e hicieron como Chiga, pero aquello se convirtió en una serpiente \"matiguaja\"."
             }
           ]
         }
@@ -1430,6 +1509,16 @@
               "value": "create=ATTR"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "Sólo Chiga creó a las personas;"
+            }
+          ]
         }
       ]
     },
@@ -1534,6 +1623,26 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "exist"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "That's how the story goes."
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Así es nuestra historia."
             }
           ]
         }
@@ -1702,6 +1811,16 @@
               "value": "cure-IMPV=NEW"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 17,
+              "value": "Por eso los cu racas cuando curan dicen"
+            }
+          ]
         }
       ]
     },
@@ -1806,6 +1925,16 @@
               "start_slot": 4,
               "end_slot": 6,
               "value": "cure=ATTR"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "'yo solo soy el que cura'"
             }
           ]
         }
@@ -1934,11 +2063,21 @@
               "value": "heal-CAUS=ATTR"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 9,
+              "value": "'pero si Chiga ayuda te sanarás'."
+            }
+          ]
         }
       ]
     },
     {
-      "num_slots": 13,
+      "num_slots": 15,
       "text": "Tayopija a'indeccuja cose'su chiga qquen supaen'fa ccovumajan.",
       "dependents": [
         {
@@ -1971,12 +2110,12 @@
             },
             {
               "start_slot": 9,
-              "end_slot": 10,
+              "end_slot": 12,
               "value": "supaen'fa"
             },
             {
-              "start_slot": 10,
-              "end_slot": 13,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "ccovumajan"
             }
           ]
@@ -2011,12 +2150,12 @@
             },
             {
               "start_slot": 9,
-              "end_slot": 10,
-              "value": "supaen'fa"
+              "end_slot": 12,
+              "value": "su=paen='fa"
             },
             {
-              "start_slot": 10,
-              "end_slot": 13,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "ccovu=ma=jan"
             }
           ]
@@ -2050,8 +2189,13 @@
               "value": "qquen"
             },
             {
-              "start_slot": 10,
-              "end_slot": 13,
+              "start_slot": 9,
+              "end_slot": 12,
+              "value": "su=paen='fa"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "ccovu=ma=ja"
             }
           ]
@@ -2077,7 +2221,7 @@
             {
               "start_slot": 7,
               "end_slot": 8,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 8,
@@ -2086,20 +2230,30 @@
             },
             {
               "start_slot": 9,
-              "end_slot": 10,
-              "value": "well"
+              "end_slot": 12,
+              "value": "say=~unknown~=PL.SBJ"
             },
             {
-              "start_slot": 10,
-              "end_slot": 13,
+              "start_slot": 12,
+              "end_slot": 15,
               "value": "moon=ACC=CONTR"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 15,
+              "value": "Antiguamente los Cofanes decíamos al Dios de la noche Dios Luna;"
             }
           ]
         }
       ]
     },
     {
-      "num_slots": 2,
+      "num_slots": 4,
       "text": "Coe'jemajan chiga.",
       "dependents": [
         {
@@ -2107,12 +2261,12 @@
           "values": [
             {
               "start_slot": 0,
-              "end_slot": 1,
+              "end_slot": 3,
               "value": "Coe'jemajan"
             },
             {
-              "start_slot": 1,
-              "end_slot": 2,
+              "start_slot": 3,
+              "end_slot": 4,
               "value": "chiga"
             }
           ]
@@ -2121,8 +2275,13 @@
           "tier": "T2",
           "values": [
             {
-              "start_slot": 1,
-              "end_slot": 2,
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "coe'je=ma=jan"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
               "value": "chiga"
             }
           ]
@@ -2131,8 +2290,13 @@
           "tier": "T3",
           "values": [
             {
-              "start_slot": 1,
-              "end_slot": 2,
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "coe'je=ma=ja"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
               "value": "chiga"
             }
           ]
@@ -2141,9 +2305,24 @@
           "tier": "T4",
           "values": [
             {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "sun"
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "sun=ACC=CONTR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "chiga"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 4,
+              "value": "y a Chiga Dios Sol."
             }
           ]
         }
@@ -2227,6 +2406,11 @@
               "value": "tsu"
             },
             {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "fae"
+            },
+            {
               "start_slot": 4,
               "end_slot": 5,
               "value": "tsandie"
@@ -2244,12 +2428,17 @@
             {
               "start_slot": 0,
               "end_slot": 2,
-              "value": "sun=NEW"
+              "value": "chiga=NEW"
             },
             {
               "start_slot": 2,
               "end_slot": 3,
               "value": "3"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "one"
             },
             {
               "start_slot": 4,
@@ -2260,6 +2449,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "old"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Chiga es un hombre, un hombre viejo,"
             }
           ]
         }
@@ -2340,7 +2539,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "***='cho"
+              "value": "a'mbian='cho"
             }
           ]
         },
@@ -2365,7 +2564,17 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "***=SBRD"
+              "value": "have=SBRD"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "y la Luna es su enamorada."
             }
           ]
         }
@@ -2521,7 +2730,7 @@
             {
               "start_slot": 2,
               "end_slot": 3,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 3,
@@ -2547,6 +2756,21 @@
               "start_slot": 11,
               "end_slot": 12,
               "value": "one"
+            },
+            {
+              "start_slot": 12,
+              "end_slot": 16,
+              "value": "house=ATTR=PL.HUM=CONTR"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 16,
+              "value": "En el tiempo de Chiga vivían él y la Luna entre familias,"
             }
           ]
         }
@@ -2675,6 +2899,16 @@
               "value": "person=ACC2"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 8,
+              "value": "pero no había otro hombre."
+            }
+          ]
         }
       ]
     },
@@ -2697,11 +2931,11 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 9,
+              "end_slot": 8,
               "value": "can'jeninde"
             },
             {
-              "start_slot": 9,
+              "start_slot": 8,
               "end_slot": 10,
               "value": "cose'ja"
             },
@@ -2762,13 +2996,13 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 9,
-              "value": "can-'je=ni+nde"
+              "end_slot": 8,
+              "value": "can'je=ni=nde"
             },
             {
-              "start_slot": 9,
+              "start_slot": 8,
               "end_slot": 10,
-              "value": "cose'ja"
+              "value": "cose='ja"
             },
             {
               "start_slot": 10,
@@ -2827,8 +3061,13 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 9,
-              "value": "can-'je=ni+***"
+              "end_slot": 8,
+              "value": "can'jen=ni+te"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "cose=ja"
             },
             {
               "start_slot": 10,
@@ -2887,8 +3126,13 @@
             },
             {
               "start_slot": 5,
-              "end_slot": 9,
-              "value": "look-IMPV=LOC+REP"
+              "end_slot": 8,
+              "value": "stay=LOC=REP"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 10,
+              "value": "night=CONTR"
             },
             {
               "start_slot": 10,
@@ -2903,7 +3147,7 @@
             {
               "start_slot": 12,
               "end_slot": 13,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 13,
@@ -2929,6 +3173,16 @@
               "start_slot": 21,
               "end_slot": 23,
               "value": "lie down=INF"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 23,
+              "value": "Todas las noches iba donde la luna."
             }
           ]
         }
@@ -3117,11 +3371,21 @@
               "value": "know=INF"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 17,
+              "value": "La mujer quería saber quién era."
+            }
+          ]
         }
       ]
     },
     {
-      "num_slots": 22,
+      "num_slots": 23,
       "text": "Tsa'caen in'jamba shiñoma tssutssiamba ana'jen tise jisi camba'juma pporaen siñaña'chove.",
       "dependents": [
         {
@@ -3144,37 +3408,37 @@
             },
             {
               "start_slot": 7,
-              "end_slot": 9,
+              "end_slot": 10,
               "value": "tssutssiamba"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "ana'jen"
             },
             {
-              "start_slot": 11,
-              "end_slot": 12,
+              "start_slot": 12,
+              "end_slot": 13,
               "value": "tise"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 13,
+              "end_slot": 15,
               "value": "jisi"
             },
             {
-              "start_slot": 14,
-              "end_slot": 16,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "camba'juma"
             },
             {
-              "start_slot": 16,
-              "end_slot": 17,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "pporaen"
             },
             {
-              "start_slot": 17,
-              "end_slot": 22,
+              "start_slot": 18,
+              "end_slot": 23,
               "value": "siñaña'chove"
             }
           ]
@@ -3199,38 +3463,38 @@
             },
             {
               "start_slot": 7,
-              "end_slot": 9,
-              "value": "tssutssia=mba"
+              "end_slot": 10,
+              "value": "tssutssi-a=mba"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "ana-'jen"
             },
             {
-              "start_slot": 11,
-              "end_slot": 12,
+              "start_slot": 12,
+              "end_slot": 13,
               "value": "tise"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 13,
+              "end_slot": 15,
               "value": "ji=si"
             },
             {
-              "start_slot": 14,
-              "end_slot": 16,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "camba'ju=ma"
             },
             {
-              "start_slot": 16,
-              "end_slot": 17,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "pporaen"
             },
             {
-              "start_slot": 17,
-              "end_slot": 22,
-              "value": "si-ña=ña='cho=ve"
+              "start_slot": 18,
+              "end_slot": 23,
+              "value": "*si-ña=ña='cho=ve"
             }
           ]
         },
@@ -3254,38 +3518,38 @@
             },
             {
               "start_slot": 7,
-              "end_slot": 9,
-              "value": "tssutssian=pa"
+              "end_slot": 10,
+              "value": "tssutssu-ña=pa"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "ana-'je"
             },
             {
-              "start_slot": 11,
-              "end_slot": 12,
+              "start_slot": 12,
+              "end_slot": 13,
               "value": "tise"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 13,
+              "end_slot": 15,
               "value": "ji=si"
             },
             {
-              "start_slot": 14,
-              "end_slot": 16,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "camba'ju=ma"
             },
             {
-              "start_slot": 16,
-              "end_slot": 17,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "pporaen"
             },
             {
-              "start_slot": 17,
-              "end_slot": 22,
-              "value": "***-ña=ya='cho=ve"
+              "start_slot": 18,
+              "end_slot": 23,
+              "value": "*sin-ña=ya='cho=ve"
             }
           ]
         },
@@ -3305,49 +3569,59 @@
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "genip-tree=ACC"
+              "value": "genip=ACC"
             },
             {
               "start_slot": 7,
-              "end_slot": 9,
-              "value": "dissolve=SS"
+              "end_slot": 10,
+              "value": "dissolve-CAUS=SS"
             },
             {
-              "start_slot": 9,
-              "end_slot": 11,
+              "start_slot": 10,
+              "end_slot": 12,
               "value": "sleep-IMPV"
             },
             {
-              "start_slot": 11,
-              "end_slot": 12,
+              "start_slot": 12,
+              "end_slot": 13,
               "value": "3.SG"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 13,
+              "end_slot": 15,
               "value": "come=DS"
             },
             {
-              "start_slot": 14,
-              "end_slot": 16,
+              "start_slot": 15,
+              "end_slot": 17,
               "value": "face=ACC"
             },
             {
-              "start_slot": 16,
-              "end_slot": 17,
+              "start_slot": 17,
+              "end_slot": 18,
               "value": "touch"
             },
             {
-              "start_slot": 17,
-              "end_slot": 22,
+              "start_slot": 18,
+              "end_slot": 23,
               "value": "black-CAUS=IRR=SBRD=ACC2"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 23,
+              "value": "Una noche ella preparó huito para mancharle la cara."
             }
           ]
         }
       ]
     },
     {
-      "num_slots": 15,
+      "num_slots": 16,
       "text": "Tsa'caen ronda'jepa tise cose jisi pporaen tevaen moemba a'ta.",
       "dependents": [
         {
@@ -3385,17 +3659,17 @@
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
+              "end_slot": 13,
               "value": "tevaen"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 13,
+              "end_slot": 15,
               "value": "moemba"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "a'ta"
             }
           ]
@@ -3435,17 +3709,17 @@
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
-              "value": "tevaen"
+              "end_slot": 13,
+              "value": "teva-en"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 13,
+              "end_slot": 15,
               "value": "moe=mba"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "a'ta"
             }
           ]
@@ -3485,17 +3759,17 @@
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
-              "value": "tevaen"
+              "end_slot": 13,
+              "value": "te'va-ña"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
-              "value": "***=pa"
-            },
-            {
-              "start_slot": 14,
+              "start_slot": 13,
               "end_slot": 15,
+              "value": "moen=pa"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "a'ta"
             }
           ]
@@ -3535,18 +3809,28 @@
             },
             {
               "start_slot": 11,
-              "end_slot": 12,
-              "value": "write"
+              "end_slot": 13,
+              "value": "pattern-CAUS"
             },
             {
-              "start_slot": 12,
-              "end_slot": 14,
+              "start_slot": 13,
+              "end_slot": 15,
               "value": "send=SS"
             },
             {
-              "start_slot": 14,
-              "end_slot": 15,
+              "start_slot": 15,
+              "end_slot": 16,
               "value": "day"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 16,
+              "value": "Otra noche llegó el hombre, y la mujer para saber quien era, echó agua en el huito para que manche y le pintó la cara."
             }
           ]
         }
@@ -3653,6 +3937,16 @@
               "start_slot": 6,
               "end_slot": 8,
               "value": "wait-IMPV"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 8,
+              "value": "Al siguiente día la mujer estaba esperando para ver quién era."
             }
           ]
         }
@@ -3811,9 +4105,24 @@
               "value": "face=CONTR"
             },
             {
+              "start_slot": 8,
+              "end_slot": 11,
+              "value": "black=SH.DLM=ADJR2"
+            },
+            {
               "start_slot": 11,
               "end_slot": 12,
               "value": "come"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "Y fue el hermano el que apareció con la cara pintada de negro."
             }
           ]
         }
@@ -3959,7 +4268,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "sun=NEW"
+              "value": "chiga=NEW"
             },
             {
               "start_slot": 6,
@@ -3980,6 +4289,16 @@
               "start_slot": 11,
               "end_slot": 12,
               "value": "woman"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "No sabemos si Chiga era hombre o mujer,"
             }
           ]
         }
@@ -4025,7 +4344,7 @@
             {
               "start_slot": 0,
               "end_slot": 3,
-              "value": "toya+'ca=en"
+              "value": "toya='ca=en"
             },
             {
               "start_slot": 3,
@@ -4055,7 +4374,7 @@
             {
               "start_slot": 0,
               "end_slot": 3,
-              "value": "toya+***=e"
+              "value": "toya='can=e"
             },
             {
               "start_slot": 3,
@@ -4085,7 +4404,7 @@
             {
               "start_slot": 0,
               "end_slot": 3,
-              "value": "still+CMP=ADVR"
+              "value": "still=CMP=ADVR"
             },
             {
               "start_slot": 3,
@@ -4106,6 +4425,16 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "INT"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 10,
+              "value": "ni sabemos si tiene mujer o tiene esposo."
             }
           ]
         }
@@ -4214,6 +4543,16 @@
               "value": "speak-IMPV=PL.SBJ"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 8,
+              "value": "Los Cofanes hablamos"
+            }
+          ]
         }
       ]
     },
@@ -4277,7 +4616,17 @@
             {
               "start_slot": 1,
               "end_slot": 3,
-              "value": "sun=ACC2"
+              "value": "chiga=ACC2"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "de tres dioses o tres Chigas:"
             }
           ]
         }
@@ -4428,7 +4777,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 1,
@@ -4438,7 +4787,7 @@
             {
               "start_slot": 3,
               "end_slot": 4,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 4,
@@ -4448,7 +4797,7 @@
             {
               "start_slot": 6,
               "end_slot": 7,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 7,
@@ -4464,6 +4813,16 @@
               "start_slot": 9,
               "end_slot": 13,
               "value": "shine-IMPV=SBRD=ACC"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 13,
+              "value": "Chiga, Cosesu Chiga y Coeje Chiga (Dios, Luna y Sol); el tercero es el Sol que ilumina durante el día."
             }
           ]
         }
@@ -4544,7 +4903,7 @@
             {
               "start_slot": 5,
               "end_slot": 8,
-              "value": "***-'pa=ne"
+              "value": "jon-'pa=ne"
             }
           ]
         },
@@ -4570,6 +4929,16 @@
               "start_slot": 5,
               "end_slot": 8,
               "value": "sow-NR=SRC"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 8,
+              "value": "Se hablaba con Chiga sobre los sembríos."
             }
           ]
         }
@@ -4645,7 +5014,7 @@
             {
               "start_slot": 0,
               "end_slot": 4,
-              "value": "tsa=ni=ta+***"
+              "value": "tsa=ni=ta+te"
             },
             {
               "start_slot": 4,
@@ -4696,6 +5065,16 @@
               "start_slot": 10,
               "end_slot": 12,
               "value": "live=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "Antiguamente los A'indeccu sabían hacer bastantes trabajos."
             }
           ]
         }
@@ -4756,7 +5135,7 @@
             {
               "start_slot": 3,
               "end_slot": 7,
-              "value": "sema-'jen='ni+nde"
+              "value": "sema-'jen='ni=nde"
             },
             {
               "start_slot": 7,
@@ -4796,7 +5175,7 @@
             {
               "start_slot": 3,
               "end_slot": 7,
-              "value": "sema-'je=ni+***"
+              "value": "sema-'je=ni+te"
             },
             {
               "start_slot": 7,
@@ -4836,7 +5215,7 @@
             {
               "start_slot": 3,
               "end_slot": 7,
-              "value": "work-IMPV=LOC+REP"
+              "value": "work-IMPV=LOC=REP"
             },
             {
               "start_slot": 7,
@@ -4862,6 +5241,16 @@
               "start_slot": 14,
               "end_slot": 15,
               "value": "ask"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 15,
+              "value": "Pero un día llegó gente extraña que preguntaba:"
             }
           ]
         }
@@ -4897,7 +5286,7 @@
             {
               "start_slot": 0,
               "end_slot": 3,
-              "value": "jo=ñe+ndi"
+              "value": "jo=ñe=ndi"
             },
             {
               "start_slot": 3,
@@ -4907,22 +5296,7 @@
             {
               "start_slot": 4,
               "end_slot": 7,
-              "value": "atoto'=je='fa"
-            }
-          ]
-        },
-        {
-          "tier": "T4",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "sow=INF+INT"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "2"
+              "value": "atoto'-je='fa"
             }
           ]
         },
@@ -4932,7 +5306,7 @@
             {
               "start_slot": 0,
               "end_slot": 3,
-              "value": "***=ye+***"
+              "value": "jon=ye+ti"
             },
             {
               "start_slot": 3,
@@ -4942,7 +5316,37 @@
             {
               "start_slot": 4,
               "end_slot": 7,
-              "value": "ato'to=je='fa"
+              "value": "ato'to-'je='fa"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "sow=INF=INT"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "2"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 7,
+              "value": "clear-IMPV=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "\"¿Está trabajando para sembrar?\"."
             }
           ]
         }
@@ -5073,7 +5477,7 @@
             {
               "start_slot": 5,
               "end_slot": 6,
-              "value": "an'ba"
+              "value": "a'mba"
             },
             {
               "start_slot": 6,
@@ -5083,7 +5487,7 @@
             {
               "start_slot": 8,
               "end_slot": 10,
-              "value": "***=ye"
+              "value": "jon=ye"
             },
             {
               "start_slot": 10,
@@ -5121,6 +5525,11 @@
               "value": "plantain"
             },
             {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "yucca"
+            },
+            {
               "start_slot": 6,
               "end_slot": 8,
               "value": "maize=ACC"
@@ -5144,6 +5553,16 @@
               "start_slot": 13,
               "end_slot": 16,
               "value": "work-IMPV=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 16,
+              "value": "Y la gente respondía: \"Para sembrar plátano, yuca, maíz\"."
             }
           ]
         }
@@ -5250,6 +5669,16 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "Chiga"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "Pero el que preguntaba era Chiga que iba preguntando a la gente."
             }
           ]
         }
@@ -5418,11 +5847,21 @@
               "value": "sleep=PL.SBJ"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 17,
+              "value": "Ellos trabajaron hasta la noche."
+            }
+          ]
         }
       ]
     },
     {
-      "num_slots": 10,
+      "num_slots": 11,
       "text": "Anamba a'tapa ccaqui ja'fa ccase semañe.",
       "dependents": [
         {
@@ -5440,22 +5879,22 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 5,
+              "end_slot": 6,
               "value": "ccaqui"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "ja'fa"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 8,
+              "end_slot": 9,
               "value": "ccase"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "semañe"
             }
           ]
@@ -5475,22 +5914,22 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 5,
-              "value": "ccaqui"
+              "end_slot": 6,
+              "value": "*cca=qui"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "ja='fa"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 8,
+              "end_slot": 9,
               "value": "ccase"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "sema=ñe"
             }
           ]
@@ -5510,22 +5949,22 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 5,
-              "value": "ccaqui"
+              "end_slot": 6,
+              "value": "*cca=qui"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "ja='fa"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 8,
+              "end_slot": 9,
               "value": "ccase"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "sema=ye"
             }
           ]
@@ -5545,23 +5984,33 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 5,
-              "value": "next day"
+              "end_slot": 6,
+              "value": "other=TEMP"
             },
             {
-              "start_slot": 5,
-              "end_slot": 7,
+              "start_slot": 6,
+              "end_slot": 8,
               "value": "go=PL.SBJ"
             },
             {
-              "start_slot": 7,
-              "end_slot": 8,
+              "start_slot": 8,
+              "end_slot": 9,
               "value": "again"
             },
             {
-              "start_slot": 8,
-              "end_slot": 10,
+              "start_slot": 9,
+              "end_slot": 11,
               "value": "work=INF"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 11,
+              "value": "Al día siguiente el dueño del trabajo regresó a trabajar, "
             }
           ]
         }
@@ -5695,6 +6144,11 @@
               "value": "coye"
             },
             {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "a'mba"
+            },
+            {
               "start_slot": 7,
               "end_slot": 8,
               "value": "ppu'ppu"
@@ -5740,6 +6194,11 @@
               "value": "plantain"
             },
             {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "yucca"
+            },
+            {
               "start_slot": 7,
               "end_slot": 8,
               "value": "maize"
@@ -5758,6 +6217,16 @@
               "start_slot": 12,
               "end_slot": 15,
               "value": "stand=SBRD=ACC"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 15,
+              "value": "pero ya estaba hecho, halló maduro lo que había sembrado."
             }
           ]
         }
@@ -5863,7 +6332,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "Chiga+***"
+              "value": "Chiga+ti"
             },
             {
               "start_slot": 6,
@@ -5923,7 +6392,17 @@
             {
               "start_slot": 10,
               "end_slot": 12,
-              "value": "want=PL.SBJ"
+              "value": "think=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 12,
+              "value": "El dueño admirado dijo que se debía al paso de Chiga."
             }
           ]
         }
@@ -6159,7 +6638,7 @@
             {
               "start_slot": 16,
               "end_slot": 18,
-              "value": "sun=SRC"
+              "value": "chiga=SRC"
             },
             {
               "start_slot": 18,
@@ -6170,6 +6649,16 @@
               "start_slot": 19,
               "end_slot": 22,
               "value": "say=SBRD=PL.SBJ"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 22,
+              "value": "Por eso, cuando nos preguntan de dónde venimos los Cofanes, nosotros decimos que de Chiga."
             }
           ]
         }

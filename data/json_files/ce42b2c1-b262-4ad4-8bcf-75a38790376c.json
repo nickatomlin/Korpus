@@ -15,6 +15,7 @@
     "date_created": "",
     "date_uploaded": "8/10/2017",
     "source": {
+      "con-Latn-EC": "Blaser, Magdalena \"A'indeccu canqque'sune condase'cho\"",
       "_default": ""
     },
     "description": "",
@@ -6063,7 +6064,7 @@
       ]
     },
     {
-      "num_slots": 5,
+      "num_slots": 6,
       "text": "Avujapa jajapa tsa'onga can'ni'fa.",
       "dependents": [
         {
@@ -6086,7 +6087,7 @@
             },
             {
               "start_slot": 4,
-              "end_slot": 5,
+              "end_slot": 6,
               "value": "can'ni'fa"
             }
           ]
@@ -6098,6 +6099,11 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "avuja=pa"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "can'ni='fa"
             }
           ]
         },
@@ -6108,6 +6114,11 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "avuja=pa"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "ca'ni='fa"
             }
           ]
         },
@@ -6118,6 +6129,11 @@
               "start_slot": 0,
               "end_slot": 2,
               "value": "rejoice=SS"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 6,
+              "value": "enter=PL.SBJ"
             }
           ]
         }
@@ -6529,7 +6545,7 @@
             {
               "start_slot": 9,
               "end_slot": 10,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 11,
@@ -6776,7 +6792,7 @@
             {
               "start_slot": 6,
               "end_slot": 7,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 8,
@@ -6907,7 +6923,7 @@
             {
               "start_slot": 5,
               "end_slot": 7,
-              "value": "sun=ACC"
+              "value": "chiga=ACC"
             },
             {
               "start_slot": 8,
@@ -8080,7 +8096,7 @@
             {
               "start_slot": 2,
               "end_slot": 3,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 3,
@@ -8915,7 +8931,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "sefa=ni"
+              "value": "*sefa=ni"
             },
             {
               "start_slot": 7,
@@ -8940,7 +8956,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "sefa=ni"
+              "value": "*se'fa=ni"
             },
             {
               "start_slot": 7,
@@ -8965,7 +8981,7 @@
             {
               "start_slot": 4,
               "end_slot": 6,
-              "value": "end=LOC"
+              "value": "high=LOC"
             },
             {
               "start_slot": 7,
@@ -9021,7 +9037,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "sefa=ni"
+              "value": "*sefa=ni"
             },
             {
               "start_slot": 5,
@@ -9041,7 +9057,7 @@
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "sefa=ni"
+              "value": "*se'fa=ni"
             },
             {
               "start_slot": 5,
@@ -9056,12 +9072,12 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 2,
               "end_slot": 4,
-              "value": "end=LOC"
+              "value": "high=LOC"
             },
             {
               "start_slot": 5,
@@ -9212,7 +9228,7 @@
             {
               "start_slot": 7,
               "end_slot": 8,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 8,
@@ -9499,7 +9515,7 @@
             {
               "start_slot": 6,
               "end_slot": 7,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 7,
@@ -9686,7 +9702,7 @@
             {
               "start_slot": 0,
               "end_slot": 1,
-              "value": "sun"
+              "value": "chiga"
             },
             {
               "start_slot": 1,

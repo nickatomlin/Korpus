@@ -127,6 +127,11 @@
           "tier": "T3",
           "values": [
             {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "fae"
+            },
+            {
               "start_slot": 1,
               "end_slot": 2,
               "value": "tsandie"
@@ -156,6 +161,11 @@
         {
           "tier": "T4",
           "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "one"
+            },
             {
               "start_slot": 1,
               "end_slot": 2,
@@ -469,6 +479,11 @@
               "value": "a'i=ja"
             },
             {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "fae"
+            },
+            {
               "start_slot": 4,
               "end_slot": 5,
               "value": "a'ta"
@@ -527,6 +542,11 @@
               "start_slot": 1,
               "end_slot": 3,
               "value": "person=CONTR"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "one"
             },
             {
               "start_slot": 4,
@@ -747,7 +767,7 @@
             {
               "start_slot": 12,
               "end_slot": 14,
-              "value": "***=ngae"
+              "value": "fae=ngae"
             },
             {
               "start_slot": 14,
@@ -812,7 +832,7 @@
             {
               "start_slot": 12,
               "end_slot": 14,
-              "value": "***=MANN"
+              "value": "one=MANN"
             },
             {
               "start_slot": 14,
@@ -1724,7 +1744,7 @@
       ]
     },
     {
-      "num_slots": 17,
+      "num_slots": 18,
       "text": "Tise tsa'caen tssampini jasi tsai'mbitssia munda tise'ma shonque'ndi'tsse ttu'fa.",
       "dependents": [
         {
@@ -1767,12 +1787,12 @@
             },
             {
               "start_slot": 14,
-              "end_slot": 15,
+              "end_slot": 16,
               "value": "shonque'ndi'tsse"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "ttu'fa"
             }
           ]
@@ -1816,8 +1836,13 @@
               "value": "tise'=ma"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "shonque'ndi='tsse"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "ttu='fa"
             }
           ]
@@ -1861,8 +1886,13 @@
               "value": "tise=ma"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "shoquendi=tsse"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
               "value": "ttu='fa"
             }
           ]
@@ -1906,9 +1936,14 @@
               "value": "3.SG=ACC"
             },
             {
-              "start_slot": 15,
-              "end_slot": 17,
-              "value": "break=PL.SBJ"
+              "start_slot": 14,
+              "end_slot": 16,
+              "value": "turn around=ADV.STAT"
+            },
+            {
+              "start_slot": 16,
+              "end_slot": 18,
+              "value": "circle=PL.SBJ"
             }
           ]
         }
@@ -1974,7 +2009,7 @@
             {
               "start_slot": 8,
               "end_slot": 10,
-              "value": "sefa=ni"
+              "value": "*sefa=ni"
             }
           ]
         },
@@ -1999,7 +2034,7 @@
             {
               "start_slot": 8,
               "end_slot": 10,
-              "value": "sefa=ni"
+              "value": "*se'fa=ni"
             }
           ]
         },
@@ -2024,7 +2059,7 @@
             {
               "start_slot": 8,
               "end_slot": 10,
-              "value": "end=LOC"
+              "value": "high=LOC"
             }
           ]
         }
@@ -3453,7 +3488,7 @@
       ]
     },
     {
-      "num_slots": 16,
+      "num_slots": 18,
       "text": "Tsomba su yajema cu'ipa mundave di'shapa pa'cco mundama catsiañe.",
       "dependents": [
         {
@@ -3501,7 +3536,7 @@
             },
             {
               "start_slot": 15,
-              "end_slot": 16,
+              "end_slot": 18,
               "value": "catsiañe"
             }
           ]
@@ -3548,6 +3583,11 @@
               "start_slot": 13,
               "end_slot": 15,
               "value": "munda=ma"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 18,
+              "value": "catsi-a=ñe"
             }
           ]
         },
@@ -3593,6 +3633,11 @@
               "start_slot": 13,
               "end_slot": 15,
               "value": "munda=ma"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 18,
+              "value": "catse-ña=ye"
             }
           ]
         },
@@ -3638,6 +3683,11 @@
               "start_slot": 13,
               "end_slot": 15,
               "value": "white-lipped peccary=ACC"
+            },
+            {
+              "start_slot": 15,
+              "end_slot": 18,
+              "value": "approach-CAUS=INF"
             }
           ]
         }

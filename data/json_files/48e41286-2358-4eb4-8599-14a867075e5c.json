@@ -46,6 +46,10 @@
       "T5": {
         "name": "Frase inglés",
         "subdivided": false
+      },
+      "T6": {
+        "name": "Frase español",
+        "subdivided": false
       }
     }
   },
@@ -165,7 +169,7 @@
             {
               "start_slot": 0,
               "end_slot": 2,
-              "value": "sun+REP"
+              "value": "chiga+REP"
             },
             {
               "start_slot": 2,
@@ -200,7 +204,17 @@
             {
               "start_slot": 0,
               "end_slot": 11,
-              "value": "They say that God wanted to teach all of the languages to the plum-throated cotinga."
+              "value": "They say that God wanted to teach all of the languages and songs to the plum-throated cotinga."
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 11,
+              "value": "Se dice que Dios quiso enseñar todos los idiomas y todos los cantos al azulejo."
             }
           ]
         }
@@ -369,6 +383,26 @@
               "value": "place vertically=ASS"
             }
           ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 15,
+              "value": "He locked up an oriole and a mockingbird; he placed them apaer because he didn't want them to understand the languages and songs."
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 15,
+              "value": "Había encerrado a un cacique y un sinsonte en una canasta. Los colocó aparte porque no quiso que ellos aprendan los idiomas y los cantos. "
+            }
+          ]
         }
       ]
     },
@@ -453,6 +487,26 @@
               "start_slot": 5,
               "end_slot": 7,
               "value": "teach=IRR"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "Then, he taught the plum-throated cotinga."
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "Entonces le dijo al azulejo que hablara todos los idiomas de los pájaros."
             }
           ]
         }
