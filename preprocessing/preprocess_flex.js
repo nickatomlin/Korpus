@@ -1,30 +1,48 @@
-/* Run this script from the main directory (Korpus) */
+/* 
+Functions for processing flex files into the json format used by the site.
+*/
 
 const fs = require('fs');
 const util = require('util');
-const parseXml = require('xml2js').parseString; // or we could use simple-xml
+const parseXml = require('xml2js').parseString;
 const tierRegistry = require('./tier_registry').tierRegistry;
 const helper = require('./helper_functions');
 const flexUtils = require('./flex_utils');
 
+// punct - a string
+// return a boolean indicating whether 'punct' should typically appear 
+//   preceded by a space, but not followed by a space, in text
 function isStartPunctuation(punct) {
   return (punct === "¿") || (punct === "(");
 }
 
+// char - a string
+// return true if 'char' is used by FLEx as a morpheme separator
 function isSeparator(char) {
   return (char === "-") || (char === "=") || (char === "~");
 }
 
+// word - the data associated with a single word of the source text, 
+//   structured as in FLEx
+// return true if the word is tagged as punctuation within FLEx
 function isPunctuation(word) {
   return word.item[0].$.type === "punct";
 }
 
-function updateIndex(metadata, indexFileName, storyID) {
-  let index = JSON.parse(fs.readFileSync(indexFileName, "utf8"));
+// metadata - a metadata object
+// indexFilePath - a string, the address of the index in the filesystem
+// storyID - a string, the unique identifier used for the current interlinear text within the index
+// writes the metadata to the index, overwriting any preexisting metadata for this storyID
+function updateIndex(metadata, indexFilePath, storyID) {
+  let index = JSON.parse(fs.readFileSync(indexFilePath, "utf8"));
   index[storyID] = metadata;
-  fs.writeFileSync(indexFileName, JSON.stringify(index, null, 2));
+  fs.writeFileSync(indexFilePath, JSON.stringify(index, null, 2));
 }
 
+// morphsThisTier - a list of morph tokens, 
+//   where each morph token is an object structured as in FLEx
+// wordStartSlot - the timeslot index of the first morph token within its sentence
+// wordEndSlot - the timeslot index after the last morph token within its sentence
 function getGlommedValue(morphsThisTier, wordStartSlot, wordEndSlot) {
   let glommedValue = '';
   let maybeAddCompoundSeparator = false; // never add a separator before the first word
@@ -57,6 +75,10 @@ function getGlommedValue(morphsThisTier, wordStartSlot, wordEndSlot) {
   return glommedValue;
 }
 
+// word - the data associated with a single word of the source text, 
+//   structured as in FLEx
+// returns an object indicating how to represent this word within the 
+//   concatenated sentence text
 function getSentenceToken(word) {
   const wordValue = flexUtils.getWordValue(word);
 
@@ -72,6 +94,9 @@ function getSentenceToken(word) {
   return {'value': wordValue, 'type': type};
 }
 
+// sentenceTokens - a list of objects, each indicating how to represent
+//   one word within the sentence text
+// returns the sentence as a string with correct punctuation and spacing
 function getSentenceText(sentenceTokens) {
   let sentenceText = "";
   let maybeAddSpace = false; // no space before first word
@@ -85,6 +110,9 @@ function getSentenceText(sentenceTokens) {
   return sentenceText;
 }
 
+// morphsJson - an object describing the morph tokens in a sentence
+// returns an object describing all dependent tiers of the sentence, 
+//   formatted for use by the website
 function getDependentsJson(morphsJson) {
   const dependentsJson = [];
   for (const tierID in morphsJson) {
@@ -108,6 +136,16 @@ function getDependentsJson(morphsJson) {
   return dependentsJson;
 }
 
+// FLEx structures morph information by morpheme, so that for example,
+//   the citation form is clearly associated with all other info about the same
+//   morpheme, but not clearly associated with the citation forms of other morphs.
+// This function repackages the information by type to make it useful for the website.
+// morphs - a list of objects describing each morpheme in a part of the source text,
+//   structured according to FLEx's data format
+// tierReg - a tierRegistry object 
+// startSlot - the timeslot index of the first morpheme within its sentence
+// returns an object describing the morphemes, in which descriptors have been
+//   categorized into "tiers" by information type (e.g. citation form or gloss)
 function repackageMorphs(morphs, tierReg, startSlot) {
   // FLEx packages morph items by morpheme, not by type.
   // We handle this by first re-packaging all the morphs by type(a.k.a. tier),
@@ -153,7 +191,7 @@ function repackageMorphs(morphs, tierReg, startSlot) {
 // dest - an object with all its values nested two layers deep
 // src - an object with all its values nested two layers deep
 // inserts all values of src into dest, preserving their inner and outer keys,
-// while retaining all values of dest except those that directly conflict with src
+//   while retaining all values of dest except those that directly conflict with src
 function mergeTwoLayerDict(dest, src) {
   for (const outerProp in src) {
     if (src.hasOwnProperty(outerProp)) {
@@ -169,6 +207,11 @@ function mergeTwoLayerDict(dest, src) {
   }
 }
 
+// freeGlosses - a list of objects describing the free glosses for a sentence,
+//   structured as in the FLEx file
+// tierReg - a tierRegistry object
+// endSlot - the timeslot index of the end of the sentence
+// returns an object associating each free gloss with its tier
 function repackageFreeGlosses(freeGlosses, tierReg, endSlot) {
   const glossStartSlot = 0;
   const morphsJson = {};
@@ -187,6 +230,12 @@ function repackageFreeGlosses(freeGlosses, tierReg, endSlot) {
   return morphsJson;
 }
 
+// sentence - an object describing a sentence of source text,
+//   structured as in the FLEx file
+// tierReg - a tierRegistry object
+// wordsTierID - the ID which has been assigned to the words tier
+// returns an object describing the sentence, 
+//   structured correctly for use by the website
 function getSentenceJson(sentence, tierReg, wordsTierID) {
   const morphsJson = {}; // tierID -> start_slot -> {"value": value, "end_slot": end_slot}
   morphsJson[wordsTierID] = {}; // FIXME words tier will show up even when the sentence is empty of words
@@ -231,6 +280,13 @@ function getSentenceJson(sentence, tierReg, wordsTierID) {
   });
 }
 
+// jsonIn - the JSON parse of the FLEx interlinear-text
+// jsonFilesDir - the directory for the output file describing this interlinear text
+// shortFileName - TODO delete unused parameter
+// isoDict - an object correlating languages with ISO codes
+// callback - the function that will execute when the preprocessText function completes
+// updates the index and story files for this interlinear text, 
+//   then executes the callback
 function preprocessText(jsonIn, jsonFilesDir, shortFileName, isoDict, callback) {
   let storyID = jsonIn.$.guid;
 
@@ -268,6 +324,12 @@ function preprocessText(jsonIn, jsonFilesDir, shortFileName, isoDict, callback) 
   });
 }
 
+// xmlFilesDir - a directory containing zero or more FLEx files
+// jsonFilesDir - a directory for output files describing individual interlinear texts
+// isoFileName - the file address of a JSON object matching languages to their ISO codes
+// callback - the function that will execute when the preprocess_dir function completes
+// updates the index and story files for each interlinear text, 
+//   then executes the callback
 function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
   let isoDict = {};
   try {
