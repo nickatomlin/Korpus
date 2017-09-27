@@ -5,16 +5,8 @@ import ReactDOMServer from 'react-dom/server';
 
 export class StoryIndex extends React.Component {
 	
-	constructor(props) {
-		super(props);
-		this.storylist = [];
-	}
-	
 	componentDidMount() {
-			
-	}
-
-	render() {
+		let storyList = [];
 		$.getJSON('../../data/index2.json', function(index) {
 			for (const story in index) {
 				if (index.hasOwnProperty(story)) {
@@ -60,15 +52,18 @@ export class StoryIndex extends React.Component {
 					// const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['story ID']}'}>${mainTitle}</Link>`);
 					const link = `<a href='#/story/${index[story]['story ID']}'>${mainTitle}</a>`;
 					
-					this.storylist.push([link, translatedTitle, index[story]['author'], timed]);
-					// this.storylist.push(
+					storyList.push([link, translatedTitle, index[story]['author'], timed]);
+					// storyList.push(
 					//   <li key={id.generate()}>
 					//     <Link to={`/story/${index[story]['story ID']}`}>{story}</Link>
 					//   </li>
 					// )
-					$(document).ready(function() {
+				}
+			}
+			
+			$(document).ready(function() {
 				$('#indexTable').DataTable( {
-					data: this.storylist,
+					data: storyList,
 					columns: [
 						{ title: "Title (A'ingae)" },
 						{ title: "Title (English)" },
@@ -78,9 +73,10 @@ export class StoryIndex extends React.Component {
 				});
 			});
 			$('#indexTable').addClass("stripe");
-				}
-			}
 		});
+	}
+
+	render() {
 		return (
 			<div id="index">
 				<table id="indexTable">
