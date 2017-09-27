@@ -15797,7 +15797,7 @@ module.exports = 0;
 
 
 Object.defineProperty(exports, "__esModule", {
-		value: true
+    value: true
 });
 exports.StoryIndex = undefined;
 
@@ -15826,93 +15826,92 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var StoryIndex = exports.StoryIndex = function (_React$Component) {
-		_inherits(StoryIndex, _React$Component);
+    _inherits(StoryIndex, _React$Component);
 
-		function StoryIndex() {
-				_classCallCheck(this, StoryIndex);
+    function StoryIndex() {
+        _classCallCheck(this, StoryIndex);
 
-				return _possibleConstructorReturn(this, (StoryIndex.__proto__ || Object.getPrototypeOf(StoryIndex)).apply(this, arguments));
-		}
+        return _possibleConstructorReturn(this, (StoryIndex.__proto__ || Object.getPrototypeOf(StoryIndex)).apply(this, arguments));
+    }
 
-		_createClass(StoryIndex, [{
-				key: 'componentDidMount',
-				value: function componentDidMount() {
-						var storyList = [];
-						$.getJSON('../../data/index2.json', function (index) {
-								for (var story in index) {
-										if (index.hasOwnProperty(story)) {
-												/////////////////
-												// A'ingae Title
-												/////////////////
-												var mainTitle = '';
-												// get default title
-												if (index[story]['title']['_default'] != '') {
-														mainTitle = index[story]['title']['_default'];
-												}
-												// replace with cofan title if available
-												if (index[story]['title'].hasOwnProperty('con-Latn-EC') && index[story]['title']['con-Latn-EC'] != '') {
-														mainTitle = index[story]['title']['con-Latn-EC'];
-												}
-												// remove first word?
-												if (!isNaN(mainTitle.split(' ')[0])) {
-														mainTitle = mainTitle.substr(mainTitle.indexOf(" ") + 1);
-												}
-												/////////////////////
-												// Translated Title
-												/////////////////////
-												var translatedTitle = '';
-												if (index[story]['title'].hasOwnProperty('es') && index[story]['title']['es'] != '') {
-														translatedTitle = index[story]['title']['es'];
-												}
-												if (index[story]['title'].hasOwnProperty('en') && index[story]['title']['en'] != '') {
-														translatedTitle = index[story]['title']['en'];
-												}
+    _createClass(StoryIndex, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var index = this.props.index;
+            var storyList = [];
+            for (var story in index) {
+                if (index.hasOwnProperty(story)) {
+                    /////////////////
+                    // A'ingae Title
+                    /////////////////
+                    var mainTitle = '';
+                    // get default title
+                    if (index[story]['title']['_default'] != '') {
+                        mainTitle = index[story]['title']['_default'];
+                    }
+                    // replace with cofan title if available
+                    if (index[story]['title'].hasOwnProperty('con-Latn-EC') && index[story]['title']['con-Latn-EC'] != '') {
+                        mainTitle = index[story]['title']['con-Latn-EC'];
+                    }
+                    // remove first word?
+                    if (!isNaN(mainTitle.split(' ')[0])) {
+                        mainTitle = mainTitle.substr(mainTitle.indexOf(" ") + 1);
+                    }
+                    /////////////////////
+                    // Translated Title
+                    /////////////////////
+                    var translatedTitle = '';
+                    if (index[story]['title'].hasOwnProperty('es') && index[story]['title']['es'] != '') {
+                        translatedTitle = index[story]['title']['es'];
+                    }
+                    if (index[story]['title'].hasOwnProperty('en') && index[story]['title']['en'] != '') {
+                        translatedTitle = index[story]['title']['en'];
+                    }
 
-												var timed = '';
-												if (index[story]['timed']) {
-														if (index[story]['media']['audio'] != '') {
-																timed += '🎧    ';
-														}
-														if (index[story]['media']['video'] != '') {
-																timed += '🎞';
-														}
-												} else {
-														timed = '✘';
-												}
+                    var timed = '';
+                    if (index[story]['timed']) {
+                        if (index[story]['media']['audio'] != '') {
+                            timed += '🎧    ';
+                        }
+                        if (index[story]['media']['video'] != '') {
+                            timed += '🎞';
+                        }
+                    } else {
+                        timed = '✘';
+                    }
 
-												// const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['story ID']}'}>${mainTitle}</Link>`);
-												var link = '<a href=\'#/story/' + index[story]['story ID'] + '\'>' + mainTitle + '</a>';
+                    // const link = ReactDOMServer.renderToString(`<Link to={'/story/${index[story]['story ID']}'}>${mainTitle}</Link>`);
+                    var link = '<a href=\'#/story/' + index[story]['story ID'] + '\'>' + mainTitle + '</a>';
 
-												storyList.push([link, translatedTitle, index[story]['author'], timed]);
-												// storyList.push(
-												//     <li key={id.generate()}>
-												//         <Link to={`/story/${index[story]['story ID']}`}>{story}</Link>
-												//     </li>
-												// )
-										}
-								}
+                    storyList.push([link, translatedTitle, index[story]['author'], timed]);
+                    // storyList.push(
+                    //     <li key={id.generate()}>
+                    //         <Link to={`/story/${index[story]['story ID']}`}>{story}</Link>
+                    //     </li>
+                    // )
+                }
+            }
 
-								$(document).ready(function () {
-										$('#indexTable').DataTable({
-												data: storyList,
-												columns: [{ title: "Title (A'ingae)" }, { title: "Title (English)" }, { title: "Author" }, { title: "Media" }]
-										});
-								});
-								$('#indexTable').addClass("stripe");
-						});
-				}
-		}, {
-				key: 'render',
-				value: function render() {
-						return _react2.default.createElement(
-								'div',
-								{ id: 'index' },
-								_react2.default.createElement('table', { id: 'indexTable' })
-						);
-				}
-		}]);
+            $(document).ready(function () {
+                $('#indexTable').DataTable({
+                    data: storyList,
+                    columns: [{ title: "Title (A'ingae)" }, { title: "Title (English)" }, { title: "Author" }, { title: "Media" }]
+                });
+            });
+            $('#indexTable').addClass("stripe");
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { id: 'index' },
+                _react2.default.createElement('table', { id: 'indexTable' })
+            );
+        }
+    }]);
 
-		return StoryIndex;
+    return StoryIndex;
 }(_react2.default.Component);
 
 /***/ }),
