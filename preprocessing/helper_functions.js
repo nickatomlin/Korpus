@@ -163,7 +163,10 @@ function improveElanIndexData(path, adoc) {
   let audioFiles = [];
   let videoFiles = [];
   if (!hasWorkingAudio || !hasWorkingVideo) {
-    const mediaDescriptors = adoc['HEADER'][0]['MEDIA_DESCRIPTOR'];
+    let mediaDescriptors = adoc['HEADER'][0]['MEDIA_DESCRIPTOR'];
+		if (mediaDescriptors == null) { // this happens on ELAN->FLEx->ELAN files
+			mediaDescriptors = []; // don't error when iterating over mediaDescriptors
+		}
     for (const mediaDesc of mediaDescriptors) {
       const mediaPath = mediaDesc['$']['MEDIA_URL'];
       const mediaFilename = getFilenameFromPath(mediaPath);
