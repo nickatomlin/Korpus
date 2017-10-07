@@ -362,7 +362,6 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
         }
       });
     });
-
   }
 }
 

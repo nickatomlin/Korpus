@@ -5,27 +5,27 @@ const parseXml = require('xml2js').parseString;
 const eafUtils = require('./eaf_utils');
 const helper = require('./helper_functions');
 
-function updateIndex(indexMetadata, indexFileName, xmlFileName) {
+function updateIndex(indexMetadata, indexFileName, storyID) {
   let index = JSON.parse(fs.readFileSync(indexFileName, "utf8"));
-  index[helper.getFilenameFromPath(xmlFileName)] = indexMetadata;
+  index[storyID] = indexMetadata;
   fs.writeFileSync(indexFileName, JSON.stringify(index, null, 2));
 }
 
-function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
-  parseXml(fs.readFileSync(xmlFileName), function (err, jsonIn) {
-
-    const indexMetadata = helper.improveElanIndexData(xmlFileName, jsonIn.ANNOTATION_DOCUMENT);
-    updateIndex(indexMetadata, "data/index2.json", xmlFileName);
+function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
+    const storyID = eafUtils.getDocID(adocIn);
+    const indexMetadata = helper.improveElanIndexData(xmlFileName, storyID, adocIn);
+    updateIndex(indexMetadata, "data/index2.json", storyID);
+    updateIndex(indexMetadata, "data/index2.json", storyID);
     const jsonOut = {
       "metadata": indexMetadata,
       "sentences": []
     };
     jsonOut.metadata["tier IDs"] = {};
     jsonOut.metadata["speaker IDs"] = {};
-    jsonOut.metadata["story ID"] = titleFromFileName;
+    jsonOut.metadata["story ID"] = storyID;
 
-    const timeslots = eafUtils.getDocTimeslotsMap(jsonIn);
-    const tiers = eafUtils.getNonemptyTiers(jsonIn);
+    const timeslots = eafUtils.getDocTimeslotsMap(adocIn);
+    const tiers = eafUtils.getNonemptyTiers(adocIn);
     const indepTiers = tiers.filter((tier) => eafUtils.getParentTierName(tier) == null);
     const annotationsFromIDs = eafUtils.getAnnotationIDMap(tiers);
 
@@ -111,16 +111,16 @@ function preprocess(xmlFileName, jsonFileName, titleFromFileName, callback) {
         jsonOut.sentences.push(indepTierJson);
       }
     }
-
-    fs.writeFileSync(jsonFileName, JSON.stringify(jsonOut, null, 2));
-    console.log("✅  Processed " + titleFromFileName + ".eaf");
+    
+    const jsonPath = jsonFilesDir + storyID + ".json";
+    fs.writeFileSync(jsonPath, JSON.stringify(jsonOut, null, 2));
+    // console.log("✅  Correctly wrote " + storyID + ".json");
     callback();
-  });
 }
 
 function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
   const eafFileNames = fs.readdirSync(eafFilesDir).filter(f => f[0] != "."); // excludes hidden files
-
+  
   // use this to wait for all preprocess calls to terminate before executing the callback
   const status = {numJobs: eafFileNames.length};
   const whenDone = function () {
@@ -131,9 +131,16 @@ function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
   };
 
   for (const eafFileName of eafFileNames) {
+    console.log("Processing " + eafFileName);
     const eafPath = eafFilesDir + eafFileName;
-    const jsonPath = jsonFilesDir + eafFileName.slice(0, -4) + ".json";
-    preprocess(eafPath, jsonPath, eafFileName.slice(0, -4), whenDone);
+    fs.readFile(eafPath, function (err1, xmlData) {
+      if (err1) throw err1;
+      parseXml(xmlData, function (err2, jsonData) {
+        if (err2) throw err2;
+        const adoc = jsonData.ANNOTATION_DOCUMENT
+        preprocess(adoc, jsonFilesDir, eafFileName, whenDone);
+      });
+    });
   }
 }
 

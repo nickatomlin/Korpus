@@ -91,14 +91,15 @@ function improveFLExIndexData(storyID, itext) {
   return metadata;
 }
 
-function improveElanIndexData(path, adoc) {
+function improveElanIndexData(path, storyID, adoc) {
   // I/P: path, a string
+  //      storyID, a string
   //      adoc, an annotation document
   // O/P: a JSON object, based on the index.json file and new metadata
   // Status: untested
   const filename = getFilenameFromPath(path);
   const shortFilename = filename.substring(0, filename.lastIndexOf('.'));
-  let metadata = getMetadataFromIndex(filename);
+  let metadata = getMetadataFromIndex(storyID);
 
   const date = new Date();
   const prettyDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
@@ -107,7 +108,7 @@ function improveElanIndexData(path, adoc) {
     // below is the starter data:
     metadata = {
       "timed": true,
-      "story ID": filename,
+      "story ID": storyID,
       "title": {
         "_default": ""
       },
