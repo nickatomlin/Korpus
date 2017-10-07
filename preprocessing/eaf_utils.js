@@ -1,8 +1,22 @@
 /* functions for accessing data within FLEx's format (except parsed to JSON): */
 
+// adoc - an annotation document
+// returns the hexadecimal code from the URN, or null if none was found
+function getDocID(adoc) {
+  const properties = adoc.HEADER[0].PROPERTY;
+  for (const property of properties) {
+    if (property.$.NAME === 'URN') {
+      const urn = property._;
+      return urn.substring(urn.lastIndexOf(':') + 1);
+    }
+  }
+  return null;
+}
+
+// adoc - an annotation document
 // returns a map from each timeslotID to its time value in ms
-function getDocTimeslotsMap(doc) {
-  const timeslotsIn = doc.ANNOTATION_DOCUMENT.TIME_ORDER[0].TIME_SLOT;
+function getDocTimeslotsMap(adoc) {
+  const timeslotsIn = adoc.TIME_ORDER[0].TIME_SLOT;
   let timeslots = [];
   for (const slot of timeslotsIn) {
     timeslots[slot.$.TIME_SLOT_ID] = slot.$.TIME_VALUE;
@@ -10,9 +24,10 @@ function getDocTimeslotsMap(doc) {
   return timeslots;
 }
 
+// adoc - an annotation document
 // returns a list of tiers (JSON objects)
-function getNonemptyTiers(doc) {
-  const allTiers = doc.ANNOTATION_DOCUMENT.TIER;
+function getNonemptyTiers(adoc) {
+  const allTiers = adoc.TIER;
   return allTiers.filter((tier) =>
       tier.ANNOTATION != null && tier.ANNOTATION.length > 0
   );
@@ -229,6 +244,7 @@ function getInnerAnnotationEndSlot(innerAnnotation) {
 }
 
 module.exports = {
+  getDocID: getDocID,
   getDocTimeslotsMap: getDocTimeslotsMap,
   getNonemptyTiers: getNonemptyTiers,
   // getTierChildrenMap: getTierChildrenMap,
