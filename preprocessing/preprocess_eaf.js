@@ -1,5 +1,3 @@
-/* Run this script from the main directory (Korpus) */
-
 const fs = require('fs');
 const parseXml = require('xml2js').parseString;
 const eafUtils = require('./eaf_utils');
@@ -53,6 +51,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     for (let i = 0; i < indepTiers.length; i++) {
       const spkrID = "S" + (i + 1).toString();
       const indepTierName = eafUtils.getTierName(indepTiers[i]);
+      //console.log("Indep tier " + indepTierName + ":");
       const tierID = tierIDsFromNames[indepTierName];
 
       jsonOut.metadata["speaker IDs"][spkrID] = {
@@ -91,6 +90,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
             const dStartTimeslot = eafUtils.getAnnotationStartSlot(annotation, annotationsFromIDs);
             const dEndTimeslot = eafUtils.getAnnotationEndSlot(annotation, annotationsFromIDs);
 
+            // FIXME this is probably the reason annotations disappear on Frankensteins
             if (eafUtils.slotIDDiff(dStartTimeslot, iStartTimeslot) >= 0
                 && eafUtils.slotIDDiff(iEndTimeslot, dEndTimeslot) >= 0) {
               // this dependent annotation goes with the current independent annotation
