@@ -9,6 +9,62 @@ function updateIndex(indexMetadata, indexFileName, storyID) {
   fs.writeFileSync(indexFileName, JSON.stringify(index, null, 2));
 }
 
+function assignSlots(anotID, slotNumPtr, tiersToConstraints, 
+    annotationChildren, startSlots, endSlots) {
+  
+  startSlots[anotID] = slotNumPtr.contents;
+  
+  const aloneDeps = [];
+  for (const depTierName in annotationChildren[anotID]) {
+    if (annotationChildren[anotID].hasOwnProperty(depTierName)) {
+      depAnotIDs = annotationChildren[anotID][depTierName];
+      if (depAnotIDs.length == 1) { // FIXME stretches 'included_in' annotations to parent's length
+        aloneDeps.push(depAnotIDs[0]);
+      } else {
+        
+        let prevTimeslot = null; // used for detecting gaps
+        let maybeGaps = (tiersToConstraints[depTierName] === 'Included_In');
+        if (maybeGaps) {
+          prevTimeslot = eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[anotID]);
+        }
+        
+        for (depAnotID of depAnotIDs) {
+          if (maybeGaps) {
+            const startTimeslot = eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[depAnotID]);
+            if (startTimeslot !== prevTimeslot 
+                && timeslots[startTimeslot] !== timeslots[prevTimeslot]) {
+              slotNumPtr.contents++ // there's a gap
+            }
+            prevTimeslot = eafUtils.getAlignableAnnotationEndSlot(annotationsFromIDs[depAnotID]);
+          }
+          
+          assignSlots(depAnotID, slotNumPtr, tiersToConstraints, annotationChildren, 
+              startSlots, endSlots);
+        }
+        
+        if (maybeGaps) { 
+          const endTimeslot = eafUtils.getAlignableAnnotationEndSlot(annotationsFromIDs[anotID]);
+          if (endTimeslot !== prevTimeslot 
+              && timeslots[endTimeslot] !== timeslots[prevTimeslot]) {
+            slotNumPtr.contents++ // there's a gap
+          }
+        }
+      }
+    }
+  }
+  
+  // ensure this annotation has at least one slot
+  if (slotNumPtr.contents === startSlots[anotID]) {
+    slotNumPtr.contents++;
+  }
+  
+  endSlots[anotID] = slotNumPtr.contents;
+  for (depAnotID of aloneDeps) {
+    startSlots[depAnotID] = startSlots[anotID];
+    endSlots[depAnotID] = endSlots[anotID];
+  }
+}
+
 function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     const storyID = eafUtils.getDocID(adocIn);
     const indexMetadata = helper.improveElanIndexData(xmlFileName, storyID, adocIn);
@@ -38,25 +94,12 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
       tierIDsFromNames[tierName] = newID;
     }
     
-    // metadata for this tier's speaker
-    // FIXME assumes each independent tier has a distinct speaker
-    for (let i = 0; i < indepTiers.length; i++) {
-      const spkrID = "S" + (i + 1).toString();
-      const indepTierName = eafUtils.getTierName(indepTiers[i]);
-      const tierID = tierIDsFromNames[indepTierName];
-      jsonOut.metadata["speaker IDs"][spkrID] = {
-        "name": eafUtils.getTierSpeakerName(indepTiers[i]),
-        "language": eafUtils.getTierLanguage(indepTiers[i]),
-        "tier": tierID,
-      };
-    }
-
-    // annotationChildren: parentTierName -> parentAnnotationID -> childTierName(sparse) -> listof childAnnotationID
+    // TODO glom morphs if coming from FLEx ... or, glom if untimed?
+    
+    // annotationChildren: parentAnnotationID -> childTierName(sparse) -> listof childAnnotationID
     const annotationChildren = {};
     for (const tier of tiers) {
       const childTierName = eafUtils.getTierName(tier);
-      const parentTierName = eafUtils.getParentTierName(tier);
-      annotationChildren[parentTierName] = {};
       for (const annotation of eafUtils.getAnnotations(tier)) {
         const childAnnotationID = eafUtils.getAnnotationID(annotation);
         
@@ -65,13 +108,13 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           parentAnnotationID = '';
         }
         
-        if (annotationChildren[parentTierName][parentAnnotationID] == null) {
-          annotationChildren[parentTierName][parentAnnotationID] = {}
+        if (annotationChildren[parentAnnotationID] == null) {
+          annotationChildren[parentAnnotationID] = {}
         }
-        if (annotationChildren[parentTierName][parentAnnotationID][childTierName] == null) {
-          annotationChildren[parentTierName][parentAnnotationID][childTierName] = [];
+        if (annotationChildren[parentAnnotationID][childTierName] == null) {
+          annotationChildren[parentAnnotationID][childTierName] = [];
         }
-        annotationChildren[parentTierName][parentAnnotationID][childTierName].push(childAnnotationID);
+        annotationChildren[parentAnnotationID][childTierName].push(childAnnotationID);
       }
     }
     
@@ -93,68 +136,105 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     }
     
     const annotationsFromIDs = eafUtils.getAnnotationIDMap(tiers);
-    const timeslotsToMs = eafUtils.getDocTimeslotsMap(adocIn);
+    const timeslots = eafUtils.getDocTimeslotsMap(adocIn);
     
     // sort children
-    for (const parentTierName in annotationChildren) {
-      if (annotationChildren.hasOwnProperty(parentTierName)) {
-        for (const parentAnnotationID in annotationChildren[parentTierName]) {
-          if (annotationChildren[parentTierName].hasOwnProperty(parentAnnotationID)) {
-            for (const childTierName in annotationChildren[parentTierName][parentAnnotationID]) {
-              const childIDs = annotationChildren[parentTierName][parentAnnotationID][childTierName];
-              const sortedChildIDs = [];
-              const constraint = tiersToConstraints[childTierName];
-              if (constraint === 'Symbolic_Association') { // 1-1 association
-                // assert childIDs.length === 1; 
-                sortedChildIDs = childIDs;
-              } else if (constraint === 'Symbolic_Subdivision') { // untimed subdivision, ordered
-                let prev = '';
-                for (const id of childIDs) {
-                  const cur = childIDs.findFirst(a -> 
-                    prev === (annotationsFromIDs[a].$.PREVIOUS_ANNOTATION || '')
-                  );
-                  sortedChildIDs.push(cur);
-                  prev = cur;
-                }
-              } else if (constraint === 'Time_Subdivision') { // timed subdivision, no gaps
-                let prevSlot = eafUtils.getAlignableAnnotationStartSlot(
-                    annotationsFromIDs[parentAnnotationID]);
-                for (const id of childIDs) {
-                  const cur = childIDs.findFirst(a -> 
-                    prevSlot === eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[a])
-                  );
-                  sortedChildIDs.push(cur);
-                  prevSlot = eafUtils.getAlignableAnnotationEndSlot(cur);
-                }
-              } else if (constraint === 'Included_In') { // timed subdivision, gaps allowed
-                // warn if an ms value is missing
-                const missingMs = childIDs.filter(a -> timeslotsToMs[annotationsFromIDs[a]] == null);
-                if (missingMs.length > 0) {
-                  console.log(`WARNING: missing times in tier ${childTierName}. Annotations may display out of order.`);
-                  // TODO use additional clues when sorting: timeslot id order and shared timeslots
-                }
-                
-                sortedChildIDs = childIDs.sort((a1,a2) -> 
-                  parseInt(timeslotsToMs[annotationsFromIDs[a1]]) - 
-                  parseInt(timeslotsToMs[annotationsFromIDs[a2]])
-                );
-              } else { // this should never happen
-                console.log(`WARNING: missing or unrecognized ELAN stereotype for tier ${childTierName}. Annotations may display out of order.`);
-                sortedChildIDs = childIDs;
-              }
-              
-              annotationChildren[parentTierName][parentAnnotationID][childTierName] = sortedChildIDs;
+    for (const parentAnnotationID in annotationChildren) {
+      if (annotationChildren.hasOwnProperty(parentAnnotationID)) {
+        for (const childTierName in annotationChildren[parentAnnotationID]) {
+          const childIDs = annotationChildren[parentAnnotationID][childTierName];
+          const sortedChildIDs = [];
+          const constraint = tiersToConstraints[childTierName];
+          if (constraint === 'Symbolic_Association') { // 1-1 association
+            // assert childIDs.length === 1; 
+            sortedChildIDs = childIDs;
+          } else if (constraint === 'Symbolic_Subdivision') { // untimed subdivision, ordered
+            let prev = '';
+            for (const id of childIDs) {
+              const cur = childIDs.findFirst(a -> 
+                prev === (annotationsFromIDs[a].$.PREVIOUS_ANNOTATION || '')
+              );
+              sortedChildIDs.push(cur);
+              prev = cur;
+            }
+          } else if (constraint === 'Time_Subdivision') { // timed subdivision, no gaps
+            let prevSlot = eafUtils.getAlignableAnnotationStartSlot(
+                annotationsFromIDs[parentAnnotationID]);
+            for (const id of childIDs) {
+              const cur = childIDs.findFirst(a -> 
+                prevSlot === eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[a])
+              );
+              sortedChildIDs.push(cur);
+              prevSlot = eafUtils.getAlignableAnnotationEndSlot(cur);
+            }
+          } else if (constraint === 'Included_In') { // timed subdivision, gaps allowed
+            // warn if an ms value is missing
+            const missingMs = childIDs.filter(a -> timeslots[annotationsFromIDs[a]] == null);
+            if (missingMs.length > 0) {
+              console.log(`WARNING: missing times in tier ${childTierName}. Annotations may display out of order.`);
+              // TODO use additional clues when sorting: timeslot id order and shared timeslots
+            }
+            
+            sortedChildIDs = childIDs.sort((a1,a2) -> 
+              parseInt(timeslots[annotationsFromIDs[a1]]) - 
+              parseInt(timeslots[annotationsFromIDs[a2]])
+            );
+          } else { // this should never happen
+            console.log(`WARNING: missing or unrecognized ELAN stereotype for tier ${childTierName}. Annotations may display out of order.`);
+            sortedChildIDs = childIDs;
+          }
+          
+          annotationChildren[parentAnnotationID][childTierName] = sortedChildIDs;
+        }
+      }
+    }
+    
+    for (let i = 0; i < indepTiers.length; i++) {
+      const spkrID = "S" + (i + 1).toString(); // assume each independent tier has a distinct speaker
+      const indepTierName = eafUtils.getTierName(indepTiers[i]);
+      const tierID = tierIDsFromNames[indepTierName];
+      
+      jsonOut.metadata["speaker IDs"][spkrID] = {
+        "name": eafUtils.getTierSpeakerName(indepTiers[i]),
+        "language": eafUtils.getTierLanguage(indepTiers[i]),
+        "tier": tierID,
+      };
+      
+      for (const indepAnot of eafUtils.getTierAnnotations(indepTier)) {
+        const indepAnotID = eafUtils.getAnnotationID(indepAnot);
+        const anotStartSlots = {};
+        const anotEndSlots = {};
+        assignSlots(indepAnotID, slotnumPtr, tiersToConstraints, annotationChildren, anotStartSlots, anotEndSlots);
+        
+        const sentenceJson = {
+          "speaker": spkrID,
+          "tier": tierID,
+          "start_time_ms": timeslots[eafUtils.getAlignableAnnotationStartSlot(indepAnot)]; // TODO parse to int?
+          "end_time_ms": timeslots[eafUtils.getAlignableAnnotationEndSlot(indepAnot)]; // TODO parse to int?
+          "text": eafUtils.getAnnotationValue(indepAnot),
+          "dependents": [],
+          "num_slots": anotEndSlots[indepAnotID],
+        };
+        
+        for (const depTierName in annotationChildren[indepAnotID]) {
+          if (annotationChildren[indepAnotID].hasOwnProperty(depTierName)) {
+            const depTierJson = {
+              "tier": tierIDsFromNames[depTierName],
+              "values": [],
+            };
+            
+            for (const depAnotID of annotationChildren[indepAnotID][depTierName]) {
+              const depAnot = annotationsFromIDs[depAnotID];
+              depTierJson.values.push({
+                "start_slot": anotStartSlots[depAnotID],
+                "end_slot": anotEndSlots[depAnotID],
+                "value": eafUtils.getAnnotationValue(depAnot),
+              });
             }
           }
         }
       }
     }
-
-    // assign start and end slots to each annotation
-    
-    
-    // for each indep tier, for each indep annotation (in time order): 
-    // create json for the indep annotation and its dependents 
     
     const jsonPath = jsonFilesDir + storyID + ".json";
     fs.writeFileSync(jsonPath, JSON.stringify(jsonOut, null, 2));
