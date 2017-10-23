@@ -103,7 +103,8 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
       for (const annotation of eafUtils.getAnnotations(tier)) {
         const childAnnotationID = eafUtils.getAnnotationID(annotation);
         
-        let parentAnnotationID = eafUtils.getAnnotationParent(annotation);
+        // FIXME relies on ANNOTATION_REF, which is only defined on REF_ANNOTATIONs, not ALIGNABLE_ANNOTATIONs
+        let parentAnnotationID = eafUtils.getParentAnnotationID(annotation); 
         if (parentAnnotationID == null) {
           parentAnnotationID = '';
         }
@@ -151,7 +152,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           } else if (constraint === 'Symbolic_Subdivision') { // untimed subdivision, ordered
             let prev = '';
             for (const id of childIDs) {
-              const cur = childIDs.findFirst(a -> 
+              const cur = childIDs.findFirst(a => 
                 prev === (annotationsFromIDs[a].$.PREVIOUS_ANNOTATION || '')
               );
               sortedChildIDs.push(cur);
@@ -161,7 +162,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
             let prevSlot = eafUtils.getAlignableAnnotationStartSlot(
                 annotationsFromIDs[parentAnnotationID]);
             for (const id of childIDs) {
-              const cur = childIDs.findFirst(a -> 
+              const cur = childIDs.findFirst(a => 
                 prevSlot === eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[a])
               );
               sortedChildIDs.push(cur);
@@ -169,13 +170,13 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
             }
           } else if (constraint === 'Included_In') { // timed subdivision, gaps allowed
             // warn if an ms value is missing
-            const missingMs = childIDs.filter(a -> timeslots[annotationsFromIDs[a]] == null);
+            const missingMs = childIDs.filter(a => timeslots[annotationsFromIDs[a]] == null);
             if (missingMs.length > 0) {
               console.log(`WARNING: missing times in tier ${childTierName}. Annotations may display out of order.`);
               // TODO use additional clues when sorting: timeslot id order and shared timeslots
             }
             
-            sortedChildIDs = childIDs.sort((a1,a2) -> 
+            sortedChildIDs = childIDs.sort((a1,a2) => 
               parseInt(timeslots[annotationsFromIDs[a1]]) - 
               parseInt(timeslots[annotationsFromIDs[a2]])
             );
@@ -209,8 +210,8 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         const sentenceJson = {
           "speaker": spkrID,
           "tier": tierID,
-          "start_time_ms": timeslots[eafUtils.getAlignableAnnotationStartSlot(indepAnot)]; // TODO parse to int?
-          "end_time_ms": timeslots[eafUtils.getAlignableAnnotationEndSlot(indepAnot)]; // TODO parse to int?
+          "start_time_ms": timeslots[eafUtils.getAlignableAnnotationStartSlot(indepAnot)], // TODO parse to int?
+          "end_time_ms": timeslots[eafUtils.getAlignableAnnotationEndSlot(indepAnot)], // TODO parse to int?
           "text": eafUtils.getAnnotationValue(indepAnot),
           "dependents": [],
           "num_slots": anotEndSlots[indepAnotID],
