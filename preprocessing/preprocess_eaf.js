@@ -76,7 +76,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   };
   jsonOut.metadata["tier IDs"] = {};
   jsonOut.metadata["speaker IDs"] = {};
-  jsonOut.metadata["story ID"] = storyID;
+  jsonOut.metadata["story ID"] = storyID; // TODO is this needed?
 
   const tiers = eafUtils.getNonemptyTiers(adocIn);
   const indepTiers = tiers.filter((tier) => eafUtils.getParentTierName(tier) == null);
@@ -201,6 +201,11 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
             timeslots[prevSlot] === eafUtils.getAlignableAnnotationStartSlot(a)
             )
           );
+          if (cur == null) {
+            console.log('next timeSubdiv annotation not found');
+            console.log(`storyID = ${storyID}`);
+            console.log(`childTierName = ${childTierName}, prevSlot = ${prevSlot}`);
+          }
           const curID = eafUtils.getAnnotationID(cur);
           sortedChildIDs.push(curID);
           prevSlot = eafUtils.getAlignableAnnotationEndSlot(cur);
@@ -311,6 +316,8 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     }
   }
   
+  jsonOut['annotationChildren'] = annotationChildren; // TODO remove when no longer needed for debugging
+  
   for (let i = 0; i < indepTiers.length; i++) {
     const spkrID = "S" + (i + 1).toString(); // assume each independent tier has a distinct speaker
     const indepTierName = eafUtils.getTierName(indepTiers[i]);
@@ -334,30 +341,54 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
       const sentenceJson = {
         "speaker": spkrID,
         "tier": tierID,
-        "start_time_ms": timeslots[eafUtils.getAlignableAnnotationStartSlot(indepAnot)], // TODO parse to int?
-        "end_time_ms": timeslots[eafUtils.getAlignableAnnotationEndSlot(indepAnot)], // TODO parse to int?
+        "start_time_ms": parseInt(timeslots[eafUtils.getAlignableAnnotationStartSlot(indepAnot)], 10),
+        "end_time_ms": parseInt(timeslots[eafUtils.getAlignableAnnotationEndSlot(indepAnot)], 10),
         "text": eafUtils.getAnnotationValue(indepAnot),
+        "anotID": indepAnotID, // TODO remove when no longer needed for debugging
         "dependents": [],
         "num_slots": anotEndSlots[indepAnotID],
       };
       
-      for (const depTierName in annotationChildren[indepAnotID]) {
-        if (annotationChildren[indepAnotID].hasOwnProperty(depTierName)) {
+      const depTiersAnots = {}; // depTierName -> ordered listof anotIDs descended from indepAnot
+      let pendingParentIDs = [indepAnotID];
+      while (pendingParentIDs.length > 0) {
+        const parentID = pendingParentIDs[0];
+        pendingParentIDs.shift() // remove parentID from pendingParentIDs
+        // add all of parentID's direct children to depTierAnots and to pendingParentIDs
+        for (const depTierName in annotationChildren[parentID]) {
+          if (annotationChildren[parentID].hasOwnProperty(depTierName)) {
+            const childIDs = annotationChildren[parentID][depTierName];
+            if (!depTiersAnots.hasOwnProperty(depTierName)) {
+              depTiersAnots[depTierName] = [];
+            }
+            depTiersAnots[depTierName] = depTiersAnots[depTierName].concat(childIDs);
+            pendingParentIDs = pendingParentIDs.concat(childIDs);
+          }
+        }
+      }
+      
+      for (const depTierName in depTiersAnots) {
+        if (depTiersAnots.hasOwnProperty(depTierName)) {
           const depTierJson = {
             "tier": tierIDsFromNames[depTierName],
             "values": [],
           };
           
-          for (const depAnotID of annotationChildren[indepAnotID][depTierName]) {
+          for (const depAnotID of depTiersAnots[depTierName]) {
             const depAnot = annotationsFromIDs[depAnotID];
             depTierJson.values.push({
               "start_slot": anotStartSlots[depAnotID],
               "end_slot": anotEndSlots[depAnotID],
+              "anotID": eafUtils.getAnnotationID(depAnot), // TODO remove when no longer needed for debugging
               "value": eafUtils.getAnnotationValue(depAnot),
             });
           }
+          
+          sentenceJson.dependents.push(depTierJson); // TODO check order
         }
       }
+      
+      jsonOut.sentences.push(sentenceJson); // TODO check order
     }
   }
   

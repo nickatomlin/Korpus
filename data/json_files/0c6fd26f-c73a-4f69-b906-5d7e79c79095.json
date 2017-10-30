@@ -20,177 +20,99 @@
     "author": "",
     "glosser": "",
     "speakers": [
-      "Shen Aguinda",
-      "Romulo Criollo"
+      "Shen Aguinda"
     ],
     "tier IDs": {
       "T1": {
-        "name": "A_morph-cf-con-Latn-EC-x-dureno",
-        "subdivided": true
-      },
-      "T2": {
         "name": "A_morph-gls-en",
         "subdivided": true
       },
-      "T3": {
-        "name": "A_morph-gls-es",
-        "subdivided": true
-      },
-      "T4": {
-        "name": "A_morph-hn-en",
-        "subdivided": true
-      },
-      "T5": {
-        "name": "A_morph-msa-en",
-        "subdivided": true
-      },
-      "T6": {
-        "name": "A_morph-txt-con-Latn-EC",
-        "subdivided": true
-      },
-      "T7": {
+      "T2": {
         "name": "A_morph-txt-con-Latn-EC-x-dureno",
         "subdivided": true
       },
-      "T8": {
+      "T3": {
         "name": "A_morph-type",
         "subdivided": true
       },
-      "T9": {
+      "T4": {
         "name": "A_paragraph",
         "subdivided": false
       },
-      "T10": {
+      "T5": {
         "name": "A_phrase-gls-en",
         "subdivided": true
       },
-      "T11": {
-        "name": "A_phrase-gls-es",
-        "subdivided": true
-      },
-      "T12": {
+      "T6": {
         "name": "A_phrase-segnum-en",
         "subdivided": true
       },
-      "T13": {
-        "name": "A_word-txt-con-Latn-EC",
-        "subdivided": true
-      },
-      "T14": {
+      "T7": {
         "name": "A_word-txt-con-Latn-EC-x-dureno",
         "subdivided": true
-      },
-      "T15": {
-        "name": "B_morph-cf-con-Latn-EC-x-dureno",
-        "subdivided": true
-      },
-      "T16": {
-        "name": "B_morph-gls-en",
-        "subdivided": true
-      },
-      "T17": {
-        "name": "B_morph-gls-es",
-        "subdivided": true
-      },
-      "T18": {
-        "name": "B_morph-hn-en",
-        "subdivided": true
-      },
-      "T19": {
-        "name": "B_morph-msa-en",
-        "subdivided": true
-      },
-      "T20": {
-        "name": "B_morph-txt-con-Latn-EC",
-        "subdivided": true
-      },
-      "T21": {
-        "name": "B_morph-txt-con-Latn-EC-x-dureno",
-        "subdivided": true
-      },
-      "T22": {
-        "name": "B_morph-type",
-        "subdivided": true
-      },
-      "T23": {
-        "name": "B_morph-variantTypes-en",
-        "subdivided": true
-      },
-      "T24": {
-        "name": "B_paragraph",
-        "subdivided": false
-      },
-      "T25": {
-        "name": "B_phrase-gls-en",
-        "subdivided": true
-      },
-      "T26": {
-        "name": "B_phrase-gls-es",
-        "subdivided": true
-      },
-      "T27": {
-        "name": "B_phrase-segnum-en",
-        "subdivided": true
-      },
-      "T28": {
-        "name": "B_word-txt-con-Latn-EC-x-dureno",
-        "subdivided": true
-      },
-      "T29": {
-        "name": "interlinear-text-title-con-Latn-EC",
-        "subdivided": false
-      },
-      "T30": {
-        "name": "interlinear-text-title-con-Latn-EC-x-dureno",
-        "subdivided": false
-      },
-      "T31": {
-        "name": "interlinear-text-title-en",
-        "subdivided": false
-      },
-      "T32": {
-        "name": "interlinear-text-title-es",
-        "subdivided": false
       }
     },
     "speaker IDs": {
       "S1": {
         "name": "Shen Aguinda",
-        "tier": "T9"
-      },
-      "S2": {
-        "name": "Romulo Criollo",
-        "tier": "T24"
-      },
-      "S3": {
-        "tier": "T29"
+        "tier": "T4"
       }
     }
   },
   "sentences": [
     {
       "speaker": "S1",
-      "tier": "T9",
+      "tier": "T4",
       "start_time_ms": 1740,
       "end_time_ms": 4280,
-      "num_slots": 2,
       "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S1",
-      "tier": "T9",
-      "start_time_ms": 5020,
-      "end_time_ms": 7340,
-      "num_slots": 2,
-      "text": "",
+      "anotID": "ann5_flexid_95a4d060-01ca-4ee4-bea6-72f9fa09330f",
       "dependents": [
         {
-          "tier": "T1",
+          "tier": "T6",
           "values": [
             {
-              "start_slot": 7,
-              "end_slot": -1,
+              "start_slot": 0,
+              "end_slot": 1,
+              "anotID": "ann6_flexid_398e3a46-63c0-4877-848d-18bed15ac32f",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "anotID": "ann7",
+              "value": "Today is August 7, 2017."
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "anotID": "ann9_flexid_5d1e1f6f-b451-4cc2-9d77-f203e914b655",
+              "value": "jañu"
+            },
+            {
+              "anotID": "ann17_flexid_91e54b79-6060-4be8-bee5-ae990b7b3a37",
+              "value": "siete"
+            },
+            {
+              "anotID": "ann25_flexid_36e9673b-bb9a-4ce1-a895-a4c7d66c0d39",
+              "value": "de"
+            },
+            {
+              "anotID": "ann34_flexid_8cbc3f29-7c06-4c73-98f7-da18461eb2b1",
+              "value": "agosto"
+            },
+            {
+              "anotID": "ann42_flexid_db57480d-410a-4e68-863b-22c6ac799ce2",
+              "value": "dosmil"
+            },
+            {
+              "anotID": "ann50_flexid_28fb2ee7-10e5-4551-a602-77ef759cdeed",
               "value": "diecisietes"
             }
           ]
@@ -199,8 +121,56 @@
           "tier": "T2",
           "values": [
             {
-              "start_slot": 7,
-              "end_slot": -1,
+              "anotID": "ann10_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "jaño"
+            },
+            {
+              "anotID": "ann18_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "siete"
+            },
+            {
+              "anotID": "ann26_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "de"
+            },
+            {
+              "anotID": "ann35_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "agosto"
+            },
+            {
+              "anotID": "ann43_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "dosmil"
+            },
+            {
+              "anotID": "ann51_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "diecisietes"
+            }
+          ]
+        },
+        {
+          "tier": "T1",
+          "values": [
+            {
+              "anotID": "ann14",
+              "value": "now"
+            },
+            {
+              "anotID": "ann22",
+              "value": "seven"
+            },
+            {
+              "anotID": "ann31",
+              "value": "of"
+            },
+            {
+              "anotID": "ann39",
+              "value": "August"
+            },
+            {
+              "anotID": "ann47",
+              "value": "two thousand"
+            },
+            {
+              "anotID": "ann55",
               "value": "seventeen"
             }
           ]
@@ -209,9 +179,50 @@
           "tier": "T3",
           "values": [
             {
-              "start_slot": 7,
-              "end_slot": -1,
-              "value": "diecisiete"
+              "anotID": "ann11",
+              "value": "root"
+            },
+            {
+              "anotID": "ann19",
+              "value": "root"
+            },
+            {
+              "anotID": "ann27",
+              "value": "root"
+            },
+            {
+              "anotID": "ann36",
+              "value": "root"
+            },
+            {
+              "anotID": "ann44",
+              "value": "root"
+            },
+            {
+              "anotID": "ann52",
+              "value": "root"
+            }
+          ]
+        }
+      ],
+      "num_slots": 1
+    },
+    {
+      "speaker": "S1",
+      "tier": "T4",
+      "start_time_ms": 5020,
+      "end_time_ms": 7340,
+      "text": "",
+      "anotID": "ann58_flexid_ea36261b-dd58-4fb4-9d73-15921564b833",
+      "dependents": [
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "anotID": "ann59_flexid_528108df-3732-4dbe-9456-c78358f490c7",
+              "value": "2"
             }
           ]
         },
@@ -219,19 +230,8 @@
           "tier": "T5",
           "values": [
             {
-              "start_slot": 7,
-              "end_slot": -1,
-              "value": "quant"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 7,
-              "end_slot": -1,
-              "value": "diecisietes"
+              "anotID": "ann60",
+              "value": "I'm here with Rómulo Criollo, Shen, and Scott."
             }
           ]
         },
@@ -239,775 +239,506 @@
           "tier": "T7",
           "values": [
             {
-              "start_slot": 7,
-              "end_slot": -1,
-              "value": "diecisietes"
+              "anotID": "ann62_flexid_62f62bd6-ff51-46fd-b189-5dd025415601",
+              "value": "va'thi"
+            },
+            {
+              "anotID": "ann77_flexid_ade1ad7e-83f7-4b2d-bb10-5982596b0bb8",
+              "value": "Romulo"
+            },
+            {
+              "anotID": "ann85_flexid_a68779fe-9b98-4940-a50d-59f945648e1b",
+              "value": "Criolo"
+            },
+            {
+              "anotID": "ann93",
+              "value": ""
+            },
+            {
+              "anotID": "ann95_flexid_b95a06a5-0dca-4b83-802d-cf5fbeaf50fa",
+              "value": "Shen"
+            },
+            {
+              "anotID": "ann103",
+              "value": ""
+            },
+            {
+              "anotID": "ann105_flexid_6d54220c-de7b-40e2-bc4e-97af3a09873f",
+              "value": "Scott"
             }
           ]
         },
         {
-          "tier": "T8",
+          "tier": "T2",
           "values": [
             {
-              "start_slot": 7,
-              "end_slot": -1,
+              "anotID": "ann63_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "va"
+            },
+            {
+              "anotID": "ann70_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933",
+              "value": "='thi"
+            },
+            {
+              "anotID": "ann78_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "Romulo"
+            },
+            {
+              "anotID": "ann86_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "Criolo"
+            },
+            {
+              "anotID": "ann96_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "Shen"
+            },
+            {
+              "anotID": "ann106_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+              "value": "Scott"
+            }
+          ]
+        },
+        {
+          "tier": "T1",
+          "values": [
+            {
+              "anotID": "ann67",
+              "value": "PROX"
+            },
+            {
+              "anotID": "ann74",
+              "value": "=LOC.NR"
+            },
+            {
+              "anotID": "ann82",
+              "value": "Rómulo"
+            },
+            {
+              "anotID": "ann90",
+              "value": "Criollo"
+            },
+            {
+              "anotID": "ann100",
+              "value": "Shen"
+            },
+            {
+              "anotID": "ann110",
+              "value": "Scott"
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "anotID": "ann64",
+              "value": "root"
+            },
+            {
+              "anotID": "ann71",
+              "value": "enclitic"
+            },
+            {
+              "anotID": "ann79",
+              "value": "root"
+            },
+            {
+              "anotID": "ann87",
+              "value": "root"
+            },
+            {
+              "anotID": "ann97",
+              "value": "root"
+            },
+            {
+              "anotID": "ann107",
               "value": "root"
             }
           ]
-        },
-        {
-          "tier": "T14",
-          "values": [
-            {
-              "start_slot": 7,
-              "end_slot": -1,
-              "value": "diecisietes"
-            }
-          ]
         }
-      ]
+      ],
+      "num_slots": 1
     },
     {
       "speaker": "S1",
-      "tier": "T9",
+      "tier": "T4",
       "start_time_ms": 8170,
       "end_time_ms": 13290,
-      "num_slots": 2,
       "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S1",
-      "tier": "T9",
-      "start_time_ms": 341490,
-      "end_time_ms": 342110,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 15310,
-      "end_time_ms": 21990,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 22070,
-      "end_time_ms": 25020,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 25565,
-      "end_time_ms": 28045,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 28815,
-      "end_time_ms": 33435,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 33915,
-      "end_time_ms": 37885,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 38320,
-      "end_time_ms": 41330,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 41795,
-      "end_time_ms": 46345,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 46980,
-      "end_time_ms": 52450,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 53285,
-      "end_time_ms": 56095,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 56230,
-      "end_time_ms": 61170,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 61520,
-      "end_time_ms": 66980,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 67560,
-      "end_time_ms": 69120,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 69670,
-      "end_time_ms": 73290,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 73690,
-      "end_time_ms": 75490,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 76290,
-      "end_time_ms": 80930,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 81000,
-      "end_time_ms": 84430,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 85545,
-      "end_time_ms": 90165,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 91175,
-      "end_time_ms": 92255,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 93055,
-      "end_time_ms": 94950,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 95560,
-      "end_time_ms": 99080,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 99800,
-      "end_time_ms": 102270,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 102585,
-      "end_time_ms": 106805,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 107355,
-      "end_time_ms": 109915,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 110335,
-      "end_time_ms": 112895,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 113725,
-      "end_time_ms": 116605,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 117195,
-      "end_time_ms": 122425,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 122930,
-      "end_time_ms": 124530,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 125810,
-      "end_time_ms": 129030,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 129570,
-      "end_time_ms": 135170,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 135935,
-      "end_time_ms": 142295,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 143045,
-      "end_time_ms": 146585,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 147235,
-      "end_time_ms": 149295,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 149855,
-      "end_time_ms": 152615,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 153295,
-      "end_time_ms": 155475,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 155775,
-      "end_time_ms": 159105,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 160050,
-      "end_time_ms": 162290,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 163320,
-      "end_time_ms": 164830,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 165415,
-      "end_time_ms": 167385,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 167630,
-      "end_time_ms": 169930,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 170800,
-      "end_time_ms": 175110,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 175375,
-      "end_time_ms": 179045,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 180020,
-      "end_time_ms": 182870,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 183685,
-      "end_time_ms": 188175,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 188920,
-      "end_time_ms": 192030,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 192355,
-      "end_time_ms": 196565,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 197400,
-      "end_time_ms": 201870,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 202605,
-      "end_time_ms": 205885,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 206235,
-      "end_time_ms": 209195,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 209955,
-      "end_time_ms": 213555,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 214285,
-      "end_time_ms": 217515,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 218640,
-      "end_time_ms": 222560,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 223640,
-      "end_time_ms": 234660,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 235390,
-      "end_time_ms": 241800,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 242635,
-      "end_time_ms": 245305,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 246020,
-      "end_time_ms": 250050,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 250895,
-      "end_time_ms": 254565,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 255480,
-      "end_time_ms": 257960,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 258690,
-      "end_time_ms": 263700,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 264675,
-      "end_time_ms": 271755,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 272735,
-      "end_time_ms": 276925,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 277640,
-      "end_time_ms": 283350,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 283895,
-      "end_time_ms": 285575,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 286345,
-      "end_time_ms": 288855,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 290000,
-      "end_time_ms": 294420,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 295210,
-      "end_time_ms": 298430,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 299090,
-      "end_time_ms": 303890,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 304520,
-      "end_time_ms": 307550,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 308185,
-      "end_time_ms": 310895,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 311650,
-      "end_time_ms": 313200,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 313465,
-      "end_time_ms": 317265,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 317855,
-      "end_time_ms": 325050,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 325960,
-      "end_time_ms": 329500,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 330100,
-      "end_time_ms": 332670,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 332975,
-      "end_time_ms": 336445,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 337580,
-      "end_time_ms": 340160,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S2",
-      "tier": "T24",
-      "start_time_ms": 342130,
-      "end_time_ms": 343650,
-      "num_slots": 2,
-      "text": "",
-      "dependents": []
-    },
-    {
-      "speaker": "S3",
-      "tier": "T29",
-      "start_time_ms": 0,
-      "end_time_ms": 343650,
-      "num_slots": 1,
-      "text": "Flor Flanca",
+      "anotID": "ann113_flexid_f595cb5f-8d8a-4c47-9d8b-a696cdac2d1a",
       "dependents": [
         {
-          "tier": "T30",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
-        },
-        {
-          "tier": "T31",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
-        },
-        {
-          "tier": "T32",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
+          "tier": "T6",
+          "values": []
         }
-      ]
+      ],
+      "num_slots": 1
     }
-  ]
+  ],
+  "annotationChildren": {
+    "ann10_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann14"
+      ],
+      "A_morph-type": [
+        "ann11"
+      ]
+    },
+    "ann63_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann67"
+      ],
+      "A_morph-type": [
+        "ann64"
+      ]
+    },
+    "ann70_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann74"
+      ],
+      "A_morph-type": [
+        "ann71"
+      ]
+    },
+    "ann18_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann22"
+      ],
+      "A_morph-type": [
+        "ann19"
+      ]
+    },
+    "ann26_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann31"
+      ],
+      "A_morph-type": [
+        "ann27"
+      ]
+    },
+    "ann35_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann39"
+      ],
+      "A_morph-type": [
+        "ann36"
+      ]
+    },
+    "ann43_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann47"
+      ],
+      "A_morph-type": [
+        "ann44"
+      ]
+    },
+    "ann51_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann55"
+      ],
+      "A_morph-type": [
+        "ann52"
+      ]
+    },
+    "ann78_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann82"
+      ],
+      "A_morph-type": [
+        "ann79"
+      ]
+    },
+    "ann86_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann90"
+      ],
+      "A_morph-type": [
+        "ann87"
+      ]
+    },
+    "ann96_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann100"
+      ],
+      "A_morph-type": [
+        "ann97"
+      ]
+    },
+    "ann106_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann110"
+      ],
+      "A_morph-type": [
+        "ann107"
+      ]
+    },
+    "ann118_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann122"
+      ],
+      "A_morph-type": [
+        "ann119"
+      ]
+    },
+    "ann125_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann130"
+      ],
+      "A_morph-type": [
+        "ann126"
+      ]
+    },
+    "ann134_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann138"
+      ],
+      "A_morph-type": [
+        "ann135"
+      ]
+    },
+    "ann141_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann145"
+      ],
+      "A_morph-type": [
+        "ann142"
+      ]
+    },
+    "ann149_flexid_d7f713e8-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann153"
+      ],
+      "A_morph-type": [
+        "ann150"
+      ]
+    },
+    "ann156_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann161"
+      ],
+      "A_morph-type": [
+        "ann157"
+      ]
+    },
+    "ann165_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann169"
+      ],
+      "A_morph-type": [
+        "ann166"
+      ]
+    },
+    "ann172_flexid_d7f713dd-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann176"
+      ],
+      "A_morph-type": [
+        "ann173"
+      ]
+    },
+    "ann180_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann184"
+      ],
+      "A_morph-type": [
+        "ann181"
+      ]
+    },
+    "ann188_flexid_d7f713e8-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann192"
+      ],
+      "A_morph-type": [
+        "ann189"
+      ]
+    },
+    "ann195_flexid_d7f713dd-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann199"
+      ],
+      "A_morph-type": [
+        "ann196"
+      ]
+    },
+    "ann202_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann206"
+      ],
+      "A_morph-type": [
+        "ann203"
+      ]
+    },
+    "ann210_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann214"
+      ],
+      "A_morph-type": [
+        "ann211"
+      ]
+    },
+    "ann218_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933": {
+      "A_morph-gls-en": [
+        "ann222"
+      ],
+      "A_morph-type": [
+        "ann219"
+      ]
+    },
+    "ann9_flexid_5d1e1f6f-b451-4cc2-9d77-f203e914b655": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann10_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann62_flexid_62f62bd6-ff51-46fd-b189-5dd025415601": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann63_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+        "ann70_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann17_flexid_91e54b79-6060-4be8-bee5-ae990b7b3a37": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann18_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann25_flexid_36e9673b-bb9a-4ce1-a895-a4c7d66c0d39": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann26_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann34_flexid_8cbc3f29-7c06-4c73-98f7-da18461eb2b1": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann35_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann42_flexid_db57480d-410a-4e68-863b-22c6ac799ce2": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann43_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann50_flexid_28fb2ee7-10e5-4551-a602-77ef759cdeed": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann51_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann77_flexid_ade1ad7e-83f7-4b2d-bb10-5982596b0bb8": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann78_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann85_flexid_a68779fe-9b98-4940-a50d-59f945648e1b": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann86_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann95_flexid_b95a06a5-0dca-4b83-802d-cf5fbeaf50fa": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann96_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann105_flexid_6d54220c-de7b-40e2-bc4e-97af3a09873f": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann106_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann117_flexid_c10c98f0-78a5-4b90-9e32-fc3aae0ebae7": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann118_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+        "ann125_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann133_flexid_e5fa6563-e837-4313-baff-09ea0490d991": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann134_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+        "ann141_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann148_flexid_8716ac3d-5e92-419c-9afb-19bf57eb85bb": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann149_flexid_d7f713e8-e8cf-11d3-9764-00c04f186933",
+        "ann156_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann164_flexid_2efca5f4-88f8-4c7f-abf6-c33e1dc28f15": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann165_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933",
+        "ann172_flexid_d7f713dd-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann179_flexid_b87f6933-9444-4590-8148-e840d4dfc6b0": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann180_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann187_flexid_03e12580-a0d6-4bf7-9ccc-3d4c6a69044c": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann188_flexid_d7f713e8-e8cf-11d3-9764-00c04f186933",
+        "ann195_flexid_d7f713dd-e8cf-11d3-9764-00c04f186933",
+        "ann202_flexid_d7f713e1-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann209_flexid_252d9d05-a59f-4560-a4a3-9dc8478ce814": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann210_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann217_flexid_edbec539-329e-4498-abbd-79ff892be9e2": {
+      "A_morph-txt-con-Latn-EC-x-dureno": [
+        "ann218_flexid_d7f713e5-e8cf-11d3-9764-00c04f186933"
+      ]
+    },
+    "ann6_flexid_398e3a46-63c0-4877-848d-18bed15ac32f": {
+      "A_phrase-gls-en": [
+        "ann7"
+      ],
+      "A_word-txt-con-Latn-EC-x-dureno": [
+        "ann9_flexid_5d1e1f6f-b451-4cc2-9d77-f203e914b655",
+        "ann17_flexid_91e54b79-6060-4be8-bee5-ae990b7b3a37",
+        "ann25_flexid_36e9673b-bb9a-4ce1-a895-a4c7d66c0d39",
+        "ann34_flexid_8cbc3f29-7c06-4c73-98f7-da18461eb2b1",
+        "ann42_flexid_db57480d-410a-4e68-863b-22c6ac799ce2",
+        "ann50_flexid_28fb2ee7-10e5-4551-a602-77ef759cdeed"
+      ]
+    },
+    "ann59_flexid_528108df-3732-4dbe-9456-c78358f490c7": {
+      "A_phrase-gls-en": [
+        "ann60"
+      ],
+      "A_word-txt-con-Latn-EC-x-dureno": [
+        "ann62_flexid_62f62bd6-ff51-46fd-b189-5dd025415601",
+        "ann77_flexid_ade1ad7e-83f7-4b2d-bb10-5982596b0bb8",
+        "ann85_flexid_a68779fe-9b98-4940-a50d-59f945648e1b",
+        "ann93",
+        "ann95_flexid_b95a06a5-0dca-4b83-802d-cf5fbeaf50fa",
+        "ann103",
+        "ann105_flexid_6d54220c-de7b-40e2-bc4e-97af3a09873f"
+      ]
+    },
+    "ann114_flexid_87ec3647-15cf-4f2f-8159-9f575e258d44": {
+      "A_phrase-gls-en": [
+        "ann115"
+      ],
+      "A_word-txt-con-Latn-EC-x-dureno": [
+        "ann117_flexid_c10c98f0-78a5-4b90-9e32-fc3aae0ebae7",
+        "ann133_flexid_e5fa6563-e837-4313-baff-09ea0490d991",
+        "ann148_flexid_8716ac3d-5e92-419c-9afb-19bf57eb85bb",
+        "ann164_flexid_2efca5f4-88f8-4c7f-abf6-c33e1dc28f15",
+        "ann179_flexid_b87f6933-9444-4590-8148-e840d4dfc6b0",
+        "ann187_flexid_03e12580-a0d6-4bf7-9ccc-3d4c6a69044c",
+        "ann209_flexid_252d9d05-a59f-4560-a4a3-9dc8478ce814",
+        "ann217_flexid_edbec539-329e-4498-abbd-79ff892be9e2"
+      ]
+    },
+    "ann5_flexid_95a4d060-01ca-4ee4-bea6-72f9fa09330f": {
+      "A_phrase-segnum-en": [
+        "ann6_flexid_398e3a46-63c0-4877-848d-18bed15ac32f"
+      ]
+    },
+    "ann58_flexid_ea36261b-dd58-4fb4-9d73-15921564b833": {
+      "A_phrase-segnum-en": [
+        "ann59_flexid_528108df-3732-4dbe-9456-c78358f490c7"
+      ]
+    },
+    "ann113_flexid_f595cb5f-8d8a-4c47-9d8b-a696cdac2d1a": {
+      "A_phrase-segnum-en": []
+    }
+  }
 }
