@@ -10,7 +10,7 @@ function updateIndex(indexMetadata, indexFileName, storyID) {
 }
 
 function assignSlots(anotID, slotNumPtr, tiersToConstraints, 
-    annotationChildren, startSlots, endSlots) {
+    annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots) {
   
   startSlots[anotID] = slotNumPtr.contents;
   
@@ -39,7 +39,7 @@ function assignSlots(anotID, slotNumPtr, tiersToConstraints,
           }
           
           assignSlots(depAnotID, slotNumPtr, tiersToConstraints, annotationChildren, 
-              startSlots, endSlots);
+              annotationsFromIDs, timeslots, startSlots, endSlots);
         }
         
         if (maybeGaps) { 
@@ -103,7 +103,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   for (const lType of linguisticTypes) {
     const lTypeID = lType.$.LINGUISTIC_TYPE_ID;
     const constraintName = lType.$.CONSTRAINTS || '';
-    typesToConstraints[lType] = constraintName;
+    typesToConstraints[lTypeID] = constraintName;
   }
   const tiersToConstraints = {};
   for (const tier of tiers) {
@@ -112,9 +112,11 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     const constraintName = typesToConstraints[linguisticType];
     tiersToConstraints[tierName] = constraintName;
   }
+  // console.log(`tiersToConstraints: ${tiersToConstraints}`);
   
   const untimedTiers = tiers.filter(tier => 
-    tiersToConstraints[eafUtils.getTierName(tier)] === 'Symbolic_Subdivision' || 'Symbolic_Association'
+    (tiersToConstraints[eafUtils.getTierName(tier)] === 'Symbolic_Subdivision' 
+    || tiersToConstraints[eafUtils.getTierName(tier)] === 'Symbolic_Association')
   );
   
   // annotationChildren: parentAnnotationID -> childTierName(sparse) -> listof childAnnotationID
@@ -123,7 +125,6 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     const childTierName = eafUtils.getTierName(tier);
     for (const annotation of eafUtils.getAnnotations(tier)) {
       const childAnnotationID = eafUtils.getAnnotationID(annotation);
-      
       let parentAnnotationID = annotation.REF_ANNOTATION[0].$.ANNOTATION_REF; 
       
       if (annotationChildren[parentAnnotationID] == null) {
@@ -144,7 +145,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     if (annotationChildren.hasOwnProperty(parentAnnotationID)) {
       for (const childTierName in annotationChildren[parentAnnotationID]) {
         const childIDs = annotationChildren[parentAnnotationID][childTierName];
-        const sortedChildIDs = [];
+        let sortedChildIDs = [];
         const constraint = tiersToConstraints[childTierName];
         if (constraint === 'Symbolic_Association') { // 1-1 association
           // assert childIDs.length === 1; 
@@ -153,7 +154,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           let prev = '';
           for (const id of childIDs) {
             const cur = childIDs.find(a => 
-              prev === (annotationsFromIDs[a].$.PREVIOUS_ANNOTATION || '')
+              prev === (annotationsFromIDs[a].REF_ANNOTATION[0].$.PREVIOUS_ANNOTATION || '')
             );
             sortedChildIDs.push(cur);
             prev = cur;
@@ -172,9 +173,10 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   
   // add sorted 'Time_Subdivision' children
   for (const parentTier of tiers) {
-    const childTiers = tierChildren[eafUtils.getTierName(parentTier)];
-    const timeSubdivChildTiers = childTiers.filter(tier => 
+    const childTierNames = tierChildren[eafUtils.getTierName(parentTier)] || [];
+    const timeSubdivChildTiers = tiers.filter(tier => 
       tiersToConstraints[eafUtils.getTierName(tier)] === 'Time_Subdivision'
+      && childTierNames.find(n => n === eafUtils.getTierName(tier)) != null
     );
     for (const childTier of timeSubdivChildTiers) {
       const childTierName = eafUtils.getTierName(childTier);
@@ -193,7 +195,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
               
             }
           }*/
-          const cur = childAnots.find(a => 
+          const cur = childTierAnots.find(a => 
             prevSlot === eafUtils.getAlignableAnnotationStartSlot(a) || 
             (timeslots[prevSlot] != null && 
             timeslots[prevSlot] === eafUtils.getAlignableAnnotationStartSlot(a)
@@ -212,15 +214,16 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   
   // add 'Included_In' children
   for (const parentTier of tiers) {
-    const childTiers = tierChildren[eafUtils.getTierName(parentTier)];
-    const inclChildTiers = childTiers.filter(tier => 
-      tiersToConstraints[eafUtils.getTierName(tier)] === 'Inluded_In'
+    const childTierNames = tierChildren[eafUtils.getTierName(parentTier)] || [];
+    const inclChildTiers = tiers.filter(tier => 
+      tiersToConstraints[eafUtils.getTierName(tier)] === 'Included_In'
+      && childTierNames.find(n => n === eafUtils.getTierName(tier)) != null
     );
     for (const childTier of inclChildTiers) {
       const childTierName = eafUtils.getTierName(childTier);
       const childTierAnots = eafUtils.getAnnotations(childTier);
       for (const parentAnot of eafUtils.getAnnotations(parentTier)) {
-        const childIDs = [];
+        let childIDs = [];
         const parentStartSlot = eafUtils.getAlignableAnnotationStartSlot(parentAnot);
         const parentEndSlot = eafUtils.getAlignableAnnotationEndSlot(parentAnot);
         
@@ -300,6 +303,9 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         }
         
         const parentAnotID = eafUtils.getAnnotationID(parentAnot);
+        if (!annotationChildren.hasOwnProperty(parentAnotID)) {
+          annotationChildren[parentAnotID] = {};
+        }
         annotationChildren[parentAnotID][childTierName] = childIDs;
       }
     }
@@ -316,11 +322,14 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
       "tier": tierID,
     };
     
-    for (const indepAnot of eafUtils.getTierAnnotations(indepTier)) {
+    for (const indepAnot of eafUtils.getAnnotations(indepTiers[i])) {
       const indepAnotID = eafUtils.getAnnotationID(indepAnot);
+      const slotnumPtr = {contents: 0};
       const anotStartSlots = {};
       const anotEndSlots = {};
-      assignSlots(indepAnotID, slotnumPtr, tiersToConstraints, annotationChildren, anotStartSlots, anotEndSlots);
+      assignSlots(indepAnotID, slotnumPtr, tiersToConstraints, annotationChildren, 
+        annotationsFromIDs, timeslots, anotStartSlots, anotEndSlots
+      );
       
       const sentenceJson = {
         "speaker": spkrID,
