@@ -247,7 +247,7 @@ module.exports = {
   getDocID: getDocID,
   getDocTimeslotsMap: getDocTimeslotsMap,
   getNonemptyTiers: getNonemptyTiers,
-  // getTierChildrenMap: getTierChildrenMap,
+  getTierChildrenMap: getTierChildrenMap,
   getTierDependentsMap: getTierDependentsMap,
   getAnnotationIDMap: getAnnotationIDMap,
   slotIDDiff: slotIDDiff,
