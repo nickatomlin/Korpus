@@ -123,6 +123,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   const annotationChildren = {};
   for (const tier of untimedTiers) {
     const childTierName = eafUtils.getTierName(tier);
+    console.log(`adding untimed child tier ${childTierName} to annotationChildren`);
     for (const annotation of eafUtils.getAnnotations(tier)) {
       const childAnnotationID = eafUtils.getAnnotationID(annotation);
       let parentAnnotationID = annotation.REF_ANNOTATION[0].$.ANNOTATION_REF; 
@@ -180,6 +181,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     );
     for (const childTier of timeSubdivChildTiers) {
       const childTierName = eafUtils.getTierName(childTier);
+      console.log(`adding time-subdiv child tier ${childTierName} to annotationChildren`);
       const childTierAnots = eafUtils.getAnnotations(childTier);
       for (const parentAnot of eafUtils.getAnnotations(parentTier)) {
         const sortedChildIDs = [];
@@ -226,6 +228,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     );
     for (const childTier of inclChildTiers) {
       const childTierName = eafUtils.getTierName(childTier);
+      console.log(`adding incl-in child tier ${childTierName} to annotationChildren`);
       const childTierAnots = eafUtils.getAnnotations(childTier);
       for (const parentAnot of eafUtils.getAnnotations(parentTier)) {
         let childIDs = [];
@@ -318,6 +321,32 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   
   jsonOut['annotationChildren'] = annotationChildren; // TODO remove when no longer needed for debugging
   
+  const anotDescendants = {}; // indepAnotID -> depTierName -> ordered listof anotIDs descended from indepAnot
+  for (const indepTier of indepTiers) {
+    for (const indepAnot of eafUtils.getAnnotations(indepTier)) {
+      const indepAnotID = eafUtils.getAnnotationID(indepAnot);
+      const depTiersAnots = {}; // depTierName -> ordered listof anotIDs descended from indepAnot
+      let pendingParentIDs = [indepAnotID];
+      while (pendingParentIDs.length > 0) {
+        const parentID = pendingParentIDs[0];
+        pendingParentIDs.shift() // remove parentID from pendingParentIDs
+        // add all of parentID's direct children to depTierAnots and to pendingParentIDs
+        for (const depTierName in annotationChildren[parentID]) {
+          if (annotationChildren[parentID].hasOwnProperty(depTierName)) {
+            const childIDs = annotationChildren[parentID][depTierName];
+            if (!depTiersAnots.hasOwnProperty(depTierName)) {
+              depTiersAnots[depTierName] = [];
+            }
+            depTiersAnots[depTierName] = depTiersAnots[depTierName].concat(childIDs);
+            pendingParentIDs = pendingParentIDs.concat(childIDs);
+          }
+        }
+      }
+      anotDescendants[indepAnotID] = depTiersAnots;
+    }
+  }
+  jsonOut['anotDescendants'] = anotDescendants; // TODO remove when no longer needed for debugging
+  
   for (let i = 0; i < indepTiers.length; i++) {
     const spkrID = "S" + (i + 1).toString(); // assume each independent tier has a distinct speaker
     const indepTierName = eafUtils.getTierName(indepTiers[i]);
@@ -349,24 +378,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         "num_slots": anotEndSlots[indepAnotID],
       };
       
-      const depTiersAnots = {}; // depTierName -> ordered listof anotIDs descended from indepAnot
-      let pendingParentIDs = [indepAnotID];
-      while (pendingParentIDs.length > 0) {
-        const parentID = pendingParentIDs[0];
-        pendingParentIDs.shift() // remove parentID from pendingParentIDs
-        // add all of parentID's direct children to depTierAnots and to pendingParentIDs
-        for (const depTierName in annotationChildren[parentID]) {
-          if (annotationChildren[parentID].hasOwnProperty(depTierName)) {
-            const childIDs = annotationChildren[parentID][depTierName];
-            if (!depTiersAnots.hasOwnProperty(depTierName)) {
-              depTiersAnots[depTierName] = [];
-            }
-            depTiersAnots[depTierName] = depTiersAnots[depTierName].concat(childIDs);
-            pendingParentIDs = pendingParentIDs.concat(childIDs);
-          }
-        }
-      }
-      
+      const depTiersAnots = anotDescendants[indepAnotID];
       for (const depTierName in depTiersAnots) {
         if (depTiersAnots.hasOwnProperty(depTierName)) {
           const depTierJson = {
