@@ -221,6 +221,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   
   // add 'Included_In' children
   for (const parentTier of tiers) {
+    const parentTierName = eafUtils.getTierName(parentTier);
     const childTierNames = tierChildren[eafUtils.getTierName(parentTier)] || [];
     const inclChildTiers = tiers.filter(tier => 
       tiersToConstraints[eafUtils.getTierName(tier)] === 'Included_In'
@@ -228,7 +229,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     );
     for (const childTier of inclChildTiers) {
       const childTierName = eafUtils.getTierName(childTier);
-      console.log(`adding incl-in child tier ${childTierName} to annotationChildren`);
+      console.log(`adding incl-in child tier ${childTierName} of ${parentTierName} to annotationChildren`);
       const childTierAnots = eafUtils.getAnnotations(childTier);
       for (const parentAnot of eafUtils.getAnnotations(parentTier)) {
         let childIDs = [];
@@ -238,10 +239,12 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         const parentStartMs = timeslots[parentStartSlot];
         const parentEndMs = timeslots[parentEndSlot];
         if (parentStartMs && parentEndMs) { // get children within these ms values
+          // console.log(`within ms ${parentStartMs}, ${parentEndMs}?`);
           for (anot of childTierAnots) {
             const anotID = eafUtils.getAnnotationID(anot);
             const startSlot = eafUtils.getAlignableAnnotationStartSlot(anot);
             const endSlot = eafUtils.getAlignableAnnotationEndSlot(anot);
+            // console.log(`  checking child ${anotID}, slots ${startSlot}, ${endSlot}`);
             const startsWithin = (
               timeslots[startSlot] >= parentStartMs 
               && timeslots[startSlot] < parentEndMs
@@ -251,15 +254,17 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
               && timeslots[endSlot] <= parentEndMs
             );
             if (startsWithin || endsWithin) {
+              // console.log('  added!');
               childIDs.push(anotID);
             }
           }
           
           // sort by ms value
           childIDs = childIDs.sort((a1,a2) => {
+            console.log(`comparing ${a1} and ${a2}`);
             // if start isn't defined, calculate it based on end, pretending duration is 1 ms
             const start1 = (
-              timeslots[eafUtils.getAlignableAnnotationStartSlot(a1)] // FIXME err on flor_small
+              timeslots[eafUtils.getAlignableAnnotationStartSlot(a1)] // FIXME err on flor_small; never called on flor_tiny
               || timeslots[eafUtils.getAlignableAnnotationEndSlot(a1)] - 1
             );
             const start2 = (
