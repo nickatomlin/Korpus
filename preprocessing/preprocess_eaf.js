@@ -119,7 +119,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     || tiersToConstraints[eafUtils.getTierName(tier)] === 'Symbolic_Association')
   );
   
-  // annotationChildren: parentAnnotationID -> childTierName(sparse) -> listof childAnnotationID
+  // annotationChildren: parentAnnotationID -> childTierName(very sparse) -> listof childAnnotationID
   const annotationChildren = {};
   for (const tier of untimedTiers) {
     const childTierName = eafUtils.getTierName(tier);
@@ -204,17 +204,18 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
             )
           );
           if (cur == null) {
-            console.log('next timeSubdiv annotation not found');
-            console.log(`storyID = ${storyID}`);
-            console.log(`childTierName = ${childTierName}, prevSlot = ${prevSlot}`);
+            // this parent anot has no children on this tier
+            break; // exit the while loop
           }
-          const curID = eafUtils.getAnnotationID(cur); // FIXME cur is sometimes undefined
+          const curID = eafUtils.getAnnotationID(cur);
           sortedChildIDs.push(curID);
           prevSlot = eafUtils.getAlignableAnnotationEndSlot(cur);
         }
         
         const parentAnotID = eafUtils.getAnnotationID(parentAnot);
-        annotationChildren[parentAnotID][childTierName] = sortedChildIDs;
+        if (sortedChildIDs.length !== 0) {
+          annotationChildren[parentAnotID][childTierName] = sortedChildIDs;
+        }
       }
     }
   }
@@ -323,7 +324,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     }
   }
   
-  jsonOut['annotationChildren'] = annotationChildren; // TODO remove when no longer needed for debugging
+  //jsonOut['annotationChildren'] = annotationChildren; // TODO remove when no longer needed for debugging
   
   const anotDescendants = {}; // indepAnotID -> depTierName -> ordered listof anotIDs descended from indepAnot
   for (const indepTier of indepTiers) {
@@ -349,7 +350,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
       anotDescendants[indepAnotID] = depTiersAnots;
     }
   }
-  jsonOut['anotDescendants'] = anotDescendants; // TODO remove when no longer needed for debugging
+  //jsonOut['anotDescendants'] = anotDescendants; // TODO remove when no longer needed for debugging
   
   for (let i = 0; i < indepTiers.length; i++) {
     const spkrID = "S" + (i + 1).toString(); // assume each independent tier has a distinct speaker
@@ -376,10 +377,10 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         "tier": tierID,
         "start_time_ms": parseInt(timeslots[eafUtils.getAlignableAnnotationStartSlot(indepAnot)], 10),
         "end_time_ms": parseInt(timeslots[eafUtils.getAlignableAnnotationEndSlot(indepAnot)], 10),
-        "text": eafUtils.getAnnotationValue(indepAnot),
-        "anotID": indepAnotID, // TODO remove when no longer needed for debugging
-        "dependents": [],
         "num_slots": anotEndSlots[indepAnotID],
+        "text": eafUtils.getAnnotationValue(indepAnot),
+        // "anotID": indepAnotID, // TODO remove when no longer needed for debugging
+        "dependents": [],
       };
       
       const depTiersAnots = anotDescendants[indepAnotID];
@@ -393,9 +394,9 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           for (const depAnotID of depTiersAnots[depTierName]) {
             const depAnot = annotationsFromIDs[depAnotID];
             depTierJson.values.push({
-              "start_slot": anotStartSlots[depAnotID],
+              "start_slot": anotStartSlots[depAnotID], // FIXME start_slot, end_slot fields sometimes absent on Glossed_Morpheme tier of Intro
               "end_slot": anotEndSlots[depAnotID],
-              "anotID": eafUtils.getAnnotationID(depAnot), // TODO remove when no longer needed for debugging
+              // "anotID": eafUtils.getAnnotationID(depAnot), // TODO remove when no longer needed for debugging
               "value": eafUtils.getAnnotationValue(depAnot),
             });
           }
