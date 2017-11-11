@@ -208,7 +208,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
             console.log(`storyID = ${storyID}`);
             console.log(`childTierName = ${childTierName}, prevSlot = ${prevSlot}`);
           }
-          const curID = eafUtils.getAnnotationID(cur);
+          const curID = eafUtils.getAnnotationID(cur); // FIXME cur is sometimes undefined
           sortedChildIDs.push(curID);
           prevSlot = eafUtils.getAlignableAnnotationEndSlot(cur);
         }
@@ -415,7 +415,9 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
 }
 
 function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
-  const eafFileNames = fs.readdirSync(eafFilesDir).filter(f => f[0] != "."); // excludes hidden files
+  const eafFileNames = fs.readdirSync(eafFilesDir).filter(f => 
+    f[0] != "." && f.slice(-4) != 'pfsx'
+  ); // excludes pfsx files (which are generated just by opening ELAN) and hidden files
   
   // use this to wait for all preprocess calls to terminate before executing the callback
   const status = {numJobs: eafFileNames.length};
@@ -433,7 +435,7 @@ function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
       if (err1) throw err1;
       parseXml(xmlData, function (err2, jsonData) {
         if (err2) throw err2;
-        const adoc = jsonData.ANNOTATION_DOCUMENT
+        const adoc = jsonData.ANNOTATION_DOCUMENT;
         preprocess(adoc, jsonFilesDir, eafFileName, whenDone);
       });
     });
