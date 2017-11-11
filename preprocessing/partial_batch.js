@@ -15,7 +15,7 @@ const dbFileName = "data/fake_database.json";
 
 console.log("Converting all files to .JSON and re-building the database. The index and metadata will also be updated during this process. Status messages will appear below:")
 
-const eafFileNames = ['flor_flanca_tiny.eaf', 'flor_flanca_small.eaf'];
+const eafFileNames = ['flor_flanca.eaf'];
 
 // use this to wait for things to terminate before executing the callback
 const status = {numJobs: eafFileNames.length};

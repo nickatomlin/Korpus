@@ -261,10 +261,9 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           
           // sort by ms value
           childIDs = childIDs.sort((a1,a2) => {
-            console.log(`comparing ${a1} and ${a2}`);
             // if start isn't defined, calculate it based on end, pretending duration is 1 ms
             const start1 = (
-              timeslots[eafUtils.getAlignableAnnotationStartSlot(a1)] // FIXME err on flor_small; never called on flor_tiny
+              timeslots[eafUtils.getAlignableAnnotationStartSlot(a1)] // FIXME err on flor_small
               || timeslots[eafUtils.getAlignableAnnotationEndSlot(a1)] - 1
             );
             const start2 = (
