@@ -9,59 +9,71 @@ function updateIndex(indexMetadata, indexFileName, storyID) {
   fs.writeFileSync(indexFileName, JSON.stringify(index, null, 2));
 }
 
-function assignSlots(anotID, slotNumPtr, tiersToConstraints, 
+// Stretch children to fill full duration of parent.
+// Specifically, if parent has P slots and child has C slots (incl gaps except final gap),
+// then increase the child's slots by a factor of P/C,
+// i.e., subtract parentStartSlot from everything, 
+//   set each c in C to floor(c * (double) P / (double) C),
+//   and then add parentStartSlot back in. 
+function scaledSlot(slotIn, parentStart, tierEnd, latestEnd) {
+  const parentLen = latestEnd - parentStart;
+  const childLen = tierEnd - parentStart;
+  let slot = slotIn - parentStart;
+  slot = Math.floor(slot * parentLen / childLen);
+  slot = slot + parentStart;
+  return slot;
+}
+
+function assignSlots(anotID, parentStartSlot, tiersToConstraints,
     annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots) {
-  
-  startSlots[anotID] = slotNumPtr.contents;
-  
-  const aloneDeps = [];
+  startSlots[anotID] = parentStartSlot;
+  let latestEndSlot = parentStartSlot + 1;
   for (const depTierName in annotationChildren[anotID]) {
     if (annotationChildren[anotID].hasOwnProperty(depTierName)) {
-      depAnotIDs = annotationChildren[anotID][depTierName];
-      if (depAnotIDs.length == 1) { // FIXME stretches 'included_in' annotations to parent's length
-        aloneDeps.push(depAnotIDs[0]);
-      } else {
-        
-        let prevTimeslot = null; // used for detecting gaps
-        let maybeGaps = (tiersToConstraints[depTierName] === 'Included_In');
+      let slotNum = parentStartSlot;
+      
+      let prevTimeslot = null; // used for detecting gaps
+      let maybeGaps = (tiersToConstraints[depTierName] === 'Included_In');
+      if (maybeGaps) {
+        prevTimeslot = eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[anotID]);
+      }
+      
+      const depAnotIDs = annotationChildren[anotID][depTierName];
+      for (depAnotID of depAnotIDs) {
         if (maybeGaps) {
-          prevTimeslot = eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[anotID]);
+          const startTimeslot = eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[depAnotID]);
+          if (startTimeslot !== prevTimeslot 
+            && timeslots[startTimeslot] !== timeslots[prevTimeslot]) {
+            slotNum++;  
+          }
+          prevTimeslot = eafUtils.getAlignableAnnotationEndSlot(annotationsFromIDs[depAnotID]);
         }
         
-        for (depAnotID of depAnotIDs) {
-          if (maybeGaps) {
-            const startTimeslot = eafUtils.getAlignableAnnotationStartSlot(annotationsFromIDs[depAnotID]);
-            if (startTimeslot !== prevTimeslot 
-                && timeslots[startTimeslot] !== timeslots[prevTimeslot]) {
-              slotNumPtr.contents++ // there's a gap
-            }
-            prevTimeslot = eafUtils.getAlignableAnnotationEndSlot(annotationsFromIDs[depAnotID]);
-          }
-          
-          assignSlots(depAnotID, slotNumPtr, tiersToConstraints, annotationChildren, 
-              annotationsFromIDs, timeslots, startSlots, endSlots);
-        }
-        
-        if (maybeGaps) { 
-          const endTimeslot = eafUtils.getAlignableAnnotationEndSlot(annotationsFromIDs[anotID]);
-          if (endTimeslot !== prevTimeslot 
-              && timeslots[endTimeslot] !== timeslots[prevTimeslot]) {
-            slotNumPtr.contents++ // there's a gap
-          }
-        }
+        assignSlots(depAnotID, slotNum, tiersToConstraints, annotationChildren, 
+            annotationsFromIDs, timeslots, startSlots, endSlots);
+        slotNum = endSlots[depAnotID];
+        latestEndSlot = Math.max(latestEndSlot, slotNum);
       }
     }
   }
   
-  // ensure this annotation has at least one slot
-  if (slotNumPtr.contents === startSlots[anotID]) {
-    slotNumPtr.contents++;
-  }
+  // make parent's end slot at least as late as its child's
+  endSlots[anotID] = latestEndSlot;
   
-  endSlots[anotID] = slotNumPtr.contents;
-  for (depAnotID of aloneDeps) {
-    startSlots[depAnotID] = startSlots[anotID];
-    endSlots[depAnotID] = endSlots[anotID];
+  // At this point, startSlots and endSlots contain the smallest allowable slot value.
+  // Stretch children to fill full duration of parent.
+  // TODO after stretching each anot, adjust and stretch its kids. Until then, BROKEN on some grandchild configurations.
+  for (const depTierName in annotationChildren[anotID]) {
+    if (annotationChildren[anotID].hasOwnProperty(depTierName)) {
+      const depAnotIDs = annotationChildren[anotID][depTierName];
+      const tierEndSlot = endSlots[depAnotIDs[depAnotIDs.length - 1]];
+      for (depAnotID of depAnotIDs) {
+        startSlots[depAnotID] = scaledSlot(startSlots[depAnotID], parentStartSlot, tierEndSlot, latestEndSlot);
+        const scaledEnd = scaledSlot(endSlots[depAnotID], parentStartSlot, tierEndSlot, latestEndSlot);
+        //console.log(`origEnd = ${endSlots[depAnotID]}`);
+        endSlots[depAnotID] = scaledEnd;
+      }
+    }
   }
 }
 
@@ -123,7 +135,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   const annotationChildren = {};
   for (const tier of untimedTiers) {
     const childTierName = eafUtils.getTierName(tier);
-    console.log(`adding untimed child tier ${childTierName} to annotationChildren`);
+    // console.log(`adding untimed child tier ${childTierName} to annotationChildren`);
     for (const annotation of eafUtils.getAnnotations(tier)) {
       const childAnnotationID = eafUtils.getAnnotationID(annotation);
       let parentAnnotationID = annotation.REF_ANNOTATION[0].$.ANNOTATION_REF; 
@@ -181,7 +193,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     );
     for (const childTier of timeSubdivChildTiers) {
       const childTierName = eafUtils.getTierName(childTier);
-      console.log(`adding time-subdiv child tier ${childTierName} to annotationChildren`);
+      // console.log(`adding time-subdiv child tier ${childTierName} to annotationChildren`);
       const childTierAnots = eafUtils.getAnnotations(childTier);
       for (const parentAnot of eafUtils.getAnnotations(parentTier)) {
         const sortedChildIDs = [];
@@ -230,7 +242,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     );
     for (const childTier of inclChildTiers) {
       const childTierName = eafUtils.getTierName(childTier);
-      console.log(`adding incl-in child tier ${childTierName} of ${parentTierName} to annotationChildren`);
+      // console.log(`adding incl-in child tier ${childTierName} of ${parentTierName} to annotationChildren`);
       const childTierAnots = eafUtils.getAnnotations(childTier);
       for (const parentAnot of eafUtils.getAnnotations(parentTier)) {
         let childIDs = [];
@@ -365,10 +377,9 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     
     for (const indepAnot of eafUtils.getAnnotations(indepTiers[i])) {
       const indepAnotID = eafUtils.getAnnotationID(indepAnot);
-      const slotnumPtr = {contents: 0};
       const anotStartSlots = {};
       const anotEndSlots = {};
-      assignSlots(indepAnotID, slotnumPtr, tiersToConstraints, annotationChildren, 
+      assignSlots(indepAnotID, 0, tiersToConstraints, annotationChildren, 
         annotationsFromIDs, timeslots, anotStartSlots, anotEndSlots
       );
       
@@ -379,7 +390,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         "end_time_ms": parseInt(timeslots[eafUtils.getAlignableAnnotationEndSlot(indepAnot)], 10),
         "num_slots": anotEndSlots[indepAnotID],
         "text": eafUtils.getAnnotationValue(indepAnot),
-        // "anotID": indepAnotID, // TODO remove when no longer needed for debugging
+        //"anotID": indepAnotID, // TODO remove when no longer needed for debugging
         "dependents": [],
       };
       
@@ -393,10 +404,13 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           
           for (const depAnotID of depTiersAnots[depTierName]) {
             const depAnot = annotationsFromIDs[depAnotID];
+            if (!anotStartSlots.hasOwnProperty(depAnotID)) {
+              console.log(`oh no, missing annotation!`);
+            }
             depTierJson.values.push({
-              "start_slot": anotStartSlots[depAnotID], // FIXME start_slot, end_slot fields sometimes absent on Glossed_Morpheme tier of Intro
+              "start_slot": anotStartSlots[depAnotID],
               "end_slot": anotEndSlots[depAnotID],
-              // "anotID": eafUtils.getAnnotationID(depAnot), // TODO remove when no longer needed for debugging
+              //"anotID": eafUtils.getAnnotationID(depAnot), // TODO remove when no longer needed for debugging
               "value": eafUtils.getAnnotationValue(depAnot),
             });
           }
@@ -446,4 +460,5 @@ function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
 module.exports = {
   preprocess_dir: preprocess_dir,
   preprocess: preprocess,
+  //assignSlots: assignSlots, // TODO remove when no longer needed for debugging
 };
