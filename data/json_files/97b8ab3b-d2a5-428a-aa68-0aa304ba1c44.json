@@ -38,14 +38,6 @@
       "T4": {
         "name": "Glossed Morpheme",
         "subdivided": true
-      },
-      "T5": {
-        "name": "Spanish",
-        "subdivided": false
-      },
-      "T6": {
-        "name": "Spanish Gloss",
-        "subdivided": true
       }
     },
     "speaker IDs": {
@@ -64,18 +56,7 @@
       "end_time_ms": 45004,
       "num_slots": 1,
       "text": "<- Singing",
-      "dependents": [
-        {
-          "tier": "T2",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": ""
-            }
-          ]
-        }
-      ]
+      "dependents": []
     },
     {
       "speaker": "S1",
@@ -83,7 +64,7 @@
       "start_time_ms": 45265,
       "end_time_ms": 47146,
       "num_slots": 2,
-      "text": "Íngitangi a'índeccu'fa",
+      "text": "Ingitangi a'indeccu'fa",
       "dependents": [
         {
           "tier": "T2",
@@ -124,31 +105,6 @@
               "value": "person-HUM.PL-PL.SUBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "Somos A'i."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "nosotros=TOP=1"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "persona-HUM.PL"
-            }
-          ]
         }
       ]
     },
@@ -158,7 +114,7 @@
       "start_time_ms": 47746,
       "end_time_ms": 50668,
       "num_slots": 4,
-      "text": "Ecuadórningi cánse'fa míl a'índeccu",
+      "text": "Ecuadorningi canse'fa mil a'indeccu",
       "dependents": [
         {
           "tier": "T2",
@@ -219,41 +175,6 @@
               "value": "person-HUM.PL"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "Un mil A'i viven en Ecuador."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Ecuador=LOC=1"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "vivir-PL.SUBJ"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "mil"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "persona-HUM.PL"
-            }
-          ]
         }
       ]
     },
@@ -263,7 +184,7 @@
       "start_time_ms": 50805,
       "end_time_ms": 54189,
       "num_slots": 6,
-      "text": "Tóya'caen Colómbiani'qque tsu cánse'fa bá've míl ",
+      "text": "Toya'caen Colombiani quentsu canse'fa ba've mil ",
       "dependents": [
         {
           "tier": "T2",
@@ -344,51 +265,6 @@
               "value": "thousand"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Aproximadamente un mil más viven en Colombia."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "además"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Colombia"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "así=3"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "vivir-PL.SUBJ"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "aproximadamente"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "mil"
-            }
-          ]
         }
       ]
     },
@@ -398,7 +274,7 @@
       "start_time_ms": 54589,
       "end_time_ms": 56536,
       "num_slots": 4,
-      "text": "Pá'cco=ja dós míl á'i",
+      "text": "Pa'cco=ja dos mil a'i",
       "dependents": [
         {
           "tier": "T2",
@@ -459,41 +335,6 @@
               "value": "person"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "Junto somos dos mil personas"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "todo=CONTR"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "dos"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "mil"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "personas."
-            }
-          ]
         }
       ]
     },
@@ -503,7 +344,7 @@
       "start_time_ms": 57826,
       "end_time_ms": 61673,
       "num_slots": 6,
-      "text": "Póiyi cánqque'su a'índeccungi áfapa cánse'fa á'ingae",
+      "text": "Poiyi canqque'su a'indeccungi afapa canse'fa a'ingae",
       "dependents": [
         {
           "tier": "T2",
@@ -584,51 +425,6 @@
               "value": "A'ingae"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "En todos los pueblos, nosotros hablamos A'ingae."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "todo"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "pueblo=NMLZ"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "persona-HUM.PL=1"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "hablar=SS"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "vivir-PL.SUBJ"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "a'ingae"
-            }
-          ]
         }
       ]
     },
@@ -638,7 +434,7 @@
       "start_time_ms": 62930,
       "end_time_ms": 67800,
       "num_slots": 6,
-      "text": "Íngitangi ná'ensuma panzáye ínjanda símba'fai'ccu simbá'fa",
+      "text": "Ingitangi na'ensuma panzaye injanda simba'fai'ccu simba'fa",
       "dependents": [
         {
           "tier": "T2",
@@ -719,51 +515,6 @@
               "value": "fish-PL.SUBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Si queremos comida de los ríos, usamos soga y piola para pescar."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "nosotros=TOP=1"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "río=AGT=ACC"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "cazar-INF"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "querer=COND"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "soga.para.pescar=INST"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "pez-PL.SUBJ"
-            }
-          ]
         }
       ]
     },
@@ -773,7 +524,7 @@
       "start_time_ms": 68594,
       "end_time_ms": 74599,
       "num_slots": 6,
-      "text": "Tsámpisu áña'cho'ma panzáye'tangi á'mbian'fa ufá'ccocco sátama",
+      "text": "Tsampisu aña'cho'ma panzayetangi a'mbian'fa ufa'ccocco satama",
       "dependents": [
         {
           "tier": "T2",
@@ -854,51 +605,6 @@
               "value": "spear=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Si queremos comida de las selvas, usamos las cerbatanas y las lanzas."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "selva=AGT"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "comida=ACC"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "cazar=INF=COND=1"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "tener=PL.SUBJ"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "soplar=SHAPE.ANGULAR=??"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "lanza=ACC"
-            }
-          ]
         }
       ]
     },
@@ -908,7 +614,7 @@
       "start_time_ms": 75725,
       "end_time_ms": 79088,
       "num_slots": 5,
-      "text": "Tsá'ma já'ñoningaetangi panzápa cánse'fa potáe'ngoi'ccu",
+      "text": "tsa'ma ja'ñoningaetangi panzapa canse'fa potae'ngoi'ccu",
       "dependents": [
         {
           "tier": "T2",
@@ -979,46 +685,6 @@
               "value": "gun=INST"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 5,
-              "value": "Hoy en día, usamos las escopetas también."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "ANA=FRUST"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "ahora=LOC=MANN=TOP=1"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "cazar=SS"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "vivir-PL.SUBJ"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "escopeta=INST"
-            }
-          ]
         }
       ]
     },
@@ -1028,7 +694,7 @@
       "start_time_ms": 80431,
       "end_time_ms": 82810,
       "num_slots": 4,
-      "text": "Coragándeccu tsu yájema cu'ípa",
+      "text": "Coragandeccu tsu yajema cu'ipa",
       "dependents": [
         {
           "tier": "T2",
@@ -1089,41 +755,6 @@
               "value": "drink=SS"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "Nuestras curacas toman ayahuasca. "
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "curaca=HUM.PL"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "3"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "ayahuasca=ACC"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "beber=SS"
-            }
-          ]
         }
       ]
     },
@@ -1133,7 +764,7 @@
       "start_time_ms": 83337,
       "end_time_ms": 84969,
       "num_slots": 3,
-      "text": "a'índeccuma se'jépa cánse'fa",
+      "text": "a'indeccuma se'jepa canse'fa",
       "dependents": [
         {
           "tier": "T2",
@@ -1184,36 +815,6 @@
               "value": "live-PL.SUBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "y nos curan."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "persona=HUM.PL"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "curar=SS"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "vivir-PL.SUBJ"
-            }
-          ]
         }
       ]
     },
@@ -1223,7 +824,7 @@
       "start_time_ms": 85652,
       "end_time_ms": 89531,
       "num_slots": 6,
-      "text": "poí í'i cán'qqueni tsu coragándeccu cánse'fa",
+      "text": "poi a'i can'qqueni tsu coragandeccu canse'fa",
       "dependents": [
         {
           "tier": "T2",
@@ -1304,51 +905,6 @@
               "value": "live-PL.SUBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Hay curacas en todas las comunidades."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "todo"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "persona"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "pueblo=LOC"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "3"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "curcaca=HUM.PL"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "vivir-PL.SUBJ"
-            }
-          ]
         }
       ]
     },
@@ -1358,7 +914,7 @@
       "start_time_ms": 91014,
       "end_time_ms": 95051,
       "num_slots": 6,
-      "text": "Cayámbe ccótaccoye ansundépaqui átteya pá'cco á'i ándema.",
+      "text": "Cayambe 'cco=ta=cco=ya ansunde=pa=qui atte=ya pa'cco a'i andema.",
       "dependents": [
         {
           "tier": "T2",
@@ -1439,51 +995,6 @@
               "value": "land=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Si se sube el volcán Cayambe, se ve toda la tierra cofán."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "volcán Cayambe=IRR"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "subir=SS=2"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "ver=IRR"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "todo"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "Cofán"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "tierra=ACC"
-            }
-          ]
         }
       ]
     },
@@ -1493,7 +1004,7 @@
       "start_time_ms": 97697,
       "end_time_ms": 99365,
       "num_slots": 4,
-      "text": "Íngi a'índeccuta tsu cánse'fa",
+      "text": "Ingi a'indeccuta tsu canse'fa",
       "dependents": [
         {
           "tier": "T2",
@@ -1554,41 +1065,6 @@
               "value": "live-PL.SUBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "Nosotros Cofán vivimos en"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Cofán=HUM.PL=TOP"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "3"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "vivir-PL.SUBJ"
-            }
-          ]
         }
       ]
     },
@@ -1598,7 +1074,7 @@
       "start_time_ms": 99973,
       "end_time_ms": 100757,
       "num_slots": 1,
-      "text": "Aguaríco",
+      "text": "Aguarico",
       "dependents": [
         {
           "tier": "T2",
@@ -1622,26 +1098,6 @@
         },
         {
           "tier": "T4",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Aguarico"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Aquarico"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1658,7 +1114,7 @@
       "start_time_ms": 101123,
       "end_time_ms": 102081,
       "num_slots": 2,
-      "text": "San Miguél",
+      "text": "San Miguel",
       "dependents": [
         {
           "tier": "T2",
@@ -1687,31 +1143,6 @@
         },
         {
           "tier": "T4",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "San"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Miguel"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "San Miguel"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -1733,7 +1164,7 @@
       "start_time_ms": 102349,
       "end_time_ms": 103028,
       "num_slots": 1,
-      "text": "tsutóni",
+      "text": "tsutoni",
       "dependents": [
         {
           "tier": "T2",
@@ -1764,26 +1195,6 @@
               "value": "headwater=LOC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "río arriba"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "río arriba=LOC"
-            }
-          ]
         }
       ]
     },
@@ -1793,7 +1204,7 @@
       "start_time_ms": 103388,
       "end_time_ms": 104846,
       "num_slots": 3,
-      "text": "tóya'caen cóca ná'eni",
+      "text": "toya'caen coca na'eni",
       "dependents": [
         {
           "tier": "T2",
@@ -1844,36 +1255,6 @@
               "value": "river=LOC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "y el río Coca"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "además"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Coca"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "río=LOC"
-            }
-          ]
         }
       ]
     },
@@ -1883,7 +1264,7 @@
       "start_time_ms": 104964,
       "end_time_ms": 105980,
       "num_slots": 2,
-      "text": "Putumáyo ná'eni",
+      "text": "Putumayo na'eni",
       "dependents": [
         {
           "tier": "T2",
@@ -1924,31 +1305,6 @@
               "value": "river=LOC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "el río Putumayo"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Putumayo"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "río=LOC"
-            }
-          ]
         }
       ]
     },
@@ -1958,7 +1314,7 @@
       "start_time_ms": 106667,
       "end_time_ms": 107777,
       "num_slots": 1,
-      "text": "Cuyabénoquini",
+      "text": "Cuyabenoquini",
       "dependents": [
         {
           "tier": "T2",
@@ -1989,26 +1345,6 @@
               "value": "Cuyabeno=SHAPE=LOC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "el río Cuyabeno"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Cuyabeno=SHAPE=LOC"
-            }
-          ]
         }
       ]
     },
@@ -2018,7 +1354,7 @@
       "start_time_ms": 107996,
       "end_time_ms": 109390,
       "num_slots": 2,
-      "text": "Aguaríco sétsani",
+      "text": "Aguarico setsani",
       "dependents": [
         {
           "tier": "T2",
@@ -2056,31 +1392,6 @@
             {
               "start_slot": 1,
               "end_slot": 2,
-              "value": "downriver"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "abajo del río Aguarico"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Aguarico"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
               "value": "río.abajo"
             }
           ]
@@ -2093,7 +1404,7 @@
       "start_time_ms": 110810,
       "end_time_ms": 112547,
       "num_slots": 2,
-      "text": "Tayópisu a'índeccuja",
+      "text": "Tayopisu a'indeccuja",
       "dependents": [
         {
           "tier": "T2",
@@ -2134,31 +1445,6 @@
               "value": "person=HUM.PL=CONTR"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "Las personas ancianas"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "hace.tiempo=AGT"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "persona=HUM.PL=CO"
-            }
-          ]
         }
       ]
     },
@@ -2168,7 +1454,7 @@
       "start_time_ms": 113620,
       "end_time_ms": 116725,
       "num_slots": 5,
-      "text": "ombáccune tsu jácamba cánse'fa Marayoni",
+      "text": "ombaccuni tsu jaccamba canse'fa marayon",
       "dependents": [
         {
           "tier": "T2",
@@ -2239,46 +1525,6 @@
               "value": "Marañón"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 5,
-              "value": "viajan todo el camino de Marañón."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "arriba=SHAPE=LOC"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "3"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "ir=DIM=SS"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "vivir=PL.SUBJ"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "marañón"
-            }
-          ]
         }
       ]
     },
@@ -2288,7 +1534,7 @@
       "start_time_ms": 119514,
       "end_time_ms": 123604,
       "num_slots": 6,
-      "text": "Íngi a'índeccu gi cánse'fa tréce cánqque'ni",
+      "text": "Ingi a'indeccu gi canse'fa trece canqque'ni",
       "dependents": [
         {
           "tier": "T2",
@@ -2369,51 +1615,6 @@
               "value": "town=LOC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Nosotros Cófan vivimos en trece pueblos:"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "cofán=HUM.PL"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "1"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "vivir-PL.SUBJ"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "trece"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "pueblo=LOC"
-            }
-          ]
         }
       ]
     },
@@ -2464,31 +1665,6 @@
               "value": "town"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "tayo'su canqque"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "viejo=AGT"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "pueblo"
-            }
-          ]
         }
       ]
     },
@@ -2522,26 +1698,6 @@
         },
         {
           "tier": "T4",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Soquié"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Soquié"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -2599,31 +1755,6 @@
               "value": "river"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "Chandie Na'e"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "claro"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "río"
-            }
-          ]
         }
       ]
     },
@@ -2674,31 +1805,6 @@
               "value": "Bermejo"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "Alto Bermejo"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Alto"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Bermejo"
-            }
-          ]
         }
       ]
     },
@@ -2732,26 +1838,6 @@
         },
         {
           "tier": "T4",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Sinangoé"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Sinangoé"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -2799,26 +1885,6 @@
               "value": "Dovuno"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Dovuno"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Dovuno"
-            }
-          ]
         }
       ]
     },
@@ -2859,26 +1925,6 @@
               "value": "Doreno"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Doreno"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Doreno"
-            }
-          ]
         }
       ]
     },
@@ -2912,26 +1958,6 @@
         },
         {
           "tier": "T4",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Opirito"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Opirito"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -2989,31 +2015,6 @@
               "value": "river-SHAPE"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "Totoa Nai'qui"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "blanco-ADJ"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "río-SHAPE"
-            }
-          ]
         }
       ]
     },
@@ -3054,26 +2055,6 @@
               "value": "Bavaroé"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Bavaroé"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Bavaroé"
-            }
-          ]
         }
       ]
     },
@@ -3083,7 +2064,7 @@
       "start_time_ms": 138209,
       "end_time_ms": 139514,
       "num_slots": 2,
-      "text": "Pisorié cánqque",
+      "text": "Pisorié canqque",
       "dependents": [
         {
           "tier": "T2",
@@ -3124,31 +2105,6 @@
               "value": "town"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 2,
-              "value": "el pueblo Pisorié"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Pisorié"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "pueblo"
-            }
-          ]
         }
       ]
     },
@@ -3182,26 +2138,6 @@
         },
         {
           "tier": "T4",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Zábalo"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Zábalo"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
           "values": [
             {
               "start_slot": 0,
@@ -3249,26 +2185,6 @@
               "value": "Pakuya"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Pakuya"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Pakuya"
-            }
-          ]
         }
       ]
     },
@@ -3278,7 +2194,7 @@
       "start_time_ms": 143459,
       "end_time_ms": 149226,
       "num_slots": 9,
-      "text": "Tóya'caen tsu cánse'fa a'índeccuja fuésu ándeniqque San Pablo Puerto Bolivarni",
+      "text": "Toya'caensi canse'fa a'indeccuja fuesu andeniqque San Pablo Puerto Bolivar",
       "dependents": [
         {
           "tier": "T2",
@@ -3389,66 +2305,6 @@
               "value": "Bolívar"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 9,
-              "value": "Vivimos, además, en la tierra de otros pueblos: San Pablo Puerto Bolívar."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "además=DS"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "vivir-PL.SUBJ"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "cofán=HUM.PL=CONTR"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "otro"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "tierra"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "San"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "Pablo"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "Puerto"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "Bolívar"
-            }
-          ]
         }
       ]
     },
@@ -3458,7 +2314,7 @@
       "start_time_ms": 151170,
       "end_time_ms": 152880,
       "num_slots": 4,
-      "text": "Íngi coiraje'cho andeta tsu",
+      "text": "Ingi coiraje'cho andeta tsu",
       "dependents": [
         {
           "tier": "T2",
@@ -3512,41 +2368,6 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "land=TOP"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "3"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "Las áreas naturales protegidas que nos importa son:"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "cuidar=IMPF=NMLZ"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "tierra=TOP"
             },
             {
               "start_slot": 3,
@@ -3612,41 +2433,6 @@
               "start_slot": 1,
               "end_slot": 2,
               "value": "ecological"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "Cayambe"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "Coca"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "Reserva Ecológica Cayambe Coca"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Reserva"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Ecológica"
             },
             {
               "start_slot": 2,
@@ -3729,41 +2515,6 @@
               "value": "Bermejo"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 4,
-              "value": "Reserva Ecológica Cofán Bermejo"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Reserva"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Ecológica"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "Cofán"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "Bermejo"
-            }
-          ]
         }
       ]
     },
@@ -3824,36 +2575,6 @@
               "value": "Cuyabeno"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "Reserva Faunística Cuyabeno"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Reserva"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "Faunística"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "Cuyabeno"
-            }
-          ]
         }
       ]
     },
@@ -3863,7 +2584,7 @@
       "start_time_ms": 162999,
       "end_time_ms": 166847,
       "num_slots": 7,
-      "text": "Va ándema tsu íngi á'i guardaparquéndeccu coíraje'fa",
+      "text": "Va andema tsu ingi a'i guardaparquendeccu cuiraje'fa",
       "dependents": [
         {
           "tier": "T2",
@@ -3954,56 +2675,6 @@
               "value": "care-IMPF-PL.SUBJ"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 7,
-              "value": "Nuestros guardaparques Cofanes pretegen esta tierra."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "PROX"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "tierra=ACC"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "3"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "cofán"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "parque=HUM.PL"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "cuidar-IMPF-PL.SUBJ"
-            }
-          ]
         }
       ]
     },
@@ -4013,7 +2684,7 @@
       "start_time_ms": 168320,
       "end_time_ms": 174037,
       "num_slots": 7,
-      "text": "Ecuadórfaningi ámbian'fa ándema cuatrociéntos míl hectáreama tí'tsse ",
+      "text": "Ecuadorfaningi ambian'fa andema cuatrocientos mil hectáreama ti'tsse ",
       "dependents": [
         {
           "tier": "T2",
@@ -4104,56 +2775,6 @@
               "value": "more.than"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 7,
-              "value": "En ecuador, tenemos control legal de más que cuatrocientos mil hectáreas de tierra."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Ecuador=LOC=LOC=1"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "tener-PL.SUBJ"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "tierra=ACC"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "cuatrocientos"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "mil"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "hectárea=ma"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "más.que"
-            }
-          ]
         }
       ]
     },
@@ -4163,7 +2784,7 @@
       "start_time_ms": 175962,
       "end_time_ms": 180261,
       "num_slots": 8,
-      "text": "Va proyécto tsu íngima fuitéya atesúye tayópisu ándema",
+      "text": "Va proyecto tsu ingima fuiteya atesuye tayopisu andema",
       "dependents": [
         {
           "tier": "T2",
@@ -4264,61 +2885,6 @@
               "value": "land=ACC"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 8,
-              "value": "Este proyecto nos ayudará a aprender sobre nuestro territorio anciano."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "PROX"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "proyecto"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "3"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "nosotros=ACC"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "ayudar-FUT"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "aprender-INF"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "anciano"
-            },
-            {
-              "start_slot": 7,
-              "end_slot": 8,
-              "value": "territorio"
-            }
-          ]
         }
       ]
     },
@@ -4328,7 +2894,7 @@
       "start_time_ms": 180615,
       "end_time_ms": 184083,
       "num_slots": 6,
-      "text": "cúintsu íngi dushúndeccumbe dú'shu'qque atesú'faye",
+      "text": "caen tsu ingi dushundeccumbe du'shu'qque atesu'faye",
       "dependents": [
         {
           "tier": "T2",
@@ -4409,51 +2975,6 @@
               "value": "learn-PL.SUBJ-INF"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Ayuda a hacer seguro que los niños de nuestros niños aprenderá sobre eso también."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "como"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "3"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "niño-HUM.PL=BEN"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "niño=ADD"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "aprender-PL.SUBJ-INF"
-            }
-          ]
         }
       ]
     },
@@ -4463,7 +2984,7 @@
       "start_time_ms": 185294,
       "end_time_ms": 189336,
       "num_slots": 6,
-      "text": "tsái'ccungi oshá'fa'ya íngi ándema toéngatsse isúi",
+      "text": "tsaiccungi osha'fa'ya ingi andema toengatsse isui",
       "dependents": [
         {
           "tier": "T2",
@@ -4544,51 +3065,6 @@
               "value": "hold"
             }
           ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 6,
-              "value": "Con eso, nosotros vamos a mantender control de nuestro territorio tadicional."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "ANA=INST=1"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "empoderar-PL.SUBJ-FUT"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "territorio"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": "tradicional?=ADV"
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "mantener"
-            }
-          ]
         }
       ]
     },
@@ -4598,7 +3074,7 @@
       "start_time_ms": 190826,
       "end_time_ms": 195404,
       "num_slots": 10,
-      "text": "Va pá'cco íngi cánse'cho ánde tsu íngi ánde",
+      "text": "Va pa'cco ingi canse'cho ande tsu ingi ande",
       "dependents": [
         {
           "tier": "T2",
@@ -4712,66 +3188,6 @@
               "start_slot": 9,
               "end_slot": 10,
               "value": "land"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 10,
-              "value": "Toda esta tierra es nuestra."
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "PROX"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "todo"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 3,
-              "end_slot": 4,
-              "value": "vivir-SUB"
-            },
-            {
-              "start_slot": 4,
-              "end_slot": 5,
-              "value": ""
-            },
-            {
-              "start_slot": 5,
-              "end_slot": 6,
-              "value": "tierra"
-            },
-            {
-              "start_slot": 6,
-              "end_slot": 7,
-              "value": "3"
-            },
-            {
-              "start_slot": 8,
-              "end_slot": 9,
-              "value": "nosotros"
-            },
-            {
-              "start_slot": 9,
-              "end_slot": 10,
-              "value": "tierra"
             }
           ]
         }
