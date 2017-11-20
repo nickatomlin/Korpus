@@ -24,7 +24,16 @@ function scaledSlot(slotIn, parentStart, tierEnd, latestEnd) {
   return slot;
 }
 
-function assignSlots(anotID, parentStartSlot, tiersToConstraints,
+function assignSlots(anotID, tiersToConstraints,
+    annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots) {
+  assignSlotsHelper(anotID, 0, tiersToConstraints,
+    annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots);
+  // At this point, startSlots and endSlots contain the smallest allowable slot value.
+  stretchSlots(anotID, 0, tiersToConstraints,
+    annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots);
+}
+
+function assignSlotsHelper(anotID, parentStartSlot, tiersToConstraints,
     annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots) {
   startSlots[anotID] = parentStartSlot;
   let latestEndSlot = parentStartSlot + 1;
@@ -49,7 +58,7 @@ function assignSlots(anotID, parentStartSlot, tiersToConstraints,
           prevTimeslot = eafUtils.getAlignableAnnotationEndSlot(annotationsFromIDs[depAnotID]);
         }
         
-        assignSlots(depAnotID, slotNum, tiersToConstraints, annotationChildren, 
+        assignSlotsHelper(depAnotID, slotNum, tiersToConstraints, annotationChildren, 
             annotationsFromIDs, timeslots, startSlots, endSlots);
         slotNum = endSlots[depAnotID];
         latestEndSlot = Math.max(latestEndSlot, slotNum);
@@ -59,19 +68,27 @@ function assignSlots(anotID, parentStartSlot, tiersToConstraints,
   
   // make parent's end slot at least as late as its child's
   endSlots[anotID] = latestEndSlot;
-  
-  // At this point, startSlots and endSlots contain the smallest allowable slot value.
-  // Stretch children to fill full duration of parent.
-  // TODO after stretching each anot, adjust and stretch its kids. Until then, BROKEN on some grandchild configurations.
+}
+
+// Stretch children to fill full duration of parent.
+// prevStretch: the total increase in the parent's startslot due to stretch
+// FIXME children's descendants don't get stretched
+function stretchSlots(anotID, prevStretch, tiersToConstraints,
+    annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots) {
   for (const depTierName in annotationChildren[anotID]) {
     if (annotationChildren[anotID].hasOwnProperty(depTierName)) {
       const depAnotIDs = annotationChildren[anotID][depTierName];
-      const tierEndSlot = endSlots[depAnotIDs[depAnotIDs.length - 1]];
+      const tierEnd = endSlots[depAnotIDs[depAnotIDs.length - 1]] + prevStretch;
+      const parentStart = startSlots[anotID];
+      const parentEnd = endSlots[anotID];
       for (depAnotID of depAnotIDs) {
-        startSlots[depAnotID] = scaledSlot(startSlots[depAnotID], parentStartSlot, tierEndSlot, latestEndSlot);
-        const scaledEnd = scaledSlot(endSlots[depAnotID], parentStartSlot, tierEndSlot, latestEndSlot);
-        //console.log(`origEnd = ${endSlots[depAnotID]}`);
+        const origStart = startSlots[depAnotID];
+        const newStart = scaledSlot(origStart + prevStretch, parentStart, tierEnd, parentEnd);
+        startSlots[depAnotID] = newStart;
+        const scaledEnd = scaledSlot(endSlots[depAnotID] + prevStretch, parentStart, tierEnd, parentEnd);
         endSlots[depAnotID] = scaledEnd;
+        stretchSlots(depAnotID, newStart - origStart, tiersToConstraints, 
+            annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots);
       }
     }
   }
@@ -379,7 +396,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
       const indepAnotID = eafUtils.getAnnotationID(indepAnot);
       const anotStartSlots = {};
       const anotEndSlots = {};
-      assignSlots(indepAnotID, 0, tiersToConstraints, annotationChildren, 
+      assignSlots(indepAnotID, tiersToConstraints, annotationChildren, 
         annotationsFromIDs, timeslots, anotStartSlots, anotEndSlots
       );
       
@@ -460,5 +477,5 @@ function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
 module.exports = {
   preprocess_dir: preprocess_dir,
   preprocess: preprocess,
-  //assignSlots: assignSlots, // TODO remove when no longer needed for debugging
+  assignSlots: assignSlots, // TODO remove when no longer needed for debugging
 };
