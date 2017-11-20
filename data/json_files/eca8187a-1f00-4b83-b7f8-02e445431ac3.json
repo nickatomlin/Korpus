@@ -1,0 +1,572 @@
+{
+  "metadata": {
+    "timed": false,
+    "story ID": "eca8187a-1f00-4b83-b7f8-02e445431ac3",
+    "title": {
+      "_default": "It is possible to be indigenous and white- Randy Borman at TEDxAmazonia"
+    },
+    "media": {
+      "audio": "",
+      "video": ""
+    },
+    "languages": [],
+    "date_created": "",
+    "date_uploaded": "11/20/2017",
+    "source": {
+      "_default": ""
+    },
+    "description": "",
+    "genre": "",
+    "author": "",
+    "glosser": "",
+    "speakers": [
+      "Randy Borman"
+    ],
+    "tier IDs": {
+      "T1": {
+        "name": "A'ingae",
+        "subdivided": false
+      },
+      "T2": {
+        "name": "English",
+        "subdivided": false
+      },
+      "T3": {
+        "name": "Morphemes",
+        "subdivided": true
+      },
+      "T4": {
+        "name": "Glossed Morpheme",
+        "subdivided": true
+      }
+    },
+    "speaker IDs": {
+      "S1": {
+        "name": "Randy Borman",
+        "tier": "T1"
+      }
+    }
+  },
+  "sentences": [
+    {
+      "speaker": "S1",
+      "tier": "T1",
+      "start_time_ms": 20300,
+      "end_time_ms": 22431,
+      "num_slots": 5,
+      "text": "Avujatssingi ja'ño que'ima chigambian.",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 5,
+              "value": "I am happy to greet you all today."
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "avuja=tssi"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "gi"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "ja'ño"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "que'i=ma"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "chigambian"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "happy=STAT"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "1"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "now"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "you.PL=ACC"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "greet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "speaker": "S1",
+      "tier": "T1",
+      "start_time_ms": 22431,
+      "end_time_ms": 25011,
+      "num_slots": 7,
+      "text": "Va andeni jipa vata tsu ccajeni ingine.",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 7,
+              "value": "I came to this land; it is downriver from us. "
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "va"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "ande=ni"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "ji=pa"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "va=ta"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "tsu"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "ccaje=ni"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "ingine"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "PROX"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "land=LOC"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "come=SS"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "PROX=NEW"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "3"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "downriver=LOC"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "we=SRC"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "speaker": "S1",
+      "tier": "T1",
+      "start_time_ms": 25011,
+      "end_time_ms": 27423,
+      "num_slots": 3,
+      "text": "Ingita tsutoni'su a'i.",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "We are upriver people."
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ingita"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "tsuto=ni='su"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "a'i"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "we=NEW"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "upriver=LOC=ATTR"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "preson"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "speaker": "S1",
+      "tier": "T1",
+      "start_time_ms": 27423,
+      "end_time_ms": 28532,
+      "num_slots": 2,
+      "text": "Ingita ja'ño...",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 2,
+              "value": "We today..."
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ingi=ta"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "ja'ño"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "we=NEW"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "now"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "speaker": "S1",
+      "tier": "T1",
+      "start_time_ms": 28982,
+      "end_time_ms": 34441,
+      "num_slots": 11,
+      "text": "Ña ji que'ima re'ri'cco condaseye ma'caen ingi a'indeccu coiracca tson'jencho poimbe.",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 11,
+              "value": "I came to tell you all a bit about how we, A'i, have taken care (of the rainforest) for the benefit of everyone."
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ña"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "ji"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "que'i=ma"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "re'ri=cco"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "condase=ye"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "ma='ca=en"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "ingi"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 8,
+              "value": "a'i=ndeccu"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "coira-cca"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "tson-'jen=cho"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "poi=mbe"
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "I"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "come"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "you.PL=ACC"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "little=SH.ANG"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "tell=INF"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "which=CMP=ADVR"
+            },
+            {
+              "start_slot": 6,
+              "end_slot": 7,
+              "value": "we"
+            },
+            {
+              "start_slot": 7,
+              "end_slot": 8,
+              "value": "person=PL.HUM"
+            },
+            {
+              "start_slot": 8,
+              "end_slot": 9,
+              "value": "care-DIM"
+            },
+            {
+              "start_slot": 9,
+              "end_slot": 10,
+              "value": "do-IMPV=SBRD"
+            },
+            {
+              "start_slot": 10,
+              "end_slot": 11,
+              "value": "all=BEN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "speaker": "S1",
+      "tier": "T1",
+      "start_time_ms": 612241,
+      "end_time_ms": 613892,
+      "num_slots": 6,
+      "text": "Tsa tsu ña ja'ño que'i'ccu condase'cho.\n",
+      "dependents": [
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 6,
+              "value": "That's what I talked with you about today."
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Tsa"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "tsu"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "ña"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "ja'ño"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "que'i='ccu"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "condase='cho."
+            }
+          ]
+        },
+        {
+          "tier": "T4",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "ANA"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "3"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "I"
+            },
+            {
+              "start_slot": 3,
+              "end_slot": 4,
+              "value": "now"
+            },
+            {
+              "start_slot": 4,
+              "end_slot": 5,
+              "value": "you.PL=INST"
+            },
+            {
+              "start_slot": 5,
+              "end_slot": 6,
+              "value": "tell"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
