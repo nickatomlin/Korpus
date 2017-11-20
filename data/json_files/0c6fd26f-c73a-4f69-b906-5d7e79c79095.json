@@ -169,6 +169,46 @@
   },
   "sentences": [
     {
+      "speaker": "S3",
+      "tier": "T29",
+      "start_time_ms": 0,
+      "end_time_ms": 343650,
+      "num_slots": 1,
+      "text": "Flor Flanca",
+      "dependents": [
+        {
+          "tier": "T30",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Flor Flanca"
+            }
+          ]
+        },
+        {
+          "tier": "T31",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Flor Flanca"
+            }
+          ]
+        },
+        {
+          "tier": "T32",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "Flor Flanca"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "speaker": "S1",
       "tier": "T9",
       "start_time_ms": 1740,
@@ -1458,166 +1498,6 @@
               "start_slot": 5,
               "end_slot": 6,
               "value": "1"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "speaker": "S1",
-      "tier": "T9",
-      "start_time_ms": 341490,
-      "end_time_ms": 342110,
-      "num_slots": 3,
-      "text": "",
-      "dependents": [
-        {
-          "tier": "T12",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "79"
-            }
-          ]
-        },
-        {
-          "tier": "T10",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": ""
-            }
-          ]
-        },
-        {
-          "tier": "T11",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 3,
-              "value": "eso es todo"
-            }
-          ]
-        },
-        {
-          "tier": "T14",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "tsati"
-            },
-            {
-              "start_slot": 1,
-              "end_slot": 3,
-              "value": "pa'khu"
-            }
-          ]
-        },
-        {
-          "tier": "T7",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "*pa"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "='khu"
-            }
-          ]
-        },
-        {
-          "tier": "T1",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "*pa"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "='khu"
-            }
-          ]
-        },
-        {
-          "tier": "T2",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "all"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "=SH.ANG"
-            }
-          ]
-        },
-        {
-          "tier": "T3",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "todos"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "=SH.ANG"
-            }
-          ]
-        },
-        {
-          "tier": "T5",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "bnd"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "clphras"
-            }
-          ]
-        },
-        {
-          "tier": "T6",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "*pa"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "='cco"
-            }
-          ]
-        },
-        {
-          "tier": "T8",
-          "values": [
-            {
-              "start_slot": 1,
-              "end_slot": 2,
-              "value": "bound root"
-            },
-            {
-              "start_slot": 2,
-              "end_slot": 3,
-              "value": "enclitic"
             }
           ]
         }
@@ -28994,6 +28874,166 @@
       ]
     },
     {
+      "speaker": "S1",
+      "tier": "T9",
+      "start_time_ms": 341490,
+      "end_time_ms": 342110,
+      "num_slots": 3,
+      "text": "",
+      "dependents": [
+        {
+          "tier": "T12",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "79"
+            }
+          ]
+        },
+        {
+          "tier": "T10",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": ""
+            }
+          ]
+        },
+        {
+          "tier": "T11",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 3,
+              "value": "eso es todo"
+            }
+          ]
+        },
+        {
+          "tier": "T14",
+          "values": [
+            {
+              "start_slot": 0,
+              "end_slot": 1,
+              "value": "tsati"
+            },
+            {
+              "start_slot": 1,
+              "end_slot": 3,
+              "value": "pa'khu"
+            }
+          ]
+        },
+        {
+          "tier": "T7",
+          "values": [
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "*pa"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "='khu"
+            }
+          ]
+        },
+        {
+          "tier": "T1",
+          "values": [
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "*pa"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "='khu"
+            }
+          ]
+        },
+        {
+          "tier": "T2",
+          "values": [
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "all"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "=SH.ANG"
+            }
+          ]
+        },
+        {
+          "tier": "T3",
+          "values": [
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "todos"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "=SH.ANG"
+            }
+          ]
+        },
+        {
+          "tier": "T5",
+          "values": [
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "bnd"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "clphras"
+            }
+          ]
+        },
+        {
+          "tier": "T6",
+          "values": [
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "*pa"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "='cco"
+            }
+          ]
+        },
+        {
+          "tier": "T8",
+          "values": [
+            {
+              "start_slot": 1,
+              "end_slot": 2,
+              "value": "bound root"
+            },
+            {
+              "start_slot": 2,
+              "end_slot": 3,
+              "value": "enclitic"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "speaker": "S2",
       "tier": "T24",
       "start_time_ms": 342130,
@@ -29158,46 +29198,6 @@
               "start_slot": 2,
               "end_slot": 3,
               "value": "root"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "speaker": "S3",
-      "tier": "T29",
-      "start_time_ms": 0,
-      "end_time_ms": 343650,
-      "num_slots": 1,
-      "text": "Flor Flanca",
-      "dependents": [
-        {
-          "tier": "T30",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
-        },
-        {
-          "tier": "T31",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
-        },
-        {
-          "tier": "T32",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
             }
           ]
         }

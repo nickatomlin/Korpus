@@ -436,9 +436,11 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         }
       }
       
+      
       jsonOut.sentences.push(sentenceJson); // TODO check order
     }
   }
+  jsonOut.sentences.sort((s1,s2) => s1.start_time_ms - s2.start_time_ms);
   
   const jsonPath = jsonFilesDir + storyID + ".json";
   fs.writeFileSync(jsonPath, JSON.stringify(jsonOut, null, 2));
