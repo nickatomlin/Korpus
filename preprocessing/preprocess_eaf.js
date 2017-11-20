@@ -123,7 +123,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     tierIDsFromNames[tierName] = newID;
   }
   
-  // TODO glom morphs if coming from FLEx ... or, glom if untimed?
+  // TODO glom morphs if coming from FLEx?
   
   // tiersToConstraints: tierName -> constraintName
   // (to generate, first create typesToConstraints: linguisticTypeName -> constraintName)
@@ -431,13 +431,14 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
               "value": eafUtils.getAnnotationValue(depAnot),
             });
           }
-          
-          sentenceJson.dependents.push(depTierJson); // TODO check order
+          // depTierJson is already in order by start_slot, since anotDescendants is ordered
+          sentenceJson.dependents.push(depTierJson); 
         }
       }
+      // sort by the numerical part of the tier ID (to match ELAN tier order)
+      sentenceJson.dependents.sort((t1,t2) => parseInt(t1.tier.slice(1),10) - parseInt(t2.tier.slice(1),10));
       
-      
-      jsonOut.sentences.push(sentenceJson); // TODO check order
+      jsonOut.sentences.push(sentenceJson);
     }
   }
   jsonOut.sentences.sort((s1,s2) => s1.start_time_ms - s2.start_time_ms);
