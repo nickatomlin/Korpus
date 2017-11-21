@@ -19,7 +19,7 @@ function getDocTimeslotsMap(adoc) {
   const timeslotsIn = adoc.TIME_ORDER[0].TIME_SLOT;
   let timeslots = [];
   for (const slot of timeslotsIn) {
-    timeslots[slot.$.TIME_SLOT_ID] = slot.$.TIME_VALUE;
+    timeslots[slot.$.TIME_SLOT_ID] = parseInt(slot.$.TIME_VALUE, 10);
   }
   return timeslots;
 }
@@ -247,7 +247,7 @@ module.exports = {
   getDocID: getDocID,
   getDocTimeslotsMap: getDocTimeslotsMap,
   getNonemptyTiers: getNonemptyTiers,
-  // getTierChildrenMap: getTierChildrenMap,
+  getTierChildrenMap: getTierChildrenMap,
   getTierDependentsMap: getTierDependentsMap,
   getAnnotationIDMap: getAnnotationIDMap,
   slotIDDiff: slotIDDiff,
