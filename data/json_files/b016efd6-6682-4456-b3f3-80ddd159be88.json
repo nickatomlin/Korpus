@@ -1,9 +1,9 @@
 {
   "metadata": {
     "timed": true,
-    "story ID": "0c6fd26f-c73a-4f69-b906-5d7e79c79095",
+    "story ID": "b016efd6-6682-4456-b3f3-80ddd159be88",
     "title": {
-      "_default": "flor_flanca"
+      "_default": "flor_flanca.postflex"
     },
     "media": {
       "audio": "flor_flanca.mp3",
@@ -11,7 +11,7 @@
     },
     "languages": [],
     "date_created": "",
-    "date_uploaded": "10/6/2017",
+    "date_uploaded": "11/20/2017",
     "source": {
       "_default": ""
     },
@@ -135,22 +135,6 @@
       "T28": {
         "name": "B_word-txt-con-Latn-EC-x-dureno",
         "subdivided": true
-      },
-      "T29": {
-        "name": "interlinear-text-title-con-Latn-EC",
-        "subdivided": false
-      },
-      "T30": {
-        "name": "interlinear-text-title-con-Latn-EC-x-dureno",
-        "subdivided": false
-      },
-      "T31": {
-        "name": "interlinear-text-title-en",
-        "subdivided": false
-      },
-      "T32": {
-        "name": "interlinear-text-title-es",
-        "subdivided": false
       }
     },
     "speaker IDs": {
@@ -161,53 +145,10 @@
       "S2": {
         "name": "Romulo Criollo",
         "tier": "T24"
-      },
-      "S3": {
-        "tier": "T29"
       }
     }
   },
   "sentences": [
-    {
-      "speaker": "S3",
-      "tier": "T29",
-      "start_time_ms": 0,
-      "end_time_ms": 343650,
-      "num_slots": 1,
-      "text": "Flor Flanca",
-      "dependents": [
-        {
-          "tier": "T30",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
-        },
-        {
-          "tier": "T31",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
-        },
-        {
-          "tier": "T32",
-          "values": [
-            {
-              "start_slot": 0,
-              "end_slot": 1,
-              "value": "Flor Flanca"
-            }
-          ]
-        }
-      ]
-    },
     {
       "speaker": "S1",
       "tier": "T9",

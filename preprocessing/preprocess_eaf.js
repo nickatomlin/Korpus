@@ -72,7 +72,6 @@ function assignSlotsHelper(anotID, parentStartSlot, tiersToConstraints,
 
 // Stretch children to fill full duration of parent.
 // prevStretch: the total increase in the parent's startslot due to stretch
-// FIXME children's descendants don't get stretched
 function stretchSlots(anotID, prevStretch, tiersToConstraints,
     annotationChildren, annotationsFromIDs, timeslots, startSlots, endSlots) {
   for (const depTierName in annotationChildren[anotID]) {
