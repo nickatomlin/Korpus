@@ -168,17 +168,9 @@ function main(callback) {
 }
 
 function update() {
-	fs.writeFileSync("data/index2.json", JSON.stringify(obj, null, 2), function(err) {
-    	if(err) {
-        	return console.log(err);
-    	}
-    });
-    fakeDB["index"] = obj;
-    fs.writeFileSync("data/fake_database.json", JSON.stringify(fakeDB, null, 2), function(err) {
-    	if(err) {
-        	return console.log(err);
-    	}
-    });
-    console.log("📤" + "  " + "Metadata edit complete.");
+	fs.writeFileSync("data/index2.json", JSON.stringify(obj, null, 2));
+  fakeDB["index"] = obj;
+  fs.writeFileSync("data/fake_database.json", JSON.stringify(fakeDB, null, 2));
+  console.log("📤" + "  " + "Metadata edit complete.");
 }
 
