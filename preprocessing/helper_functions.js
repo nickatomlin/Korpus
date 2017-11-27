@@ -99,6 +99,7 @@ function improveElanIndexData(path, storyID, adoc) {
   // Status: untested
   const filename = getFilenameFromPath(path);
   const shortFilename = filename.substring(0, filename.lastIndexOf('.'));
+  const shortestFilename = filename.substring(0, filename.indexOf('.')); // more possible matches for .postflex.flextext files
   let metadata = getMetadataFromIndex(storyID);
 
   const date = new Date();
@@ -199,11 +200,13 @@ function improveElanIndexData(path, storyID, adoc) {
 
   // Try to find an audio file matching the filename:
   if (needsAudio && !hasWorkingAudio) {
-    const tryMp3 = shortFilename + ".mp3";
-    if (verifyMedia(tryMp3)) {
-      console.log("🔍  SUCCESS: Found matching audio: " + tryMp3);
-      hasWorkingAudio = true;
-      metadata['media']['audio'] = tryMp3;
+    for (const tryName of [shortFilename, shortestFilename]) {
+      const tryMp3 = tryName + ".mp3";
+      if (verifyMedia(tryMp3)) {
+        console.log("🔍  SUCCESS: Found matching audio: " + tryMp3);
+        hasWorkingAudio = true;
+        metadata['media']['audio'] = tryMp3;
+      }
     }
   }
 
@@ -230,11 +233,13 @@ function improveElanIndexData(path, storyID, adoc) {
 
   // Try to find an video file matching the filename:
   if (needsVideo && !hasWorkingVideo) {
-    const tryMp4 = shortFilename + ".mp4";
-    if (verifyMedia(tryMp4)) {
-      console.log("🔍  SUCCESS: Found matching video: " + tryMp4);
-      hasWorkingVideo = true;
-      metadata['media']['video'] = tryMp4;
+    for (const tryName of [shortFilename, shortestFilename]) {
+      const tryMp4 = tryName + ".mp4";
+      if (verifyMedia(tryMp4)) {
+        console.log("🔍  SUCCESS: Found matching video: " + tryMp4);
+        hasWorkingVideo = true;
+        metadata['media']['video'] = tryMp4;
+      }
     }
   }
 
