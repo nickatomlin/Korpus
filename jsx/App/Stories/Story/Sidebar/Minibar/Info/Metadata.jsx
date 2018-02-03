@@ -10,7 +10,7 @@ export function Metadata({ metadata }) {
 	let date_created = null;
 
 	if (metadata["description"] != "") {
-		description = <p>Description: {metadata["description"]}</p>;
+		description = <p><b>Description:</b> {metadata["description"]}</p>;
 	}
 
 	if (metadata["author"] != "") {

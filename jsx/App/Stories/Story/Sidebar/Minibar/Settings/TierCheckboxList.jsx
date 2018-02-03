@@ -43,5 +43,5 @@ export function TierCheckboxList({ tiers }) {
          output.push(<TierCheckbox key={tier_id} tier_id={tier_id} tier_name={tiers[tier_id]['name']} />);
       }
    }
-   return <div id="tierList">Show/hide tiers: <ul>{output}</ul></div>;
+   return <div id="tierList"><b>Show/hide tiers:</b> <ul>{output}</ul></div>;
 }

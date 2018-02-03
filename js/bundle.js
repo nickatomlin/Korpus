@@ -11013,11 +11013,11 @@ var Video = exports.Video = function (_React$Component) {
 			var footheight = ($("#footer").height() + 48).toString() + "px";
 			var bodyheight = "calc(100% - " + footheight + ")";
 
-			$("#leftPanel").css("width", "240px");
+			$("#leftPanel").css("width", "300px");
 			$("#leftPanel").css("height", bodyheight);
 			$("#centerPanel").css("height", bodyheight);
-			$("#centerPanel").css("margin-left", "240px");
-			$("#centerPanel").css("width", "calc(100% - 240px)");
+			$("#centerPanel").css("margin-left", "300px");
+			$("#centerPanel").css("width", "calc(100% - 300px)");
 
 			// Deactivate video:
 			$("#video").css("display", "none");
@@ -25663,7 +25663,7 @@ var _reactRouterDom = __webpack_require__(31);
 
 var _Story = __webpack_require__(233);
 
-var _NotFound = __webpack_require__(246);
+var _NotFound = __webpack_require__(245);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25702,7 +25702,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _Sidebar = __webpack_require__(234);
 
-var _CenterPanel = __webpack_require__(243);
+var _CenterPanel = __webpack_require__(242);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25865,9 +25865,7 @@ exports.Minibar = Minibar;
 
 var _Info = __webpack_require__(237);
 
-var _Search = __webpack_require__(240);
-
-var _Settings = __webpack_require__(241);
+var _Settings = __webpack_require__(240);
 
 function Minibar(_ref) {
 	var metadata = _ref.metadata,
@@ -25875,70 +25873,16 @@ function Minibar(_ref) {
 
 	// I/P: metadata, in JSON format
 	//      hasVideo, a boolean
-	// O/P: a subsection of the sidebar with hide-able tabs
-	// Status: untested, unwritten dependencies
-
-	// Click events for the minibar subsections:
-	$(document.body).on('click', '.minibarLink', function (event) {
-		event.preventDefault(); // Prevents from following link.
-		var activeLink = $('.minibarTabs > li.active > a').attr('href');
-
-		// Find actived navigation and remove 'active' css
-		var activeLI = $('.minibarTabs > li.active');
-		activeLI.removeClass('active');
-
-		// Add 'active' css into clicked navigation
-		$(this).parents('li').addClass('active');
-
-		// Hide displaying tab content
-		$(activeLink).removeClass('active');
-		$(activeLink).addClass('hide');
-
-		// Show target tab content
-		var newLink = $(this).attr('href');
-		$(newLink).removeClass('hide');
-		$(newLink).addClass('active');
-	});
+	// O/P: description and tier checkboxes
+	// Status: tested, working
 
 	return React.createElement(
 		'div',
 		{ id: 'minibar' },
 		React.createElement(
-			'ul',
-			{ className: 'minibarTabs' },
-			React.createElement(
-				'li',
-				{ className: 'active' },
-				React.createElement(
-					'a',
-					{ className: 'minibarLink', href: '#info' },
-					React.createElement('img', { src: 'images/info.svg' })
-				)
-			),
-			React.createElement(
-				'li',
-				null,
-				React.createElement(
-					'a',
-					{ className: 'minibarLink', href: '#search' },
-					React.createElement('img', { src: 'images/search.svg' })
-				)
-			),
-			React.createElement(
-				'li',
-				null,
-				React.createElement(
-					'a',
-					{ className: 'minibarLink', href: '#settings' },
-					React.createElement('img', { src: 'images/settings.svg' })
-				)
-			)
-		),
-		React.createElement(
 			'div',
 			{ id: 'miniPage' },
 			React.createElement(_Info.Info, { metadata: metadata }),
-			React.createElement(_Search.Search, null),
 			React.createElement(_Settings.Settings, { tiers: metadata['tier IDs'], hasVideo: hasVideo })
 		)
 	);
@@ -26055,7 +25999,12 @@ function Metadata(_ref) {
 		description = React.createElement(
 			"p",
 			null,
-			"Description: ",
+			React.createElement(
+				"b",
+				null,
+				"Description:"
+			),
+			" ",
 			metadata["description"]
 		);
 	}
@@ -26130,28 +26079,6 @@ function Metadata(_ref) {
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Search = Search;
-function Search() {
-	// I/P: ---
-	// O/P: a search bar with concordance functionality
-	// Status: unfinished
-	return React.createElement(
-		"h4",
-		{ id: "search", className: "miniPage hide" },
-		"Not yet implemented."
-	);
-}
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -26159,7 +26086,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 exports.Settings = Settings;
 
-var _TierCheckboxList = __webpack_require__(242);
+var _TierCheckboxList = __webpack_require__(241);
 
 var _Video = __webpack_require__(97);
 
@@ -26232,14 +26159,14 @@ function Settings(_ref) {
 
   return React.createElement(
     'div',
-    { id: 'settings', className: 'miniPage hide' },
+    { id: 'settings', className: 'miniPage' },
     React.createElement(_TierCheckboxList.TierCheckboxList, { tiers: tiers }),
     videoButton
   );
 }
 
 /***/ }),
-/* 242 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26325,7 +26252,12 @@ function TierCheckboxList(_ref) {
    return React.createElement(
       "div",
       { id: "tierList" },
-      "Show/hide tiers: ",
+      React.createElement(
+         "b",
+         null,
+         "Show/hide tiers:"
+      ),
+      " ",
       React.createElement(
          "ul",
          null,
@@ -26335,7 +26267,7 @@ function TierCheckboxList(_ref) {
 }
 
 /***/ }),
-/* 243 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26346,9 +26278,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CenterPanel = CenterPanel;
 
-var _Untimed = __webpack_require__(244);
+var _Untimed = __webpack_require__(243);
 
-var _Timed = __webpack_require__(245);
+var _Timed = __webpack_require__(244);
 
 function CenterPanel(_ref) {
 	var timed = _ref.timed,
@@ -26375,7 +26307,7 @@ function CenterPanel(_ref) {
 }
 
 /***/ }),
-/* 244 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26438,7 +26370,7 @@ function UntimedTextDisplay(_ref) {
 }
 
 /***/ }),
-/* 245 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26678,7 +26610,7 @@ function TimedTextDisplay(_ref4) {
 }
 
 /***/ }),
-/* 246 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

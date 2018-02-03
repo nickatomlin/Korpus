@@ -39,7 +39,7 @@ export function Settings({ tiers, hasVideo }) {
   }
 
 	return (
-		<div id="settings" className="miniPage hide">
+		<div id="settings" className="miniPage">
 			<TierCheckboxList tiers={tiers} />
 			{videoButton}
 		</div>
