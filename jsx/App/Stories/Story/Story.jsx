@@ -1,5 +1,6 @@
 import { Sidebar } from './Sidebar/Sidebar.jsx';
 import { CenterPanel } from './Display/CenterPanel.jsx';
+import { Video } from './Sidebar/Video.jsx';
 
 export class Story extends React.Component {
     componentDidMount() {
@@ -14,9 +15,12 @@ export class Story extends React.Component {
             var footheight = ($('#footer').height() + 48).toString() + 'px';
             var bodyheight = 'calc(100% - ' + footheight + ')';
 
-            $('#leftPanel').css('width', '240px');
-            $('#leftPanel').css('height', bodyheight);
-            $('#centerPanel').css('height', bodyheight);
+            // If video doesn't exist:
+            if ($('#video').length !== 0) {
+                Video.show();
+            } else {
+                Video.hide();
+            }
         }
     }
 
@@ -27,14 +31,15 @@ export class Story extends React.Component {
         const timed = (story['metadata']['timed']);
         let footer = null;
         if (timed) {
-            let audioFile;
+            let audioFile; // determines if audio should be pulled from mp3 or mp4
             const media = story['metadata']['media'];
-            if (media.hasOwnProperty('audio')) {
+            if (media.hasOwnProperty('audio') && media['audio'] != '') {
                 audioFile = media['audio'];
             } else {
                 audioFile = media['video'];
             }
-            footer = <div id="footer"><audio data-live="true" controls id="audio" src={'data/media_files/' + audioFile}/></div>;
+            // determines if audioPlayer should sync on load
+            footer = <div id="footer"><audio data-live="false" controls id="audio" src={'data/media_files/' + audioFile}/></div>;
         }
         return (
             <div>
