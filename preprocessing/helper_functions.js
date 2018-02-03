@@ -13,7 +13,7 @@ function getMetadataFromIndex(filename) {
   // O/P: a JSON object with metadata for the given file;
   //      or null if filename not in index
   // Status: tested, working
-  const index = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
+  const index = JSON.parse(fs.readFileSync("data/index.json", "utf8"));
   if (index.hasOwnProperty(filename)) {
     return index[filename];
   } else {
@@ -29,7 +29,7 @@ function getFilenameFromPath(path) {
   return path.substring(begin, path.length);
 }
 
-function improveFLExIndexData(storyID, itext) {
+function improveFLExIndexData(path, storyID, itext) {
   // I/P: path, a string
   //      itext, an interlinear text, e.g., jsonIn["document"]["interlinear-text"][0]
   // O/P: a JSON object, based on the index.json file and new metadata
@@ -61,7 +61,9 @@ function improveFLExIndexData(storyID, itext) {
       "genre": "",
       "author": "",
       "glosser": "",
-      "speakers": []
+      "speakers": [],
+      "xml_file_name": path,
+      "source_filetype": "FLEx"
     }
   }
 
@@ -127,7 +129,9 @@ function improveElanIndexData(path, storyID, adoc) {
       "genre": "",
       "author": "",
       "glosser": "",
-      "speakers": []
+      "speakers": [],
+      "xml_file_name": path,
+      "source_filetype": "ELAN"
     }
   }
 
@@ -206,6 +210,7 @@ function improveElanIndexData(path, storyID, adoc) {
         console.log("🔍  SUCCESS: Found matching audio: " + tryMp3);
         hasWorkingAudio = true;
         metadata['media']['audio'] = tryMp3;
+        break;
       }
     }
   }
@@ -239,6 +244,7 @@ function improveElanIndexData(path, storyID, adoc) {
         console.log("🔍  SUCCESS: Found matching video: " + tryMp4);
         hasWorkingVideo = true;
         metadata['media']['video'] = tryMp4;
+        break;
       }
     }
   }

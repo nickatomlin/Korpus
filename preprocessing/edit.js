@@ -1,8 +1,8 @@
 const fs = require("fs");
 const prompt = require("prompt");
-const inquirer = require("inquirer"); // Nick edited the node module for this
-let obj = JSON.parse(fs.readFileSync("data/index2.json", "utf8"));
-let fakeDB = JSON.parse(fs.readFileSync("data/fake_database.json", "utf8"));
+const inquirer = require("inquirer"); // edited the node module for this
+let obj = JSON.parse(fs.readFileSync("data/index.json", "utf8"));
+let DB = JSON.parse(fs.readFileSync("data/database.json", "utf8"));
 
 let filename;
 let data;
@@ -168,9 +168,9 @@ function main(callback) {
 }
 
 function update() {
-	fs.writeFileSync("data/index2.json", JSON.stringify(obj, null, 2));
-  fakeDB["index"] = obj;
-  fs.writeFileSync("data/fake_database.json", JSON.stringify(fakeDB, null, 2));
-  console.log("📤" + "  " + "Metadata edit complete.");
+	fs.writeFileSync("data/index.json", JSON.stringify(obj, null, 2));
+	DB["index"] = obj;
+	fs.writeFileSync("data/database.json", JSON.stringify(DB, null, 2));
+	console.log("📤" + "  " + "Metadata edit complete.");
 }
 
