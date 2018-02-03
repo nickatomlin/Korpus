@@ -10,17 +10,12 @@ export class Story extends React.Component {
                 url: 'js/txt_sync.js',
                 dataType: 'script',
             });
-
-            // Resize elements based on footer height:
-            var footheight = ($('#footer').height() + 48).toString() + 'px';
-            var bodyheight = 'calc(100% - ' + footheight + ')';
-
-            // If video doesn't exist:
-            if ($('#video').length !== 0) {
-                Video.show();
-            } else {
-                Video.hide();
-            }
+        }
+        // If video exists:
+        if ($('#video').length !== 0) {
+            Video.show();
+        } else {
+            Video.hide();
         }
     }
 
