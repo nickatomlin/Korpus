@@ -7262,7 +7262,7 @@ var Video = exports.Video = function (_React$Component) {
 		// O/P: a video player
 		// Status: re-written, untested
 		value: function render() {
-			return React.createElement("video", { "data-live": "true", src: this.props.path, id: "video", controls: true });
+			return React.createElement("video", { "data-live": "true", src: this.props.path, id: "video", controls: true, controlsList: "nodownload" });
 		}
 	}], [{
 		key: "show",
@@ -26691,7 +26691,7 @@ var Story = exports.Story = function (_React$Component) {
                 footer = React.createElement(
                     'div',
                     { id: 'footer' },
-                    React.createElement('audio', { 'data-live': 'false', controls: true, id: 'audio', src: 'data/media_files/' + audioFile })
+                    React.createElement('audio', { 'data-live': 'false', controls: true, controlsList: 'nodownload', id: 'audio', src: 'data/media_files/' + audioFile })
                 );
             }
             return React.createElement(

@@ -3,7 +3,7 @@ export class Video extends React.Component {
 	// O/P: a video player
 	// Status: re-written, untested
 	render() {
-		return <video data-live="true" src={this.props.path} id="video" controls />;
+		return <video data-live="true" src={this.props.path} id="video" controls controlsList="nodownload" />;
 	}
 
 	static show() {

@@ -34,7 +34,7 @@ export class Story extends React.Component {
                 audioFile = media['video'];
             }
             // determines if audioPlayer should sync on load
-            footer = <div id="footer"><audio data-live="false" controls id="audio" src={'data/media_files/' + audioFile}/></div>;
+            footer = <div id="footer"><audio data-live="false" controls controlsList="nodownload" id="audio" src={'data/media_files/' + audioFile}/></div>;
         }
         return (
             <div>
