@@ -1,4 +1,5 @@
 import { Info } from './Info/Info.jsx';
+import { MoreInfo } from './Info/Info.jsx';
 import { Settings } from './Settings/Settings.jsx';
 
 export function Minibar({ metadata, hasVideo }) {
@@ -12,6 +13,7 @@ export function Minibar({ metadata, hasVideo }) {
     		<div id="miniPage">
 	    		<Info metadata={metadata} />
 	    		<Settings tiers={metadata['tier IDs']} hasVideo={hasVideo} />
+	    		<MoreInfo metadata={metadata} />
 	    	</div>
 		</div>
 	);
