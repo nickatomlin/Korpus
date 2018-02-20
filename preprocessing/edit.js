@@ -118,7 +118,7 @@ function main(callback) {
 			"type": "list", 
 			"name": "genre",
 			"message": "Select a genre:",
-			"choices": ["Nonfiction", "Fiction"],
+			"choices": ["Nonfiction", "Fiction", ""],
 			"default": data["genre"]
 		},
 		// author
