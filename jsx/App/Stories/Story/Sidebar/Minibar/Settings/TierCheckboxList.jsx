@@ -5,10 +5,27 @@ class TierCheckbox extends React.Component {
    // Status: tested, working
    constructor(props) {
       super(props);
-      this.state = {
-         checkboxState: true
-      };
+      const tier_name = this.props.tier_name;
+      const unchecked_tiers = ["Morfema (forma típico) a'ingae (borman)", "Morfema (texto) a'ingae (borman)"]
+      
+      if (unchecked_tiers.indexOf(tier_name) < 0) {
+         this.state = {
+            checkboxState: true
+         };
+      } else {
+         this.state = {
+            checkboxState: false
+         };
+      }
       this.toggle = this.toggle.bind(this);
+   }
+
+   componentDidMount() {
+      if (this.state.checkboxState) {
+         $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'table-row');
+      } else {
+         $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'none');
+      }
    }
 
    toggle(event) {
@@ -24,12 +41,23 @@ class TierCheckbox extends React.Component {
    render() {
       const tier_id = this.props.tier_id;
       const tier_name = this.props.tier_name;
-      return (
-         <li>
-            <input type="checkbox" onClick={this.toggle} defaultChecked />
-            <label>{tier_name}</label>
-         </li>
-      );
+      const unchecked_tiers = ["Morfema (forma típico) a'ingae (borman)", "Morfema (texto) a'ingae (borman)"]
+
+      if (unchecked_tiers.indexOf(tier_name) < 0) {
+         return (
+            <li>
+               <input type="checkbox" onClick={this.toggle} defaultChecked />
+               <label>{tier_name}</label>
+            </li>
+         );
+      } else {
+         return (
+            <li>
+               <input type="checkbox" onClick={this.toggle} />
+               <label>{tier_name}</label>
+            </li>
+         );
+      }
    }
 }
 

@@ -27161,14 +27161,32 @@ var TierCheckbox = function (_React$Component) {
 
       var _this = _possibleConstructorReturn(this, (TierCheckbox.__proto__ || Object.getPrototypeOf(TierCheckbox)).call(this, props));
 
-      _this.state = {
-         checkboxState: true
-      };
+      var tier_name = _this.props.tier_name;
+      var unchecked_tiers = ["Morfema (forma típico) a'ingae (borman)", "Morfema (texto) a'ingae (borman)"];
+
+      if (unchecked_tiers.indexOf(tier_name) < 0) {
+         _this.state = {
+            checkboxState: true
+         };
+      } else {
+         _this.state = {
+            checkboxState: false
+         };
+      }
       _this.toggle = _this.toggle.bind(_this);
       return _this;
    }
 
    _createClass(TierCheckbox, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+         if (this.state.checkboxState) {
+            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'table-row');
+         } else {
+            $("tr[data-tier='" + this.props.tier_id + "']").css('display', 'none');
+         }
+      }
+   }, {
       key: "toggle",
       value: function toggle(event) {
          this.setState({ checkboxState: !this.state.checkboxState });
@@ -27184,16 +27202,31 @@ var TierCheckbox = function (_React$Component) {
       value: function render() {
          var tier_id = this.props.tier_id;
          var tier_name = this.props.tier_name;
-         return React.createElement(
-            "li",
-            null,
-            React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
-            React.createElement(
-               "label",
+         var unchecked_tiers = ["Morfema (forma típico) a'ingae (borman)", "Morfema (texto) a'ingae (borman)"];
+
+         if (unchecked_tiers.indexOf(tier_name) < 0) {
+            return React.createElement(
+               "li",
                null,
-               tier_name
-            )
-         );
+               React.createElement("input", { type: "checkbox", onClick: this.toggle, defaultChecked: true }),
+               React.createElement(
+                  "label",
+                  null,
+                  tier_name
+               )
+            );
+         } else {
+            return React.createElement(
+               "li",
+               null,
+               React.createElement("input", { type: "checkbox", onClick: this.toggle }),
+               React.createElement(
+                  "label",
+                  null,
+                  tier_name
+               )
+            );
+         }
       }
    }]);
 
