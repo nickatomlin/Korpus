@@ -1,6 +1,7 @@
 const fs = require('fs');
 const parseXml = require('xml2js').parseString;
 const eafUtils = require('./eaf_utils');
+const pfsxUtils = require('./pfsx_utils');
 const helper = require('./helper_functions');
 
 function updateIndex(indexMetadata, indexFileName, storyID) {
@@ -93,7 +94,7 @@ function stretchSlots(anotID, prevStretch, tiersToConstraints,
   }
 }
 
-function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
+function preprocess(adocIn, pfsxIn, jsonFilesDir, xmlFileName, callback) {
   const storyID = eafUtils.getDocID(adocIn);
   const indexMetadata = helper.improveElanIndexData(xmlFileName, storyID, adocIn);
   updateIndex(indexMetadata, "data/index.json", storyID);
@@ -128,10 +129,10 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   // (to generate, first create typesToConstraints: linguisticTypeName -> constraintName)
   const typesToConstraints = {};
   const linguisticTypes = adocIn.LINGUISTIC_TYPE
-  for (const lType of linguisticTypes) {
-    const lTypeID = lType.$.LINGUISTIC_TYPE_ID;
-    const constraintName = lType.$.CONSTRAINTS || '';
-    typesToConstraints[lTypeID] = constraintName;
+  for (const lingType of linguisticTypes) {
+    const lingTypeID = lingType.$.LINGUISTIC_TYPE_ID;
+    const constraintName = lingType.$.CONSTRAINTS || '';
+    typesToConstraints[lingTypeID] = constraintName;
   }
   const tiersToConstraints = {};
   for (const tier of tiers) {
@@ -242,6 +243,9 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         
         const parentAnotID = eafUtils.getAnnotationID(parentAnot);
         if (sortedChildIDs.length !== 0) {
+          if (annotationChildren[parentAnotID] == null) {
+            annotationChildren[parentAnotID] = {}
+          }
           annotationChildren[parentAnotID][childTierName] = sortedChildIDs;
         }
       }
@@ -289,8 +293,10 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           }
           
           // sort by ms value
-          childIDs = childIDs.sort((a1,a2) => {
+          childIDs = childIDs.sort((id1,id2) => {
             // if start isn't defined, calculate it based on end, pretending duration is 1 ms
+            const a1 = annotationsFromIDs[id1];
+            const a2 = annotationsFromIDs[id2];
             const start1 = (
               timeslots[eafUtils.getAlignableAnnotationStartSlot(a1)]
               || timeslots[eafUtils.getAlignableAnnotationEndSlot(a1)] - 1
@@ -317,7 +323,7 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
         
         // add children which share a boundary with an existing child
         // (but not if they end at the first child or start at the last child)
-        const prevIndex = 0;
+        let prevIndex = 0;
         while (prevIndex < childIDs.length - 1) {
           const prevID = childIDs[prevIndex];
           const prevAnot = annotationsFromIDs[prevID];
@@ -331,13 +337,15 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
             eafUtils.getAlignableAnnotationStartSlot(a) === prevSlot
           );
           if (newAnot == null) {
-            newAnot = childTierAnots.find(
+            newAnot = childTierAnots.find(a =>
               eafUtils.getAlignableAnnotationEndSlot(a) === nextSlot
             );
           }
-          const newID = eafUtils.getAnnotationID(newAnot);
-          if (newID != null && newID != nextID) {
-            childIDs.splice(prevIndex + 1, 0, newID); // insert after prevIndex
+          if (newAnot != null) {
+            const newID = eafUtils.getAnnotationID(newAnot);
+            if (newID != null && newID != nextID) {
+              childIDs.splice(prevIndex + 1, 0, newID); // insert after prevIndex
+            }
           }
           
           prevIndex++;
@@ -379,6 +387,12 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
     }
   }
   //jsonOut['anotDescendants'] = anotDescendants; // TODO remove when no longer needed for debugging
+  
+  const garbageTierNames = pfsxUtils.getHiddenTiers(pfsxIn);
+  let garbageTierIDs = [];
+  for (const garbageTierName of garbageTierNames) {
+    garbageTierIDs.push(tierIDsFromNames[garbageTierName]);
+  }
   
   for (let i = 0; i < indepTiers.length; i++) {
     const spkrID = "S" + (i + 1).toString(); // assume each independent tier has a distinct speaker
@@ -434,13 +448,28 @@ function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
           sentenceJson.dependents.push(depTierJson); 
         }
       }
-      // sort by the numerical part of the tier ID (to match ELAN tier order)
-      sentenceJson.dependents.sort((t1,t2) => parseInt(t1.tier.slice(1),10) - parseInt(t2.tier.slice(1),10));
       
+      // remove hidden dependent tiers
+      sentenceJson.dependents = sentenceJson.dependents.filter((t) => !garbageTierIDs.includes(t.tier));
+      // remove the independent tier it it's hidden
+      if (garbageTierIDs.includes(sentenceJson["tier"])) {
+        sentenceJson["text"] = "";
+        sentenceJson["noTopRow"] = "true";
+      }
+      
+      // sort by the numerical part of the tier ID to ensure consistent ordering; TODO match pfsx order instead
+      sentenceJson.dependents.sort((t1,t2) => parseInt(t1.tier.slice(1),10) - parseInt(t2.tier.slice(1),10));
+          
       jsonOut.sentences.push(sentenceJson);
     }
   }
   jsonOut.sentences.sort((s1,s2) => s1.start_time_ms - s2.start_time_ms);
+  
+  for (const tier in jsonOut.metadata["tier IDs"]) {
+    if (jsonOut.metadata["tier IDs"].hasOwnProperty(tier) && garbageTierIDs.includes(tier)) {
+      delete jsonOut.metadata["tier IDs"][tier];
+    }
+  }
   
   const jsonPath = jsonFilesDir + storyID + ".json";
   fs.writeFileSync(jsonPath, JSON.stringify(jsonOut, null, 2));
@@ -469,12 +498,27 @@ function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
   for (const eafFileName of eafFileNames) {
     console.log("Processing " + eafFileName);
     const eafPath = eafFilesDir + eafFileName;
+    
+    // parse .pfsx file, if found
+    let pfsxJson = null;
+    let pfsxPath = eafPath.slice(0, -4) + ".pfsx";
+    fs.readFile(pfsxPath, function(err1, xmlData) {
+      if (err1) {
+        console.log(`WARN: Could not find .pfsx file for ${eafFileName}. Viewing preferences won't be used.`);
+      } else {
+        parseXml(xmlData, function (err2, jsonData) {
+          if (err2) throw err2; 
+          pfsxJson = jsonData;
+        });
+      }
+    });
+    
     fs.readFile(eafPath, function (err1, xmlData) {
       if (err1) throw err1;
       parseXml(xmlData, function (err2, jsonData) {
         if (err2) throw err2;
         const adoc = jsonData.ANNOTATION_DOCUMENT;
-        preprocess(adoc, jsonFilesDir, eafFileName, whenDone);
+        preprocess(adoc, pfsxJson, jsonFilesDir, eafFileName, whenDone);
       });
     });
   }

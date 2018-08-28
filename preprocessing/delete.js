@@ -110,6 +110,7 @@ try {
 	DB["index"] = obj;
 	fs.writeFileSync("data/database.json", JSON.stringify(DB, null, 2));
 	console.log("✅" + "  " + "File successfully deleted!");
+	console.log("\nYou've successfully deleted this file. However, this will not be displayed on the index until you run the rebuild.js script. You can run this script from the root directory with the command 'node preprocessing/rebuild.js'. We recommend doing this immediately.");
 } catch(err) {
 	console.log("❌" + "  " + "Deletion failed.");
 }}
