@@ -290,8 +290,8 @@ function getSentenceJson(sentence, tierReg, wordsTierID) {
 function preprocessText(jsonIn, jsonFilesDir, shortFileName, isoDict, callback) {
   let storyID = jsonIn.$.guid;
 
-  let metadata = helper.improveFLExIndexData(storyID, jsonIn);
-  updateIndex(metadata, "data/index2.json", storyID);
+  let metadata = helper.improveFLExIndexData(shortFileName + ".xml", storyID, jsonIn);
+  updateIndex(metadata, "data/index.json", storyID);
 
   const jsonOut = {
     "metadata": metadata,
@@ -342,9 +342,13 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
 
   // use this to wait for all preprocess calls to terminate before executing the callback
   const status = {numJobs: xmlFileNames.length};
+  if (xmlFileNames.length == 0) {
+    callback();
+  }
+
   const whenDone = function () {
     status.numJobs--;
-    if (status.numJobs === 0) {
+    if (status.numJobs <= 0) {
       callback();
     }
   };

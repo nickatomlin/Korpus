@@ -1,30 +1,18 @@
 export function Metadata({ metadata }) {
 	// I/P: metadata, in JSON format
 	// O/P: a nice display of speaker names + other metadata
-	// Status: unfinished
+	// Status: finished
 	let description = null;
 	let author = null;
-	let glosser = null;
-	let source = null;
 	let genre = null;
 	let date_created = null;
 
 	if (metadata["description"] != "") {
-		description = <p>Description: {metadata["description"]}</p>;
+		description = <p><b>Description:</b> {metadata["description"]}</p>;
 	}
 
 	if (metadata["author"] != "") {
 		author = <p>Author: {metadata["author"]}</p>;
-	}
-
-	if (metadata["glosser"] != "") {
-		glosser = <p>Glosser: {metadata["glosser"]}</p>;
-	}
-
-	if (metadata["source"]["_default"] != "") {
-		source = <p>Source: {metadata["source"]["_default"]}</p>;
-	} else if (metadata["source"].hasOwnProperty("con-Latn-EC") && metadata["source"]["con-Latn-EC"] != "") {
-		source = <p>Source: {metadata["source"]["con-Latn-EC"]}</p>;
 	}
 
 	if (metadata["genre"] != "") {
@@ -39,6 +27,30 @@ export function Metadata({ metadata }) {
 		<div id="metadata">
 			{description}
 			{author}
+		</div>
+	);
+}
+
+export function MoreMetadata({ metadata }) {
+	// I/P: metadata, in JSON format
+	// O/P: glosser + source information
+	// Status: finished
+	let glosser = null;
+	let source = null;
+
+
+	if (metadata["glosser"] != "") {
+		glosser = <p>Glosser: {metadata["glosser"]}</p>;
+	}
+
+	if (metadata["source"]["_default"] != "") {
+		source = <p>Source: {metadata["source"]["_default"]}</p>;
+	} else if (metadata["source"].hasOwnProperty("con-Latn-EC") && metadata["source"]["con-Latn-EC"] != "") {
+		source = <p>Source: {metadata["source"]["con-Latn-EC"]}</p>;
+	}
+
+	return (
+		<div id="metadata">
 			{glosser}
 			{source}
 		</div>

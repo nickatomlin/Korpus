@@ -3,7 +3,7 @@ export class Video extends React.Component {
 	// O/P: a video player
 	// Status: re-written, untested
 	render() {
-		return <video src={this.props.path} id="video" controls />;
+		return <video data-live="true" src={this.props.path} id="video" controls controlsList="nodownload" />;
 	}
 
 	static show() {
@@ -41,11 +41,11 @@ export class Video extends React.Component {
 		var footheight = ($("#footer").height() + 48).toString() + "px";
 		var bodyheight = "calc(100% - " + footheight + ")";
 
-		$("#leftPanel").css("width", "240px");
+		$("#leftPanel").css("width", "300px");
 		$("#leftPanel").css("height", bodyheight);
 		$("#centerPanel").css("height", bodyheight);
-		$("#centerPanel").css("margin-left", "240px");
-		$("#centerPanel").css("width", "calc(100% - 240px)");
+		$("#centerPanel").css("margin-left", "300px");
+		$("#centerPanel").css("width", "calc(100% - 300px)");
 
 		// Deactivate video:
 		$("#video").css("display", "none");

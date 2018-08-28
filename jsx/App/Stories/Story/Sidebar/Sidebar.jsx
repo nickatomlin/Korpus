@@ -17,7 +17,7 @@ export function Sidebar({ metadata }) {
 		const path = 'data/media_files/' + filename;
 		return (
 			<div id="leftPanel">
-				<Video path={path} />
+				<Video path={path} data-live='true' />
 				<Title title={title} />
 				<Minibar metadata={metadata} hasVideo />
 			</div>

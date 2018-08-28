@@ -8,7 +8,7 @@ class VideoButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkboxState: false
+      checkboxState: true
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -24,7 +24,7 @@ class VideoButton extends React.Component {
   }
 
   render() {
-    return <div id="videoButton"><input type="checkbox" onClick={this.toggle} /><label>Show video</label></div>;
+    return <div id="videoButton"><input type="checkbox" defaultChecked onClick={this.toggle} /><label>Show video</label></div>;
   }
 }
 
@@ -39,7 +39,7 @@ export function Settings({ tiers, hasVideo }) {
   }
 
 	return (
-		<div id="settings" className="miniPage hide">
+		<div id="settings" className="miniPage">
 			<TierCheckboxList tiers={tiers} />
 			{videoButton}
 		</div>

@@ -4,9 +4,9 @@ const fs = require('fs');
 const parseXml = require('xml2js').parseString;
 const flex = require('./preprocess_flex');
 const elan = require('./preprocess_eaf');
-const db = require('./build_fake_database');
+const db = require('./build_database');
 
-const flexFilesDir = "data/flex_files2/";
+const flexFilesDir = "data/flex_files/";
 const elanFilesDir = "data/elan_files/";
 const jsonFilesDir = "data/json_files/";
 const isoFileName = "preprocessing/iso_dict.json";

@@ -3,7 +3,7 @@ var tabletojson = require('tabletojson');
 var fs = require('fs');
 
 var url = 'https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes';
-var fileNameOut = "C:\\Users\\Kalinda\\Documents\\GitHub\\Korpus\\preprocessing\\iso_dict.json";
+var fileNameOut = "iso_dict.json";
 
 tabletojson.convertUrl(url, function (tablesAsJson) {
   var mainTable = tablesAsJson[1]; // we want the second table on the Wikipedia ISO page

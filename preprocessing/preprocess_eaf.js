@@ -96,8 +96,8 @@ function stretchSlots(anotID, prevStretch, tiersToConstraints,
 function preprocess(adocIn, jsonFilesDir, xmlFileName, callback) {
   const storyID = eafUtils.getDocID(adocIn);
   const indexMetadata = helper.improveElanIndexData(xmlFileName, storyID, adocIn);
-  updateIndex(indexMetadata, "data/index2.json", storyID);
-  updateIndex(indexMetadata, "data/index2.json", storyID);
+  updateIndex(indexMetadata, "data/index.json", storyID);
+  updateIndex(indexMetadata, "data/index.json", storyID);
   const jsonOut = {
     "metadata": indexMetadata,
     "sentences": []
@@ -455,9 +455,13 @@ function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
   
   // use this to wait for all preprocess calls to terminate before executing the callback
   const status = {numJobs: eafFileNames.length};
+  if (eafFileNames.length == 0) {
+    callback();
+  }
+
   const whenDone = function () {
     status.numJobs--;
-    if (status.numJobs === 0) {
+    if (status.numJobs <= 0) {
       callback();
     }
   };

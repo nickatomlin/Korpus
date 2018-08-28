@@ -38,7 +38,7 @@ body {
 }
 
 #leftPanel {
-	width: 240px;
+	width: 40%;
 	position: fixed;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -52,6 +52,7 @@ body {
    bottom:0px;
    width:100%;
    background:#999;
+   display: none;
 }
 
 audio {
@@ -88,8 +89,8 @@ td {
 
 #centerPanel {
 	position: fixed;
-	margin-left: 240px;
-	width: calc(100% - 240px);
+	margin-left: 40%;
+	width: 60%;
 	height: calc(100% - 48px);
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -182,7 +183,7 @@ ul {
 }
 
 #title {
-	padding-left: 20px;
+	padding-left: 10px;
 	padding-right: 20px;
 	font-weight: 700;
 	font-size: 1.7em;
@@ -266,7 +267,7 @@ a:hover {
 }
 
 video {
-	display: none;
+	display: inline;
 }
 
 #index { 
