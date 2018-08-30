@@ -342,7 +342,7 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
 
   // use this to wait for all preprocess calls to terminate before executing the callback
   const status = {numJobs: xmlFileNames.length};
-  if (xmlFileNames.length == 0) {
+  if (xmlFileNames.length === 0) {
     callback();
   }
 
@@ -360,9 +360,20 @@ function preprocess_dir(xmlFilesDir, jsonFilesDir, isoFileName, callback) {
       if (err1) throw err1;
       parseXml(xmlData, function (err2, jsonData) {
         if (err2) throw err2;
+        
         const texts = jsonData['document']['interlinear-text'];
+        
+        // wait for all preprocessText calls to terminate before executing whenDone
+        const singleFileStatus = {numJobs: texts.length};
+        const singleTextCallback = function () {
+          singleFileStatus.numJobs--;
+          if (singleFileStatus.numJobs <= 0) {
+            whenDone();
+          }
+        };
+        
         for (const text of texts) {
-          preprocessText(text, jsonFilesDir, xmlFileName.slice(0, -4), isoDict, whenDone);
+          preprocessText(text, jsonFilesDir, xmlFileName.slice(0, -4), isoDict, singleTextCallback);
         }
       });
     });
