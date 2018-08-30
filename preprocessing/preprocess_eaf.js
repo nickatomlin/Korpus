@@ -394,6 +394,14 @@ function preprocess(adocIn, pfsxIn, jsonFilesDir, xmlFileName, callback) {
     garbageTierIDs.push(tierIDsFromNames[garbageTierName]);
   }
   
+  const tierNameOrder = pfsxUtils.getTierOrder(pfsxIn);
+  let tierIDOrder = [];
+  for (const tierName of tierNameOrder) {
+    tierIDOrder.push(tierIDsFromNames[tierName]);
+  }
+  
+  // careful - garbageTierIDs and tierIDOrder may contain undefined, e.g. if there are empty tiers
+  
   for (let i = 0; i < indepTiers.length; i++) {
     const spkrID = "S" + (i + 1).toString(); // assume each independent tier has a distinct speaker
     const indepTierName = eafUtils.getTierName(indepTiers[i]);
@@ -449,16 +457,27 @@ function preprocess(adocIn, pfsxIn, jsonFilesDir, xmlFileName, callback) {
         }
       }
       
+      if (tierIDOrder.length !== 0) {
+        const orderedDependents = [];
+        for (const tierID of tierIDOrder) {
+          const tier = sentenceJson.dependents.find((t) => t.tier === tierID);
+          if (tier != null) {
+            orderedDependents.push(tier);
+          }
+        }
+        sentenceJson["dependents"] = orderedDependents;
+      }
+      
       // remove hidden dependent tiers
       sentenceJson.dependents = sentenceJson.dependents.filter((t) => !garbageTierIDs.includes(t.tier));
-      // remove the independent tier it it's hidden
+      // remove the independent tier if it's hidden
       if (garbageTierIDs.includes(sentenceJson["tier"])) {
         sentenceJson["text"] = "";
         sentenceJson["noTopRow"] = "true";
       }
       
-      // sort by the numerical part of the tier ID to ensure consistent ordering; TODO match pfsx order instead
-      sentenceJson.dependents.sort((t1,t2) => parseInt(t1.tier.slice(1),10) - parseInt(t2.tier.slice(1),10));
+      // sort by the numerical part of the tier ID to ensure consistent ordering; TODO delete this line
+      // sentenceJson.dependents.sort((t1,t2) => parseInt(t1.tier.slice(1),10) - parseInt(t2.tier.slice(1),10));
           
       jsonOut.sentences.push(sentenceJson);
     }
@@ -479,12 +498,12 @@ function preprocess(adocIn, pfsxIn, jsonFilesDir, xmlFileName, callback) {
 
 function preprocess_dir(eafFilesDir, jsonFilesDir, callback) {
   const eafFileNames = fs.readdirSync(eafFilesDir).filter(f => 
-    f[0] != "." && f.slice(-4) != 'pfsx'
+    f[0] !== "." && f.slice(-4) !== 'pfsx'
   ); // excludes pfsx files (which are generated just by opening ELAN) and hidden files
   
   // use this to wait for all preprocess calls to terminate before executing the callback
   const status = {numJobs: eafFileNames.length};
-  if (eafFileNames.length == 0) {
+  if (eafFileNames.length === 0) {
     callback();
   }
 
