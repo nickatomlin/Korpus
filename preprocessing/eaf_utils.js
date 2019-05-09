@@ -17,6 +17,10 @@ function getDocID(adoc) {
 // returns a map from each timeslotID to its time value in ms
 function getDocTimeslotsMap(adoc) {
   const timeslotsIn = adoc.TIME_ORDER[0].TIME_SLOT;
+  if (timeslotsIn == null) { // this happens on newly created ELAN files
+    console.log("WARN: No timing information found. It looks like this ELAN file doesn't have any annotations.");
+    return {};
+  }
   let timeslots = [];
   for (const slot of timeslotsIn) {
     timeslots[slot.$.TIME_SLOT_ID] = parseInt(slot.$.TIME_VALUE, 10);

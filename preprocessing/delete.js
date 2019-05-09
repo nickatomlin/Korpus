@@ -84,6 +84,9 @@ try {
 	xmlFileName = obj[filename]["xml_file_name"]
 	if (obj[filename]["source_filetype"] === "ELAN") {
 		fs.unlink("data/elan_files/" + xmlFileName, function(){});
+    
+    // delete .pfsx file too (if it doesn't exist, this does nothing)
+    fs.unlink("data/elan_files/" + xmlFileName.slice(0, -4) + ".pfsx", function(){});
 	} else if (obj[filename]["source_filetype"] === "FLEx") {
 		fs.unlink("data/flex_files/" + xmlFileName, function(){});
 	} else {
@@ -110,6 +113,7 @@ try {
 	DB["index"] = obj;
 	fs.writeFileSync("data/database.json", JSON.stringify(DB, null, 2));
 	console.log("✅" + "  " + "File successfully deleted!");
+	console.log("\nYou've successfully deleted this file. However, this will not be displayed on the index until you run the rebuild.js script. You can run this script from the root directory with the command 'node preprocessing/rebuild.js'. We recommend doing this immediately.");
 } catch(err) {
 	console.log("❌" + "  " + "Deletion failed.");
 }}

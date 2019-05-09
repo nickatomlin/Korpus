@@ -177,10 +177,10 @@ function improveElanIndexData(path, storyID, adoc) {
       const mediaPath = mediaDesc['$']['MEDIA_URL'];
       const mediaFilename = getFilenameFromPath(mediaPath);
       const fileExtension = mediaFilename.substring(mediaFilename.lastIndexOf('.'));
-      if (fileExtension === '.mp3' || fileExtension === '.wav') {
+      if (fileExtension.toLowerCase() === '.mp3' || fileExtension.toLowerCase() === '.wav') {
         audioFiles.push(mediaFilename);
         needsAudio = true;
-      } else if (fileExtension === '.mp4') {
+      } else if (fileExtension.toLowerCase() === '.mp4') {
         videoFiles.push(mediaFilename);
         needsVideo = true;
       }
