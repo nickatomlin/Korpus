@@ -1,5 +1,5 @@
 # Korpus
-For presentation of audio/video/text corpus of Kofan texts. Previously using code from [ETST](http://community.village.virginia.edu/etst/).
+For presentation of audio/video/text corpus of Kofan texts. Previously using code from [ETST](http://community.village.virginia.edu/etst/). This version is no longer being supported; refer to the [LingView](https://github.com/BrownCLPS/LingView) repository.
 
 Contributors:
  - Nicholas Tomlin
